@@ -10,6 +10,7 @@ console.log("c", c)
 console.log("s", s)
     if (s) {
       url = s.split(",").map(Number)
+console.log("url", url)
       $.each(url, function(i, v) {
 console.log("add", v)
         if (v != 0) {
