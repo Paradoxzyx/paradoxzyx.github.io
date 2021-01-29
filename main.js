@@ -8,54 +8,15 @@ Tooltips width issue
 Add class icons to buttons
 */
 
-$(function() {
-  init()
-  
-  //--- Get URL params
-  let c = new URLSearchParams(location.search).get("c")
-  if (c) {
-    $("#" + c).click()
-    let s = new URLSearchParams(location.search).get("s")
-    if (s) {
-      url = s.split(",").map(Number)
-      $.each(url, function(i, v) {
-        if (v != 0) {
-          add(v)
-        }
-      })
-    }
+function waitForJQuery() {
+  if (window.jQuery) {
+    init()
   }
   else {
-    $("#trickster").click()
+    setTimeout(waitForJQuery, 50)
   }
-  
-  //--- Load Tooltips
-  $.each(allskills, function(c, t) {
-    $.each(t, function(i, n) {
-      let s = []
-      $.each(n[3], function(k, v) {
-        if (v) {
-          s.push(Math.round(v * 100) + "% " + k)
-        }
-        else {
-          s.push(k)
-        }
-      })
-      $("#" + c + "-st .node[data-n=" + i + "]").append($("div").addClass("tooltip").html(s.join("<br>")))
-    })
-  })
-  
-  //--- DEBUG
-  $("#reset").after($("div").attr("id", "debug").css({ position: fixed, left: 40px, top: 140px }))
-  /*
-  points = 100
-  $.each(skills, function(i, n) {
-    if (i != 0) {
-      add(i)
-    }
-  })
-  */
-})
+}
+waitForJQuery()
 
 //---------- Click node
 $(".node").on("mousedown", function() {
@@ -439,4 +400,49 @@ function init() {
       
     ]
   }
+  
+  //--- Get URL params
+  let c = new URLSearchParams(location.search).get("c")
+  if (c) {
+    $("#" + c).click()
+    let s = new URLSearchParams(location.search).get("s")
+    if (s) {
+      url = s.split(",").map(Number)
+      $.each(url, function(i, v) {
+        if (v != 0) {
+          add(v)
+        }
+      })
+    }
+  }
+  else {
+    $("#trickster").click()
+  }
+  
+  //--- Load Tooltips
+  $.each(allskills, function(c, t) {
+    $.each(t, function(i, n) {
+      let s = []
+      $.each(n[3], function(k, v) {
+        if (v) {
+          s.push(Math.round(v * 100) + "% " + k)
+        }
+        else {
+          s.push(k)
+        }
+      })
+      $("#" + c + "-st .node[data-n=" + i + "]").append($("div").addClass("tooltip").html(s.join("<br>")))
+    })
+  })
+  
+  //--- DEBUG
+  $("#reset").after($("div").attr("id", "debug").css({ position: fixed, left: 40px, top: 140px }))
+  /*
+  points = 100
+  $.each(skills, function(i, n) {
+    if (i != 0) {
+      add(i)
+    }
+  })
+  */
 }
