@@ -416,15 +416,15 @@ function init() {
     ],
     
     pyromancer: [
-      
+      [ 1, [], [  ], { "Anomaly Power": 0.1, "Skill Leech": 0.05, "Skills mark Enemies for 15s. Killing a Marked heals you by 24% of your Maximum Health": null } ],
     ],
     
     devastator: [
-      
+      [ 1, [], [  ], { "Every Close Range kill heals you by 24% of your Maximum Health": null, "Health": 0.15, "Armor": 0.3 } ],
     ],
     
     technomancer: [
-      
+      [ 1, [], [  ], { "Weapon Damage (Long Range)": 0.075, "Skill Leech": 0.15, "WeaponLeech": 0.15 } ],
     ]
   }
 }
