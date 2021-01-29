@@ -75,6 +75,7 @@ hr {
 
 #skilltree .skilltree {
     display: none;
+    min-height: fit-content;
 }
 
 /* ----- Node */
