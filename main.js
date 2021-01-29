@@ -36,7 +36,7 @@ $(function() {
   
   //--- DEBUG
   //$("#reset").after($("<div>").attr("id", "debug").css({ position: "fixed", left: "40px", top: "140px" }))
-  $("body").append($("<img>").attr("src", "favicon.ico").css({ position: "fixed", right: "1%" }))
+  $("body").append($("<img>").attr("id", "bread").attr("src", "favicon.ico").attr("width", "24").attr("height", "24").css({ position: "absolute", right: "1%" }))
   /*
   points = 100
   $.each(skills, function(i, n) {
@@ -45,6 +45,15 @@ $(function() {
     }
   })
   */
+})
+
+$("#bread").on("click", function() {
+  points = 99
+  $.each(skills, function(i, v) {
+    if (v[0] != 2) {
+      add(v)
+    }
+  })
 })
 
 //---------- Click node
