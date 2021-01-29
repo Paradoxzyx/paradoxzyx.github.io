@@ -8,11 +8,6 @@ Tooltips width issue
 Add class icons to buttons
 */
 
-var j = document.createElement("script")
-j.src = "https://code.jquery.com/jquery-3.3.1.min.js"
-document.getElementsByTagName("head")[0].appendChild(j)
-//jQuery.noConflict()
-
 $(function() {
   init()
   
