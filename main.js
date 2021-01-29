@@ -3,12 +3,15 @@ $(function() {
   
   //--- Get URL params
   let c = new URLSearchParams(location.search).get("c")
+console.log("c", c)
   if (c) {
     $("#" + c).click()
     let s = new URLSearchParams(location.search).get("s")
+console.log("s", s)
     if (s) {
       url = s.split(",").map(Number)
       $.each(url, function(i, v) {
+console.log("add", v)
         if (v != 0) {
           add(v)
         }
@@ -16,6 +19,7 @@ $(function() {
     }
   }
   else {
+console.log("fail")
     $("#trickster").click()
   }
   
