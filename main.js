@@ -8,6 +8,8 @@ Tooltips width issue
 Add class icons to buttons
 */
 
+console.log($)
+
 $(function() {
   init()
   
@@ -41,7 +43,7 @@ $(function() {
           s.push(k)
         }
       })
-      $("#" + c + "-st .node[data-n=" + i + "] .tooltip").html(s.join("<br>"))
+      $("#" + c + "-st .node[data-n=" + i + "]").append($("div").addClass("tooltip").html(s.join("<br>")))
     })
   })
   
