@@ -41,7 +41,7 @@ $(function() {
           s.push(k)
         }
       })
-      $("#" + c + "-st .node[data-n=" + i + "]").append($("div").addClass("tooltip").html(s.join("<br>")))
+      $("#" + c + "-st .node[data-n=" + i + "]").append($("<div>").addClass("tooltip").html(s.join("<br>")))
     })
   })
   
