@@ -171,7 +171,7 @@ hr {
 #stats table {
     display: inline-block;
     vertical-align: top;
-    max-width: 49%;
+    max-width: calc(49% - 20px);
     margin: 10px;
 }
 
