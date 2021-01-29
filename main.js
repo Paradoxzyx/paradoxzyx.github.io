@@ -296,6 +296,7 @@ $("#searchbox").keyup(function(e) {
 })
 
 function search() {
+  $(".node").removeClass("highlight")
   let s = $("#searchbox").val().toLowerCase()
   if (s) {
     $.each(skills, function(i, n) {
@@ -306,9 +307,6 @@ function search() {
         }
       })
     })
-  }
-  else {
-    $(".node").removeClass("highlight")
   }
 }
 
