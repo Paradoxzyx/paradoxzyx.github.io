@@ -7,8 +7,7 @@ $(function() {
     let s = new URLSearchParams(location.search).get("s")
     $("#" + c).click()
     if (s) {
-      url = s.split(",").map(Number)
-      $.each(url, function(i, v) {
+      $.each(s.split(",").map(Number), function(i, v) {
         if (v != 0) {
           add(v)
         }
