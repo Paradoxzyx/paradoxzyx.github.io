@@ -47,7 +47,7 @@ $(function() {
   */
 })
 
-//---------- Click node
+//---------------------------------------- Click node
 $(".node").on("mousedown", function() {
   let id = Number($(this).attr("data-n"))
   if (skills[id][0] == 1) {
@@ -58,14 +58,7 @@ $(".node").on("mousedown", function() {
   }
 })
 
-//---------- Hover node
-/*
-$(".node").mousemove(function() {
-  $("#debug").text($(this).attr("data-n")) //--- DEBUG
-})
-*/
-
-//---------- Add node
+//---------------------------------------- Add node
 function add(id) {
   if (points > 0) {
     let node = skills[id]
@@ -102,7 +95,7 @@ function add(id) {
   }
 }
 
-//---------- Remove node
+//---------------------------------------- Remove node
 function remove(id) {
   if (check(id)) {
     let node = skills[id]
@@ -158,7 +151,7 @@ function remove(id) {
   }
 }
 
-//---------- Check tree
+//---------------------------------------- Check tree
 function check(id) {
   tree = id != 0 && [ id ] || []
   recurse(0)
@@ -175,7 +168,7 @@ function check(id) {
   return c
 }
 
-//---------- Recurse children
+//---------------------------------------- Recurse children
 function recurse(id) {
   $.each(skills[id][2], function(i, n) {
     if (skills[n][0] == 2 && !tree.includes(n)) {
@@ -185,7 +178,7 @@ function recurse(id) {
   })
 }
 
-//---------- Reset tree
+//---------------------------------------- Reset tree
 $("#reset").on("click", reset)
 
 function reset() {
@@ -212,7 +205,7 @@ function reset() {
   add(0)
 }
 
-//---------- Change Tree
+//---------------------------------------- Change Tree
 $("#trickster, #pyromancer, #devastator, #technomancer").on("click", function() {
   let c = $(this).attr("id")
   $(".skilltree").hide()
@@ -269,17 +262,13 @@ function change() {
   reset()
 }
 
-//---------- Stats
+//---------------------------------------- Stats
 $("#allstats").on("click", function() {
   if ($(this).prop("checked")) {
-    $(".stat").show()
+    $(".stat.inactive").show()
   }
   else {
-    $(".stat").each(function() {
-      if (!stats[$(this).attr("data-s")][0]) {
-        $(this).hide()
-      }
-    })
+    $(".stat.inactive").hide()
   }
 })
 
@@ -287,7 +276,7 @@ $("#maxstats").on("click", function() {
   $("#stats .stat-m").toggle()
 })
 
-//---------- Search
+//---------------------------------------- Search
 $("#search").on("click", search)
 $("#searchbox").keyup(function(e) {
   if (e.keyCode == 13) {
@@ -310,17 +299,17 @@ function search() {
   }
 }
 
-//---------- Disable default right-click on image & nodes
+//---------------------------------------- Disable default right-click on image & nodes
 $("img, area").bind("contextmenu", function() {
   return false
 })
 
-//---------- Disable clicking node anchors scrolling to top of page
+//---------------------------------------- Disable clicking node anchors scrolling to top of page
 $("area").bind("click", function() {
   return false
 })
 
-//---------- Init
+//---------------------------------------- Init
 function init() {
   allskills = {
     trickster: [
