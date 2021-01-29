@@ -8,8 +8,6 @@ Tooltips width issue
 Add class icons to buttons
 */
 
-console.log($)
-
 $(function() {
   init()
   
