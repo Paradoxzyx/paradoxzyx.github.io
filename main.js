@@ -46,6 +46,7 @@ $(function() {
   })
   
   //--- DEBUG
+  $("#reset").after($("div").attr("id", "debug").css({ position: fixed, left: 40px, top: 140px }))
   /*
   points = 100
   $.each(skills, function(i, n) {
