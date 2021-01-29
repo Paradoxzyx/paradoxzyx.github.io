@@ -365,7 +365,7 @@ function init() {
       [ 0, [ 30, 33 ], [ 30, 33 ], { "Damage Mitigation while Shield is active": 0.05 } ],
       [ 0, [ 26, 31, 32, 34, 35, 50 ], [ 26, 31, 32, 34, 35, 50 ], { "Health": 0.1 } ],
       [ 0, [ 33, 36 ], [ 33, 36 ], { "Shield Gain": 0.1, "Shield Degredation": -0.3 } ],
-      [ 0, [ 33, 36 ], [ 33, 36 ], { "UNKNOWN": null } ], //--- ???
+      [ 0, [ 33, 36 ], [ 33, 36 ], { "(UNKNOWN 1)": null } ], //--- ???
       [ 0, [ 28, 34, 35, 53 ], [ 28, 34, 35, 37, 38, 53 ], { "Health": 0.1 } ],
       [ 0, [ 36 ], [ 39 ], { "Resistance": 0.15 } ],
       [ 0, [ 36 ], [ 39 ], { "Shield Degredation": -0.3 } ],
@@ -383,10 +383,10 @@ function init() {
       
       //--- 50
       [ 0, [ 33, 52 ], [ 33, 51, 52 ], { "When surrounded by enemies, reloading your weapon deals damage and interrupts enemies' abilities. Damage scales with Anomaly Power.": null } ],
-      [ 0, [ 50 ], [], { "UNKNOWN": null } ], //--- ???
-      [ 0, [ 50, 58 ], [ 50, 58 ], { "UNKNOWN": null } ], //--- ???
+      [ 0, [ 50 ], [], { "(UNKNOWN 2)": null } ], //--- ???
+      [ 0, [ 50, 58 ], [ 50, 58 ], { "(UNKNOWN 3) Resistance Penetration": null } ], //--- ???
       [ 0, [ 36, 62 ], [ 36, 54, 62 ], { "Melee applies Weakness": null } ],
-      [ 0, [ 53 ], [], { "UNKNOWN": null } ], //--- ???
+      [ 0, [ 53 ], [], { "(UNKNOWN 4) 10% Shield, -30% Shield Degredation": null } ], //--- ???
       
       //--- 55 - Assassin
       [ 0, [ 0, 56, 57 ], [ 56, 57 ], { "Anomaly Power": 0.06 } ],
@@ -410,7 +410,7 @@ function init() {
       [ 0, [ 70 ], [ 74, 75 ], { "Weapon Leech": 0.05 } ],
       [ 0, [ 73 ], [], { "When you Damage Skill ends, increase your Armor and Resistance Penetration by 25% for 10s": null } ],
       [ 0, [ 73 ], [ 76, 77 ], { "Activating Movement Skill increases your Armor Penetration by 25% for 10s": null } ], //--- 75
-      [ 0, [ 75 ], [ 78 ], { "UNKNOWN": null } ], //--- ???
+      [ 0, [ 75 ], [ 78 ], { "(UNKNOWN 5) Weapon Damage (Conditional?)": null } ], //--- ???
       [ 0, [ 75 ], [ 78 ], { "Shield Gain": 0.1, "Shield Degredation": -0.3 } ],
       [ 0, [ 76, 77 ], [], { "For each enemy in close range, your Anomaly Power is increased by 10% (Stacks up to 10 times)": null } ]
     ],
