@@ -193,7 +193,7 @@ function reset() {
   $.each(skills, function(i, n) {
     n[0] = 0
   })
-  $(".node").removeClass("active activatable")
+  $(".node").removeClass("active activatable highlight")
   
   //--- Clear stats
   $.each(stats, function(i, s) {
