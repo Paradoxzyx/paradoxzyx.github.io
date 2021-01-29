@@ -1,13 +1,3 @@
-/* --- TODO
-Penetration vs Piercing terminology
-Test URL unsandboxed
-Move node coords to JS array & generate all coords for node/area/tooltip
-  Add tooltip text from array
-UNKNOWN node descriptions
-Tooltips width issue
-Add class icons to buttons
-*/
-
 $(function() {
   init()
   
