@@ -48,10 +48,13 @@ $(function() {
 })
 
 $("#bread").on("click", function() {
-  points = 99
-  $.each(skills, function(i, v) {
-    if (v[0] != 2) {
-      add(v)
+  points = 78
+  $.each(skills, function(i, n) {
+    if (n[0] != 2) {
+      add(i)
+    }
+    else {
+      $("#points").text(--points)
     }
   })
 })
