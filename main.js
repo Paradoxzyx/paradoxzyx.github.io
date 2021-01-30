@@ -25,6 +25,8 @@ $(function() {
   //---------------------------------------- Get URL params
   let search = new URLSearchParams(location.search)
   active = search.get("c")
+  activetree = $("." + active + ".skilltree")
+  activestats = $("." + active + ".statstable")
   if (active) {
     let skills = search.get("s")
     $("#nav-" + active).click()
@@ -46,50 +48,6 @@ $(function() {
     if (+cookie[1] && ([ "allstats", "maxstats", "nodecount" ].includes(cookie[0]))) {
       $("#" + cookie[0].trim()).click()
     }
-  })
-  
-  //---------------------------------------- Load Stats
-  $.each(allskills, function(i, n) {
-    let s = []
-    let u = []
-    $.each(skills, function(i, n) {
-      $.each(n[3], function(k, v) {
-        if (!stats[k]) {
-          stats[k] = [ 0, v, 0, 1 ]
-        }
-        else {
-          stats[k][1] += v
-          stats[k][3]++
-        }
-        
-        if (v) {
-          if (!s.includes(k)) {
-            s.push(k)
-          }
-        }
-        else {
-          if (!u.includes(k)) {
-            u.push(k)
-          }
-        }
-      })
-    })
-    
-    //--- Create sorted stat list
-    $.each(s.sort(), function(i, v) {
-      $("#stats table:first")
-        .append($("<tr>").addClass("stat").attr("data-s", v)
-          .append($("<td>").addClass("stat-k").text(v + ":"))
-          .append($("<td>").addClass("stat-v"))
-          .append($("<td>").addClass("stat-m").text(Math.round(stats[v][1] * 100) + "%"))
-          .append($("<td>").addClass("stat-n").html("(<span class=\"stat-c\">0</span>/" + stats[v][3] + ")")))
-    })
-    //--- Create sorted stat list (Unique stats)
-    $.each(u.sort(), function(i, v) {
-      $("#stats table:last")
-        .append($("<tr>").addClass("stat").attr("data-s", v)
-          .append($("<td>").html(color(v))))
-    })
   })
   
   //---------------------------------------- Load Tooltips
@@ -357,7 +315,7 @@ function color(s) {
 
 //---------------------------------------- Init
 function init() {
-  //--- Keywords for tooltips & stats descriptions
+  //---------------------------------------- Keywords for tooltips & stats descriptions
   keywords = {
     "hl-wd": /((weapon|assault|close range|long range) damage)/gi,
     "hl-ap": /(anomaly power)/gi,
@@ -365,7 +323,7 @@ function init() {
     "hl-s": /((damage|disruption|movement) Skills?)/gi
   }
   
-  //--- All Skills
+  //---------------------------------------- All Skills
   allskills = {
     trickster: [
       [ 1, [], [ 1, 30, 55 ], { "Health": 0.05, "Damage Mitigation while Shield is active": 0.05 } ],
@@ -735,7 +693,7 @@ function init() {
     ]
   }
   
-  //--- Node Positions
+  //----------------------------------------- Node Positions
   let allcoords = {
     trickster: [
       [ 164, 437, 2 ],
@@ -1079,7 +1037,7 @@ function init() {
     ]
   }
   
-  //--- Load nodes
+  //---------------------------------------- Load nodes
   let alloffset = [ 19, 29, 69 ]
   $.each(allcoords, function(c, coords) {
     let map = $("." + c + ".skilltree map")
@@ -1087,6 +1045,58 @@ function init() {
       let offset = alloffset[node[2]]
       map.append($("<div>").addClass("node n" + node[2]).attr("data-n", i).css({ left: node[0] - offset + "px", top: node[1] - offset + "px" })
         .append($("<area>").attr({ shape: "circle", href: "#", coords: node[0] + "," + node[1] + "," + (offset + 1) })))
+    })
+  })
+  
+  //---------------------------------------- Load Stats
+  allstats = {
+    trickster: [],
+    pyromancer: [],
+    devastator: [],
+    technomancer: []
+  }
+  
+  $.each(allskills, function(c, skills) {
+    let statstable = $("." + c + ".statstable")
+    $.each(skills, function(i, node) {
+      let s = []
+      let u = []
+      $.each(node[3], function(k, v) {
+        if (!allstats[c][k]) {
+          allstats[c][k] = [ 0, v, 0, 1 ]
+        }
+        else {
+          allstats[c][k][1] += v
+          allstats[c][k][3]++
+        }
+        
+        if (v) {
+          if (!s.includes(k)) {
+            s.push(k)
+          }
+        }
+        else {
+          if (!u.includes(k)) {
+            u.push(k)
+          }
+        }
+      })
+    })
+    
+    //--- Create sorted stat list
+    $.each(s.sort(), function(i, v) {
+      $("table:first", statstable)
+        .append($("<tr>").addClass("stat").attr("data-s", v)
+          .append($("<td>").addClass("stat-k").text(v + ":"))
+          .append($("<td>").addClass("stat-v"))
+          .append($("<td>").addClass("stat-m").text(Math.round(allstats[c][v][1] * 100) + "%"))
+          .append($("<td>").addClass("stat-n").html("(<span class=\"stat-c\">0</span>/" + allstats[c][v][3] + ")")))
+    })
+    //--- Create sorted stat list (Unique stats)
+    $.each(u.sort(), function(i, v) {
+      $("table:last", statstable)
+        .append($("<tr>").addClass("stat").attr("data-s", v)
+          .append($("<td>").html(color(v))))
     })
   })
 }
