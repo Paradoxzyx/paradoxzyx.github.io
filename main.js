@@ -7,10 +7,10 @@ $(function() {
   activetree = $("." + active + ".skilltree")
   activestats = $("." + active + ".statstable")
   if (active) {
-    let skills = search.get("s")
+    let s = search.get("s")
     $("#nav-" + active).click()
-    if (skills) {
-      $.each(skills.split(",").map(Number), function(i, n) {
+    if (s) {
+      $.each(s.split(",").map(Number), function(i, n) {
         if (n != 0) {
           add(n)
         }
@@ -32,10 +32,10 @@ $(function() {
   //---------------------------------------- Click node
   $(".node").on("mousedown", function() {
     let id = Number($(this).attr("data-n"))
-    if (skills[id][0] == 1 && points[active] > 0) {
+    if (skills[active][id][0] == 1 && points[active] > 0) {
       add(id)
     }
-    else if (skills[id][0] == 2 && check(id)) {
+    else if (skills[active][id][0] == 2 && check(id)) {
       remove(id)
     }
   })
@@ -51,16 +51,16 @@ $(function() {
   })
   
   //---------------------------------------- Load Tooltips
-  $.each(allskills, function(c, skills) {
+  $.each(skills, function(c, list) {
     let skilltree = $("." + c + ".skilltree")
-    $.each(skills, function(i, node) {
+    $.each(list, function(i, node) {
       let s = []
-      $.each(node[3], function(stat, value) {
-        if (value) {
-          s.push(Math.round(value * 100) + "% " + stat)
+      $.each(node[3], function(k, v) {
+        if (v) {
+          s.push(Math.round(v * 100) + "% " + k)
         }
         else {
-          s.push(stat)
+          s.push(k)
         }
       })
       $(".node[data-n=" + i + "]", skilltree).append($("<div>").addClass("tooltip").html(color(s.join("<br>"))))
@@ -84,7 +84,7 @@ $(function() {
 
 //---------------------------------------- Add node
 function add(id) {
-  let node = skills[id]
+  let node = skills[active][id]
   
   //--- Activate node
   node[0] = 2
@@ -94,18 +94,18 @@ function add(id) {
   //--- Stats
   let stat = node[3]
   $.each(stat, function(k, v) {
-    if (stats[k][1]) {
-      stats[k][0] += v
-      $(".stat[data-s=\"" + k + "\"] .stat-v", activestats).removeClass("stat-0 stat-1 stat-2 stat-3").addClass("stat-" + Math.floor(stats[k][0] / stats[k][1] * 3)).text(Math.round(stats[k][0] * 100) + "%")
-      $(".stat[data-s=\"" + k + "\"] .stat-c", activestats).text(++stats[k][2])
+    if (stats[active][k][1]) {
+      stats[active][k][0] += v
+      $(".stat[data-s=\"" + k + "\"] .stat-v", activestats).removeClass("stat-0 stat-1 stat-2 stat-3").addClass("stat-" + Math.floor(stats[active][k][0] / stats[active][k][1] * 3)).text(Math.round(stats[active][k][0] * 100) + "%")
+      $(".stat[data-s=\"" + k + "\"] .stat-c", activestats).text(++stats[active][k][2])
     }
     $(".stat[data-s=\"" + k + "\"]", activestats).removeClass("inactive").show()
   })
   
   //--- Set non-active children to activatable
   $.each(node[2], function(i, n) {
-    if (skills[n][0] != 2) {
-      skills[n][0] = 1
+    if (skills[active][n][0] != 2) {
+      skills[active][n][0] = 1
       $(".node[data-n=" + n + "]", activetree).addClass("activatable")
     }
   })
@@ -120,7 +120,7 @@ function add(id) {
 
 //---------------------------------------- Remove node
 function remove(id) {
-  let node = skills[id]
+  let node = skills[active][id]
   
   //--- Deactivate node
   node[0] = 1
@@ -130,13 +130,13 @@ function remove(id) {
   //--- Stats
   let stat = node[3]
   $.each(stat, function(k, v) {
-    if (stats[k][1]) {
-      stats[k][0] -= v
+    if (stats[active][k][1]) {
+      stats[active][k][0] -= v
       $(".stat[data-s=\"" + k + "\"] .stat-v", activestats).removeClass("stat-0 stat-1 stat-2 stat-3")
-      $(".stat[data-s=\"" + k + "\"] .stat-c", activestats).text(--stats[k][2])
+      $(".stat[data-s=\"" + k + "\"] .stat-c", activestats).text(--stats[active][k][2])
     }
-    if (stats[k][0]) {
-      $(".stat[data-s=\"" + k + "\"] .stat-v", activestats).addClass("stat-" + Math.floor(stats[k][0] / stats[k][1] * 3)).text(Math.round(stats[k][0] * 100) + "%")
+    if (stats[active][k][0]) {
+      $(".stat[data-s=\"" + k + "\"] .stat-v", activestats).addClass("stat-" + Math.floor(stats[active][k][0] / stats[active][k][1] * 3)).text(Math.round(stats[k][0] * 100) + "%")
     }
     else {
       if (!$("#allstats").prop("checked")) {
@@ -150,7 +150,7 @@ function remove(id) {
   //--- Get all activatable child nodes
   let children = []
   $.each(node[2], function(i, n) {
-    if (skills[n][0] == 1) {
+    if (skills[active][n][0] == 1) {
       children.push(n)
     }
   })
@@ -158,14 +158,14 @@ function remove(id) {
   //--- Set activatable child nodes with no other active parents to inactive
   $.each(children, function(i, n) {
     let x = 1
-    $.each(skills[n][1], function(j, parent) {
-      if (skills[parent][0] == 2) {
+    $.each(skills[active][n][1], function(j, m) {
+      if (skills[active][m][0] == 2) {
         x = 0
         return false
       }
     })
     if (x) {
-      skills[n][0] = 0
+      skills[active][n][0] = 0
       $(".node[data-n=" + n + "]", activetree).removeClass("activatable")
     }
   })
@@ -183,8 +183,8 @@ function check(id) {
   
   //--- Check for invalid active child node
   let x = 1
-  $.each(skills[id][2], function(i, n) {
-    if (skills[n][0] == 2 && !tree.includes(n)) {
+  $.each(skills[active][id][2], function(i, n) {
+    if (skills[active][n][0] == 2 && !tree.includes(n)) {
       x = 0
       return false
     }
@@ -194,8 +194,8 @@ function check(id) {
 
 //---------------------------------------- Recurse children
 function recurse(id) {
-  $.each(skills[id][2], function(i, n) {
-    if (skills[n][0] == 2 && !tree.includes(n)) {
+  $.each(skills[active][id][2], function(i, n) {
+    if (skills[active][n][0] == 2 && !tree.includes(n)) {
       tree.push(n)
       recurse(n)
     }
@@ -207,13 +207,13 @@ $("#reset").on("click", reset)
 
 function reset() {
   //--- Set all nodes to inactive
-  $.each(skills, function(i, s) {
+  $.each(skills[active], function(i, s) {
     s[0] = 0
   })
   $(".node", activetree).removeClass("active activatable highlight")
   
   //--- Clear stats
-  $.each(stats, function(i, s) {
+  $.each(stats[active], function(i, s) {
     s[0] = 0
   })
   if (!$("#allstats").prop("checked")) {
@@ -225,7 +225,7 @@ function reset() {
   //--- Add node 0
   url = []
   points[active] = 20
-  skills[0][0] = 1
+  skills[active][0][0] = 1
   add(0)
 }
 
@@ -239,8 +239,6 @@ $("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("cli
   active = $(this).attr("data-class")
   activetree = $("." + active + ".skilltree").show()
   activestats = $("." + active + ".statstable").show()
-  skills = allskills[active]
-  stats = allstats[active]
 })
 
 //---------------------------------------- Stats Options
@@ -290,7 +288,7 @@ function search() {
   $(".node", activestats).removeClass("highlight")
   let s = $("#searchbox").val().toLowerCase()
   if (s) {
-    $.each(skills, function(i, n) {
+    $.each(skills[active], function(i, n) {
       $.each(n[3], function(k, v) {
         if (k.toLowerCase().includes(s)) {
           $(".node[data-n=" + i + "]", activestats).addClass("highlight")
@@ -326,7 +324,7 @@ function init() {
   }
   
   //---------------------------------------- All Skills
-  allskills = {
+  skills = {
     trickster: [
       [ 1, [], [ 1, 30, 55 ], { "Health": 0.05, "Damage Mitigation while Shield is active": 0.05 } ],
       
@@ -1040,11 +1038,11 @@ function init() {
   }
   
   //---------------------------------------- Load nodes
-  let alloffset = [ 19, 29, 69 ]
+  let alloffsets = [ 19, 29, 69 ]
   $.each(allcoords, function(c, coords) {
     let map = $("." + c + ".skilltree map")
     $.each(coords, function(i, node) {
-      let offset = alloffset[node[2]]
+      let offset = alloffsets[node[2]]
       map.append($("<div>").addClass("node n" + node[2]).attr("data-n", i).css({ left: node[0] - offset + "px", top: node[1] - offset + "px" })
         .append($("<area>").attr({ shape: "circle", href: "#", coords: node[0] + "," + node[1] + "," + (offset + 1) })))
     })
@@ -1058,18 +1056,18 @@ function init() {
     technomancer: []
   }
   
-  $.each(allskills, function(c, skills) {
+  $.each(skills, function(c, list) {
     let statstable = $("." + c + ".statstable")
     let s = []
     let u = []
-    $.each(skills, function(i, node) {
+    $.each(list, function(i, node) {
       $.each(node[3], function(k, v) {
-        if (!allstats[c][k]) {
-          allstats[c][k] = [ 0, v, 0, 1 ]
+        if (!stats[c][k]) {
+          stats[c][k] = [ 0, v, 0, 1 ]
         }
         else {
-          allstats[c][k][1] += v
-          allstats[c][k][3]++
+          stats[c][k][1] += v
+          stats[c][k][3]++
         }
         
         if (v) {
@@ -1091,8 +1089,8 @@ function init() {
         .append($("<tr>").addClass("stat").attr("data-s", v)
           .append($("<td>").addClass("stat-k").text(v + ":"))
           .append($("<td>").addClass("stat-v"))
-          .append($("<td>").addClass("stat-m").text(Math.round(allstats[c][v][1] * 100) + "%"))
-          .append($("<td>").addClass("stat-n").html("(<span class=\"stat-c\">0</span>/" + allstats[c][v][3] + ")")))
+          .append($("<td>").addClass("stat-m").text(Math.round(stats[c][v][1] * 100) + "%"))
+          .append($("<td>").addClass("stat-n").html("(<span class=\"stat-c\">0</span>/" + stats[c][v][3] + ")")))
     })
     //--- Create sorted stat list (Unique stats)
     $.each(u.sort(), function(i, v) {
