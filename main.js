@@ -1049,7 +1049,7 @@ function init() {
   })
   
   //---------------------------------------- Load Stats
-  allstats = {
+  stats = {
     trickster: [],
     pyromancer: [],
     devastator: [],
