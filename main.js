@@ -262,16 +262,6 @@ function change() {
   reset()
 }
 
-//---------------------------------------- Color Keywords
-function color(s) {
-  $.each(keywords, function(k, v) {
-    if (s.match(v)) {
-      s = s.replace(v, "<span class=\"" + k + "\">$1</span>")
-    }
-  })
-  return s
-}
-
 //---------------------------------------- Stats
 $("#allstats").on("click", function() {
   if ($(this).prop("checked")) {
@@ -319,6 +309,16 @@ $("area").bind("click", function() {
   return false
 })
 
+//---------------------------------------- Color Keywords
+function color(s) {
+  $.each(keywords, function(k, v) {
+    if (s.match(v)) {
+      s = s.replace(v, "<span class=\"" + k + "\">$1</span>")
+    }
+  })
+  return "<span>" + s + "</span>"
+}
+
 //---------------------------------------- Init
 function init() {
   //--- Keywords for tooltips & stats descriptions
@@ -329,6 +329,7 @@ function init() {
     "hl-s": /((damage|disruption|movement) Skills?)/gi
   }
   
+  //--- All Skills
   allskills = {
     trickster: [
       [ 1, [], [ 1, 30, 55 ], { "Health": 0.05, "Damage Mitigation while Shield is active": 0.05 } ],
@@ -342,7 +343,7 @@ function init() {
       [ 0, [ 4, 8 ], [ 4, 8 ], { "Skill Cooldown (Movement)": 0.15 } ],
       [ 0, [ 4, 8 ], [ 4, 8 ], { "Crit Damage": 0.2 } ],
       [ 0, [ 6, 7, 28 ], [ 6, 7, 9, 10, 11, 28 ], { "Weapon Damage (Close Range)": 0.15 } ],
-      [ 0, [ 8 ], [], { "Activation of Distruption Skills increases your Weapon Damage by 20% for 8s": null } ],
+      [ 0, [ 8 ], [], { "Activation of Disruption Skills increases your Weapon Damage by 20% for 8s": null } ],
       [ 0, [ 8 ], [ 12 ], { "Skill Cooldown (Disruption)": 0.15 } ], //--- 10
       [ 0, [ 8 ], [ 12 ], { "Armor Penetration": 0.1 } ],
       [ 0, [ 10, 11 ], [ 13, 14, 15 ], { "Weapon Damage (From Behind)": 0.2 } ],
