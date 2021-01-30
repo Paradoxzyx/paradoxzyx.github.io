@@ -1,7 +1,74 @@
 $(function() {
   init()
   
+  //---------------------------------------- Load Stats & Tooltips
+  stats = {
+    trickster: [],
+    pyromancer: [],
+    devastator: [],
+    technomancer: []
+  }
+  
+  $.each(skills, function(c, list) {
+    let skilltree = $("." + c + ".skilltree")
+    let statstable = $("." + c + ".statstable")
+    let s = []
+    let u = []
+    $.each(list, function(i, node) {
+      let t = []
+      $.each(node[3], function(k, v) {
+        if (!stats[c][k]) {
+          stats[c][k] = [ 0, v, 0, 1 ]
+        }
+        else {
+          stats[c][k][1] += v
+          stats[c][k][3]++
+        }
+        
+        if (v) {
+          if (!s.includes(k)) {
+            s.push(k)
+          }
+          t.push(Math.round(v * 100) + "% " + k)
+        }
+        else {
+          if (!u.includes(k)) {
+            u.push(k)
+          }
+          t.push(k)
+        }
+      })
+      $(".node[data-n=" + i + "]", skilltree).append($("<div>").addClass("tooltip").html(color(t.join("<br>"))))
+    })
+    
+    //--- Create sorted stat list
+    $.each(s.sort(), function(i, v) {
+      $("table:first", statstable)
+        .append($("<tr>").addClass("stat inactive").attr("data-s", v)
+          .append($("<td>").addClass("stat-k").text(v + ":"))
+          .append($("<td>").addClass("stat-v").text("0%"))
+          .append($("<td>").addClass("stat-m").text(Math.round(stats[c][v][1] * 100) + "%"))
+          .append($("<td>").addClass("stat-n").html("(<span class=\"stat-c\">0</span>/" + stats[c][v][3] + ")")))
+    })
+    //--- Create sorted stat list (Unique stats)
+    $.each(u.sort(), function(i, v) {
+      $("table:last", statstable)
+        .append($("<tr>").addClass("stat").attr("data-s", v)
+          .append($("<td>").html(color(v))))
+    })
+  })
+  
+  //---------------------------------------- Points
+  points = {
+    trickster: 20,
+    pyromancer: 20,
+    devastator: 20,
+    technomancer: 20
+  }
+  $(".points").text(20)
+  
   //---------------------------------------- Get URL params
+  url = []
   let search = new URLSearchParams(location.search)
   active = search.get("c")
   activetree = $("." + active + ".skilltree")
@@ -48,23 +115,6 @@ $(function() {
   //---------------------------------------- Disable clicking node anchors scrolling to top of page
   $("area").bind("click", function() {
     return false
-  })
-  
-  //---------------------------------------- Load Tooltips
-  $.each(skills, function(c, list) {
-    let skilltree = $("." + c + ".skilltree")
-    $.each(list, function(i, node) {
-      let s = []
-      $.each(node[3], function(k, v) {
-        if (v) {
-          s.push(Math.round(v * 100) + "% " + k)
-        }
-        else {
-          s.push(k)
-        }
-      })
-      $(".node[data-n=" + i + "]", skilltree).append($("<div>").addClass("tooltip").html(color(s.join("<br>"))))
-    })
   })
   
   //---------------------------------------- DEBUG
@@ -203,9 +253,7 @@ function recurse(id) {
 }
 
 //---------------------------------------- Reset tree
-$("#reset").on("click", reset)
-
-function reset() {
+$("#reset").on("click", function() {
   //--- Set all nodes to inactive
   $.each(skills[active], function(i, s) {
     s[0] = 0
@@ -234,7 +282,7 @@ $("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("cli
   activetree.hide()
   activestats.hide()
   $("#searchbox").val("")
-  $(".node", activestats).removeClass("highlight")
+  $(".node", activetree).removeClass("highlight")
   
   active = $(this).attr("data-class")
   activetree = $("." + active + ".skilltree").show()
@@ -1047,68 +1095,4 @@ function init() {
         .append($("<area>").attr({ shape: "circle", href: "#", coords: node[0] + "," + node[1] + "," + (offset + 1) })))
     })
   })
-  
-  //---------------------------------------- Load Stats
-  stats = {
-    trickster: [],
-    pyromancer: [],
-    devastator: [],
-    technomancer: []
-  }
-  
-  $.each(skills, function(c, list) {
-    let statstable = $("." + c + ".statstable")
-    let s = []
-    let u = []
-    $.each(list, function(i, node) {
-      $.each(node[3], function(k, v) {
-        if (!stats[c][k]) {
-          stats[c][k] = [ 0, v, 0, 1 ]
-        }
-        else {
-          stats[c][k][1] += v
-          stats[c][k][3]++
-        }
-        
-        if (v) {
-          if (!s.includes(k)) {
-            s.push(k)
-          }
-        }
-        else {
-          if (!u.includes(k)) {
-            u.push(k)
-          }
-        }
-      })
-    })
-    
-    //--- Create sorted stat list
-    $.each(s.sort(), function(i, v) {
-      $("table:first", statstable)
-        .append($("<tr>").addClass("stat").attr("data-s", v)
-          .append($("<td>").addClass("stat-k").text(v + ":"))
-          .append($("<td>").addClass("stat-v"))
-          .append($("<td>").addClass("stat-m").text(Math.round(stats[c][v][1] * 100) + "%"))
-          .append($("<td>").addClass("stat-n").html("(<span class=\"stat-c\">0</span>/" + stats[c][v][3] + ")")))
-    })
-    //--- Create sorted stat list (Unique stats)
-    $.each(u.sort(), function(i, v) {
-      $("table:last", statstable)
-        .append($("<tr>").addClass("stat").attr("data-s", v)
-          .append($("<td>").html(color(v))))
-    })
-  })
-  
-  //---------------------------------------- Points
-  points = {
-    trickster: 20,
-    pyromancer: 20,
-    devastator: 20,
-    technomancer: 20
-  }
-  $(".points").text(20)
-  
-  //---------------------------------------- Miscellaneous
-  url = []
 }
