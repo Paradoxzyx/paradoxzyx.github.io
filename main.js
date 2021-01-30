@@ -337,6 +337,10 @@ function search() {
         }
       })
     })
+    $("#searchcount").text("(" + $(".node.highlight").length + " matches)")
+  }
+  else {
+    $("#searchcount").text("")
   }
 }
 
