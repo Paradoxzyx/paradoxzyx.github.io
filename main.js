@@ -4,7 +4,7 @@ $(function() {
   //---------------------------------------- Click node
   $(".node").on("mousedown", function() {
     let id = Number($(this).attr("data-n"))
-    if (skills[id][0] == 1 && points > 0) {
+    if (skills[id][0] == 1 && points[active] > 0) {
       add(id)
     }
     else if (skills[id][0] == 2 && check(id)) {
@@ -77,8 +77,8 @@ $(function() {
         $("#debug").text($(this).attr("data-n"))
       })
     }
-    points = 100
-    $(".points").text(points)
+    points[active] = 100
+    $(".points", activetree).text(points[active])
   })
 })
 
@@ -89,7 +89,7 @@ function add(id) {
   //--- Activate node
   node[0] = 2
   $(".node[data-n=" + id + "]", activetree).removeClass("activatable").addClass("active")
-  $(".points", activetree).text(--points)
+  $(".points", activetree).text(--points[active])
   
   //--- Stats
   let stat = node[3]
@@ -125,7 +125,7 @@ function remove(id) {
   //--- Deactivate node
   node[0] = 1
   $(".node[data-n=" + id + "]", activetree).removeClass("active").addClass("activatable")
-  $(".points", activetree).text(++points)
+  $(".points", activetree).text(++points[active])
   
   //--- Stats
   let stat = node[3]
@@ -224,7 +224,7 @@ function reset() {
   
   //--- Add node 0
   url = []
-  points = 20
+  points[active] = 20
   skills[0][0] = 1
   add(0)
 }
@@ -233,12 +233,14 @@ function reset() {
 $("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("click", function() {
   activetree.hide()
   activestats.hide()
+  $("#searchbox").val("")
   $(".node", activestats).removeClass("highlight")
+  
   active = $(this).attr("data-class")
   activetree = $("." + active + ".skilltree").show()
   activestats = $("." + active + ".statstable").show()
   skills = allskills[active]
-  //stats = allstats[active]
+  stats = allstats[active]
 })
 
 //---------------------------------------- Stats Options
@@ -1099,4 +1101,12 @@ function init() {
           .append($("<td>").html(color(v))))
     })
   })
+  
+  //---------------------------------------- Points
+  points = {
+    trickster: 20,
+    pyromancer: 20,
+    devastator: 20,
+    technomancer: 20
+  }
 }
