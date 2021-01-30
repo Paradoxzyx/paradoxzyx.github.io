@@ -1058,9 +1058,9 @@ function init() {
   
   $.each(allskills, function(c, skills) {
     let statstable = $("." + c + ".statstable")
+    let s = []
+    let u = []
     $.each(skills, function(i, node) {
-      let s = []
-      let u = []
       $.each(node[3], function(k, v) {
         if (!allstats[c][k]) {
           allstats[c][k] = [ 0, v, 0, 1 ]
