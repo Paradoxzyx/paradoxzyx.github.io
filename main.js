@@ -17,6 +17,7 @@ $(function() {
     $.each(list, function(i, node) {
       let t = []
       $.each(node[3], function(k, v) {
+        console.log(stats[c].length, c, i, k)
         if (!stats[c][k]) {
           stats[c][k] = [ 0, v, 0, 1 ]
         }
@@ -57,7 +58,6 @@ $(function() {
           .append($("<td>").html(color(v))))
     })
   })
-  console.log(stats)
   
   //---------------------------------------- Points
   points = {
