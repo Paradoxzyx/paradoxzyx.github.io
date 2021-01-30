@@ -465,7 +465,7 @@ function init() {
     ],
     
     pyromancer: [
-      [ 1, [], [ 1, 30, 56 ], { "Anomaly Power": 0.1, "Skill Leech": 0.05, "Skills mark Enemies for 15s. Killing a Marked heals you by 24% of your Maximum Health": 0.1 } ],
+      [ 1, [], [ 1, 30, 56 ], { "Anomaly Power": 0.1, "Skill Leech": 0.05, "Skills mark Enemies for 15s. Killing a Marked heals you by 24% of your Maximum Health": null } ],
       
       //--- 1 - Ash Breaker
       [ 0, [ 0, 2, 3 ], [ 2, 3 ], { "Weapon Damage (Against Marked)": 0.1 } ],
@@ -476,7 +476,7 @@ function init() {
       [ 0, [ 4, 8 ], [ 4, 8 ], { "Armor Penetration": 0.1 } ],
       [ 0, [ 4, 8 ], [ 4, 8 ], { "Damage (Against Ashed)": 0.2 } ],
       [ 0, [ 6, 7, 28 ], [ 6, 7, 9, 10, 11, 28 ], { "Weapon Damage (Against Marked)": 0.1 } ],
-      [ 0, [ 8 ], [], { "(UNKNOWN 1)": 0.1 } ],
+      [ 0, [ 8 ], [], { "(UNKNOWN 1)": null } ],
       [ 0, [ 8 ], [ 12 ], { "Armor Penetration": 0.1 } ], //--- 10
       [ 0, [ 8 ], [ 12 ], { "(UNKNOWN 2) Burn Duration": 0.2 } ],
       [ 0, [ 10, 11 ], [ 13, 14, 15 ], { "Weapon Damage (Against Marked)": 0.1 } ],
@@ -485,19 +485,19 @@ function init() {
       [ 0, [ 12 ], [ 16 ], { "Weapon Leech": 0.05 } ],
       [ 0, [ 14, 15 ], [ 17, 19 ], { "Weapon Damage (Against Marked)": 0.1 } ],
       [ 0, [ 16 ], [ 18 ], { "Weapon Leech": 0.05 } ],
-      [ 0, [ 17 ], [], { "Activating an Immobilize Skill doubles your Weapon Leech for 4s": 0.1 } ],
-      [ 0, [ 16 ], [], { "(UNKNOWN 3)": 0.1 } ],
+      [ 0, [ 17 ], [], { "Activating an Immobilize Skill doubles your Weapon Leech for 4s": null } ],
+      [ 0, [ 16 ], [], { "(UNKNOWN 3)": null } ],
       [ 0, [ 16 ], [ 21 ], { "Reload Time": -0.2 } ], //--- 20
       [ 0, [ 20 ], [ 22, 23 ], { "Damage (Against Elites)": 0.1, "Take less damage (From Elites)": 0.1 } ],
       [ 0, [ 21 ], [ 24 ], { "Damage (Against Ashed)": 0.2 } ],
       [ 0, [ 21 ], [ 24 ], { "Skill Cooldown (Immobilize)": 0.15 } ],
-      [ 0, [ 22, 23 ], [], { "Activating an Immobilize Skill increases your Weapon Damage by 20% for 10s": 0.1 } ],
+      [ 0, [ 22, 23 ], [], { "Activating an Immobilize Skill increases your Weapon Damage by 20% for 10s": null } ],
       
       //--- 25
-      [ 0, [ 4, 26 ], [ 4, 26 ], { "(UNKNOWN 4) Damage Increase": 0.1 } ],
+      [ 0, [ 4, 26 ], [ 4, 26 ], { "(UNKNOWN 4) Damage Increase": null } ],
       [ 0, [ 25, 33 ], [ 25, 33, 27 ], { "Armor Penetration (Against Marked)": 0.3 } ],
-      [ 0, [ 26 ], [], { "(UNKNOWN 5)": 0.1 } ],
-      [ 0, [ 8, 36 ], [ 8, 29, 36 ], { "(UNKNOWN 6)": 0.1 } ],
+      [ 0, [ 26 ], [], { "(UNKNOWN 5)": null } ],
+      [ 0, [ 8, 36 ], [ 8, 29, 36 ], { "(UNKNOWN 6)": null } ],
       [ 0, [ 28 ], [], { "Burn Duration": 0.2 } ],
       
       //--- 30 - Firestorm
@@ -505,56 +505,56 @@ function init() {
       [ 0, [ 30, 33 ], [ 30, 33 ], { "Skill Leech": 0.1 } ],
       [ 0, [ 30, 33 ], [ 30, 33 ], { "Skill Cooldown (Ignite)": 0.15 } ],
       [ 0, [ 26, 31, 32, 34, 35, 51 ], [ 26, 31, 32, 34, 35, 51 ], { "Health": 0.1 } ],
-      [ 0, [ 33, 36 ], [ 33, 36 ], { "(UNKNOWN 7) Armor Increase": 0.1} ],
+      [ 0, [ 33, 36 ], [ 33, 36 ], { "(UNKNOWN 7) Armor Increase": null} ],
       [ 0, [ 33, 36 ], [ 33, 36 ], { "Burn Damage": 0.2 } ],
       [ 0, [ 28, 34, 35, 54 ], [ 28, 34, 35, 37, 38, 54 ], { "Health": 0.1 } ],
       [ 0, [ 36 ], [ 39 ], { "Weapon Damage": 0.05, "Anomaly Power": 0.05 } ],
-      [ 0, [ 36 ], [ 39 ], { "(UNKNOWN 8) Resistance Increase": 0.1 } ],
+      [ 0, [ 36 ], [ 39 ], { "(UNKNOWN 8) Resistance Increase": null } ],
       [ 0, [ 37, 38 ], [ 40, 41, 42, 43 ], { "Health": 0.1 } ],
-      [ 0, [ 39 ], [], { "Increase Anomaly Power by 2.5% for each unlocked Magma Golem node": 0.1 } ], //--- 40
-      [ 0, [ 39 ], [], { "Activating any skill increases Weapon Damage by 20% for 7s": 0.1 } ],
+      [ 0, [ 39 ], [], { "Increase Anomaly Power by 2.5% for each unlocked Magma Golem node": null } ], //--- 40
+      [ 0, [ 39 ], [], { "Activating any skill increases Weapon Damage by 20% for 7s": null } ],
       [ 0, [ 39 ], [ 44 ], { "Skill Leech": 0.1 } ],
       [ 0, [ 39 ], [ 44 ], { "Burn Duration": 0.2 } ],
       [ 0, [ 42, 43 ], [ 45 ], { "Health": 0.1 } ],
       [ 0, [ 44 ], [ 46, 47 ], { "Skill Leech": 0.1 } ],
-      [ 0, [ 45 ], [], { "Activating an Ignite Skill increases your Armor by 45% for 10s": 0.1 } ],
-      [ 0, [ 45 ], [ 48, 49 ], { "Skill Leech is doubled when below 30% Health": 0.1 } ],
+      [ 0, [ 45 ], [], { "Activating an Ignite Skill increases your Armor by 45% for 10s": null } ],
+      [ 0, [ 45 ], [ 48, 49 ], { "Skill Leech is doubled when below 30% Health": null } ],
       [ 0, [ 47 ], [ 50 ], { "Damage (Against Burning)": 0.1 } ],
       [ 0, [ 47 ], [ 50 ], { "Skill Cooldown (Ignite)": 0.15 } ],
-      [ 0, [ 48, 49 ], [], { "(UNKNOWN 9)": 0.1 } ],
+      [ 0, [ 48, 49 ], [], { "(UNKNOWN 9)": null } ],
       
       //--- 51
       [ 0, [ 33, 53 ], [ 33, 52, 53 ], { "Skill Cooldown": 0.1 } ],
-      [ 0, [ 51 ], [], { "(UNKNOWN 10) Damage boost (Conditional)": 0.1 } ], //--- ???
+      [ 0, [ 51 ], [], { "(UNKNOWN 10) Damage boost (Conditional)": null } ], //--- ???
       [ 0, [ 51, 59 ], [ 51, 59 ], { "Weapon Damage (Sidearm)": 0.12 } ], //--- ???
-      [ 0, [ 36, 63 ], [ 36, 55, 63 ], { "(UNKNOWN 11)": 0.1 } ],
-      [ 0, [ 54 ], [], { "(UNKNOWN 12) Burn related": 0.1 } ], //--- ???
+      [ 0, [ 36, 63 ], [ 36, 55, 63 ], { "(UNKNOWN 11)": null } ],
+      [ 0, [ 54 ], [], { "(UNKNOWN 12) Burn related": null } ], //--- ???
       
       //--- 56 - Tempest
       [ 0, [ 0, 57, 58 ], [ 57, 58 ], { "Anomaly Power": 0.06 } ],
-      [ 0, [ 56, 59 ], [ 56, 59 ], { "(UNKNOWN 13)": 0.1 } ],
+      [ 0, [ 56, 59 ], [ 56, 59 ], { "(UNKNOWN 13)": null } ],
       [ 0, [ 56, 59 ], [ 56, 59 ], { "Skill Cooldown (Explosive)": 0.15 } ],
       [ 0, [ 53, 57, 58, 61, 62 ], [ 53, 57, 58, 60, 61, 62 ], { "Anomaly Power": 0.06 } ],
-      [ 0, [ 59 ], [], { "(UNKNOWN 14)": 0.1 } ],
-      [ 0, [ 59, 63 ], [ 59, 63 ], { "(UNKNOWN 15)": 0.1 } ],
-      [ 0, [ 59, 63 ], [ 59, 63 ], { "(UNKNOWN 16)": 0.1 } ],
+      [ 0, [ 59 ], [], { "(UNKNOWN 14)": null } ],
+      [ 0, [ 59, 63 ], [ 59, 63 ], { "(UNKNOWN 15)": null } ],
+      [ 0, [ 59, 63 ], [ 59, 63 ], { "(UNKNOWN 16)": null } ],
       [ 0, [ 54, 61, 62 ], [ 54, 61, 62, 64, 65, 66 ], { "Anomaly Power": 0.06 } ],
-      [ 0, [ 63 ], [], { "Weapon Damage is increased by 15% of Anomaly Power": 0.1 } ],
-      [ 0, [ 63 ], [ 67 ], { "(UNKNOWN 17) Burn related": 0.1 } ],
-      [ 0, [ 63 ], [ 67 ], { "(UNKNOWN 18)": 0.1 } ], //--- 65
+      [ 0, [ 63 ], [], { "Weapon Damage is increased by 15% of Anomaly Power": null } ],
+      [ 0, [ 63 ], [ 67 ], { "(UNKNOWN 17) Burn related": null } ],
+      [ 0, [ 63 ], [ 67 ], { "(UNKNOWN 18)": null } ], //--- 65
       [ 0, [ 65, 66 ], [ 68, 69, 70 ], { "Anomaly Power": 0.06 } ],
-      [ 0, [ 67 ], [], { "(UNKNOWN 19)": 0.1 } ],
+      [ 0, [ 67 ], [], { "(UNKNOWN 19)": null } ],
       [ 0, [ 67 ], [ 71 ], { "Skill Leech": 0.1 } ],
-      [ 0, [ 67 ], [ 71 ], { "(UNKNOWN 20) Resistance boost": 0.1 } ],
+      [ 0, [ 67 ], [ 71 ], { "(UNKNOWN 20) Resistance boost": null } ],
       [ 0, [ 69, 70 ], [ 72, 74 ], { "Anomaly Power": 0.06 } ],
-      [ 0, [ 71 ], [ 73 ], { "Upon losing all health you will recive a second chance to return to the battlefield with 50% Health (180s cooldown)": 0.1 } ],
-      [ 0, [ 72 ], [], { "Your Phoenix revival will now grant 100% of your health points and will be ready to activate every 135s": 0.1 } ],
-      [ 0, [ 71 ], [ 75, 76 ], { "(UNKNOWN 21) Resistance piercing": 0.1 } ],
-      [ 0, [ 74 ], [], { "Killing a Marked target heals you by additional 12% of your maximum health": 0.1 } ],
-      [ 0, [ 74 ], [ 77, 78 ], { "(UNKNOWN 22)": 0.1 } ], //--- 75
-      [ 0, [ 76 ], [ 79 ], { "(UNKNOWN 23)": 0.1 } ], //--- ???
+      [ 0, [ 71 ], [ 73 ], { "Upon losing all health you will recive a second chance to return to the battlefield with 50% Health (180s cooldown)": null } ],
+      [ 0, [ 72 ], [], { "Your Phoenix revival will now grant 100% of your health points and will be ready to activate every 135s": null } ],
+      [ 0, [ 71 ], [ 75, 76 ], { "(UNKNOWN 21) Resistance piercing": null } ],
+      [ 0, [ 74 ], [], { "Killing a Marked target heals you by additional 12% of your maximum health": null } ],
+      [ 0, [ 74 ], [ 77, 78 ], { "(UNKNOWN 22)": null } ], //--- 75
+      [ 0, [ 76 ], [ 79 ], { "(UNKNOWN 23)": null } ], //--- ???
       [ 0, [ 76 ], [ 79 ], { "Skill Cooldown (Explosive)": 0.15 } ],
-      [ 0, [ 77, 78 ], [], { "(UNKNOWN 24)": 0.1 } ]
+      [ 0, [ 77, 78 ], [], { "(UNKNOWN 24)": null } ]
     ],
     
     devastator: [
