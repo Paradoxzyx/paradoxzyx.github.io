@@ -24,8 +24,7 @@ $(function() {
   //---------------------------------------- Get cookies
   $.each(document.cookie.split(";"), function(i, s) {
     let cookie = s.split("=")
-    //if (+cookie[1] && ([ "allstats", "maxstats", "nodecount" ].includes(cookie[0]))) {
-    if (+cookie[1]) {
+    if (+cookie[1] && ([ "allstats", "maxstats", "nodecount" ].includes(cookie[0].trim()))) {
       $("#" + cookie[0].trim()).click()
     }
   })
