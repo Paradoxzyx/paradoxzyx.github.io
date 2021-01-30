@@ -265,10 +265,19 @@ $("#reset").on("click", function() {
   $(".node", activetree).removeClass("active activatable highlight")
   
   //--- Clear stats
-  $.each(stats[active], function(i, s) {
+  console.log(stats[active].length)
+  console.log(stats[active])
+  $.each(stats[active], function(k, s) {
+    stats[active][k][0] = 0
+    stats[active][k][2] = 0
+  })
+  console.log(stats[active])
+  /*
+  $.each(stats[active], function(k, s) {
     s[0] = 0
     s[2] = 0
   })
+  */
   if (!$("#allstats").prop("checked")) {
     $(".stat", activestats).hide()
   }
