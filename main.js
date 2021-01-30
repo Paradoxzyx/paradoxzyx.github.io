@@ -3,10 +3,10 @@ $(function() {
   
   //---------------------------------------- Load Stats & Tooltips
   stats = {
-    trickster: [],
-    pyromancer: [],
-    devastator: [],
-    technomancer: []
+    trickster: {},
+    pyromancer: {},
+    devastator: {},
+    technomancer: {}
   }
   
   $.each(skills, function(c, list) {
@@ -17,7 +17,6 @@ $(function() {
     $.each(list, function(i, node) {
       let t = []
       $.each(node[3], function(k, v) {
-        console.log(stats[c].length, c, i, k)
         if (!stats[c][k]) {
           stats[c][k] = [ 0, v, 0, 1 ]
         }
