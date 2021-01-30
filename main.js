@@ -591,7 +591,7 @@ function init() {
       [ 0, [ 16 ], [ 20, 21 ], { "(UNKNOWN 2)": null } ],
       [ 0, [ 19 ], [], { "(UNKNOWN 3)": null } ], //--- 20
       [ 0, [ 19 ], [ 22, 23 ], { "(UNKNOWN 4)": null } ],
-      [ 0, [ 19 ], [ 22, 23 ], { { "Damage (Physical against Elites)": 0.15, "Take less damage (From Elites)": 0.15 } ],
+      [ 0, [ 19 ], [ 22, 23 ], { "Damage (Physical against Elites)": 0.15, "Take less damage (From Elites)": 0.15 } ],
       [ 0, [ 21 ], [ 24 ], { "Weapon Leech": 0.05 } ],
       [ 0, [ 21 ], [ 24 ], { "Armor Penetration": 0.1 } ],
       [ 0, [ 22, 23 ], [], { "When your Kinetic Skill ends, increase your Weapon Damage by 70% for 10s": null } ],
