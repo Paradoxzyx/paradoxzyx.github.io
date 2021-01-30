@@ -18,6 +18,14 @@ $(function() {
     $("#trickster").click()
   }
   
+  //--- Keywords for tooltips & stats descriptions
+  keywords = {
+    "hl-wd": /((weapon|assault|close range|long range) damage)/gi,
+    "hl-ap": /(anomaly power)/gi,
+    "hl-ar": /((armor|(armor and )?resistance) (piercing|penetration))/gi,
+    "hl-s": /((damage|disruption|movement) Skills?)/gi
+  }
+  
   //--- Load Tooltips
   $.each(allskills, function(c, t) {
     $.each(t, function(i, n) {
@@ -30,13 +38,13 @@ $(function() {
           s.push(k)
         }
       })
-      $("#" + c + "-st .node[data-n=" + i + "]").append($("<div>").addClass("tooltip").html(s.join("<br>")))
+      $("#" + c + "-st .node[data-n=" + i + "]").append($("<div>").addClass("tooltip").html(Color(s.join("<br>"))))
     })
   })
   
   //--- DEBUG
   //$("#reset").after($("<div>").attr("id", "debug").css({ position: "fixed", left: "40px", top: "140px" }))
-  $("body").append($("<img>").attr("src", "favicon.ico").attr("width", "24").attr("height", "24").css({ position: "absolute", right: "1%" }))
+  $("body").append($("<img>").attr("src", "favicon.ico").attr("width", "24").attr("height", "24").css({ position: "absolute", top: "2000px", right: "1%" }))
   /*
   points = 100
   $.each(skills, function(i, n) {
@@ -245,7 +253,7 @@ function change() {
   })
   
   //--- Create sorted stat list
-  $.each(s.sort(), function(i, v) {    
+  $.each(s.sort(), function(i, v) {
     $("#stats table:first")
       .append($("<tr>").addClass("stat").attr("data-s", v)
         .append($("<td>").addClass("stat-k").text(v + ":"))
@@ -256,10 +264,20 @@ function change() {
   $.each(u.sort(), function(i, v) {
     $("#stats table:last")
       .append($("<tr>").addClass("stat").attr("data-s", v)
-        .append($("<td>").text(v)))
+        .append($("<td>").html(color(v))))
   })
   
   reset()
+}
+
+//---------------------------------------- Color Keywords
+function color(s) {
+  $.each(keywords, function(k, v) {
+    if (s.match(v)) {
+      s = s.replace(v, "<span class=\"" + k + "\">$1</span>")
+    }
+  })
+  return s
 }
 
 //---------------------------------------- Stats
@@ -397,7 +415,7 @@ function init() {
       [ 0, [ 70 ], [ 72 ], { "Killed Marked enemy increases healing by 15%": null } ],
       [ 0, [ 71 ], [], { "Weapon Damage (Assault)": 0.2, "Drop Rate (Assault)": 0.12 } ],
       [ 0, [ 70 ], [ 74, 75 ], { "Weapon Leech": 0.05 } ],
-      [ 0, [ 73 ], [], { "When you Damage Skill ends, increase your Armor and Resistance Penetration by 25% for 10s": null } ],
+      [ 0, [ 73 ], [], { "When your Damage Skill ends, increase your Armor and Resistance Penetration by 25% for 10s": null } ],
       [ 0, [ 73 ], [ 76, 77 ], { "Activating Movement Skill increases your Armor Penetration by 25% for 10s": null } ], //--- 75
       [ 0, [ 75 ], [ 78 ], { "(UNKNOWN 5) Weapon Damage (Conditional?)": null } ], //--- ???
       [ 0, [ 75 ], [ 78 ], { "Shield Gain": 0.1, "Shield Degredation": -0.3 } ],
