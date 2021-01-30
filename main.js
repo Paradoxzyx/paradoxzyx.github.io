@@ -191,7 +191,7 @@ function remove(id) {
       $(".stat[data-s=\"" + k + "\"] .stat-c", activestats).text(--stats[active][k][2])
     }
     if (stats[active][k][0]) {
-      $(".stat[data-s=\"" + k + "\"] .stat-v", activestats).addClass("stat-" + Math.floor(stats[active][k][0] / stats[active][k][1] * 3)).text(Math.round(stats[k][0] * 100) + "%")
+      $(".stat[data-s=\"" + k + "\"] .stat-v", activestats).addClass("stat-" + Math.floor(stats[active][k][0] / stats[active][k][1] * 3)).text(Math.round(stats[active][k][0] * 100) + "%")
     }
     else {
       if (!$("#allstats").prop("checked")) {
