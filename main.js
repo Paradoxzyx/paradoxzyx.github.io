@@ -66,17 +66,17 @@ $(function() {
   
   //--- DEBUG
   $("body").append($("<img>").attr({ id: "bread", src: "favicon.ico", width: 24, height: 24 }).css({ position: "absolute", top: "2000px", right: "1%" }))
-})
 
-$("#bread").on("click", function() {
-  if (!$("#debug").length) {
-    $("#reset").after($("<div>").attr("id", "debug").css({ position: "fixed", left: "40px", top: "140px" }))
-    $(".node").mousemove(function() {
-      $("#debug").text($(this).attr("data-n"))
-    })
-  }
-  points = 100
-  $("#points").text(points)
+  $("#bread").on("click", function() {
+    if (!$("#debug").length) {
+      $("#reset").after($("<div>").attr("id", "debug").css({ position: "fixed", left: "40px", top: "140px" }))
+      $(".node").mousemove(function() {
+        $("#debug").text($(this).attr("data-n"))
+      })
+    }
+    points = 100
+    $("#points").text(points)
+  })
 })
 
 //---------------------------------------- Add node
@@ -520,7 +520,7 @@ function init() {
       [ 0, [ 45 ], [], { "Activating an Ignite Skill increases your Armor by 45% for 10s": null } ],
       [ 0, [ 45 ], [ 48, 49 ], { "Skill Leech is doubled when below 30% Health": null } ],
       [ 0, [ 47 ], [ 50 ], { "Damage (Against Burning)": 0.1 } ],
-      [ 0, [ 47 ], [ 50 ], [], { "Skill Cooldown (Ignite)": 0.15 } ],
+      [ 0, [ 47 ], [ 50 ], { "Skill Cooldown (Ignite)": 0.15 } ],
       [ 0, [ 48, 49 ], [], { "(UNKNOWN 9)": null } ],
       
       //--- 51
