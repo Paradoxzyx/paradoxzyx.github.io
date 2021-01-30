@@ -18,14 +18,6 @@ $(function() {
     $("#trickster").click()
   }
   
-  //--- Keywords for tooltips & stats descriptions
-  keywords = {
-    "hl-wd": /((weapon|assault|close range|long range) damage)/gi,
-    "hl-ap": /(anomaly power)/gi,
-    "hl-ar": /((armor|(armor and )?resistance) (piercing|penetration))/gi,
-    "hl-s": /((damage|disruption|movement) Skills?)/gi
-  }
-  
   //--- Load Tooltips
   $.each(allskills, function(c, t) {
     $.each(t, function(i, n) {
@@ -329,6 +321,14 @@ $("area").bind("click", function() {
 
 //---------------------------------------- Init
 function init() {
+  //--- Keywords for tooltips & stats descriptions
+  keywords = {
+    "hl-wd": /((weapon|assault|close range|long range) damage)/gi,
+    "hl-ap": /(anomaly power)/gi,
+    "hl-ar": /((armor|(armor and )?resistance) (piercing|penetration))/gi,
+    "hl-s": /((damage|disruption|movement) Skills?)/gi
+  }
+  
   allskills = {
     trickster: [
       [ 1, [], [ 1, 30, 55 ], { "Health": 0.05, "Damage Mitigation while Shield is active": 0.05 } ],
