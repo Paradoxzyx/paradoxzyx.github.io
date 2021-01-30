@@ -8,34 +8,38 @@
 </head>
 
 <body>
-  <div id="class" class="main">
+  <div id="nav" class="main">
     <div class="title">Class</div>
-    <div id="trickster" class="button">Trickster</div>
-    <div id="pyromancer" class="button">Pyromancer</div>
-    <div id="devastator" class="button">Devastator</div>
-    <div id="technomancer" class="button">Technomancer</div>
+    
+    <div id="nav-trickster" class="button" data-class="trickster">Trickster</div>
+    <div id="nav-pyromancer" class="button" data-class="pyromancer">Pyromancer</div>
+    <div id="nav-devastator" class="button" data-class="devastator">Devastator</div>
+    <div id="nav-technomancer" class="button" data-class="technomancer">Technomancer</div>
   </div>
 
   <div id="skilltree">
-    <div id="points"></div>
     <div id="reset" class="button">Reset</div>
 
-    <div id="trickster-st" class="skilltree">
+    <div class="trickster skilltree">
+      <div class="points"></div>
       <img usemap="#trickster" src="trickster.webp" />
       <map name="trickster"></map>
     </div>
 
-    <div id="pyromancer-st" class="skilltree">
+    <div class="pyromancer skilltree">
+      <div class="points"></div>
       <img usemap="#pyromancer" src="pyromancer.webp" />
       <map name="pyromancer"></map>
     </div>
 
-    <div id="devastator-st" class="skilltree">
+    <div class="devastator skilltree">
+      <div class="points"></div>
       <img usemap="#devastator" src="devastator.webp" />
       <map name="devastator"></map>
     </div>
 
-    <div id="technomancer-st" class="skilltree">
+    <div class="technomancer skilltree">
+      <div class="points"></div>
       <img usemap="#technomancer" src="technomancer.webp" />
       <map name="technomancer"></map>
     </div>
@@ -46,6 +50,7 @@
     
     <div id="statsoptions">
       <div class="title">Options</div>
+      
       <ul>
         <li>
           <input type="checkbox" id="allstats" name="allstats">
@@ -60,6 +65,7 @@
           <label for="nodecount">Show Node Count</label>
         </li>
       </ul>
+      
       <hr>
       <div>
         <input type="text" id="searchbox" name="search">
@@ -70,6 +76,7 @@
     
     <div id="statskey">
       <div class="title">Key</div>
+      
       <ul>
         <li class="stat-0">1-33%</li>
         <li class="stat-1">34-66%</li>
@@ -78,8 +85,27 @@
       </ul>
     </div>
     
-    <table></table>
-    <table></table>
+    <div id="statstable">
+      <div class="trickster statstable">
+        <table></table>
+        <table></table>
+      </div>
+      
+      <div class="pyromancer statstable">
+        <table></table>
+        <table></table>
+      </div>
+      
+      <div class="devastator statstable">
+        <table></table>
+        <table></table>
+      </div>
+      
+      <div class="technomancer statstable">
+        <table></table>
+        <table></table>
+      </div>
+    </div>
   </div>
   
   <div style="float:right;height:80px;text-align:right">
@@ -102,6 +128,7 @@
       <li>Stop node borders from bleeding through tooltips (Unlikely)</li>
       <li>Set all node skill values to 0.1 &amp; find all uniques</li>
       <li>Contain all skilltrees &amp; stats so they don't reset when changing classes</li>
+      <li>Coords for node 0 should be -1 instead of +1</li>
     </ul>
   </div>
 </body>
