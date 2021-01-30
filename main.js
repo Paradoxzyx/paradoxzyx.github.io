@@ -493,7 +493,7 @@ function init() {
       [ 0, [ 12 ], [], { "Weapon Damage (Sniper)": 0.2, "Drop Rate (Sniper)": 0.12 } ],
       [ 0, [ 12 ], [ 16 ], { "Armor Penetration": 0.1 } ],
       [ 0, [ 12 ], [ 16 ], { "Weapon Leech": 0.05 } ],
-      [ 0, [ 14, 15 ], [ 17, 19 ], { "Weapon Damage (Against Marked)": 0.1 } ],
+      [ 0, [ 14, 15 ], [ 17, 19, 20 ], { "Weapon Damage (Against Marked)": 0.1 } ],
       [ 0, [ 16 ], [ 18 ], { "Weapon Leech": 0.05 } ],
       [ 0, [ 17 ], [], { "Activating an Immobilize Skill doubles your Weapon Leech for 4s": null } ],
       [ 0, [ 16 ], [], { "(UNKNOWN 3)": null } ],
