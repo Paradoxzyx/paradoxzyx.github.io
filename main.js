@@ -275,7 +275,7 @@ $("#reset").on("click", function() {
   points[active] = 20
   skills[active][0][0] = 1
   add(0)
-}
+})
 
 //---------------------------------------- Change Tree
 $("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("click", function() {
