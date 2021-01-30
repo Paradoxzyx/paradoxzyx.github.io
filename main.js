@@ -76,6 +76,7 @@ $("#bread").on("click", function() {
     })
   }
   points = 100
+  $("#points").text(points)
 })
 
 //---------------------------------------- Add node
@@ -484,10 +485,10 @@ function init() {
       [ 0, [ 12 ], [ 16 ], { "Weapon Leech": 0.05 } ],
       [ 0, [ 14, 15 ], [ 17, 19 ], { "Weapon Damage (Against Marked)": 0.1 } ],
       [ 0, [ 16 ], [ 18 ], { "Weapon Leech": 0.05 } ],
-      [ 0, [ 18 ], [], { "Activating an Immobilize Skill doubles your Weapon Leech for 4s": null } ],
-      [ 0, [ 16 ], [ 20, 21 ], { "(UNKNOWN 3)": null } ],
-      [ 0, [ 19 ], [], { "Reload Time": -0.2 } ], //--- 20
-      [ 0, [ 19 ], [ 22, 23 ], { "Damage (Against Elites)": 0.1, "Take less damage (From Elites)": 0.1 } ],
+      [ 0, [ 17 ], [], { "Activating an Immobilize Skill doubles your Weapon Leech for 4s": null } ],
+      [ 0, [ 16 ], [], { "(UNKNOWN 3)": null } ],
+      [ 0, [ 16 ], [ 21 ], { "Reload Time": -0.2 } ], //--- 20
+      [ 0, [ 20 ], [ 22, 23 ], { "Damage (Against Elites)": 0.1, "Take less damage (From Elites)": 0.1 } ],
       [ 0, [ 21 ], [ 24 ], { "Damage (Against Ashed)": 0.2 } ],
       [ 0, [ 21 ], [ 24 ], { "Skill Cooldown (Immobilize)": 0.15 } ],
       [ 0, [ 22, 23 ], [], { "Activating an Immobilize Skill increases your Weapon Damage by 20% for 10s": null } ],
@@ -503,19 +504,19 @@ function init() {
       [ 0, [ 0, 31, 32 ], [ 31, 32 ], { "Health": 0.1 } ],
       [ 0, [ 30, 33 ], [ 30, 33 ], { "Skill Leech": 0.1 } ],
       [ 0, [ 30, 33 ], [ 30, 33 ], { "Skill Cooldown (Ignite)": 0.15 } ],
-      [ 0, [ 26, 31, 32, 34, 35, 50 ], [ 26, 31, 32, 34, 35, 50 ], { "Health": 0.1 } ],
+      [ 0, [ 26, 31, 32, 34, 35, 51 ], [ 26, 31, 32, 34, 35, 51 ], { "Health": 0.1 } ],
       [ 0, [ 33, 36 ], [ 33, 36 ], { "(UNKNOWN 7) Armor Increase": null} ],
       [ 0, [ 33, 36 ], [ 33, 36 ], { "Burn Damage": 0.2 } ],
-      [ 0, [ 28, 34, 35, 53 ], [ 28, 34, 35, 37, 38, 53 ], { "Health": 0.1 } ],
+      [ 0, [ 28, 34, 35, 54 ], [ 28, 34, 35, 37, 38, 54 ], { "Health": 0.1 } ],
       [ 0, [ 36 ], [ 39 ], { "Weapon Damage": 0.05, "Anomaly Power": 0.05 } ],
       [ 0, [ 36 ], [ 39 ], { "(UNKNOWN 8) Resistance Increase": null } ],
-      [ 0, [ 37, 38 ], [ 40, 41, 42 ], { "Health": 0.1 } ],
+      [ 0, [ 37, 38 ], [ 40, 41, 42, 43 ], { "Health": 0.1 } ],
       [ 0, [ 39 ], [], { "Increase Anomaly Power by 2.5% for each unlocked Magma Golem node": null } ], //--- 40
       [ 0, [ 39 ], [], { "Activating any skill increases Weapon Damage by 20% for 7s": null } ],
       [ 0, [ 39 ], [ 44 ], { "Skill Leech": 0.1 } ],
       [ 0, [ 39 ], [ 44 ], { "Burn Duration": 0.2 } ],
       [ 0, [ 42, 43 ], [ 45 ], { "Health": 0.1 } ],
-      [ 0, [ 42, 43 ], [ 45 ], { "Skill Leech": 0.1 } ],
+      [ 0, [ 44 ], [ 46, 47 ], { "Skill Leech": 0.1 } ],
       [ 0, [ 45 ], [], { "Activating an Ignite Skill increases your Armor by 45% for 10s": null } ],
       [ 0, [ 45 ], [ 48, 49 ], { "Skill Leech is doubled when below 30% Health": null } ],
       [ 0, [ 47 ], [ 50 ], { "Damage (Against Burning)": 0.1 } ],
@@ -545,7 +546,7 @@ function init() {
       [ 0, [ 67 ], [], { "(UNKNOWN 19)": null } ],
       [ 0, [ 67 ], [ 71 ], { "Skill Leech": 0.1 } ],
       [ 0, [ 67 ], [ 71 ], { "(UNKNOWN 20) Resistance boost": null } ],
-      [ 0, [ 69, 70 ], [ 724, 74 ], { "Anomaly Power": 0.06 } ],
+      [ 0, [ 69, 70 ], [ 72, 74 ], { "Anomaly Power": 0.06 } ],
       [ 0, [ 71 ], [ 73 ], { "Upon losing all health you will recive a second chance to return to the battlefield with 50% Health (180s cooldown)": null } ],
       [ 0, [ 72 ], [], { "Your Phoenix revival will now grant 100% of your health points and will be ready to activate every 135s": null } ],
       [ 0, [ 71 ], [ 75, 76 ], { "(UNKNOWN 21) Resistance piercing": null } ],
