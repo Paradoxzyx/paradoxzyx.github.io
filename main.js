@@ -30,7 +30,7 @@ $(function() {
           s.push(k)
         }
       })
-      $("#" + c + "-st .node[data-n=" + i + "]").append($("<div>").addClass("tooltip").html(Color(s.join("<br>"))))
+      $("#" + c + "-st .node[data-n=" + i + "]").append($("<div>").addClass("tooltip").html(color(s.join("<br>"))))
     })
   })
   
