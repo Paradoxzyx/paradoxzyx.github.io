@@ -590,7 +590,7 @@ function init() {
     $.each(t, function(i, n) {
       let s = o[n[2]]
       m.append($("<div>").addClass("node n" + n[2]).attr("data-n", i).css({ left: n[0] - s + "px", top: n[1] - s + "px" })
-        .append($("<area>").attr({ shape: "circle", href: "#", coords: n[0] + "," + n[1] + "," + s + 1 })))
+        .append($("<area>").attr({ shape: "circle", href: "#", coords: n[0] + "," + n[1] + "," + (s + 1) })))
     })
   })
 }
