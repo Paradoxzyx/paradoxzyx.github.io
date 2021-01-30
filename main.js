@@ -217,10 +217,10 @@ function reset() {
     s[0] = 0
   })
   if (!$("#allstats").prop("checked")) {
-    $(".stat", activetree).hide()
+    $(".stat", activestats).hide()
   }
-  $(".stat", activetree).addClass("inactive")
-  $(".stat .stat-v", activetree).removeClass("stat-0 stat-1 stat-2 stat-3").text("0%")
+  $(".stat", activestats).addClass("inactive")
+  $(".stat .stat-v", activestats).removeClass("stat-0 stat-1 stat-2 stat-3").text("0%")
   
   //--- Add node 0
   url = []
