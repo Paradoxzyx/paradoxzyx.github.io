@@ -75,7 +75,6 @@ hr {
 
 #skilltree .skilltree {
     display: none;
-    min-height: fit-content;
 }
 
 /* ----- Node */
@@ -172,6 +171,7 @@ hr {
 #stats table {
     display: inline-block;
     vertical-align: top;
+    min-width: 26em;
     max-width: calc(49% - 20px);
     margin: 10px;
 }
@@ -254,4 +254,21 @@ hr {
 
 #stats .stat-3 {
     color: #FF55E9;
+}
+
+/* ----- Keywords */
+.hl-wd {
+    color: #F12B2B;
+}
+
+.hl-ap {
+    color: #20DEFF;
+}
+
+.hl-ar {
+    color: #FB9716;
+}
+
+.hl-s {
+    color: #F343E4;
 }
