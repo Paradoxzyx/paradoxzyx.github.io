@@ -388,7 +388,7 @@ function init() {
       [ 0, [ 4, 8 ], [ 4, 8 ], { "Skill Cooldown (Movement)": 0.15 } ],
       [ 0, [ 4, 8 ], [ 4, 8 ], { "Crit Damage": 0.2 } ],
       [ 0, [ 6, 7, 28 ], [ 6, 7, 9, 10, 11, 28 ], { "Weapon Damage (Close Range)": 0.15 } ],
-      [ 0, [ 8 ], [], { "Activation of Disruption Skills increases your Weapon Damage by 20% for 8s": null } ],
+      [ 0, [ 8 ], [], { "Activating a Disruption Skill increases your Weapon Damage by 20% for 8s": null } ],
       [ 0, [ 8 ], [ 12 ], { "Skill Cooldown (Disruption)": 0.15 } ], //--- 10
       [ 0, [ 8 ], [ 12 ], { "Armor Penetration": 0.1 } ],
       [ 0, [ 10, 11 ], [ 13, 14, 15 ], { "Weapon Damage (From Behind)": 0.2 } ],
@@ -407,9 +407,9 @@ function init() {
       
       //--- 25
       [ 0, [ 4, 26 ], [ 4, 26 ], { "Weapon Damage (Close Range)": 0.15 } ],
-      [ 0, [ 25, 33 ], [ 25, 33, 27 ], { "Activating Movement Skills increases your Armor Penetration by 25% for 10s": null } ],
+      [ 0, [ 25, 33 ], [ 25, 33, 27 ], { "Activating a Movement Skill increases your Armor Penetration by 25% for 10s": null } ],
       [ 0, [ 26 ], [], { "Gain additional 3% health for every enemy that died in close range": null } ],
-      [ 0, [ 8, 36 ], [ 8, 29, 36 ], { "When your Movement Skill ends, increase Weapon Damage by 20% for 8s": null } ],
+      [ 0, [ 8, 36 ], [ 8, 29, 36 ], { "When your Movement Skill ends, increase your Weapon Damage by 20% for 8s": null } ],
       [ 0, [ 28 ], [], { "Armor Penetration": 0.1 } ],
       
       //--- 30 - Harbinger
@@ -450,11 +450,11 @@ function init() {
       [ 0, [ 58, 62 ], [ 58, 62 ], { "Anomaly Power": 0.06 } ],
       [ 0, [ 58, 62 ], [ 58, 62 ], { "Skill Cooldown (Damage)": 0.15 } ],
       [ 0, [ 53, 60, 61 ], [ 53, 60, 61, 63, 64, 65 ], { "Anomaly Power": 0.06 } ],
-      [ 0, [ 62 ], [], { "Activating your Movement Skill increases your Resistance Penetration by 25% for 10s": null } ],
+      [ 0, [ 62 ], [], { "Activating a Movement Skill increases your Resistance Penetration by 25% for 10s": null } ],
       [ 0, [ 62 ], [ 66 ], { "Weakness Duration": 0.3 } ],
       [ 0, [ 62 ], [ 66 ], { "Resistance": 0.15 } ], //--- 65
       [ 0, [ 64, 65 ], [ 67, 68, 69 ], { "Anomaly Power": 0.06 } ],
-      [ 0, [ 66 ], [], { "Activating your Movement Skill increases your Anomaly Power by 20% for 10s": null } ],
+      [ 0, [ 66 ], [], { "Activating a Movement Skill increases your Anomaly Power by 20% for 10s": null } ],
       [ 0, [ 66 ], [ 70 ], { "Weapon Leech": 0.05 } ],
       [ 0, [ 66 ], [ 70 ], { "Anomaly Power": 0.06 } ],
       [ 0, [ 68, 69 ], [ 71, 73 ], { "Anomaly Power": 0.06 } ],
@@ -462,7 +462,7 @@ function init() {
       [ 0, [ 71 ], [], { "Weapon Damage (Assault)": 0.2, "Drop Rate (Assault)": 0.12 } ],
       [ 0, [ 70 ], [ 74, 75 ], { "Weapon Leech": 0.05 } ],
       [ 0, [ 73 ], [], { "When your Damage Skill ends, increase your Armor and Resistance Penetration by 25% for 10s": null } ],
-      [ 0, [ 73 ], [ 76, 77 ], { "Activating Movement Skill increases your Armor Penetration by 25% for 10s": null } ], //--- 75
+      [ 0, [ 73 ], [ 76, 77 ], { "Activating a Movement Skill increases your Armor Penetration by 25% for 10s": null } ], //--- 75
       [ 0, [ 75 ], [ 78 ], { "(UNKNOWN 5) Weapon Damage (Conditional?)": null } ], //--- ???
       [ 0, [ 75 ], [ 78 ], { "Shield": 0.1, "Shield Degredation": -0.3 } ],
       [ 0, [ 76, 77 ], [], { "For each enemy in close range, your Anomaly Power is increased by 10% (Stacks up to 10 times)": null } ]
