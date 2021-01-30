@@ -53,7 +53,7 @@ $(function() {
     //--- Create sorted stat list (Unique stats)
     $.each(u.sort(), function(i, v) {
       $("table:last", statstable)
-        .append($("<tr>").addClass("stat").attr("data-s", v)
+        .append($("<tr>").addClass("stat inactive").attr("data-s", v)
           .append($("<td>").html(color(v))))
     })
   })
