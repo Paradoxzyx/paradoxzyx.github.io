@@ -76,6 +76,7 @@ function add(id) {
       if (stats[k][1]) {
         stats[k][0] += v
         $(".stat[data-s=\"" + k + "\"] .stat-v").removeClass("stat-0 stat-1 stat-2 stat-3").addClass("stat-" + Math.floor(stats[k][0] / stats[k][1] * 3)).text(Math.round(stats[k][0] * 100) + "%")
+        $(".stat[data-s=\"" + k + "\"] .stat-c").text(++stats[k][2])
       }
       $(".stat[data-s=\"" + k + "\"]").removeClass("inactive").show()
     })
@@ -110,8 +111,11 @@ function remove(id) {
     //--- Stats
     let s = node[3]
     $.each(s, function(k, v) {
-      stats[k][0] -= v
-      $(".stat[data-s=\"" + k + "\"] .stat-v").removeClass("stat-0 stat-1 stat-2 stat-3")
+      if (stats[k][1]) {
+        stats[k][0] -= v
+        $(".stat[data-s=\"" + k + "\"] .stat-v").removeClass("stat-0 stat-1 stat-2 stat-3")
+        $(".stat[data-s=\"" + k + "\"] .stat-c").text(--stats[k][2])
+      }
       if (stats[k][0]) {
         $(".stat[data-s=\"" + k + "\"] .stat-v").addClass("stat-" + Math.floor(stats[k][0] / stats[k][1] * 3)).text(Math.round(stats[k][0] * 100) + "%")
       }
@@ -227,10 +231,11 @@ function change() {
   $.each(skills, function(i, n) {
     $.each(n[3], function(k, v) {
       if (!stats[k]) {
-        stats[k] = [ 0, v ]
+        stats[k] = [ 0, v, 1 ]
       }
       else {
         stats[k][1] += v
+        stats[k][2]++
       }
       
       if (v) {
@@ -252,7 +257,8 @@ function change() {
       .append($("<tr>").addClass("stat").attr("data-s", v)
         .append($("<td>").addClass("stat-k").text(v + ":"))
         .append($("<td>").addClass("stat-v"))
-        .append($("<td>").addClass("stat-m").text(Math.round(stats[v][1] * 100) + "%")))
+        .append($("<td>").addClass("stat-m").text(Math.round(stats[v][1] * 100) + "%"))
+        .append($("<td>").addClass("stat-n").html("(<span class=\"stat-c\">0</span>/" + stats[v][2] + ")")))
   })
   //--- Create sorted stat list (Unique stats)
   $.each(u.sort(), function(i, v) {
@@ -276,6 +282,10 @@ $("#allstats").on("click", function() {
 
 $("#maxstats").on("click", function() {
   $("#stats .stat-m").toggle()
+})
+
+$("#nodecount").on("click", function() {
+  $("#stats .stat-n").toggle()
 })
 
 //---------------------------------------- Search
