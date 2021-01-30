@@ -78,9 +78,7 @@ $(function() {
     $("#nav-" + active).click()
     if (s) {
       $.each(s.split(",").map(Number), function(i, n) {
-        if (n != 0) {
-          add(n)
-        }
+        add(n)
       })
     }
   }
