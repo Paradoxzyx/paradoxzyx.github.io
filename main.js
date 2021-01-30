@@ -376,7 +376,7 @@ function init() {
   keywords = {
     "hl-wd": /((weapon|assault|close range|long range) damage)/gi,
     "hl-ap": /(anomaly power)/gi,
-    "hl-ar": /((armor|(armor and )?resistance) (piercing|penetration))/gi,
+    "hl-ar": /((armor|(armor and )?resistance) penetration)/gi,
     "hl-s": /((damage|disruption|movement) Skills?)/gi
   }
   
@@ -424,7 +424,7 @@ function init() {
       [ 0, [ 30, 33 ], [ 30, 33 ], { "Damage Mitigation while Shield is active": 0.05 } ],
       [ 0, [ 26, 31, 32, 34, 35, 50 ], [ 26, 31, 32, 34, 35, 50 ], { "Health": 0.1 } ],
       [ 0, [ 33, 36 ], [ 33, 36 ], { "Shield": 0.1, "Shield Degredation": -0.3 } ],
-      [ 0, [ 33, 36 ], [ 33, 36 ], { "(UNKNOWN 1)": null } ], //--- ???
+      [ 0, [ 33, 36 ], [ 33, 36 ], { "(UNKNOWN 1)": null } ],
       [ 0, [ 28, 34, 35, 53 ], [ 28, 34, 35, 37, 38, 53 ], { "Health": 0.1 } ],
       [ 0, [ 36 ], [ 39 ], { "Resistance": 0.15 } ],
       [ 0, [ 36 ], [ 39 ], { "Shield Degredation": -0.3 } ],
@@ -442,10 +442,10 @@ function init() {
       
       //--- 50
       [ 0, [ 33, 52 ], [ 33, 51, 52 ], { "When surrounded by enemies, reloading your weapon deals damage and interrupts enemies' abilities. Damage scales with Anomaly Power.": null } ],
-      [ 0, [ 50 ], [], { "(UNKNOWN 2)": null } ], //--- ???
-      [ 0, [ 50, 58 ], [ 50, 58 ], { "(UNKNOWN 3) Resistance Penetration": null } ], //--- ???
+      [ 0, [ 50 ], [], { "(UNKNOWN 2)": null } ],
+      [ 0, [ 50, 58 ], [ 50, 58 ], { "(UNKNOWN 3) Resistance Penetration": null } ],
       [ 0, [ 36, 62 ], [ 36, 54, 62 ], { "Melee applies Weakness": null } ],
-      [ 0, [ 53 ], [], { "(UNKNOWN 4) 10% Shield, -30% Shield Degredation": null } ], //--- ???
+      [ 0, [ 53 ], [], { "(UNKNOWN 4) 10% Shield, -30% Shield Degredation": null } ],
       
       //--- 55 - Assassin
       [ 0, [ 0, 56, 57 ], [ 56, 57 ], { "Anomaly Power": 0.06 } ],
@@ -469,7 +469,7 @@ function init() {
       [ 0, [ 70 ], [ 74, 75 ], { "Weapon Leech": 0.05 } ],
       [ 0, [ 73 ], [], { "When your Damage Skill ends, increase your Armor and Resistance Penetration by 25% for 10s": null } ],
       [ 0, [ 73 ], [ 76, 77 ], { "Activating a Movement Skill increases your Armor Penetration by 25% for 10s": null } ], //--- 75
-      [ 0, [ 75 ], [ 78 ], { "(UNKNOWN 5) Weapon Damage (Conditional?)": null } ], //--- ???
+      [ 0, [ 75 ], [ 78 ], { "(UNKNOWN 5) Weapon Damage (Conditional?)": null } ],
       [ 0, [ 75 ], [ 78 ], { "Shield": 0.1, "Shield Degredation": -0.3 } ],
       [ 0, [ 76, 77 ], [], { "For each enemy in close range, your Anomaly Power is increased by 10% (Stacks up to 10 times)": null } ]
     ],
@@ -535,10 +535,10 @@ function init() {
       
       //--- 51
       [ 0, [ 33, 53 ], [ 33, 52, 53 ], { "Skill Cooldown": 0.1 } ],
-      [ 0, [ 51 ], [], { "(UNKNOWN 10) Damage boost (Conditional)": null } ], //--- ???
-      [ 0, [ 51, 59 ], [ 51, 59 ], { "Weapon Damage (Sidearm)": 0.12 } ], //--- ???
+      [ 0, [ 51 ], [], { "(UNKNOWN 10) Damage boost (Conditional)": null } ],
+      [ 0, [ 51, 59 ], [ 51, 59 ], { "Weapon Damage (Sidearm)": 0.12 } ],
       [ 0, [ 36, 63 ], [ 36, 55, 63 ], { "(UNKNOWN 11)": null } ],
-      [ 0, [ 54 ], [], { "(UNKNOWN 12) Burn related": null } ], //--- ???
+      [ 0, [ 54 ], [], { "(UNKNOWN 12) Burn related": null } ],
       
       //--- 56 - Tempest
       [ 0, [ 0, 57, 58 ], [ 57, 58 ], { "Anomaly Power": 0.06 } ],
@@ -559,10 +559,10 @@ function init() {
       [ 0, [ 69, 70 ], [ 72, 74 ], { "Anomaly Power": 0.06 } ],
       [ 0, [ 71 ], [ 73 ], { "Upon losing all health you will recive a second chance to return to the battlefield with 50% Health (180s cooldown)": null } ],
       [ 0, [ 72 ], [], { "Your Phoenix revival will now grant 100% of your health points and will be ready to activate every 135s": null } ],
-      [ 0, [ 71 ], [ 75, 76 ], { "(UNKNOWN 21) Resistance piercing": null } ],
+      [ 0, [ 71 ], [ 75, 76 ], { "(UNKNOWN 21) Resistance Penetration": null } ],
       [ 0, [ 74 ], [], { "Killing a Marked target heals you by additional 12% of your maximum health": null } ],
       [ 0, [ 74 ], [ 77, 78 ], { "(UNKNOWN 22)": null } ], //--- 75
-      [ 0, [ 76 ], [ 79 ], { "(UNKNOWN 23)": null } ], //--- ???
+      [ 0, [ 76 ], [ 79 ], { "(UNKNOWN 23)": null } ],
       [ 0, [ 76 ], [ 79 ], { "Skill Cooldown (Explosive)": 0.15 } ],
       [ 0, [ 77, 78 ], [], { "(UNKNOWN 24)": null } ]
     ],
@@ -570,98 +570,99 @@ function init() {
     devastator: [
       [ 1, [], [ 1, 30, 55 ], { "Every Close Range kill heals you by 24% of your Maximum Health": null, "Health": 0.15, "Armor": 0.3 } ],
       
-      //--- 1 - 
-      [ 0, [ 1, 4 ], [ 1, 4 ], { "": 0.1 } ],
-      [ 0, [ 1, 4 ], [ 1, 4 ], { "": 0.1 } ],
-      [ 0, [ 2, 3, 6, 7, 25 ], [ 2, 3, 5, 6, 7, 25 ], { "": 0.1 } ],
-      [ 0, [ 4 ], [], { "": 0.1 } ],
-      [ 0, [ 4, 8 ], [ 4, 8 ], { "": 0.1 } ],
-      [ 0, [ 4, 8 ], [ 4, 8 ], { "": 0.1 } ],
-      [ 0, [ 6, 7, 28 ], [ 6, 7, 9, 10, 11, 28 ], { "": 0.1 } ],
-      [ 0, [ 8 ], [], { "": 0.1 } ],
-      [ 0, [ 8 ], [ 12 ], { "": 0.1 } ], //--- 10
-      [ 0, [ 8 ], [ 12 ], { "": 0.1 } ],
-      [ 0, [ 10, 11 ], [ 13, 14, 15 ], { "": 0.1 } ],
-      [ 0, [ 12 ], [], { "": 0.1 } ],
-      [ 0, [ 12 ], [ 16 ], { "": 0.1 } ],
-      [ 0, [ 12 ], [ 16 ], { "": 0.1 } ],
-      [ 0, [ 14, 15 ], [ 17, 19 ], { "": 0.1 } ],
-      [ 0, [ 16 ], [ 18 ], { "": 0.1 } ],
-      [ 0, [ 18 ], [], { "": 0.1 } ],
-      [ 0, [ 16 ], [ 20, 21 ], { "": 0.1 } ],
-      [ 0, [ 19 ], [], { "": 0.1 } ], //--- 20
-      [ 0, [ 19 ], [ 22, 23 ], { "": 0.1 } ],
-      [ 0, [ 21 ], [ 24 ], { "": 0.1 } ],
-      [ 0, [ 21 ], [ 24 ], { "": 0.1 } ],
-      [ 0, [ 22, 23 ], [], { "": 0.1 } ],
+      //--- 1 - Vanquisher
+      [ 0, [ 1, 4 ], [ 1, 4 ], { "Weapon Damage": 0.08 } ],
+      [ 0, [ 1, 4 ], [ 1, 4 ], { "Weapon Damage (Shotgun)": 0.12 } ],
+      [ 0, [ 2, 3, 6, 7, 25 ], [ 2, 3, 5, 6, 7, 25 ], { "Armor Penetration": 0.1 } ],
+      [ 0, [ 4 ], [], { "Weapon Damage": 0.08 } ],
+      [ 0, [ 4, 8 ], [ 4, 8 ], { "Weapon Damage (Shotgun)": 0.2, "Drop Rate (Shotgun)": 0.12 } ],
+      [ 0, [ 4, 8 ], [ 4, 8 ], { "Weapon Damage (Assault)": 0.12 } ],
+      [ 0, [ 6, 7, 28 ], [ 6, 7, 9, 10, 11, 28 ], { "Armor Penetration": 0.1 } ],
+      [ 0, [ 8 ], [], { "Weapon Damage": 0.08 } ],
+      [ 0, [ 8 ], [ 12 ], { "When your Kinetic Skill ends, increase your Weapon Damage by 20% for 10s": null } ], //--- 10
+      [ 0, [ 8 ], [ 12 ], { "Crit Damage": 0.2 } ],
+      [ 0, [ 10, 11 ], [ 13, 14, 15 ], { "(UNKNOWN 1)": null } ],
+      [ 0, [ 12 ], [], { "Weapon Damage": 0.08 } ],
+      [ 0, [ 12 ], [ 16 ], { "Weapon Damage (Assault)": 0.2, "Drop Rate (Assault)": 0.12 } ],
+      [ 0, [ 12 ], [ 16 ], { "Skill Cooldown (Kinetic)": 0.15 } ],
+      [ 0, [ 14, 15 ], [ 17, 19 ], { "Weapon Damage (Close Range)": 0.15 } ],
+      [ 0, [ 16 ], [ 18 ], { "Weapon Damage": 0.08 } ],
+      [ 0, [ 18 ], [], { "Weapon Leech": 0.05 } ],
+      [ 0, [ 16 ], [ 20, 21 ], { "(UNKNOWN 2)": null } ],
+      [ 0, [ 19 ], [], { "(UNKNOWN 3)": null } ], //--- 20
+      [ 0, [ 19 ], [ 22, 23 ], { "(UNKNOWN 4)": null } ],
+      [ 0, [ 19 ], [ 22, 23 ], { { "Damage (Physical against Elites)": 0.15, "Take less damage (From Elites)": 0.15 } ],
+      [ 0, [ 21 ], [ 24 ], { "Weapon Leech": 0.05 } ],
+      [ 0, [ 21 ], [ 24 ], { "Armor Penetration": 0.1 } ],
+      [ 0, [ 22, 23 ], [], { "When your Kinetic Skill ends, increase your Weapon Damage by 70% for 10s": null } ],
       
       //--- 25
-      [ 0, [ 4, 26 ], [ 4, 26 ], { "": 0.1 } ],
-      [ 0, [ 25, 33 ], [ 25, 33, 27 ], { "": 0.1 } ],
-      [ 0, [ 26 ], [], { "": 0.1 } ],
-      [ 0, [ 8, 36 ], [ 8, 29, 36 ], { "": 0.1 } ],
-      [ 0, [ 28 ], [], { "": 0.1 } ],
+      [ 0, [ 4, 26 ], [ 4, 26 ], { "(UNKNOWN 5) Skill Cooldown": null } ],
+      [ 0, [ 25, 33 ], [ 25, 33, 27 ], { "When your Kinetic Skill ends, increase your Damage Mitigation by 20% for 10s": null } ],
+      [ 0, [ 26 ], [], { "(UNKNWON 6) Weapon Damage": null } ],
+      [ 0, [ 8, 36 ], [ 8, 29, 36 ], { "When an enemy dies in close range, gain 20% of their Armor for 10s": null } ],
+      [ 0, [ 28 ], [], { "(UNKNOWN 7)": null } ],
       
-      //--- 30 - 
-      [ 0, [ 0, 31, 32 ], [ 31, 32 ], { "": 0.1 } ],
-      [ 0, [ 30, 33 ], [ 30, 33 ], { "": 0.1 } ],
-      [ 0, [ 30, 33 ], [ 30, 33 ], { "": 0.1 } ],
-      [ 0, [ 26, 31, 32, 34, 35, 50 ], [ 26, 31, 32, 34, 35, 50 ], { "": 0.1 } ],
-      [ 0, [ 33, 36 ], [ 33, 36 ], { "": 0.1 } ],
-      [ 0, [ 33, 36 ], [ 33, 36 ], { "": 0.1 } ],
-      [ 0, [ 28, 34, 35, 53 ], [ 28, 34, 35, 37, 38, 53 ], { "": 0.1 } ],
-      [ 0, [ 36 ], [ 39 ], { "": 0.1 } ],
-      [ 0, [ 36 ], [ 39 ], { "": 0.1 } ],
-      [ 0, [ 37, 38 ], [ 40, 41, 42 ], { "": 0.1 } ],
-      [ 0, [ 39 ], [], { "": 0.1 } ], //--- 40
-      [ 0, [ 39 ], [ 43 ], { "": 0.1 } ],
-      [ 0, [ 39 ], [ 43 ], { "": 0.1 } ],
-      [ 0, [ 41, 42 ], [ 44, 45 ], { "": 0.1 } ],
-      [ 0, [ 43 ], [], { "": 0.1 } ],
-      [ 0, [ 43 ], [ 46 ], { "": 0.1 } ],
+      //--- 30 - Warden
+      [ 0, [ 0, 31, 32 ], [ 31, 32 ], { "Health": 0.1 } ],
+      [ 0, [ 30, 33 ], [ 30, 33 ], { "Armor": 0.2 } ],
+      [ 0, [ 30, 33 ], [ 30, 33 ], { "Health Regen every second": 0.01 } ],
+      [ 0, [ 26, 31, 32, 34, 35, 50 ], [ 26, 31, 32, 34, 35, 50 ], { "Health": 0.1 } ],
+      [ 0, [ 33, 36 ], [ 33, 36 ], { "Resistance increase for each enemy in close range": 0.15 } ],
+      [ 0, [ 33, 36 ], [ 33, 36 ], { "Health Regen every second": 0.01 } ],
+      [ 0, [ 28, 34, 35, 53 ], [ 28, 34, 35, 37, 38, 53 ], { "Health": 0.1 } ],
+      [ 0, [ 36 ], [ 39 ], { "Health Regen every second": 0.01 } ],
+      [ 0, [ 36 ], [ 39 ], { "Armor": 0.2 } ],
+      [ 0, [ 37, 38 ], [ 40, 41, 42 ], { "Health": 0.1 } ],
+      [ 0, [ 39 ], [], { "Increase all Healing and Shields by 20% for your and your allies": null } ], //--- 40
+      [ 0, [ 39 ], [ 43 ], { "Health": 0.1 } ],
+      [ 0, [ 39 ], [ 43 ], { "Skill Cooldown (Protection)": 0.15 } ],
+      [ 0, [ 41, 42 ], [ 44, 45 ], { "Resistance increase for each enemy in close range": 0.15 } ],
+      [ 0, [ 43 ], [], { "You have 100% chance to ignore damage that would kill you and instantly heal your for 50% of your health points (180s cooldown)": null } ],
+      [ 0, [ 43 ], [ 46 ], { "Armor": 0.2 } ],
       [ 0, [ 45 ], [ 47, 48 ], { "": 0.1 } ],
-      [ 0, [ 46 ], [ 49 ], { "": 0.1 } ],
-      [ 0, [ 46 ], [ 49 ], { "": 0.1 } ],
-      [ 0, [ 47, 48 ], [], { "": 0.1 } ],
+      [ 0, [ 46 ], [ 49 ], { "Resistance increase for each enemy in close range": 0.15 } ],
+      [ 0, [ 46 ], [ 49 ], { "Armor": 0.2  } ],
+      [ 0, [ 47, 48 ], [], { "Increase Firepower by 10% of your Armor": null, "Increase Anomaly Power by 10% of your Armor": null } ],
       
       //--- 50
-      [ 0, [ 33, 52 ], [ 33, 51, 52 ], { "": 0.1 } ],
-      [ 0, [ 50 ], [], { "": 0.1 } ],
-      [ 0, [ 50, 58 ], [ 50, 58 ], { "": 0.1 } ],
-      [ 0, [ 36, 62 ], [ 36, 54, 62 ], { "": 0.1 } ],
-      [ 0, [ 53 ], [], { "": 0.1 } ],
+      [ 0, [ 33, 52 ], [ 33, 51, 52 ], { "After using Stone Push, increase Resistance Penetration by 15% for each hit enemy for 10s": null } ],
+      [ 0, [ 50 ], [], { "(UNKNWON 8) Health": null } ],
+      [ 0, [ 50, 58 ], [ 50, 58 ], { "Skill Cooldown (Kinetic)": 0.15 } ],
+      [ 0, [ 36, 62 ], [ 36, 54, 62 ], { "(UNKNWON 9) Health": null } ],
+      [ 0, [ 53 ], [], { "(UNKNWON 10) Armor": null } ],
       
-      //--- 55 - 
-      [ 0, [ 0, 56, 57 ], [ 56, 57 ], { "": 0.1 } ],
-      [ 0, [ 55, 58 ], [ 55, 58 ], { "": 0.1 } ],
-      [ 0, [ 55, 58 ], [ 55, 58 ], { "": 0.1 } ],
-      [ 0, [ 52, 56, 57, 60, 61 ], [ 52, 56, 57, 59, 60, 61 ], { "": 0.1 } ],
-      [ 0, [ 58 ], [], { "": 0.1 } ],
-      [ 0, [ 58, 62 ], [ 58, 62 ], { "": 0.1 } ],
-      [ 0, [ 58, 62 ], [ 58, 62 ], { "": 0.1 } ],
-      [ 0, [ 53, 60, 61 ], [ 53, 60, 61, 63, 64, 65 ], { "": 0.1 } ],
-      [ 0, [ 62 ], [], { "": 0.1 } ],
-      [ 0, [ 62 ], [ 66 ], { "": 0.1 } ],
-      [ 0, [ 62 ], [ 66 ], { "": 0.1 } ], //--- 65
-      [ 0, [ 64, 65 ], [ 67, 68, 69 ], { "": 0.1 } ],
-      [ 0, [ 66 ], [], { "": 0.1 } ],
-      [ 0, [ 66 ], [ 70 ], { "": 0.1 } ],
-      [ 0, [ 66 ], [ 70 ], { "": 0.1 } ],
-      [ 0, [ 68, 69 ], [ 71, 73 ], { "": 0.1 } ],
-      [ 0, [ 70 ], [ 72 ], { "": 0.1 } ],
-      [ 0, [ 71 ], [], { "": 0.1 } ],
-      [ 0, [ 70 ], [ 74, 75 ], { "": 0.1 } ],
-      [ 0, [ 73 ], [], { "": 0.1 } ],
-      [ 0, [ 73 ], [ 76, 77 ], { "": 0.1 } ], //--- 75
-      [ 0, [ 75 ], [ 78 ], { "": 0.1 } ],
-      [ 0, [ 75 ], [ 78 ], { "": 0.1 } ],
-      [ 0, [ 76, 77 ], [], { "": 0.1 } ]
+      //--- 55 - Seismic Shifter
+      [ 0, [ 0, 56, 57 ], [ 56, 57 ], { "Anomaly Power": 0.06 } ],
+      [ 0, [ 55, 58 ], [ 55, 58 ], { "Skill Cooldown (Kinetic)": 0.15 } ],
+      [ 0, [ 55, 58 ], [ 55, 58 ], { "Skill Leech": 0.1 } ],
+      [ 0, [ 52, 56, 57, 60, 61 ], [ 52, 56, 57, 59, 60, 61 ], { "Anomaly Power": 0.06 } ],
+      [ 0, [ 58 ], [], { "Activating a Protection Skill increases Anomaly Power by 60% for 5s": null } ],
+      [ 0, [ 58, 62 ], [ 58, 62 ], { "Resistance Penetration": 0.15 } ],
+      [ 0, [ 58, 62 ], [ 58, 62 ], { "Skill Cooldown (Seismic)": 0.15 } ],
+      [ 0, [ 53, 60, 61 ], [ 53, 60, 61, 63, 64, 65 ], { "Anomaly Power": 0.06 } ],
+      [ 0, [ 62 ], [], { "Increase your Firepower by 15% of your Anomaly Power": null } ],
+      [ 0, [ 62 ], [ 66 ], { "(UNKNOWN 11) Bleed": null } ],
+      [ 0, [ 62 ], [ 66 ], { "Skill Cooldown (Seismic)": 0.15 } ], //--- 65
+      [ 0, [ 64, 65 ], [ 67, 68, 69 ], { "Anomaly Power": 0.06 } ],
+      [ 0, [ 66 ], [], { "(UNKNOWN 12)": null } ],
+      [ 0, [ 66 ], [ 70 ], { "Increase Damage by 20% against enemies with lesss than 30% Health": null } ],
+      [ 0, [ 66 ], [ 70 ], { "(UNKNOWN 13) Bleed": null } ],
+      [ 0, [ 68, 69 ], [ 71, 73 ], { "Anomaly Power": 0.06 } ],
+      [ 0, [ 70 ], [ 72 ], { "(UNKNOWN 14) Bleed": null } ],
+      [ 0, [ 71 ], [], { "You are healed by 50% of the Damage caused by Bleed": null } ],
+      [ 0, [ 70 ], [ 74, 75 ], { "Skill Leech": 0.1 } ],
+      [ 0, [ 73 ], [], { "When any skill ends, increase your Armor and Resistance by 20% for 10s": null } ],
+      [ 0, [ 73 ], [ 76, 77 ], { "Increase your Armor bonus by 40% of your Anomaly Power": null } ], //--- 75
+      [ 0, [ 75 ], [ 78 ], { "Resistance Penetration": 0.15 } ],
+      [ 0, [ 75 ], [ 78 ], { "(UNKNOWN 15) Bleed": null } ],
+      [ 0, [ 76, 77 ], [], { "Double Seismic Skills Damage": null } ]
     ],
     
     technomancer: [
       [ 1, [], [ 1, 30, 55 ], { "Weapon Damage (Long Range)": 0.075, "Skill Leech": 0.15, "WeaponLeech": 0.15 } ],
       
-      //--- 1 - 
+      //--- 1 - Pestilence
       [ 0, [ 1, 4 ], [ 1, 4 ], { "": 0.1 } ],
       [ 0, [ 1, 4 ], [ 1, 4 ], { "": 0.1 } ],
       [ 0, [ 2, 3, 6, 7, 25 ], [ 2, 3, 5, 6, 7, 25 ], { "": 0.1 } ],
@@ -693,7 +694,7 @@ function init() {
       [ 0, [ 8, 36 ], [ 8, 29, 36 ], { "": 0.1 } ],
       [ 0, [ 28 ], [], { "": 0.1 } ],
       
-      //--- 30 - 
+      //--- 30 - Tech Shaman
       [ 0, [ 0, 31, 32 ], [ 31, 32 ], { "": 0.1 } ],
       [ 0, [ 30, 33 ], [ 30, 33 ], { "": 0.1 } ],
       [ 0, [ 30, 33 ], [ 30, 33 ], { "": 0.1 } ],
@@ -722,7 +723,7 @@ function init() {
       [ 0, [ 36, 62 ], [ 36, 54, 62 ], { "": 0.1 } ],
       [ 0, [ 53 ], [], { "": 0.1 } ],
       
-      //--- 55 - 
+      //--- 55 - Demolisher
       [ 0, [ 0, 56, 57 ], [ 56, 57 ], { "": 0.1 } ],
       [ 0, [ 55, 58 ], [ 55, 58 ], { "": 0.1 } ],
       [ 0, [ 55, 58 ], [ 55, 58 ], { "": 0.1 } ],
