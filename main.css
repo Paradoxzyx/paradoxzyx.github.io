@@ -153,15 +153,15 @@ hr {
   }
 }
 
-#skilltree .node.n1 .tooltip {
+#skilltree .node.n0 .tooltip {
     top: 50px;
 }
 
-#skilltree .node.n2 .tooltip {
+#skilltree .node.n1 .tooltip {
     top: 70px;
 }
 
-#skilltree .node.n3 .tooltip {
+#skilltree .node.n2 .tooltip {
     top: 148px;
 }
 
