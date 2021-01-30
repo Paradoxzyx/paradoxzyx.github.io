@@ -1,27 +1,6 @@
 $(function() {
   init()
   
-  //---------------------------------------- Click node
-  $(".node").on("mousedown", function() {
-    let id = Number($(this).attr("data-n"))
-    if (skills[id][0] == 1 && points[active] > 0) {
-      add(id)
-    }
-    else if (skills[id][0] == 2 && check(id)) {
-      remove(id)
-    }
-  })
-
-  //---------------------------------------- Disable default right-click on image & nodes
-  $("img, area").bind("contextmenu", function() {
-    return false
-  })
-  
-  //---------------------------------------- Disable clicking node anchors scrolling to top of page
-  $("area").bind("click", function() {
-    return false
-  })
-  
   //---------------------------------------- Get URL params
   let search = new URLSearchParams(location.search)
   active = search.get("c")
@@ -48,6 +27,27 @@ $(function() {
     if (+cookie[1] && ([ "allstats", "maxstats", "nodecount" ].includes(cookie[0]))) {
       $("#" + cookie[0].trim()).click()
     }
+  })
+  
+  //---------------------------------------- Click node
+  $(".node").on("mousedown", function() {
+    let id = Number($(this).attr("data-n"))
+    if (skills[id][0] == 1 && points[active] > 0) {
+      add(id)
+    }
+    else if (skills[id][0] == 2 && check(id)) {
+      remove(id)
+    }
+  })
+
+  //---------------------------------------- Disable default right-click on image & nodes
+  $("img, area").bind("contextmenu", function() {
+    return false
+  })
+  
+  //---------------------------------------- Disable clicking node anchors scrolling to top of page
+  $("area").bind("click", function() {
+    return false
   })
   
   //---------------------------------------- Load Tooltips
@@ -1110,4 +1110,7 @@ function init() {
     technomancer: 20
   }
   $(".points").text(20)
+  
+  //---------------------------------------- Miscellaneous
+  url = []
 }
