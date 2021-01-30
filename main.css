@@ -93,21 +93,21 @@ hr {
 
 #skilltree .node.activatable {
     background: #FFFFFF10;
-    box-shadow: 0 0 20px #FDF2BE;
+    box-shadow: 0 0 20px 2px #FDF2BE;
 }
 
 #skilltree .node.active {
     background: #FFFF001A;
-    box-shadow: 0 0 20px #FFD400;
+    box-shadow: 0 0 20px 2px #FFD400;
 }
 
 #skilltree .node.highlight {
-    box-shadow: 0 0 20px #22EC5E;
+    box-shadow: 0 0 20px 2px #22EC5E;
     filter: saturate(2);
 }
 
 #skilltree .node:hover {
-    box-shadow: 0 0 20px #666666;
+    box-shadow: 0 0 20px 2px #666666;
 }
 
 #skilltree .node.n1 {
