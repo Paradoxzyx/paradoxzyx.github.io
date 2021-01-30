@@ -1,6 +1,23 @@
 $(function() {
   init()
   
+  //--- Get URL params
+  let c = new URLSearchParams(location.search).get("c")
+  if (c) {
+    let s = new URLSearchParams(location.search).get("s")
+    $("#" + c).click()
+    if (s) {
+      $.each(s.split(",").map(Number), function(i, v) {
+        if (v != 0) {
+          add(v)
+        }
+      })
+    }
+  }
+  else {
+    $("#trickster").click()
+  }
+  
   //--- Load Tooltips
   $.each(allskills, function(c, t) {
     $.each(t, function(i, n) {
@@ -30,24 +47,11 @@ $(function() {
   */
 })
 
+/*
 $(window).on("load", function() {
-  //--- Get URL params
-  let c = new URLSearchParams(location.search).get("c")
-  if (c) {
-    let s = new URLSearchParams(location.search).get("s")
-    $("#" + c).click()
-    if (s) {
-      $.each(s.split(",").map(Number), function(i, v) {
-        if (v != 0) {
-          add(v)
-        }
-      })
-    }
-  }
-  else {
-    $("#trickster").click()
-  }
+  
 })
+*/
 
 //---------------------------------------- Click node
 $(".node").on("mousedown", function() {
@@ -231,11 +235,11 @@ function change() {
   $.each(skills, function(i, n) {
     $.each(n[3], function(k, v) {
       if (!stats[k]) {
-        stats[k] = [ 0, v, 1 ]
+        stats[k] = [ 0, v, 0, 1 ]
       }
       else {
         stats[k][1] += v
-        stats[k][2]++
+        stats[k][3]++
       }
       
       if (v) {
@@ -258,7 +262,7 @@ function change() {
         .append($("<td>").addClass("stat-k").text(v + ":"))
         .append($("<td>").addClass("stat-v"))
         .append($("<td>").addClass("stat-m").text(Math.round(stats[v][1] * 100) + "%"))
-        .append($("<td>").addClass("stat-n").html("(<span class=\"stat-c\">0</span>/" + stats[v][2] + ")")))
+        .append($("<td>").addClass("stat-n").html("(<span class=\"stat-c\">0</span>/" + stats[v][3] + ")")))
   })
   //--- Create sorted stat list (Unique stats)
   $.each(u.sort(), function(i, v) {
