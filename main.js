@@ -403,7 +403,7 @@ function init() {
       [ 0, [ 12 ], [ 16 ], { "Weapon Damage (Close Range)": 0.15 } ],
       [ 0, [ 14, 15 ], [ 17, 19 ], { "Weapon Damage": 0.08 } ],
       [ 0, [ 16 ], [ 18 ], { "Skill Cooldown (Movement)": 0.15 } ],
-      [ 0, [ 18 ], [], { "Weapon Leech": 0.05 } ],
+      [ 0, [ 17 ], [], { "Weapon Leech": 0.05 } ],
       [ 0, [ 16 ], [ 20, 21 ], { "Weapon Damage (From Behind)": 0.2 } ],
       [ 0, [ 19 ], [], { "Weapon Damage (Against Elites)": 0.15 } ], //--- 20
       [ 0, [ 19 ], [ 22, 23 ], { "Magazine Size": 0.5 } ],
@@ -571,8 +571,8 @@ function init() {
       [ 1, [], [ 1, 30, 55 ], { "Every Close Range kill heals you by 24% of your Maximum Health": null, "Health": 0.15, "Armor": 0.3 } ],
       
       //--- 1 - Vanquisher
-      [ 0, [ 1, 4 ], [ 1, 4 ], { "Weapon Damage": 0.08 } ],
-      [ 0, [ 1, 4 ], [ 1, 4 ], { "Weapon Damage (Shotgun)": 0.12 } ],
+      [ 0, [ 0, 2, 3 ], [ 2, 3 ], { "Weapon Damage": 0.08 } ],
+      [ 0, [ 0, 2, 3 ], [ 2, 3 ], { "Weapon Damage (Shotgun)": 0.12 } ],
       [ 0, [ 2, 3, 6, 7, 25 ], [ 2, 3, 5, 6, 7, 25 ], { "Armor Penetration": 0.1 } ],
       [ 0, [ 4 ], [], { "Weapon Damage": 0.08 } ],
       [ 0, [ 4, 8 ], [ 4, 8 ], { "Weapon Damage (Shotgun)": 0.2, "Drop Rate (Shotgun)": 0.12 } ],
@@ -587,7 +587,7 @@ function init() {
       [ 0, [ 12 ], [ 16 ], { "Skill Cooldown (Kinetic)": 0.15 } ],
       [ 0, [ 14, 15 ], [ 17, 19 ], { "Weapon Damage (Close Range)": 0.15 } ],
       [ 0, [ 16 ], [ 18 ], { "Weapon Damage": 0.08 } ],
-      [ 0, [ 18 ], [], { "Weapon Leech": 0.05 } ],
+      [ 0, [ 17 ], [], { "Weapon Leech": 0.05 } ],
       [ 0, [ 16 ], [ 20, 21 ], { "(UNKNOWN 2)": null } ],
       [ 0, [ 19 ], [], { "(UNKNOWN 3)": null } ], //--- 20
       [ 0, [ 19 ], [ 22, 23 ], { "(UNKNOWN 4)": null } ],
@@ -679,7 +679,7 @@ function init() {
       [ 0, [ 12 ], [ 16 ], { "": 0.1 } ],
       [ 0, [ 14, 15 ], [ 17, 19 ], { "": 0.1 } ],
       [ 0, [ 16 ], [ 18 ], { "": 0.1 } ],
-      [ 0, [ 18 ], [], { "": 0.1 } ],
+      [ 0, [ 17 ], [], { "": 0.1 } ],
       [ 0, [ 16 ], [ 20, 21 ], { "": 0.1 } ],
       [ 0, [ 19 ], [], { "": 0.1 } ], //--- 20
       [ 0, [ 19 ], [ 22, 23 ], { "": 0.1 } ],
