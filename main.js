@@ -620,7 +620,7 @@ function init() {
       [ 0, [ 41, 42 ], [ 44, 45 ], { "Resistance increase for each enemy in close range": 0.15 } ],
       [ 0, [ 43 ], [], { "You have 100% chance to ignore damage that would kill you and instantly heal your for 50% of your health points (180s cooldown)": null } ],
       [ 0, [ 43 ], [ 46 ], { "Armor": 0.2 } ],
-      [ 0, [ 45 ], [ 47, 48 ], { "": 0.1 } ],
+      [ 0, [ 45 ], [ 47, 48 ], { "Increase all healing done by you and your allies by 20%": null } ],
       [ 0, [ 46 ], [ 49 ], { "Resistance increase for each enemy in close range": 0.15 } ],
       [ 0, [ 46 ], [ 49 ], { "Armor": 0.2  } ],
       [ 0, [ 47, 48 ], [], { "Increase Firepower by 10% of your Armor": null, "Increase Anomaly Power by 10% of your Armor": null } ],
