@@ -54,6 +54,27 @@ $(function() {
     }
   })
   */
+  
+  //---------------------------------------- Click node
+  $(".node").on("mousedown", function() {
+    let id = Number($(this).attr("data-n"))
+    if (skills[id][0] == 1) {
+      add(id)
+    }
+    else if (skills[id][0] == 2) {
+      remove(id)
+    }
+  })
+
+  //---------------------------------------- Disable default right-click on image & nodes
+  $("img, area").bind("contextmenu", function() {
+    return false
+  })
+  
+  //---------------------------------------- Disable clicking node anchors scrolling to top of page
+  $("area").bind("click", function() {
+    return false
+  })
 })
 
 /*
@@ -61,17 +82,6 @@ $(window).on("load", function() {
   
 })
 */
-
-//---------------------------------------- Click node
-$(".node").on("mousedown", function() {
-  let id = Number($(this).attr("data-n"))
-  if (skills[id][0] == 1) {
-    add(id)
-  }
-  else if (skills[id][0] == 2) {
-    remove(id)
-  }
-})
 
 //---------------------------------------- Add node
 function add(id) {
@@ -343,16 +353,6 @@ function search() {
     $("#searchcount").text("")
   }
 }
-
-//---------------------------------------- Disable default right-click on image & nodes
-$("img, area").bind("contextmenu", function() {
-  return false
-})
-
-//---------------------------------------- Disable clicking node anchors scrolling to top of page
-$("area").bind("click", function() {
-  return false
-})
 
 //---------------------------------------- Color Keywords
 function color(s) {
