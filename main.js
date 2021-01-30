@@ -372,7 +372,7 @@ function init() {
       [ 0, [ 30, 33 ], [ 30, 33 ], { "Resistance": 0.15 } ],
       [ 0, [ 30, 33 ], [ 30, 33 ], { "Damage Mitigation while Shield is active": 0.05 } ],
       [ 0, [ 26, 31, 32, 34, 35, 50 ], [ 26, 31, 32, 34, 35, 50 ], { "Health": 0.1 } ],
-      [ 0, [ 33, 36 ], [ 33, 36 ], { "Shield Gain": 0.1, "Shield Degredation": -0.3 } ],
+      [ 0, [ 33, 36 ], [ 33, 36 ], { "Shield": 0.1, "Shield Degredation": -0.3 } ],
       [ 0, [ 33, 36 ], [ 33, 36 ], { "(UNKNOWN 1)": null } ], //--- ???
       [ 0, [ 28, 34, 35, 53 ], [ 28, 34, 35, 37, 38, 53 ], { "Health": 0.1 } ],
       [ 0, [ 36 ], [ 39 ], { "Resistance": 0.15 } ],
@@ -385,7 +385,7 @@ function init() {
       [ 0, [ 43 ], [], { "For each enemy in close range, your Armor is increased by 15% (Stacks up to 10 times)": null } ],
       [ 0, [ 43 ], [ 46 ], { "Health": 0.1 } ],
       [ 0, [ 45 ], [ 47, 48 ], { "Every ammo pickup heals you for 5% of your maximum health": null } ],
-      [ 0, [ 46 ], [ 49 ], { "Shield Gain": 0.1, "Shield Degredation": -0.3 } ],
+      [ 0, [ 46 ], [ 49 ], { "Shield": 0.1, "Shield Degredation": -0.3 } ],
       [ 0, [ 46 ], [ 49 ], { "Armor": 0.2 } ],
       [ 0, [ 47, 48 ], [], { "Activating a Disruption Skill grants you 20% shield": null } ],
       
@@ -419,7 +419,7 @@ function init() {
       [ 0, [ 73 ], [], { "When your Damage Skill ends, increase your Armor and Resistance Penetration by 25% for 10s": null } ],
       [ 0, [ 73 ], [ 76, 77 ], { "Activating Movement Skill increases your Armor Penetration by 25% for 10s": null } ], //--- 75
       [ 0, [ 75 ], [ 78 ], { "(UNKNOWN 5) Weapon Damage (Conditional?)": null } ], //--- ???
-      [ 0, [ 75 ], [ 78 ], { "Shield Gain": 0.1, "Shield Degredation": -0.3 } ],
+      [ 0, [ 75 ], [ 78 ], { "Shield": 0.1, "Shield Degredation": -0.3 } ],
       [ 0, [ 76, 77 ], [], { "For each enemy in close range, your Anomaly Power is increased by 10% (Stacks up to 10 times)": null } ]
     ],
     
