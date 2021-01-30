@@ -116,17 +116,17 @@ hr {
     box-shadow: 0 0 20px 2px #666666;
 }
 
-#skilltree .node.n1 {
+#skilltree .node.n0 {
     width: 38px;
     height: 38px;
 }
 
-#skilltree .node.n2 {
+#skilltree .node.n1 {
     width: 58px;
     height: 58px;
 }
 
-#skilltree .node.n3 {
+#skilltree .node.n2 {
     width: 136px;
     height: 136px;
 }
