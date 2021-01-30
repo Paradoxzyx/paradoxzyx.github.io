@@ -588,8 +588,9 @@ function init() {
   $.each(coords, function(c, t) {
     let m = $("#" + c + "-st map")
     $.each(t, function(i, n) {
-      m.append($("<div>").addClass("node n" + n[2]).attr("data-n", i).css({ left: n[0] - o[n[0]] + "px", top: n[1] - o[n[1]] + "px" })
-        .append($("<area>").attr({ shape: "circle", href: "#", coords: n[0] + "," + n[1] + "," + o[n[2]] + 1 })))
+      let s = o[n[2]]
+      m.append($("<div>").addClass("node n" + n[2]).attr("data-n", i).css({ left: n[0] - s + "px", top: n[1] - s + "px" })
+        .append($("<area>").attr({ shape: "circle", href: "#", coords: n[0] + "," + n[1] + "," + s + 1 })))
     })
   })
 }
