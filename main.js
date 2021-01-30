@@ -86,6 +86,7 @@ $(function() {
   }
   else {
     $("#nav-trickster").click()
+    add(0)
   }
   
   //---------------------------------------- Get cookies
