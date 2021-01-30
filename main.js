@@ -18,6 +18,17 @@ $(function() {
     $("#trickster").click()
   }
   
+  //--- Get cookies
+  $.each(document.cookie.split(";"), function(s) {
+    let c = s.split("=")
+    console.log(c[1])
+    console.log(Number(c[1]))
+    if (c[1]) {
+      $("#" + c[0]).click()
+    }
+  })
+  
+  
   //--- Load Tooltips
   $.each(allskills, function(c, t) {
     $.each(t, function(i, n) {
@@ -278,18 +289,34 @@ function change() {
 $("#allstats").on("click", function() {
   if ($(this).prop("checked")) {
     $(".stat.inactive").show()
+    document.cookie = "allstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
   }
   else {
     $(".stat.inactive").hide()
+    document.cookie = "allstats=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
   }
 })
 
 $("#maxstats").on("click", function() {
-  $("#stats .stat-m").toggle()
+  if ($(this).prop("checked")) {
+    $(".stat .stat-m").show()
+    document.cookie = "maxstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
+  }
+  else {
+    $(".stat .stat-m").hide()
+    document.cookie = "maxstats=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
+  }
 })
 
 $("#nodecount").on("click", function() {
-  $("#stats .stat-n").toggle()
+  if ($(this).prop("checked")) {
+    $(".stat .stat-n").show()
+    document.cookie = "nodecount=1;expires=Tue, 19 Jan 2038 03:14:07 UTC;samesite=strict"
+  }
+  else {
+    $(".stat .stat-n").hide()
+    document.cookie = "nodecount=0;expires=Tue, 19 Jan 2038 03:14:07 UTC;samesite=strict"
+  }
 })
 
 //---------------------------------------- Search
