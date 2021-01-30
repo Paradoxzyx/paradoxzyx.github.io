@@ -68,7 +68,12 @@ $(function() {
   $(".points").text(20)
   
   //---------------------------------------- Get URL params
-  url = []
+  url = {
+    trickster: [],
+    pyromancer: [],
+    devastator: [],
+    technomancer: []
+  }
   let search = new URLSearchParams(location.search)
   active = search.get("c")
   activetree = $("." + active + ".skilltree")
@@ -160,11 +165,11 @@ function add(id) {
   })
   
   //--- Update URL
-  url.push(id)
-  url.sort(function(a, b) {
+  url[active].push(id)
+  url[active].sort(function(a, b) {
     return a - b
   })
-  history.replaceState(null, "", "?c=" + active + "&s=" + url.join(","))
+  history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
 }
 
 //---------------------------------------- Remove node
@@ -220,8 +225,8 @@ function remove(id) {
   })
   
   //--- Update URL
-  url.splice($.inArray(id, url), 1)
-  history.replaceState(null, "", "?c=" + active + "&s=" + url.join(","))
+  url[active].splice($.inArray(id, url[active]), 1)
+  history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
 }
 
 //---------------------------------------- Check tree
@@ -270,7 +275,7 @@ $("#reset").on("click", function() {
   $(".stat .stat-v", activestats).removeClass("stat-0 stat-1 stat-2 stat-3").text("0%")
   
   //--- Add node 0
-  url = []
+  url[active] = []
   points[active] = 20
   skills[active][0][0] = 1
   add(0)
@@ -286,6 +291,8 @@ $("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("cli
   active = $(this).attr("data-class")
   activetree = $("." + active + ".skilltree").show()
   activestats = $("." + active + ".statstable").show()
+  
+  history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
 })
 
 //---------------------------------------- Stats Options
