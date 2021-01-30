@@ -267,12 +267,14 @@ $("#reset").on("click", function() {
   //--- Clear stats
   $.each(stats[active], function(i, s) {
     s[0] = 0
+    s[2] = 0
   })
   if (!$("#allstats").prop("checked")) {
     $(".stat", activestats).hide()
   }
   $(".stat", activestats).addClass("inactive")
   $(".stat .stat-v", activestats).removeClass("stat-0 stat-1 stat-2 stat-3").text("0%")
+  $(".stat .stat-c", activestats).text(0)
   
   //--- Add node 0
   url[active] = []
