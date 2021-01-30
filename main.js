@@ -1109,4 +1109,5 @@ function init() {
     devastator: 20,
     technomancer: 20
   }
+  $(".points").text(20)
 }
