@@ -19,6 +19,12 @@ body {
     text-align: center;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
 hr {
     border-color: #108ABD;
 }
@@ -186,16 +192,12 @@ hr {
 
 #stats #statsoptions {
     float: left;
-    width: fit-content;
-    font-family: "Chakra Petch", sans-serif;
     text-align: left;
+    font-family: "Chakra Petch", sans-serif;
     border-bottom: 1px solid #108ABD;
     border-right: 1px solid #108ABD;
     border-radius: 4px;
-    margin: 0;
-    padding: 0;
     padding-bottom: 4px;
-    list-style-type: none;
 }
 
 #stats #statsoptions input {
@@ -219,15 +221,11 @@ hr {
 
 #stats #statskey {
     float: right;
-    width: fit-content;
-    font-family: "Chakra Petch", sans-serif;
     text-align: right;
+    font-family: "Chakra Petch", sans-serif;
     border-bottom: 1px solid #108ABD;
     border-left: 1px solid #108ABD;
     border-radius: 4px;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
 }
 
 #stats .stat.inactive {
