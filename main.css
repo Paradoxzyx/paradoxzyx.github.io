@@ -47,11 +47,11 @@ hr {
 }
 
 /* ----- Class */
-#class {
+#nav {
     text-align: center;
 }
 
-#class .button {
+#nav .button {
     display: inline-block;
     width: 120px;
     margin: 10px;
@@ -59,11 +59,10 @@ hr {
 
 /* ----- Skilltree */
 #skilltree {
-    position: relative;
     margin-bottom: 10px;
 }
 
-#skilltree #points {
+#skilltree .points {
     position: absolute;
     left: 27px;
     top: 693px;
@@ -80,6 +79,7 @@ hr {
 }
 
 #skilltree .skilltree {
+    position: relative;
     display: none;
 }
 
@@ -237,7 +237,9 @@ hr {
     text-align: right;
 }
 
-#stats .stat-v {
+#stats .stat-v,
+#stats .stat-m,
+#stats .stat-n {
     min-width: 2.1em;
 }
 
