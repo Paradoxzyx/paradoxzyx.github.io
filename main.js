@@ -43,18 +43,6 @@ $(function() {
     })
   })
   
-  //--- DEBUG
-  //$("#reset").after($("<div>").attr("id", "debug").css({ position: "fixed", left: "40px", top: "140px" }))
-  $("body").append($("<img>").attr("src", "favicon.ico").attr("width", "24").attr("height", "24").css({ position: "absolute", top: "2000px", right: "1%" }))
-  /*
-  points = 100
-  $.each(skills, function(i, n) {
-    if (i != 0) {
-      add(i)
-    }
-  })
-  */
-  
   //---------------------------------------- Click node
   $(".node").on("mousedown", function() {
     let id = Number($(this).attr("data-n"))
@@ -75,13 +63,20 @@ $(function() {
   $("area").bind("click", function() {
     return false
   })
+  
+  //--- DEBUG
+  $("body").append($("<img>").attr({ id: "bread", src: "favicon.ico", width: 24, height: 24 }).css({ position: "absolute", top: "2000px", right: "1%" }))
 })
 
-/*
-$(window).on("load", function() {
-  
+$("#bread").on("click", function() {
+  if (!$("#debug").length) {
+    $("#reset").after($("<div>").attr("id", "debug").css({ position: "fixed", left: "40px", top: "140px" }))
+    $(".node").mousemove(function() {
+      $("#debug").text($(this).attr("data-n"))
+    })
+  }
+  points = 100
 })
-*/
 
 //---------------------------------------- Add node
 function add(id) {
