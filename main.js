@@ -19,12 +19,10 @@ $(function() {
   }
   
   //--- Get cookies
-  $.each(document.cookie.split(";"), function(s) {
+  $.each(document.cookie.split(";"), function(i, s) {
     let c = s.split("=")
-    console.log(c[1])
-    console.log(Number(c[1]))
-    if (c[1]) {
-      $("#" + c[0]).click()
+    if (+c[1]) {
+      $("#" + c[0].trim()).click()
     }
   })
   
@@ -311,11 +309,11 @@ $("#maxstats").on("click", function() {
 $("#nodecount").on("click", function() {
   if ($(this).prop("checked")) {
     $(".stat .stat-n").show()
-    document.cookie = "nodecount=1;expires=Tue, 19 Jan 2038 03:14:07 UTC;samesite=strict"
+    document.cookie = "nodecount=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
   }
   else {
     $(".stat .stat-n").hide()
-    document.cookie = "nodecount=0;expires=Tue, 19 Jan 2038 03:14:07 UTC;samesite=strict"
+    document.cookie = "nodecount=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
   }
 })
 
