@@ -20,7 +20,10 @@ $(function() {
   
   //--- Get cookies
   $.each(document.cookie.split(";"), function(i, s) {
-    $("#" + s.split("=")[0].trim()).click()
+    let c = s.split("=")
+    if (+c[1]) {
+      $("#" + c[0].trim()).click()
+    }
   })
   
   
@@ -288,7 +291,7 @@ $("#allstats").on("click", function() {
   }
   else {
     $(".stat.inactive").hide()
-    document.cookie = "allstats="
+    document.cookie = "allstats=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
   }
 })
 
@@ -299,7 +302,7 @@ $("#maxstats").on("click", function() {
   }
   else {
     $(".stat .stat-m").hide()
-    document.cookie = "maxstats="
+    document.cookie = "maxstats=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
   }
 })
 
@@ -310,7 +313,7 @@ $("#nodecount").on("click", function() {
   }
   else {
     $(".stat .stat-n").hide()
-    document.cookie = "nodecount="
+    document.cookie = "nodecount=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
   }
 })
 
