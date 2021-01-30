@@ -1,23 +1,6 @@
 $(function() {
   init()
   
-  //--- Get URL params
-  let c = new URLSearchParams(location.search).get("c")
-  if (c) {
-    let s = new URLSearchParams(location.search).get("s")
-    $("#" + c).click()
-    if (s) {
-      $.each(s.split(",").map(Number), function(i, v) {
-        if (v != 0) {
-          add(v)
-        }
-      })
-    }
-  }
-  else {
-    $("#trickster").click()
-  }
-  
   //--- Load Tooltips
   $.each(allskills, function(c, t) {
     $.each(t, function(i, n) {
@@ -45,6 +28,25 @@ $(function() {
     }
   })
   */
+})
+
+$(window).on("load", function() {
+  //--- Get URL params
+  let c = new URLSearchParams(location.search).get("c")
+  if (c) {
+    let s = new URLSearchParams(location.search).get("s")
+    $("#" + c).click()
+    if (s) {
+      $.each(s.split(",").map(Number), function(i, v) {
+        if (v != 0) {
+          add(v)
+        }
+      })
+    }
+  }
+  else {
+    $("#trickster").click()
+  }
 })
 
 //---------------------------------------- Click node
