@@ -236,7 +236,8 @@ hr {
     min-width: 2.1em;
 }
 
-#stats .stat-m {
+#stats .stat-m,
+#stats .stat-n {
     display: none;
 }
 
