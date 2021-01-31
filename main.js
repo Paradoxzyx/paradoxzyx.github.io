@@ -74,18 +74,17 @@ $(function() {
     devastator: [],
     technomancer: []
   }
+
   let search = new URLSearchParams(location.search)
   active = search.get("c")
   activetree = $("." + active + ".skilltree")
   activestats = $("." + active + ".statstable")
   if (active) {
-    let s = search.get("s")
+    let s = search.get("s") || 0
     $("#nav-" + active).click()
-    if (s) {
-      $.each(s.split(",").map(Number), function(i, n) {
-        add(n)
-      })
-    }
+    $.each(s.split(",").map(Number), function(i, n) {
+      add(n)
+    })
   }
   else {
     $("#nav-trickster").click()
