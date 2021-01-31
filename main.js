@@ -353,18 +353,18 @@ $("#searchbox").keyup(function(e) {
 })
 
 function search() {
-  $(".node", activestats).removeClass("highlight")
+  $(".node", activetree).removeClass("highlight")
   let s = $("#searchbox").val().toLowerCase()
   if (s) {
     $.each(skills[active], function(i, n) {
       $.each(n[3], function(k, v) {
-        if (k.toLowerCase().includes(s)) {
-          $(".node[data-n=" + i + "]", activestats).addClass("highlight")
+        if (k.includes(s)) {
+          $(".node[data-n=" + i + "]", activetree).addClass("highlight")
           return false
         }
       })
     })
-    $("#searchcount").text("(" + $(".node.highlight").length + " matches)")
+    $("#searchcount").text("(" + $(".node.highlight", activetree).length + " matches)")
   }
   else {
     $("#searchcount").text("")
