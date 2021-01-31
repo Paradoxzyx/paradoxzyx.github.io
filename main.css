@@ -138,7 +138,7 @@ hr {
   top: -20px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 80%;
+  font: 80% "Chakra Petch", sans-serif;
   white-space: nowrap;
 }
 
