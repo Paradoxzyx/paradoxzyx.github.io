@@ -290,6 +290,9 @@ $("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("cli
   activetree = $("." + active + ".skilltree").show()
   activestats = $("." + active + ".statstable").show()
   
+  if (!url[active]) {
+    add(0)
+  }
   history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
 })
 
