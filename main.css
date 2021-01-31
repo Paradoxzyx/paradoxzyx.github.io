@@ -102,6 +102,10 @@ hr {
     box-shadow: 0 0 20px 2px #FDF2BE;
 }
 
+#skilltree .node:hover {
+    box-shadow: 0 0 20px 2px #666666;
+}
+
 #skilltree .node.active {
     background: #FFFF001A;
     box-shadow: 0 0 20px 2px #FFD400;
@@ -110,10 +114,6 @@ hr {
 #skilltree .node.highlight {
     box-shadow: 0 0 20px 2px #22EC5E;
     filter: saturate(2);
-}
-
-#skilltree .node:hover {
-    box-shadow: 0 0 20px 2px #666666;
 }
 
 #skilltree .node.n0 {
