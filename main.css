@@ -177,7 +177,7 @@ hr {
 
 #skilltree .node:hover > .name,
 #skilltree .node:hover > .tooltip {
-    display: inline-flex;
+    display: inline-flex !important;
 }
 
 /* ----- Stats */
