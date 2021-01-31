@@ -77,8 +77,8 @@ $(function() {
 
   let search = new URLSearchParams(location.search)
   active = search.get("c") || "trickster"
-  activetree = $("." + active + ".skilltree")
-  activestats = $("." + active + ".statstable")
+  activetree = $("." + active + ".skilltree").show()
+  activestats = $("." + active + ".statstable").show()
   let s = search.get("s") || "0"
   //$("#nav-" + active).click()
   $.each(s.split(",").map(Number), function(i, n) {
