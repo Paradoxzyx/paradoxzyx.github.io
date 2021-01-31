@@ -29,6 +29,11 @@ hr {
     border-color: #108ABD;
 }
 
+a {
+    color: #33BEF9;
+    text-decoration: none;
+}
+
 /* ----- Button */
 .button {
     font: 16px/2 "Chakra Petch", sans-serif;
