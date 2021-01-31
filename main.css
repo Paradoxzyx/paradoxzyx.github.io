@@ -150,6 +150,10 @@ hr {
     bottom: 60px;
 }
 
+#skilltree .node:hover .name {
+    display: block !important;
+}
+
 /* ----- Tooltip */
 #skilltree .node .tooltip {
     display: none;
@@ -184,8 +188,7 @@ hr {
     top: 148px;
 }
 
-#skilltree .node:hover > .name,
-#skilltree .node:hover > .tooltip {
+#skilltree .node:hover .tooltip {
     display: inline-flex !important;
 }
 
