@@ -557,7 +557,7 @@ function init() {
       [ 0, [ 54, 61, 62 ], [ 54, 61, 62, 64, 65, 66 ], { "Anomaly Power": 0.06 } ],
       [ 0, [ 63 ], [], { "Weapon Damage is increased by 15% of Anomaly Power": null } ],
       [ 0, [ 63 ], [ 67 ], { "(UNKNOWN 17) Burn related": null } ],
-      [ 0, [ 63 ], [ 67 ], { "(UNKNOWN 18)": null } ], //--- 65
+      [ 0, [ 63 ], [ 67 ], { "(UNKNOWN 18)": null } ], //--- 66
       [ 0, [ 65, 66 ], [ 68, 69, 70 ], { "Anomaly Power": 0.06 } ],
       [ 0, [ 67 ], [], { "(UNKNOWN 19)": null } ],
       [ 0, [ 67 ], [ 71 ], { "Skill Leech": 0.1 } ],
@@ -567,7 +567,7 @@ function init() {
       [ 0, [ 72 ], [], { "Your Phoenix revival will now grant 100% of your health points and will be ready to activate every 135s": null } ],
       [ 0, [ 71 ], [ 75, 76 ], { "(UNKNOWN 21) Resistance Penetration": null } ],
       [ 0, [ 74 ], [], { "Killing a Marked target heals you by additional 12% of your maximum health": null } ],
-      [ 0, [ 74 ], [ 77, 78 ], { "(UNKNOWN 22)": null } ], //--- 75
+      [ 0, [ 74 ], [ 77, 78 ], { "(UNKNOWN 22)": null } ], //--- 76
       [ 0, [ 76 ], [ 79 ], { "(UNKNOWN 23)": null } ],
       [ 0, [ 76 ], [ 79 ], { "Skill Cooldown (Explosive)": 0.15 } ],
       [ 0, [ 77, 78 ], [], { "(UNKNOWN 24)": null } ]
@@ -578,25 +578,25 @@ function init() {
       
       //--- 1 - Vanquisher
       [ 0, [ 0, 2, 3 ], [ 2, 3 ], { "Weapon Damage": 0.08 } ],
-      [ 0, [ 0, 2, 3 ], [ 2, 3 ], { "Weapon Damage (Shotgun)": 0.12 } ],
-      [ 0, [ 2, 3, 6, 7, 25 ], [ 2, 3, 5, 6, 7, 25 ], { "Armor Penetration": 0.1 } ],
-      [ 0, [ 4 ], [], { "Weapon Damage": 0.08 } ],
-      [ 0, [ 4, 8 ], [ 4, 8 ], { "Weapon Damage (Shotgun)": 0.2, "Drop Rate (Shotgun)": 0.12 } ],
+      [ 0, [ 2, 4 ], [ 2, 4 ], { "Weapon Damage (Shotgun)": 0.12 } ],
+      [ 0, [ 2, 4 ], [ 2, 4 ], { "Armor Penetration": 0.1 } ],
+      [ 0, [ 2, 3, 6, 7, 25 ], [ 2, 3, 5, 6, 7, 25 ], { "Weapon Damage": 0.08 } ],
+      [ 0, [ 4 ], [], { "Weapon Damage (Shotgun)": 0.2, "Drop Rate (Shotgun)": 0.12 } ],
       [ 0, [ 4, 8 ], [ 4, 8 ], { "Weapon Damage (Assault)": 0.12 } ],
-      [ 0, [ 6, 7, 28 ], [ 6, 7, 9, 10, 11, 28 ], { "Armor Penetration": 0.1 } ],
-      [ 0, [ 8 ], [], { "Weapon Damage": 0.08 } ],
-      [ 0, [ 8 ], [ 12 ], { "When your Kinetic Skill ends, increase your Weapon Damage by 20% for 10s": null } ], //--- 10
-      [ 0, [ 8 ], [ 12 ], { "Crit Damage": 0.2 } ],
-      [ 0, [ 10, 11 ], [ 13, 14, 15 ], { "(UNKNOWN 1)": null } ],
-      [ 0, [ 12 ], [], { "Weapon Damage": 0.08 } ],
-      [ 0, [ 12 ], [ 16 ], { "Weapon Damage (Assault)": 0.2, "Drop Rate (Assault)": 0.12 } ],
+      [ 0, [ 4, 8 ], [ 4, 8 ], { "Armor Penetration": 0.1 } ],
+      [ 0, [ 6, 7, 28 ], [ 6, 7, 9, 10, 11, 28 ], { "Weapon Damage": 0.08 } ],
+      [ 0, [ 8 ], [], { "When your Kinetic Skill ends, increase your Weapon Damage by 20% for 10s": null } ],
+      [ 0, [ 8 ], [ 12 ], { "Crit Damage": 0.2 } ], //--- 10
+      [ 0, [ 8 ], [ 12 ], { "(UNKNOWN 1)": null } ],
+      [ 0, [ 10, 11 ], [ 13, 14, 15 ], { "Weapon Damage": 0.08 } ],
+      [ 0, [ 12 ], [], { "Weapon Damage (Assault)": 0.2, "Drop Rate (Assault)": 0.12 } ],
       [ 0, [ 12 ], [ 16 ], { "Skill Cooldown (Kinetic)": 0.15 } ],
-      [ 0, [ 14, 15 ], [ 17, 19 ], { "Weapon Damage (Close Range)": 0.15 } ],
-      [ 0, [ 16 ], [ 18 ], { "Weapon Damage": 0.08 } ],
-      [ 0, [ 17 ], [], { "Weapon Leech": 0.05 } ],
-      [ 0, [ 16 ], [ 20, 21 ], { "(UNKNOWN 2)": null } ],
-      [ 0, [ 19 ], [], { "(UNKNOWN 3)": null } ], //--- 20
-      [ 0, [ 19 ], [ 22, 23 ], { "(UNKNOWN 4)": null } ],
+      [ 0, [ 12 ], [ 16 ], { "Weapon Damage (Close Range)": 0.15 } ],
+      [ 0, [ 14, 15 ], [ 17, 19 ], { "Weapon Damage": 0.08 } ],
+      [ 0, [ 16 ], [ 18 ], { "Weapon Leech": 0.05 } ],
+      [ 0, [ 17 ], [], { "(UNKNOWN 2)": null } ],
+      [ 0, [ 16 ], [ 20, 21 ], { "(UNKNOWN 3)": null } ],
+      [ 0, [ 19 ], [], { "(UNKNOWN 4)": null } ], //--- 20
       [ 0, [ 19 ], [ 22, 23 ], { "Damage (Physical against Elites)": 0.15, "Take less damage (From Elites)": 0.15 } ],
       [ 0, [ 21 ], [ 24 ], { "Weapon Leech": 0.05 } ],
       [ 0, [ 21 ], [ 24 ], { "Armor Penetration": 0.1 } ],
