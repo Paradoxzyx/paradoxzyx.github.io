@@ -381,7 +381,7 @@ function init() {
     "hl-l": /((weapon|skill) leech|heal(?!th)(s|ed|ing)?)/gi,
     "hl-n": /((concentration|magma golem) node)/gi,
     "hl-p": /((armor|(armor and )?resistance) penetration)/gi,
-    "hl-r": /((armor|resistance)(?! penetration)|damage mitigation)/gi,
+    "hl-r": /((armor|resistance)(?!( and resistance)? penetration)|damage mitigation)/gi,
     "hl-s": /((damage|disruption|movement|ignite|immobilize|protection|seismic|kinetic|any) skills?|stone push)/gi,
     "hl-t": /(shield( degredation)?)/gi
   }
