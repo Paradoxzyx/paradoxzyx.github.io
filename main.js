@@ -394,7 +394,7 @@ function init() {
     "hl-p": /((armor|(armor and )?resistance) penetration)/gi,
     "hl-r": /((armor|resistance)(?!( and resistance)? penetration)|damage mitigation)/gi,
     "hl-s": /((damage|disruption|movement|ignite|immobilize|protection|seismic|kinetic|decay|ordinance|gadget|any) skills?|stone push)/gi,
-    "hl-t": /(shield( degredation)?)/gi
+    "hl-t": /(shields?( degredation)?)/gi
   }
   
   //---------------------------------------- All Skills
