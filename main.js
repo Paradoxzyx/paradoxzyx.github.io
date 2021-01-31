@@ -358,7 +358,7 @@ function search() {
   if (s) {
     $.each(skills[active], function(i, n) {
       $.each(n[3], function(k, v) {
-        if (k.includes(s)) {
+        if (k.toLowerCase().includes(s)) {
           $(".node[data-n=" + i + "]", activetree).addClass("highlight")
           return false
         }
