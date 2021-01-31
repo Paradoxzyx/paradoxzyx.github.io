@@ -38,7 +38,9 @@ $(function() {
           t.push(k)
         }
       })
-      $(".node[data-n=" + i + "]", skilltree).append($("<div>").addClass("tooltip").html(color(t.join("<br>"))))
+      $(".node[data-n=" + i + "]", skilltree)
+        .append($("<div>").addClass("name").text(node[4] || ""))
+        .append($("<div>").addClass("tooltip").html(color(t.join("<br>"))))
     })
     
     //--- Create sorted stat list
@@ -387,12 +389,12 @@ function init() {
   //---------------------------------------- All Skills
   skills = {
     trickster: [
-      /* 0  */ [ 1, [], [ 1, 30, 55 ], { "Health": 0.05, "Damage Mitigation while Shield is active": 0.05 } ],
+      /* 0  */ [ 1, [], [ 1, 30, 55 ], { "Health": 0.05, "Damage Mitigation while Shield is active": 0.05 }, "Trickster" ],
       
-      /* 1  */ [ 0, [ 0, 2, 3 ], [ 2, 3 ], { "Weapon Damage (Close Range)": 0.15 } ],
-      /* 2  */ [ 0, [ 1, 4 ], [ 1, 4 ], { "Reload Time": -0.2 } ],
-      /* 3  */ [ 0, [ 1, 4 ], [ 1, 4 ], { "Armor Penetration": 0.1 } ],
-      /* 4  */ [ 0, [ 2, 3, 6, 7, 25 ], [ 2, 3, 5, 6, 7, 25 ], { "Weapon Damage": 0.08 } ],
+      /* 1  */ [ 0, [ 0, 2, 3 ], [ 2, 3 ], { "Weapon Damage (Close Range)": 0.15 }, "Arms Trick" ],
+      /* 2  */ [ 0, [ 1, 4 ], [ 1, 4 ], { "Reload Time": -0.2 }, "Bulletstorm" ],
+      /* 3  */ [ 0, [ 1, 4 ], [ 1, 4 ], { "Armor Penetration": 0.1 }, "Ace of Trumps" ],
+      /* 4  */ [ 0, [ 2, 3, 6, 7, 25 ], [ 2, 3, 5, 6, 7, 25 ], { "Weapon Damage": 0.08 }, "Death Probability" ],
       /* 5  */ [ 0, [ 4 ], [], { "Weapon Damage (Shotgun)": 0.2, "Drop Rate (Shotgun)": 0.12 } ],
       /* 6  */ [ 0, [ 4, 8 ], [ 4, 8 ], { "Skill Cooldown (Movement)": 0.15 } ],
       /* 7  */ [ 0, [ 4, 8 ], [ 4, 8 ], { "Crit Damage": 0.2 } ],
