@@ -80,7 +80,7 @@ $(function() {
   activetree = $("." + active + ".skilltree")
   activestats = $("." + active + ".statstable")
   if (active) {
-    let s = search.get("s") || 0
+    let s = search.get("s") || "0"
     $("#nav-" + active).click()
     $.each(s.split(",").map(Number), function(i, n) {
       add(n)
