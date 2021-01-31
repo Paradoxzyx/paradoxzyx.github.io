@@ -76,13 +76,15 @@ $(function() {
   }
 
   let search = new URLSearchParams(location.search)
-  active = search.get("c") || "trickster"
+  active = url.hasOwnProperty(search.get("c")) ? search.get("c") : "trickster"
   activetree = $("." + active + ".skilltree").show()
   activestats = $("." + active + ".statstable").show()
   let s = search.get("s") || "0"
-  //$("#nav-" + active).click()
+  let l = skills[active].length - 1
   $.each(s.split(",").map(Number), function(i, n) {
-    add(n)
+    if (n <= l) {
+      add(n)
+    }
   })
   
   //---------------------------------------- Get cookies
