@@ -120,7 +120,7 @@ $(function() {
   
   //---------------------------------------- DEBUG
   $("body").append($("<div>").css("position", "relative")
-    .append($("<img>").attr({ id: "bread", src: "favicon.ico", width: 24, height: 24 }).css({ position: "absolute", top: "500px", right: "1%" })))
+    .append($("<img>").attr({ id: "bread", src: "favicon.ico", width: 24, height: 24 }).css({ position: "absolute", top: "800px", right: "1%" })))
 
   $("#bread").on("click", function() {
     if (!$("#debug").length) {
