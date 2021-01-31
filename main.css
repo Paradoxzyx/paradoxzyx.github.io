@@ -131,17 +131,26 @@ hr {
     height: 136px;
 }
 
-/* ----- Tooltip */
+/* ----- Name */
 #skilltree .node .name {
-  display: none;
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font: 80% "Chakra Petch", sans-serif;
-  white-space: nowrap;
+    display: none;
+    position: absolute;
+    width: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    font: 80% "Chakra Petch", sans-serif;
+    text-align: center;
 }
 
+#skilltree .node.n0 .name {
+    bottom: 40px;
+}
+
+#skilltree .node.n1 .name {
+    bottom: 60px;
+}
+
+/* ----- Tooltip */
 #skilltree .node .tooltip {
     display: none;
     position: absolute;
