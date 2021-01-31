@@ -375,7 +375,7 @@ function init() {
     "hl-a": /(anomaly power)/gi,
     "hl-d": /((weapon|assault|close range|long range) damage)/gi,
     "hl-e": /(weakness|mark(ed)?|burn|bleed|toxic|vulnerab(le|ility)|freeze|frozen)/gi,
-    "hl-h": /((maximum )?health)/gi,
+    "hl-h": /((maximum )?health( regen)?)/gi,
     "hl-l": /((weapon|skill) leech|heal(?!th)(s|ed|ing)?)/gi,
     "hl-n": /((concentration|magma golem) node)/gi,
     "hl-p": /((armor|(armor and )?resistance) penetration)/gi,
@@ -388,6 +388,7 @@ function init() {
   skills = {
     trickster: [
       /* 0  */ [ 1, [], [ 1, 30, 55 ], { "Health": 0.05, "Damage Mitigation while Shield is active": 0.05 } ],
+      
       /* 1  */ [ 0, [ 0, 2, 3 ], [ 2, 3 ], { "Weapon Damage (Close Range)": 0.15 } ],
       /* 2  */ [ 0, [ 1, 4 ], [ 1, 4 ], { "Reload Time": -0.2 } ],
       /* 3  */ [ 0, [ 1, 4 ], [ 1, 4 ], { "Armor Penetration": 0.1 } ],
@@ -412,6 +413,7 @@ function init() {
       /* 22 */ [ 0, [ 21 ], [ 24 ], { "Weapon Damage (Assault)": 0.12 } ],
       /* 23 */ [ 0, [ 21 ], [ 24 ], { "Weapon Damage (Shotgun)": 0.12 } ],
       /* 24 */ [ 0, [ 22, 23 ], [], { "For each enemy in close range your Weapon Damage is increased by 8% (Stacks up to 10 times)": null } ],
+      
       /* 25 */ [ 0, [ 4, 26 ], [ 4, 26 ], { "Weapon Damage (Close Range)": 0.15 } ],
       /* 26 */ [ 0, [ 25, 33 ], [ 25, 33, 27 ], { "Activating a Movement Skill increases your Armor Penetration by 25% for 10s": null } ],
       /* 27 */ [ 0, [ 26 ], [], { "Gain additional 3% health for every enemy that died in close range": null } ],
@@ -438,6 +440,7 @@ function init() {
       /* 47 */ [ 0, [ 46 ], [ 49 ], { "Shield": 0.1, "Shield Degredation": -0.3 } ],
       /* 48 */ [ 0, [ 46 ], [ 49 ], { "Armor": 0.2 } ],
       /* 49 */ [ 0, [ 47, 48 ], [], { "Activating a Disruption Skill grants you 20% shield": null } ],
+      
       /* 50 */ [ 0, [ 33, 52 ], [ 33, 51, 52 ], { "When surrounded by enemies, reloading your weapon deals damage and interrupts enemies' abilities. Damage scales with Anomaly Power.": null } ],
       /* 51 */ [ 0, [ 50 ], [], { "(UNKNOWN 2)": null } ],
       /* 52 */ [ 0, [ 50, 58 ], [ 50, 58 ], { "(UNKNOWN 3) Resistance Penetration": null } ],
@@ -472,6 +475,7 @@ function init() {
     
     pyromancer: [
        /* 0  */ [ 1, [], [ 1, 30, 56 ], { "Anomaly Power": 0.1, "Skill Leech": 0.05, "Skills mark Enemies for 15s. Killing a Marked heals you by 24% of your Maximum Health": null } ],
+      
        /* 1  */ [ 0, [ 0, 2, 3 ], [ 2, 3 ], { "Weapon Damage (Against Marked)": 0.1 } ],
        /* 2  */ [ 0, [ 1, 4 ], [ 1, 4 ], { "Weapon Damage (Against Marked)": 0.1 } ],
        /* 3  */ [ 0, [ 1, 4 ], [ 1, 4 ], { "Skill Cooldown (Immobilize)": 0.15 } ],
@@ -496,6 +500,7 @@ function init() {
        /* 22 */ [ 0, [ 21 ], [ 24 ], { "Damage (Against Ashed)": 0.2 } ],
        /* 23 */ [ 0, [ 21 ], [ 24 ], { "Skill Cooldown (Immobilize)": 0.15 } ],
        /* 24 */ [ 0, [ 22, 23 ], [], { "Activating an Immobilize Skill increases your Weapon Damage by 20% for 10s": null } ],
+      
        /* 25 */ [ 0, [ 4, 26 ], [ 4, 26 ], { "(UNKNOWN 4) Damage Increase": null } ],
        /* 26 */ [ 0, [ 25, 33 ], [ 25, 33, 27 ], { "Armor Penetration (Against Marked)": 0.3 } ],
        /* 27 */ [ 0, [ 26 ], [], { "(UNKNOWN 5)": null } ],
@@ -523,6 +528,7 @@ function init() {
        /* 48 */ [ 0, [ 47 ], [ 50 ], { "Damage (Against Burning)": 0.1 } ],
        /* 49 */ [ 0, [ 47 ], [ 50 ], { "Skill Cooldown (Ignite)": 0.15 } ],
        /* 50 */ [ 0, [ 48, 49 ], [], { "(UNKNOWN 9)": null } ],
+      
        /* 51 */ [ 0, [ 33, 53 ], [ 33, 52, 53 ], { "Skill Cooldown": 0.1 } ],
        /* 52 */ [ 0, [ 51 ], [], { "(UNKNOWN 10) Damage boost (Conditional)": null } ],
        /* 53 */ [ 0, [ 51, 59 ], [ 51, 59 ], { "Weapon Damage (Sidearm)": 0.12 } ],
@@ -557,6 +563,7 @@ function init() {
     
     devastator: [
        /* 0  */ [ 1, [], [ 1, 30, 55 ], { "Every Close Range kill heals you by 24% of your Maximum Health": null, "Health": 0.15, "Armor": 0.3 } ],
+      
        /* 1  */ [ 0, [ 0, 2, 3 ], [ 2, 3 ], { "Weapon Damage": 0.08 } ],
        /* 2  */ [ 0, [ 2, 4 ], [ 2, 4 ], { "Weapon Damage (Shotgun)": 0.12 } ],
        /* 3  */ [ 0, [ 2, 4 ], [ 2, 4 ], { "Armor Penetration": 0.1 } ],
@@ -581,6 +588,7 @@ function init() {
        /* 22 */ [ 0, [ 21 ], [ 24 ], { "Weapon Leech": 0.05 } ],
        /* 23 */ [ 0, [ 21 ], [ 24 ], { "Armor Penetration": 0.1 } ],
        /* 24 */ [ 0, [ 22, 23 ], [], { "When your Kinetic Skill ends, increase your Weapon Damage by 70% for 10s": null } ],
+      
        /* 25 */ [ 0, [ 4, 26 ], [ 4, 26 ], { "(UNKNOWN 5) Skill Cooldown": null } ],
        /* 26 */ [ 0, [ 25, 33 ], [ 25, 33, 27 ], { "When your Kinetic Skill ends, increase your Damage Mitigation by 20% for 10s": null } ],
        /* 27 */ [ 0, [ 26 ], [], { "(UNKNWON 6) Weapon Damage": null } ],
@@ -607,6 +615,7 @@ function init() {
        /* 47 */ [ 0, [ 46 ], [ 49 ], { "Resistance increase for each enemy in close range": 0.15 } ],
        /* 48 */ [ 0, [ 46 ], [ 49 ], { "Armor": 0.2  } ],
        /* 49 */ [ 0, [ 47, 48 ], [], { "Increase Firepower by 10% of your Armor": null, "Increase Anomaly Power by 10% of your Armor": null } ],
+      
        /* 50 */ [ 0, [ 33, 52 ], [ 33, 51, 52 ], { "After using Stone Push, increase Resistance Penetration by 15% for each hit enemy for 10s": null } ],
        /* 51 */ [ 0, [ 50 ], [], { "(UNKNWON 8) Health": null } ],
        /* 52 */ [ 0, [ 50, 58 ], [ 50, 58 ], { "Skill Cooldown (Kinetic)": 0.15 } ],
@@ -641,6 +650,7 @@ function init() {
     
     technomancer: [
        /* 0  */ [ 1, [], [ 1, 29, 55 ], { "Weapon Damage (Long Range)": 0.075, "Skill Leech": 0.15, "WeaponLeech": 0.15 } ],
+      
        /* 1  */ [ 0, [ 0, 2, 3 ], [ 2, 3 ], { "Weapon Damage": 0.08 } ],
        /* 2  */ [ 0, [ 1, 4 ], [ 1, 4 ], { "Weapon Leech": 0.05 } ],
        /* 3  */ [ 0, [ 1, 4 ], [ 1, 4 ], { "Skill Cooldown (Decay)": 0.15 } ],
