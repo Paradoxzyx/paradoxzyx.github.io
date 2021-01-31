@@ -132,6 +132,16 @@ hr {
 }
 
 /* ----- Tooltip */
+#skilltree .node .name {
+  display: none;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 80%;
+  white-space: nowrap;
+}
+
 #skilltree .node .tooltip {
     display: none;
     position: absolute;
@@ -165,6 +175,7 @@ hr {
     top: 148px;
 }
 
+#skilltree .node:hover > .name,
 #skilltree .node:hover > .tooltip {
     display: inline-flex;
 }
