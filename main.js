@@ -334,11 +334,11 @@ $("#nodecount").on("click", function() {
 
 $("#nodenames").on("click", function() {
   if ($(this).prop("checked")) {
-    $(".stat .name").show()
+    $(".node .name").show()
     document.cookie = "nodenames=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
   }
   else {
-    $(".stat .name").hide()
+    $(".node .name").hide()
     document.cookie = "nodenames=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
   }
 })
