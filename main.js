@@ -76,20 +76,14 @@ $(function() {
   }
 
   let search = new URLSearchParams(location.search)
-  active = search.get("c")
+  active = search.get("c") || "trickster"
   activetree = $("." + active + ".skilltree")
   activestats = $("." + active + ".statstable")
-  if (active) {
-    let s = search.get("s") || "0"
-    $("#nav-" + active).click()
-    $.each(s.split(",").map(Number), function(i, n) {
-      add(n)
-    })
-  }
-  else {
-    $("#nav-trickster").click()
-    add(0)
-  }
+  let s = search.get("s") || "0"
+  //$("#nav-" + active).click()
+  $.each(s.split(",").map(Number), function(i, n) {
+    add(n)
+  })
   
   //---------------------------------------- Get cookies
   $.each(document.cookie.split(";"), function(i, s) {
