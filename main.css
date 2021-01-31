@@ -270,18 +270,66 @@ hr {
 }
 
 /* ----- Keywords */
-.hl-wd {
-    color: #F12B2B;
-}
+/*
+#00FFFF; light blue
+#16D216; dark green
+#FFB000; orange
+#FF55E9; purple
 
-.hl-ap {
+#20DEFF; light blue - shield / anomaly power
+#F12B2B; red - weapon damage
+#FB9716; orange - armor / penetration
+#F343E4; purple - skill
+
+#43F3A3; light green
+#79FFA3; light green alt
+#F7EA40; yellow
+#FCFF79; yellow alt
+#3EF3C2; teal
+#3BABEF; dark blue
+#C13EEA; dark purple
+#F32DA2; light purple
+#FF82CC; pink
+#799BFF; light blue alt
+#FF7272; red alt
+*/
+.hl-a {
     color: #20DEFF;
 }
 
-.hl-ar {
-    color: #FB9716;
+.hl-d {
+    color: #FF7272;
+}
+
+.hl-e {
+    color: #F32DA2;
+}
+
+.hl-h {
+    color: #16D216;
+}
+
+.hl-l {
+    color: #43F3A3;
+}
+
+.hl-n {
+    color: #F7EA40;
+}
+
+.hl-p {
+    color: #F7EA40;
+}
+
+.hl-r {
+    color: #FFB000;
 }
 
 .hl-s {
-    color: #F343E4;
+    color: #FF82CC;
+    font-weight: bold;
+}
+
+.hl-t {
+    color: #3BABEF;
 }
