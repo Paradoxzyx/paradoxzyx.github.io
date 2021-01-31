@@ -378,7 +378,7 @@ function init() {
     "hl-d": /((weapon|assault|close range|long range) damage)/gi,
     "hl-e": /(weakness|mark(ed)?|burn|bleed)/gi,
     "hl-h": /((maximum )?health)/gi,
-    "hl-l": /((weapon|skill) leech|heal(ed|ing)?)/gi,
+    "hl-l": /((weapon|skill) leech|heal(?!th)(s|ed|ing)?)/gi,
     "hl-n": /((concentration|magma golem) node)/gi,
     "hl-p": /((armor|(armor and )?resistance) penetration)/gi,
     "hl-r": /((armor|resistance)(?! penetration)|damage mitigation)/gi,
