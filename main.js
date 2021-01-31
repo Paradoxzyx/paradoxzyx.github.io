@@ -122,7 +122,8 @@ $(function() {
   })
   
   //---------------------------------------- DEBUG
-  $("body").append($("<img>").attr({ id: "bread", src: "favicon.ico", width: 24, height: 24 }).css({ position: "absolute", top: "2000px", right: "1%" }))
+  $("body").append($("<div>").css("height", "200px")
+    .append($("<img>").attr({ id: "bread", src: "favicon.ico", width: 24, height: 24 }).css({ position: "absolute", top: "2000px", right: "1%" })))
 
   $("#bread").on("click", function() {
     if (!$("#debug").length) {
@@ -131,8 +132,7 @@ $(function() {
         $("#debug").text($(this).attr("data-n"))
       })
     }
-    points[active] = 100
-    $(".points", activetree).text(points[active])
+    $(".points", activetree).text(points[active] = 100)
   })
 })
 
@@ -374,10 +374,16 @@ function color(s) {
 function init() {
   //---------------------------------------- Keywords for tooltips & stats descriptions
   keywords = {
-    "hl-wd": /((weapon|assault|close range|long range) damage)/gi,
-    "hl-ap": /(anomaly power)/gi,
-    "hl-ar": /((armor|(armor and )?resistance) penetration)/gi,
-    "hl-s": /((damage|disruption|movement) Skills?)/gi
+    "hl-a": /(anomaly power)/gi,
+    "hl-d": /((weapon|assault|close range|long range) damage)/gi,
+    "hl-e": /(weakness|mark(ed)?|burn|bleed)/gi,
+    "hl-h": /((maximum )?health)/gi,
+    "hl-l": /((weapon|skill) leech|heal(ed|ing)?)/gi,
+    "hl-n": /((concentration|magma golem) node)/gi,
+    "hl-p": /((armor|(armor and )?resistance) penetration)/gi,
+    "hl-r": /((armor|resistance)(?! penetration)|damage mitigation)/gi,
+    "hl-s": /((damage|disruption|movement|ignite|immobilize|protection|seismic|kinetic|any) skills?|stone push)/gi,
+    "hl-t": /(shield( degredation)?)/gi
   }
   
   //---------------------------------------- All Skills
