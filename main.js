@@ -104,7 +104,7 @@ $(function() {
   
   //---------------------------------------- Click node
   $(".node").on("mousedown", function() {
-    let id = Number($(this).attr("data-n"))
+    let id = +$(this).attr("data-n")
     if (skills[active][id][0] == 1 && points[active] > 0) {
       add(id)
     }
@@ -160,7 +160,7 @@ function add(id) {
   
   //--- Unique Node Skill Count
   if ([ "Concentration", "Magma Golem", "Br/8 Impact Amplifier" ].includes(skills[active][id][4])) {
-    $(".stat .unique", activestats).attr("data-c", Number($(".stat .unique", activestats).attr("data-c")) + 1)
+    $(".stat .unique", activestats).attr("data-c", +$(".stat .unique", activestats).attr("data-c") + 1)
     $(".stat .unique", activestats).text(+($(".stat .unique", activestats).attr("data-v") * $(".stat .unique", activestats).attr("data-c") * 100).toFixed(1) + "%")
   }
   
@@ -211,7 +211,7 @@ function remove(id) {
   
   //--- Unique Node Skill Count
   if ([ "Concentration", "Magma Golem", "Br/8 Impact Amplifier" ].includes(skills[active][id][4])) {
-    $(".stat .unique", activestats).attr("data-c", Number($(".stat .unique", activestats).attr("data-c")) - 1)
+    $(".stat .unique", activestats).attr("data-c", +$(".stat .unique", activestats).attr("data-c") - 1)
     $(".stat .unique", activestats).text(+($(".stat .unique", activestats).attr("data-v") * $(".stat .unique", activestats).attr("data-c") * 100).toFixed(1) + "%")
   }
   
