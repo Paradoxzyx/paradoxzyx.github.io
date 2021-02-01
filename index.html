@@ -42,17 +42,29 @@
     </div>
     
     <div id="reset" class="button">Reset</div>
-    <div id="search">
-      <input id="searchtext" type="text" name="search">
-      <div class="button">Search</div>
-      <div id="searchcount"></div>
+    
+    <div class="options">
+      <div class="title">Options</div>
+      
+      <ul>
+        <li>
+          <input type="checkbox" id="nodenames" name="nodenames">
+          <label for="nodenames">Show Node Names</label>
+        </li>
+      </ul>
+      <hr>
+      <div id="search">
+        <input id="searchtext" type="text" name="search">
+        <div class="button">Search</div>
+        <div id="searchcount"></div>
+      </div>
     </div>
   </div>
 
   <div id="stats" class="main">
     <div class="title">Stats</div>
     
-    <div id="statsoptions">
+    <div class="options">
       <div class="title">Options</div>
       
       <ul>
@@ -67,10 +79,6 @@
         <li>
           <input type="checkbox" id="nodecount" name="nodecount">
           <label for="nodecount">Show Node Count</label>
-        </li>
-        <li>
-          <input type="checkbox" id="nodenames" name="nodenames">
-          <label for="nodenames">Show Node Names</label>
         </li>
       </ul>
     </div>
