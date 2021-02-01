@@ -61,9 +61,9 @@ $(function() {
   })
       
   //--- Unique Node Skill Count
-  $(".stat[data-s='Increase Assault Damage by 7% for each unlocked Concentration node'] td").append(" (<span class=\"unique\">0</span>)").attr("data-c", 0).attr("data-v", 0.07)
-  $(".stat[data-s='Increase Anomaly Power by 2.5% for each unlocked Magma Golem node'] td").append(" (<span class=\"unique\">0</span>)").attr("data-c", 0).attr("data-v", 0.025)
-  $(".stat[data-s='Increase your Anomaly Power by 12% for each unlocked Br/8 Impact Amplifier node'] td").append(" (<span class=\"unique\">0</span>)").attr("data-c", 0).attr("data-v", 0.12)
+  $(".stat[data-s='Increase Assault Damage by 7% for each unlocked Concentration node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.07\">0</span>)")
+  $(".stat[data-s='Increase Anomaly Power by 2.5% for each unlocked Magma Golem node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.025\">0</span>)")
+  $(".stat[data-s='Increase your Anomaly Power by 12% for each unlocked Br/8 Impact Amplifier node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.12\">0</span>)")
   
   //---------------------------------------- Points
   points = {
@@ -160,7 +160,7 @@ function add(id) {
   
   //--- Unique Node Skill Count
   if ([ "Concentration", "Magma Golem", "Br/8 Impact Amplifier" ].includes(skills[active][id][4])) {
-    $(".stat .unique", activestats).attr("data-c", $(".stat .unique", activestats).attr("data-c") + 1)
+    $(".stat .unique", activestats).attr("data-c", Number($(".stat .unique", activestats).attr("data-c")) + 1)
     $(".stat .unique", activestats).text(Math.round($(".stat .unique", activestats).attr("data-v") * $(".stat .unique", activestats).attr("data-c") * 100) + "%")
   }
   
@@ -211,7 +211,7 @@ function remove(id) {
   
   //--- Unique Node Skill Count
   if ([ "Concentration", "Magma Golem", "Br/8 Impact Amplifier" ].includes(skills[active][id][4])) {
-    $(".stat .unique", activestats).attr("data-c", $(".stat .unique", activestats).attr("data-c") - 1)
+    $(".stat .unique", activestats).attr("data-c", Number($(".stat .unique", activestats).attr("data-c")) - 1)
     $(".stat .unique", activestats).text(Math.round($(".stat .unique", activestats).attr("data-v") * $(".stat .unique", activestats).attr("data-c") * 100) + "%")
   }
   
