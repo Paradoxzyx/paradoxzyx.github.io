@@ -163,10 +163,15 @@ function add(id) {
   
   //--- Update URL
   url[active].push(id)
-  url[active].sort(function(a, b) {
-    return a - b
-  })
-  history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
+  if (url[active].join(",") == "0") {
+    history.replaceState(null, "", "?c=" + active)
+  }
+  else {
+    url[active].sort(function(a, b) {
+      return a - b
+    })
+    history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
+  }
 }
 
 //---------------------------------------- Remove node
@@ -221,9 +226,14 @@ function remove(id) {
     }
   })
   
-  //--- Update URL
+  //--- Update URL  
   url[active].splice($.inArray(id, url[active]), 1)
-  history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
+  if (!url[active] || url[active].join(",") == "0") {
+    history.replaceState(null, "", "?c=" + active)
+  }
+  else {
+    history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
+  }
 }
 
 //---------------------------------------- Check tree
@@ -296,7 +306,12 @@ $("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("cli
   if (!url[active].length) {
     add(0)
   }
-  history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
+  else if (url[active].join(",") == "0") {
+    history.replaceState(null, "", "?c=" + active)
+  }
+  else {
+    history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
+  }
 })
 
 //---------------------------------------- Options
