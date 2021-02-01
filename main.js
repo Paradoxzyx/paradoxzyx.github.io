@@ -371,9 +371,9 @@ $("#nodenames").on("click", function() {
 })
 
 //---------------------------------------- Search
-$("#search").on("click", search)
+$("#search .button").on("click", search)
 
-$("#searchbox").keyup(function(e) {
+$("#searchtext").keyup(function(e) {
   if (e.keyCode == 13) {
     search()
   }
@@ -381,7 +381,7 @@ $("#searchbox").keyup(function(e) {
 
 function search() {
   $(".node", activetree).removeClass("highlight")
-  let s = $("#searchbox").val().toLowerCase()
+  let s = $("#searchtext").val().toLowerCase()
   if (s) {
     $.each(skills[active], function(i, n) {
       $.each(n[3], function(k, v) {
