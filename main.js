@@ -310,7 +310,6 @@ $("#reset").on("click", function() {
 $("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("click", function() {
   activetree.hide()
   activestats.hide()
-  $("#searchbox").val("")
   $("#searchcount").text("")
   $(".node", activetree).removeClass("highlight")
   
