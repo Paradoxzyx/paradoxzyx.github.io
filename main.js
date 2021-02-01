@@ -167,7 +167,6 @@ function add(id) {
     return a - b
   })
   history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
-  }
 }
 
 //---------------------------------------- Remove node
