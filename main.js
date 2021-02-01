@@ -286,6 +286,7 @@ $("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("cli
   activetree.hide()
   activestats.hide()
   $("#searchbox").val("")
+  $("#searchcount").text("")
   $(".node", activetree).removeClass("highlight")
   
   active = $(this).attr("data-class")
