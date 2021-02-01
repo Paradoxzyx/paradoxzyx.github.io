@@ -61,7 +61,7 @@ $(function() {
   })
       
   //--- Unique Node Skill Count
-  $(".stat[data-s='Increase Assault Damage by 7% for each unlocked Concentration node'] td", ".stat[data-s='Increase Anomaly Power by 2.5% for each unlocked Magma Golem node'] td", ".stat[data-s='Increase your Anomaly Power by 12% for each unlocked Br/8 Impact Amplifier node'] td").append(" (<span class=\"unique\">0</span>)")
+  $(".stat[data-s='Increase Assault Damage by 7% for each unlocked Concentration node'] td, .stat[data-s='Increase Anomaly Power by 2.5% for each unlocked Magma Golem node'] td, .stat[data-s='Increase your Anomaly Power by 12% for each unlocked Br/8 Impact Amplifier node'] td").append(" (<span class=\"unique\">0</span>)")
   
   //---------------------------------------- Points
   points = {
@@ -290,7 +290,7 @@ $("#reset").on("click", function() {
     s[2] = 0
   })
   $(".stat .stat-v", activestats).removeClass("stat-0 stat-1 stat-2 stat-3").text("0%")
-  $(".stat .stat-c", activestats).text(0)
+  $(".stat .stat-c, .stat .unique", activestats).text(0)
   
   //--- Add node 0
   url[active] = []
