@@ -294,7 +294,10 @@ $("#reset").on("click", function() {
     s[2] = 0
   })
   $(".stat .stat-v", activestats).removeClass("stat-0 stat-1 stat-2 stat-3").text("0%")
-  $(".stat .stat-c, .stat .unique", activestats).text(0)
+  $(".stat .stat-c", activestats).text(0)
+  
+  //--- Unique Node Skill Count
+  $(".stat .unique", activestats).attr("data-c", 0).text(0)
   
   //--- Add node 0
   url[active] = []
