@@ -77,6 +77,28 @@ a {
     letter-spacing: 2px;
 }
 
+#skilltree #search {
+    position: absolute;
+    top: 0;
+    margin: 10px;
+}
+
+#skilltree #search input {
+    width: 170px;
+    text-align: center;
+}
+
+#skilltree #search .button {
+    width: 100px;
+    margin: 4px auto;
+}
+
+#skilltree #search #searchcount {
+    color: #808080;
+    text-align: center;
+    font: 90% "Chakra Petch", sans-serif;
+}
+
 #skilltree #reset {
     position: absolute;
     left: 30px;
@@ -234,22 +256,6 @@ a {
 
 #stats #statsoptions input {
     margin: 4px;
-}
-
-#stats #statsoptions #searchbox {
-    width: 170px;
-    text-align: center;
-}
-
-#stats #statsoptions #search {
-    width: 100px;
-    margin: 4px auto;
-}
-
-#stats #statsoptions #searchcount {
-    color: #808080;
-    text-align: center;
-    font-size: 90%;
 }
 
 #stats #statskey {
