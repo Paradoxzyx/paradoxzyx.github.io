@@ -67,7 +67,7 @@ a {
 }
 
 .options li {
-    margin: 4px 8px;
+    margin: 8px;
 }
 
 #skilltree .options {
@@ -102,13 +102,7 @@ a {
     letter-spacing: 2px;
 }
 
-#skilltree #search {
-    position: absolute;
-    top: 0;
-    margin: 10px;
-}
-
-#skilltree #searchtext {
+#skilltree #search #searchtext {
     width: 160px;
     text-align: center;
 }
