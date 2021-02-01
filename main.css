@@ -83,8 +83,8 @@ a {
     margin: 10px;
 }
 
-#skilltree #search input {
-    width: 170px;
+#skilltree #searchtext {
+    width: 160px;
     text-align: center;
 }
 
