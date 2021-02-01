@@ -61,7 +61,7 @@ $(function() {
   })
       
   //--- Unique Node Skill Count
-  $(".stat[data-s=Increase Assault Damage by 7% for each unlocked Concentration node] td", ".stat[data-s=Increase Anomaly Power by 2.5% for each unlocked Magma Golem node] td", ".stat[data-s=Increase your Anomaly Power by 12% for each unlocked Br/8 Impact Amplifier node] td" ].append($("<span>").addClass("unique").text(0))
+  $(".stat[data-s=Increase Assault Damage by 7% for each unlocked Concentration node] td", ".stat[data-s=Increase Anomaly Power by 2.5% for each unlocked Magma Golem node] td", ".stat[data-s=Increase your Anomaly Power by 12% for each unlocked Br/8 Impact Amplifier node] td" ].append(" (" + $("<span>").addClass("unique").text(0) + ")")
   }
   
   //---------------------------------------- Points
