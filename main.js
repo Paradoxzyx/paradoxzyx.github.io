@@ -259,7 +259,7 @@ $("#reset").on("click", function() {
   $.each(skills[active], function(i, s) {
     s[0] = 0
   })
-  $(".node", activetree).removeClass("active activatable highlight")
+  $(".node", activetree).removeClass("active activatable")
   
   //--- Clear stats
   if (!$("#allstats").prop("checked")) {
