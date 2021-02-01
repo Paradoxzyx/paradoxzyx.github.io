@@ -163,14 +163,10 @@ function add(id) {
   
   //--- Update URL
   url[active].push(id)
-  if (url[active].join(",") == "0") {
-    history.replaceState(null, "", "?c=" + active)
-  }
-  else {
-    url[active].sort(function(a, b) {
-      return a - b
-    })
-    history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
+  url[active].sort(function(a, b) {
+    return a - b
+  })
+  history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
   }
 }
 
@@ -228,11 +224,11 @@ function remove(id) {
   
   //--- Update URL  
   url[active].splice($.inArray(id, url[active]), 1)
-  if (!url[active] || url[active].join(",") == "0") {
-    history.replaceState(null, "", "?c=" + active)
+  if (url[active].length) {
+    history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
   }
   else {
-    history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
+    history.replaceState(null, "", "?c=" + active)
   }
 }
 
@@ -303,14 +299,11 @@ $("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("cli
   activetree = $("." + active + ".skilltree").show()
   activestats = $("." + active + ".statstable").show()
   
-  if (!url[active].length) {
-    add(0)
-  }
-  else if (url[active].join(",") == "0") {
-    history.replaceState(null, "", "?c=" + active)
+  if (url[active].length) {
+    history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
   }
   else {
-    history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
+    add(0)
   }
 })
 
