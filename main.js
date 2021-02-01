@@ -391,10 +391,10 @@ function init() {
     "hl-e": /(weakness|mark(ed)?|burn|bleed|toxic|vulnerab(le|ility)|freeze|frozen)/gi,
     "hl-h": /((maximum )?health( regen)?)/gi,
     "hl-l": /((weapon|skill) leech|heal(?!th)(s|ed|ing)?)/gi,
-    "hl-n": /((concentration|magma golem) node)/gi,
+    "hl-n": /((concentration|magma golem|br\/8 impact amplifier) node)/gi,
     "hl-p": /((armor|(armor and )?resistance) penetration)/gi,
     "hl-r": /((armor|resistance)(?!( and resistance)? penetration)|damage mitigation)/gi,
-    "hl-s": /((damage|disruption|movement|ignite|immobilize|protection|seismic|kinetic|decay|ordinance|gadget|any) skills?|stone push)/gi,
+    "hl-s": /((damage|disruption|movement|ignite|immobilize|explosive|protection|seismic|kinetic|decay|ordinance|gadget|any) skills?|stone push)/gi,
     "hl-t": /(shields?( degredation)?)/gi
   }
   
@@ -663,7 +663,7 @@ function init() {
     ],
     
     technomancer: [
-       /* 0  */ [ 1, [], [ 1, 29, 55 ], { "Weapon Damage (Long Range)": 0.075, "Skill Leech": 0.15, "WeaponLeech": 0.15 }, "" ],
+       /* 0  */ [ 1, [], [ 1, 29, 55 ], { "Weapon Damage (Long Range)": 0.075, "Skill Leech": 0.15, "Weapon Leech": 0.15 }, "" ],
       
        /* 1  */ [ 0, [ 0, 2, 3 ], [ 2, 3 ], { "Weapon Damage": 0.08 }, "Br/8 Impact Amplifier" ],
        /* 2  */ [ 0, [ 1, 4 ], [ 1, 4 ], { "Weapon Leech": 0.05 }, "Suction Module" ],
