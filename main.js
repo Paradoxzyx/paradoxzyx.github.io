@@ -59,6 +59,10 @@ $(function() {
           .append($("<td>").html(color(v))))
     })
   })
+      
+  //--- Unique Node Skill Count
+  $(".stat[data-s=Increase Assault Damage by 7% for each unlocked Concentration node] td", ".stat[data-s=Increase Anomaly Power by 2.5% for each unlocked Magma Golem node] td", ".stat[data-s=Increase your Anomaly Power by 12% for each unlocked Br/8 Impact Amplifier node] td" ].append($("<span>").addClass("unique").text(0))
+  }
   
   //---------------------------------------- Points
   points = {
@@ -153,6 +157,11 @@ function add(id) {
     $(".stat[data-s=\"" + k + "\"]", activestats).removeClass("inactive").show()
   })
   
+  //--- Unique Node Skill Count
+  if ([ "Concentration", "Magma Golem", "Br/8 Impact Amplifier" ].includes(skills[active][id][4])) {
+    $(".stat .unique", activestats).text(Number($(".stat .unique", activestats).text()) + 1)
+  }
+  
   //--- Set non-active children to activatable
   $.each(node[2], function(i, n) {
     if (skills[active][n][0] != 2) {
@@ -197,6 +206,11 @@ function remove(id) {
       $(".stat[data-s=\"" + k + "\"] .stat-v", activestats).text("0%")
     }
   })
+  
+  //--- Unique Node Skill Count
+  if ([ "Concentration", "Magma Golem", "Br/8 Impact Amplifier" ].includes(skills[active][id][4])) {
+    $(".stat .unique", activestats).text(Number($(".stat .unique", activestats).text()) - 1)
+  }
   
   //--- Get all activatable child nodes
   let children = []
