@@ -297,7 +297,7 @@ $("#reset").on("click", function() {
   $(".stat .stat-c", activestats).text(0)
   
   //--- Unique Node Skill Count
-  $(".stat .unique", activestats).attr("data-c", 0).text(0)
+  $(".stat .unique", activestats).attr("data-c", 0).text("0%")
   
   //--- Add node 0
   url[active] = []
