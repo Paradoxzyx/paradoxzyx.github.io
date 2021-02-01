@@ -420,7 +420,7 @@ function init() {
     "hl-n": /((concentration|magma golem|br\/8 impact amplifier) node)/gi,
     "hl-p": /((armor|(armor and )?resistance) penetration)/gi,
     "hl-r": /((armor|resistance)(?!( and resistance)? penetration)|damage mitigation)/gi,
-    "hl-s": /((damage|disruption|movement|ignite|immobilize|explosive|protection|seismic|kinetic|decay|ordinance|gadget|any) skills?|stone push)/gi,
+    "hl-s": /((damage|disruption|movement|ignite|immobilize|explosive|protection|seismic|kinetic|decay|ordinance|gadget|any) skills?|stone push|(?<=skill cooldown \()(damage|disruption|movement|ignite|immobilize|explosive|protection|seismic|kinetic|decay|ordinance|gadget|any))/gi,
     "hl-t": /(shields?( degredation)?)/gi
   }
   
