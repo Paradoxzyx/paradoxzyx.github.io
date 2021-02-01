@@ -51,6 +51,31 @@ a {
     border-color: #A0A0A0;
 }
 
+/* ----- Options */
+.options {
+    float: left;
+    text-align: left;
+    font-family: "Chakra Petch", sans-serif;
+    border-bottom: 1px solid #108ABD;
+    border-right: 1px solid #108ABD;
+    border-radius: 4px;
+    padding-bottom: 4px;
+}
+
+.options input {
+    margin: 4px;
+}
+
+.options li {
+    margin: 4px 8px;
+}
+
+#skilltree .options {
+    position: absolute;
+    top: 0;
+    text-align: center;
+}
+
 /* ----- Class */
 #nav {
     text-align: center;
@@ -240,24 +265,6 @@ a {
     padding: 4px;
 }
 
-#stats li {
-    margin: 4px 8px;
-}
-
-#stats #statsoptions {
-    float: left;
-    text-align: left;
-    font-family: "Chakra Petch", sans-serif;
-    border-bottom: 1px solid #108ABD;
-    border-right: 1px solid #108ABD;
-    border-radius: 4px;
-    padding-bottom: 4px;
-}
-
-#stats #statsoptions input {
-    margin: 4px;
-}
-
 #stats #statskey {
     float: right;
     text-align: right;
@@ -265,6 +272,10 @@ a {
     border-bottom: 1px solid #108ABD;
     border-left: 1px solid #108ABD;
     border-radius: 4px;
+}
+
+#stats #statskey li {
+    margin: 4px 8px;
 }
 
 #stats .stat.inactive {
