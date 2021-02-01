@@ -29,7 +29,7 @@ $(function() {
           if (!s.includes(k)) {
             s.push(k)
           }
-          t.push(parseFloat(v * 100) + "% " + k)
+          t.push(parseFloat(Number.EPSILON + v * 100) + "% " + k)
         }
         else {
           if (!u.includes(k)) {
@@ -49,7 +49,7 @@ $(function() {
         .append($("<tr>").addClass("stat inactive").attr("data-s", v)
           .append($("<td>").addClass("stat-k").text(v + ":"))
           .append($("<td>").addClass("stat-v").text("0%"))
-          .append($("<td>").addClass("stat-m").text(parseFloat(stats[c][v][1] * 100) + "%"))
+          .append($("<td>").addClass("stat-m").text(parseFloat(Number.EPSILON + stats[c][v][1] * 100) + "%"))
           .append($("<td>").addClass("stat-n").html("(<span class=\"stat-c\">0</span>/" + stats[c][v][3] + ")")))
     })
     //--- Create sorted stat list (Unique stats)
@@ -152,7 +152,7 @@ function add(id) {
   $.each(stat, function(k, v) {
     if (stats[active][k][1]) {
       stats[active][k][0] += v
-      $(".stat[data-s=\"" + k + "\"] .stat-v", activestats).removeClass("stat-0 stat-1 stat-2 stat-3").addClass("stat-" + Math.floor(stats[active][k][0] / stats[active][k][1] * 3)).text(parseFloat(stats[active][k][0] * 100) + "%")
+      $(".stat[data-s=\"" + k + "\"] .stat-v", activestats).removeClass("stat-0 stat-1 stat-2 stat-3").addClass("stat-" + Math.floor(stats[active][k][0] / stats[active][k][1] * 3)).text(parseFloat(Number.EPSILON + stats[active][k][0] * 100) + "%")
       $(".stat[data-s=\"" + k + "\"] .stat-c", activestats).text(++stats[active][k][2])
     }
     $(".stat[data-s=\"" + k + "\"]", activestats).removeClass("inactive").show()
@@ -161,7 +161,7 @@ function add(id) {
   //--- Unique Node Skill Count
   if ([ "Concentration", "Magma Golem", "Br/8 Impact Amplifier" ].includes(skills[active][id][4])) {
     $(".stat .unique", activestats).attr("data-c", $(".stat .unique", activestats).attr("data-c") + 1)
-    $(".stat .unique", activestats).text(parseFloat($(".stat .unique", activestats).attr("data-v") * $(".stat .unique", activestats).attr("data-c") * 100) + "%")
+    $(".stat .unique", activestats).text(parseFloat(Number.EPSILON + $(".stat .unique", activestats).attr("data-v") * $(".stat .unique", activestats).attr("data-c") * 100) + "%")
   }
   
   //--- Set non-active children to activatable
@@ -198,7 +198,7 @@ function remove(id) {
       $(".stat[data-s=\"" + k + "\"] .stat-c", activestats).text(--stats[active][k][2])
     }
     if (stats[active][k][0]) {
-      $(".stat[data-s=\"" + k + "\"] .stat-v", activestats).addClass("stat-" + Math.floor(stats[active][k][0] / stats[active][k][1] * 3)).text(parseFloat(stats[active][k][0] * 100) + "%")
+      $(".stat[data-s=\"" + k + "\"] .stat-v", activestats).addClass("stat-" + Math.floor(stats[active][k][0] / stats[active][k][1] * 3)).text(parseFloat(Number.EPSILON + stats[active][k][0] * 100) + "%")
     }
     else {
       if (!$("#allstats").prop("checked")) {
@@ -212,7 +212,7 @@ function remove(id) {
   //--- Unique Node Skill Count
   if ([ "Concentration", "Magma Golem", "Br/8 Impact Amplifier" ].includes(skills[active][id][4])) {
     $(".stat .unique", activestats).attr("data-c", $(".stat .unique", activestats).attr("data-c") - 1)
-    $(".stat .unique", activestats).text(parseFloat($(".stat .unique", activestats).attr("data-v") * $(".stat .unique", activestats).attr("data-c") * 100) + "%")
+    $(".stat .unique", activestats).text(parseFloat(Number.EPSILON + $(".stat .unique", activestats).attr("data-v") * $(".stat .unique", activestats).attr("data-c") * 100) + "%")
   }
   
   //--- Get all activatable child nodes
