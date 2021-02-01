@@ -237,7 +237,8 @@ a {
 }
 
 #stats #statsoptions #searchbox {
-    width: 160px;
+    width: 170px;
+    text-align: center;
 }
 
 #stats #statsoptions #search {
