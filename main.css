@@ -1,3 +1,4 @@
+/* ---------------------------------------- Main */
 body {
     background: #303030;
     color: #FFFFFF;
@@ -38,7 +39,7 @@ a {
     text-decoration: none;
 }
 
-/* ----- Button */
+/* ---------------------------------------- Button */
 .button {
     font: 16px/2 "Chakra Petch", sans-serif;
     text-align: center;
@@ -50,12 +51,13 @@ a {
     user-select: none;
     cursor: pointer;
 }
+
 .button:hover {
     background: #606060;
     border-color: #A0A0A0;
 }
 
-/* ----- Options */
+/* ---------------------------------------- Options */
 .options {
     float: left;
     text-align: left;
@@ -74,6 +76,7 @@ a {
     margin: 8px;
 }
 
+/* ----- Skilltree specific */
 #skilltree .options {
     position: absolute;
     top: 0;
@@ -81,7 +84,24 @@ a {
     border: 1px solid #108ABD;
 }
 
-/* ----- Class */
+/* ----- Search */
+#search #searchtext {
+    width: 160px;
+    text-align: center;
+}
+
+#search .button {
+    width: 100px;
+    margin: 4px auto;
+}
+
+#search #searchcount {
+    color: #808080;
+    text-align: center;
+    font: 90% "Chakra Petch", sans-serif;
+}
+
+/* ---------------------------------------- Class Nav */
 #nav {
     text-align: center;
 }
@@ -92,7 +112,7 @@ a {
     margin: 10px;
 }
 
-/* ----- Skilltree */
+/* ---------------------------------------- Skilltree */
 #skilltree {
     position: relative;
     min-height: 870px;
@@ -101,22 +121,6 @@ a {
 
 #skilltree .skilltree {
     display: none;
-}
-
-#skilltree #search #searchtext {
-    width: 160px;
-    text-align: center;
-}
-
-#skilltree #search .button {
-    width: 100px;
-    margin: 4px auto;
-}
-
-#skilltree #search #searchcount {
-    color: #808080;
-    text-align: center;
-    font: 90% "Chakra Petch", sans-serif;
 }
 
 #skilltree #points {
@@ -205,16 +209,16 @@ a {
     text-align: center;
 }
 
+#skilltree .node:hover .name {
+    display: block !important;
+}
+
 #skilltree .node.n0 .name {
     bottom: 40px;
 }
 
 #skilltree .node.n1 .name {
     bottom: 60px;
-}
-
-#skilltree .node:hover .name {
-    display: block !important;
 }
 
 /* ----- Tooltip */
@@ -244,6 +248,10 @@ a {
   }
 }
 
+#skilltree .node:hover .tooltip {
+    display: inline-flex !important;
+}
+
 #skilltree .node.n0 .tooltip {
     top: 50px;
 }
@@ -256,11 +264,7 @@ a {
     top: 148px;
 }
 
-#skilltree .node:hover .tooltip {
-    display: inline-flex !important;
-}
-
-/* ----- Stats */
+/* ---------------------------------------- Stats */
 #stats {
     text-align: center;
 }
@@ -279,19 +283,6 @@ a {
 
 #stats table td {
     padding: 4px;
-}
-
-#stats #statskey {
-    float: right;
-    text-align: right;
-    font-family: "Chakra Petch", sans-serif;
-    border-bottom: 1px solid #108ABD;
-    border-left: 1px solid #108ABD;
-    border-radius: 4px;
-}
-
-#stats #statskey li {
-    margin: 4px 8px;
 }
 
 #stats .stat.inactive {
@@ -331,7 +322,21 @@ a {
     color: #FF55E9;
 }
 
-/* ----- Keywords */
+/* ----- Stats Key */
+#stats #statskey {
+    float: right;
+    text-align: right;
+    font-family: "Chakra Petch", sans-serif;
+    border-bottom: 1px solid #108ABD;
+    border-left: 1px solid #108ABD;
+    border-radius: 4px;
+}
+
+#stats #statskey li {
+    margin: 4px 8px;
+}
+
+/* ---------------------------------------- Keywords */
 /*
 #00FFFF; light blue
 #16D216; dark green
@@ -355,6 +360,7 @@ a {
 #799BFF; light blue alt
 #FF7272; red alt
 */
+
 .hl-a {
     color: #20DEFF;
 }
