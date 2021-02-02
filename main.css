@@ -95,13 +95,8 @@ a {
     overflow: hidden;
 }
 
-#skilltree .points {
-    position: absolute;
-    left: 27px;
-    top: 693px;
-    color: #D3B848;
-    font: 60px "Chakra Petch", sans-serif;
-    letter-spacing: 2px;
+#skilltree .skilltree {
+    display: none;
 }
 
 #skilltree #search #searchtext {
@@ -120,15 +115,30 @@ a {
     font: 90% "Chakra Petch", sans-serif;
 }
 
+#skilltree #points {
+    position: absolute;
+    left: 27px;
+    top: 693px;
+    color: #D3B848;
+    font: 60px "Chakra Petch", sans-serif;
+    letter-spacing: 2px;
+}
+
+#skilltree #points:after {
+    content: "";
+    position: absolute;
+    width: 41px;
+    height: 44px;
+    top: 17px;
+    left: 120%;
+    background: url(class-points.png) no-repeat;
+}
+
 #skilltree #reset {
     position: absolute;
     left: 30px;
     top: 810px;
     width: 90px;
-}
-
-#skilltree .skilltree {
-    display: none;
 }
 
 /* ----- Node */
