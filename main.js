@@ -129,7 +129,7 @@ $(function() {
 
   $("#bread").on("click", function() {
     if (!$("#debug").length) {
-      $("#reset").after($("<div>").attr("id", "debug").css({ position: "fixed", left: "40px", top: "140px" }))
+      $("#reset").after($("<div>").attr("id", "debug").css({ position: "fixed", left: "250px", top: "200px" }))
       $(".node").mousemove(function() {
         $("#debug").text($(this).attr("data-n"))
       })
