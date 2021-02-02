@@ -223,6 +223,7 @@ a {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    filter: brightness(0.5);
     padding: 12px;
     background: #000000E8;
     border: 1px solid #108ABD;
@@ -230,6 +231,10 @@ a {
     text-align: center;
     font-size: 95%;
     white-space: nowrap;
+}
+
+#skilltree .node.highlight .tooltip {
+    filter: brightness(0.5) saturate(0.5);
 }
 
 @supports (backdrop-filter: blur(4px)) {
