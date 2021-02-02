@@ -748,7 +748,7 @@ function init() {
        /* 51 */ [ 0, [ 32, 53 ], [ 32, 52, 53 ], { "After using your melee skill, gain 40% Damage Mitigation for 3s": null }, "Winter's Barrier" ],
        /* 52 */ [ 0, [ 51 ], [], { "Freeze Duration": 0.2 }, "Sols-56 Freezing Tanks" ],
        /* 53 */ [ 0, [ 51, 58 ], [ 51, 58 ], { "Damage (Sidearms)": 0.12 }, "Sidearm Adept" ],
-       /* 54 */ [ 0, [ 35, 62 ], [ 35, 62 ], { "Damage (To Enemies below 30% Health": 0.2 }, "Wipe Out" ],
+       /* 54 */ [ 0, [ 35, 62 ], [ 35, 62 ], { "Damage (To Enemies below 30% Health)": 0.2 }, "Wipe Out" ],
       
        /* 55 */ [ 0, [ 0, 56, 57 ], [ 56, 57 ], { "Anomaly Power": 0.06 }, "Anomally Fueled" ],
        /* 56 */ [ 0, [ 55, 58 ], [ 55, 58 ], { "Skill Cooldown (Ordinance)": 0.15 }, "Ordanance Technician" ],
