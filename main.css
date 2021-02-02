@@ -234,7 +234,7 @@ a {
 }
 
 #skilltree .node.highlight .tooltip {
-    filter: brightness(0.5) saturate(0.5);
+    filter: saturate(0.5);
 }
 
 @supports (backdrop-filter: blur(4px)) {
