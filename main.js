@@ -570,7 +570,7 @@ function init() {
        /* 49 */ [ 0, [ 47 ], [ 50 ], { "Skill Cooldown (Ignite)": 0.15 }, "Warm Up" ],
        /* 50 */ [ 0, [ 48, 49 ], [], { "(UNKNOWN 9)": null }, "???" ],
       
-       /* 51 */ [ 0, [ 33, 53 ], [ 33, 52, 53 ], { "Skill Cooldown": 0.1 }, "Wildfire" ],
+       /* 51 */ [ 0, [ 33, 53 ], [ 33, 52, 53 ], { "Skill Cooldown (Explosive)": 0.1, "Skill Cooldown (Ignite)": 0.1, "Skill Cooldown (Immobilize)": 0.1 }, "Wildfire" ],
        /* 52 */ [ 0, [ 51 ], [], { "(UNKNOWN 10) Damage boost (Conditional)": null }, "???" ],
        /* 53 */ [ 0, [ 51, 59 ], [ 51, 59 ], { "Weapon Damage (Sidearm)": 0.12 }, "Sidearm Adept" ],
        /* 54 */ [ 0, [ 36, 63 ], [ 36, 55, 63 ], { "(UNKNOWN 11)": null }, "???" ],
