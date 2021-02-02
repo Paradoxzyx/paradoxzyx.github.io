@@ -72,7 +72,7 @@ $(function() {
     devastator: 20,
     technomancer: 20
   }
-  $(".points").text(20)
+  $("#points").text(20)
   
   //---------------------------------------- Get URL params
   url = {
@@ -134,7 +134,7 @@ $(function() {
         $("#debug").text($(this).attr("data-n"))
       })
     }
-    $(".points", activetree).text(points[active] = 100)
+    $("#points").text(points[active] = 100)
   })
 })
 
@@ -145,7 +145,7 @@ function add(id) {
   //--- Activate node
   node[0] = 2
   $(".node[data-n=" + id + "]", activetree).removeClass("activatable").addClass("active")
-  $(".points", activetree).text(--points[active])
+  $("#points").text(--points[active])
   
   //--- Stats
   let stat = node[3]
@@ -187,7 +187,7 @@ function remove(id) {
   //--- Deactivate node
   node[0] = 1
   $(".node[data-n=" + id + "]", activetree).removeClass("active").addClass("activatable")
-  $(".points", activetree).text(++points[active])
+  $("#points").text(++points[active])
   
   //--- Stats
   let stat = node[3]
@@ -317,6 +317,7 @@ $("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("cli
   activetree = $("." + active + ".skilltree").show()
   activestats = $("." + active + ".statstable").show()
   
+  $("#points").text(points[active])
   if (url[active].length) {
     history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
   }
