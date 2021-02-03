@@ -228,12 +228,13 @@ a {
     left: 50%;
     transform: translateX(-50%);
     filter: brightness(0.5);
-    padding: 12px;
+    padding: 8px 12px;
     background: #000000E8;
     border: 1px solid #108ABD;
     border-radius: 6px;
     text-align: center;
     font-size: 95%;
+    line-height: 1.5;
     white-space: nowrap;
 }
 
