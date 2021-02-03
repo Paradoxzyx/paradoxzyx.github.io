@@ -67,12 +67,12 @@ $(function() {
   
   //---------------------------------------- Points
   points = {
-    trickster: 20,
-    pyromancer: 20,
-    devastator: 20,
-    technomancer: 20
+    trickster: 21,
+    pyromancer: 21,
+    devastator: 21,
+    technomancer: 21
   }
-  $("#points").text(20)
+  $("#points").text(21)
   
   //---------------------------------------- Get URL params
   url = {
@@ -301,7 +301,7 @@ $("#reset").on("click", function() {
   
   //--- Add node 0
   url[active] = []
-  points[active] = 20
+  points[active] = 21
   skills[active][0][0] = 1
   add(0)
 })
