@@ -173,13 +173,11 @@ function add(id) {
   })
   
   //--- Update URL
-  if (id != 0) {
-    url[active].push(id)
-    url[active].sort(function(a, b) {
-      return a - b
-    })
-    history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
-  }
+  url[active].push(id)
+  url[active].sort(function(a, b) {
+    return a - b
+  })
+  history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
 }
 
 //---------------------------------------- Remove node
