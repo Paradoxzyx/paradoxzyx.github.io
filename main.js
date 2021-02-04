@@ -38,9 +38,14 @@ $(function() {
           t.push(k)
         }
       })
+      let tooltip = $("<ul>")
       $(".node", skilltree).eq(i)
         .append($("<div>").addClass("name").text(node[3]))
-        .append($("<div>").addClass("tooltip").html(color(t.join("<br>"))))
+        .append($("<div>").addClass("tooltip")
+          .append(tooltip))
+      $.each(t, function(j, v) {
+        tooltip.append($("<li>").html(color(v)))
+      })
     })
     
     //--- Create sorted stat list
@@ -406,7 +411,7 @@ function color(s) {
       s = s.replace(v, "<span class=\"" + k + "\">$1</span>")
     }
   })
-  return $("<span>").html(s)
+  return s
 }
 
 //---------------------------------------- Init
