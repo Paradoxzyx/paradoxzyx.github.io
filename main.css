@@ -57,6 +57,22 @@ a {
     border-color: #A0A0A0;
 }
 
+/* ---------------------------------------- Class Nav */
+#nav {
+    text-align: center;
+}
+
+#nav .button {
+    display: inline-block;
+    width: 120px;
+    margin: 10px;
+}
+
+#nav .button.active {
+    background: #404040;
+    border-color: #808080;
+}
+
 /* ---------------------------------------- Options */
 .options {
     float: left;
@@ -99,22 +115,6 @@ a {
     color: #808080;
     text-align: center;
     font: 90% "Chakra Petch", sans-serif;
-}
-
-/* ---------------------------------------- Class Nav */
-#nav {
-    text-align: center;
-}
-
-#nav .button {
-    display: inline-block;
-    width: 120px;
-    margin: 10px;
-}
-
-#nav .button.active {
-    background: #404040;
-    border-color: #808080;
 }
 
 /* ---------------------------------------- Skilltree */
