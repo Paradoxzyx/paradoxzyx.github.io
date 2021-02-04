@@ -89,6 +89,7 @@ $(function() {
 
   let search = new URLSearchParams(location.search)
   active = url.hasOwnProperty(search.get("c")) ? search.get("c") : "trickster"
+  $("#nav .button[data-class=" + active + "]").addClass("active")
   activetree = $("." + active + ".skilltree").show()
   activestats = $("." + active + ".statstable").show()
   let s = search.get("s") || "0"
@@ -317,8 +318,10 @@ $("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("cli
   activestats.hide()
   $("#searchcount").text("")
   $(".node", activetree).removeClass("highlight")
+  $("#nav .button").removeClass("active")
   
   active = $(this).attr("data-class")
+  $(this).addClass("active")
   activetree = $("." + active + ".skilltree").show()
   activestats = $("." + active + ".statstable").show()
   
