@@ -230,7 +230,7 @@ a {
     left: 50%;
     transform: translateX(-50%);
     filter: brightness(0.5);
-    padding: 4px;
+    padding: 4px 8px;
     background: #000000E8;
     border: 1px solid #108ABD;
     border-radius: 6px;
