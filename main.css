@@ -225,21 +225,17 @@ a {
 #skilltree .node .tooltip {
     display: none;
     position: absolute;
+    width: max-content;
+    max-width: 350px;
     left: 50%;
     transform: translateX(-50%);
     filter: brightness(0.5);
-    padding: 8px 12px;
+    padding: 4px;
     background: #000000E8;
     border: 1px solid #108ABD;
     border-radius: 6px;
     text-align: center;
     font-size: 95%;
-    line-height: 1.5;
-    white-space: nowrap;
-}
-
-#skilltree .node.highlight .tooltip {
-    filter: saturate(0.5);
 }
 
 @supports (backdrop-filter: blur(4px)) {
@@ -247,6 +243,14 @@ a {
     background: #000000C0;
     backdrop-filter: blur(4px);
   }
+}
+
+#skilltree .node .tooltip li {
+    margin: 6px 0;
+}
+
+#skilltree .node.highlight .tooltip {
+    filter: saturate(0.5);
 }
 
 #skilltree .node:hover .tooltip {
