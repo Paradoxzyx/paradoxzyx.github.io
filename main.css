@@ -112,6 +112,11 @@ a {
     margin: 10px;
 }
 
+#nav .button.active {
+    background: #404040;
+    border-color: #808080;
+}
+
 /* ---------------------------------------- Skilltree */
 #skilltree {
     position: relative;
