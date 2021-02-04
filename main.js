@@ -651,7 +651,7 @@ function init() {
        /* 37 */ [ 0, [ 36 ], [ 39 ], "Anomaly in Veins", { "Health Regen every second": 0.01 } ],
        /* 38 */ [ 0, [ 36 ], [ 39 ], "Tank", { "Armor": 0.2 } ],
        /* 39 */ [ 0, [ 37, 38 ], [ 40, 41, 42 ], "Colossus", { "Health": 0.1 } ],
-       /* 40 */ [ 0, [ 39 ], [], "Outrider Commander", { "Increase all Healing and Shields by 20% for your and your allies": null } ],
+       /* 40 */ [ 0, [ 39 ], [], "Outrider Commander", { "Increase all Healing and Shields by 20% for you and your allies": null } ],
        /* 41 */ [ 0, [ 39 ], [ 43 ], "Colossus", { "Health": 0.1 } ],
        /* 42 */ [ 0, [ 39 ], [ 43 ], "Unending Watch", { "Skill Cooldown (Protection)": 0.15 } ],
        /* 43 */ [ 0, [ 41, 42 ], [ 44, 45 ], "Resist the Mob", { "Resistance increase for each enemy in close range": 0.15 } ],
