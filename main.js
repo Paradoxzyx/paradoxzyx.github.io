@@ -436,7 +436,7 @@ function init() {
   //---------------------------------------- All Skills
   skills = {
     trickster: [
-      /* 0  */ [ 1, [], [ 1, 30, 55 ], "", { "Health": 0.05, "Damage Mitigation while Shield is active": 0.05 } ],
+      /* 0  */ [ 1, [], [ 1, 30, 55 ], "", { "Every Close Range kill Heals you for 20% of your Maximum Health and grants you 12% Shield": null, "Health": 0.05, "Damage Mitigation while Shield is active": 0.05 } ],
       
       /* 1  */ [ 0, [ 0, 2, 3 ], [ 2, 3 ], "Arms Trick", { "Weapon Damage (Close Range)": 0.15 } ],
       /* 2  */ [ 0, [ 1, 4 ], [ 1, 4 ], "Bulletstorm", { "Reload Time": -0.2 } ],
