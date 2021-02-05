@@ -473,7 +473,7 @@ function init() {
       /* 31 */ [ 0, [ 30, 33 ], [ 30, 33 ], "Immunity", { "Resistance": 0.15 } ],
       /* 32 */ [ 0, [ 30, 33 ], [ 30, 33 ], "Dualshield", { "Damage Mitigation while Shield is active": 0.05 } ],
       /* 33 */ [ 0, [ 26, 31, 32, 34, 35, 50 ], [ 26, 31, 32, 34, 35, 50 ], "Anomaly Presistence", { "Health": 0.1 } ],
-      /* 34 */ [ 0, [ 33, 36 ], [ 33, 36 ], "Shield's Timeline or Increment", { "Shield": 0.1, "Shield Degredation": -0.3 } ],
+      /* 34 */ [ 0, [ 33, 36 ], [ 33, 36 ], "Shield's Timeline or Increment", { "Shield Gain": 0.1, "Shield Degredation": -0.3 } ],
       /* 35 */ [ 0, [ 33, 36 ], [ 33, 36 ], "???", { "(UNKNOWN 1)": null } ],
       /* 36 */ [ 0, [ 28, 34, 35, 53 ], [ 28, 34, 35, 37, 38, 53 ], "Anomaly Presistence", { "Health": 0.1 } ],
       /* 37 */ [ 0, [ 36 ], [ 39 ], "Immunity", { "Resistance": 0.15 } ],
@@ -481,12 +481,12 @@ function init() {
       /* 39 */ [ 0, [ 37, 38 ], [ 40, 41, 42 ], "Singularity", { "Skill Cooldown (Disruption)": 0.15 } ],
       /* 40 */ [ 0, [ 39 ], [], "Mitigation in Motion", { "When your Damage Skill ends, increase Damage Mitigation by 5% for 10s": null } ],
       /* 41 */ [ 0, [ 39 ], [ 43 ], "Anomaly Cloak", { "Armor": 0.2 } ],
-      /* 42 */ [ 0, [ 39 ], [ 43 ], "Shield's Increment", { "Shield": 0.1 } ],
+      /* 42 */ [ 0, [ 39 ], [ 43 ], "Shield's Increment", { "Shield Gain": 0.1 } ],
       /* 43 */ [ 0, [ 41, 42 ], [ 44, 45 ], "Shield's Timeline", { "Shield Degredation": -0.3 } ],
       /* 44 */ [ 0, [ 43 ], [], "Long Odds", { "For each Enemy in Close Range, your Armor is increased by 15% (Stacks up to 10 times)": null } ],
       /* 45 */ [ 0, [ 43 ], [ 46 ], "Anomaly Presistence", { "Health": 0.1 } ],
       /* 46 */ [ 0, [ 45 ], [ 47, 48 ], "Profit Squared", { "Every ammo pickup Heals you for 5% of your Maximum Health": null } ],
-      /* 47 */ [ 0, [ 46 ], [ 49 ], "Shield's Timeline or Increment", { "Shield": 0.1, "Shield Degredation": -0.3 } ],
+      /* 47 */ [ 0, [ 46 ], [ 49 ], "Shield's Timeline or Increment", { "Shield Gain": 0.1, "Shield Degredation": -0.3 } ],
       /* 48 */ [ 0, [ 46 ], [ 49 ], "Anomaly Cloak", { "Armor": 0.2 } ],
       /* 49 */ [ 0, [ 47, 48 ], [], "Distruption Shield", { "Activating a Disruption Skill grants you 20% Shield": null } ],
       
@@ -518,7 +518,7 @@ function init() {
       /* 74 */ [ 0, [ 73 ], [], "Scion of the Void", { "When your Damage Skill ends, increase Armor and Resistance Penetration by 25% for 10s": null } ],
       /* 75 */ [ 0, [ 73 ], [ 76, 77 ], "Countershield", { "Activating a Movement Skill increases Armor Penetration by 25% for 10s": null } ],
       /* 76 */ [ 0, [ 75 ], [ 78 ], "???", { "(UNKNOWN 5) Weapon Damage (Conditional?)": null } ],
-      /* 77 */ [ 0, [ 75 ], [ 78 ], "Shield's Timeline or Increment", { "Shield": 0.1, "Shield Degredation": -0.3 } ],
+      /* 77 */ [ 0, [ 75 ], [ 78 ], "Shield's Timeline or Increment", { "Shield Gain": 0.1, "Shield Degredation": -0.3 } ],
       /* 78 */ [ 0, [ 76, 77 ], [], "Altered Executioner", { "For each Enemy in Close Range, your Anomaly Power is increased by 10% (Stacks up to 10 times)": null } ]
     ],
     
