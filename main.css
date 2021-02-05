@@ -372,40 +372,50 @@ a {
 
 .hl-a {
     color: #20DEFF;
+    white-space: nowrap;
 }
 
 .hl-d {
     color: #FF7272;
+    white-space: nowrap;
 }
 
 .hl-e {
     color: #F32DA2;
+    white-space: nowrap;
 }
 
 .hl-h {
     color: #16D216;
+    white-space: nowrap;
 }
 
 .hl-l {
     color: #43F3A3;
+    white-space: nowrap;
 }
 
 .hl-n {
     color: #FCFF79;
+    white-space: nowrap;
 }
 
 .hl-p {
     color: #F7EA40;
+    white-space: nowrap;
 }
 
 .hl-r {
     color: #FFB000;
+    white-space: nowrap;
 }
 
 .hl-s {
     color: #FF82CC;
+    white-space: nowrap;
 }
 
 .hl-t {
     color: #3BABEF;
+    white-space: nowrap;
 }
