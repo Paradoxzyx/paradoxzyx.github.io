@@ -39,13 +39,13 @@ $(function() {
         }
       })
       let tooltip = $("<ul>")
+      $.each(t, function(j, v) {
+        tooltip.append($("<li>").html(color(v)))
+      })
       $(".node", skilltree).eq(i)
         .append($("<div>").addClass("name").text(node[3]))
         .append($("<div>").addClass("tooltip")
           .append(tooltip))
-      $.each(t, function(j, v) {
-        tooltip.append($("<li>").html(color(v)))
-      })
     })
     
     //--- Create sorted stat list
@@ -68,7 +68,7 @@ $(function() {
   //--- Unique Node Skill Count
   $(".stat[data-s='Increase Assault Damage by 7% for each unlocked Concentration node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.07\">0%</span>)")
   $(".stat[data-s='Increase Anomaly Power by 2.5% for each unlocked Magma Golem node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.025\">0%</span>)")
-  $(".stat[data-s='Increase your Anomaly Power by 12% for each unlocked Br/8 Impact Amplifier node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.12\">0%</span>)")
+  $(".stat[data-s='Increase Anomaly Power by 12% for each unlocked Br/8 Impact Amplifier node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.12\">0%</span>)")
   
   //---------------------------------------- Points
   points = {
@@ -422,7 +422,7 @@ function init() {
   //---------------------------------------- Keywords for tooltips & stats descriptions
   keywords = {
     "hl-a": /(anomaly power)/gi,
-    "hl-d": /((weapon|assault|close range|long range) damage)/gi,
+    "hl-d": /((weapon|assault|close range|long range) damage|firepower)/gi,
     "hl-e": /(weakness|mark(ed)?|burn|bleed|toxic|vulnerab(le|ility)|freeze|frozen)/gi,
     "hl-h": /((maximum )?health( regen)?)/gi,
     "hl-l": /((weapon|skill) leech|heal(?!th)(s|ed|ing)?)/gi,
@@ -446,11 +446,11 @@ function init() {
       /* 6  */ [ 0, [ 4, 8 ], [ 4, 8 ], "Equlibrium", { "Skill Cooldown (Movement)": 0.15 } ],
       /* 7  */ [ 0, [ 4, 8 ], [ 4, 8 ], "Deadly Shadow", { "Crit Damage": 0.2 } ],
       /* 8  */ [ 0, [ 6, 7, 28 ], [ 6, 7, 9, 10, 11, 28 ], "Arms Trick", { "Weapon Damage (Close Range)": 0.15 } ],
-      /* 9  */ [ 0, [ 8 ], [], "Distruptive Firepower", { "Activating a Disruption Skill increases your Weapon Damage by 20% for 8s": null } ],
+      /* 9  */ [ 0, [ 8 ], [], "Distruptive Firepower", { "Activating a Disruption Skill increases Weapon Damage by 20% for 8s": null } ],
       /* 10 */ [ 0, [ 8 ], [ 12 ], "Singularity", { "Skill Cooldown (Disruption)": 0.15 } ],
       /* 11 */ [ 0, [ 8 ], [ 12 ], "Ace of Trumps", { "Armor Penetration": 0.1 } ],
       /* 12 */ [ 0, [ 10, 11 ], [ 13, 14, 15 ], "Unforseen End", { "Weapon Damage (From Behind)": 0.2 } ],
-      /* 13 */ [ 0, [ 12 ], [], "Scion of Power", { "When your Damage Skill ends, increase your Weapon Damage by 20% for 8s": null } ],
+      /* 13 */ [ 0, [ 12 ], [], "Scion of Power", { "When your Damage Skill ends, increase Weapon Damage by 20% for 8s": null } ],
       /* 14 */ [ 0, [ 12 ], [ 16 ], "Death Probability", { "Weapon Damage": 0.08 } ],
       /* 15 */ [ 0, [ 12 ], [ 16 ], "Arms Trick", { "Weapon Damage (Close Range)": 0.15 } ],
       /* 16 */ [ 0, [ 14, 15 ], [ 17, 19 ], "Death Probability", { "Weapon Damage": 0.08 } ],
@@ -461,12 +461,12 @@ function init() {
       /* 21 */ [ 0, [ 19 ], [ 22, 23 ], "Oddity Summation", { "Magazine Size": 0.5 } ],
       /* 22 */ [ 0, [ 21 ], [ 24 ], "Assault Adept", { "Weapon Damage (Assault)": 0.12 } ],
       /* 23 */ [ 0, [ 21 ], [ 24 ], "Shotgun Adept", { "Weapon Damage (Shotgun)": 0.12 } ],
-      /* 24 */ [ 0, [ 22, 23 ], [], "Cold Calculation", { "For each enemy in close range your Weapon Damage is increased by 8% (Stacks up to 10 times)": null } ],
+      /* 24 */ [ 0, [ 22, 23 ], [], "Cold Calculation", { "For each Enemy in Close Range, your Weapon Damage is increased by 8% (Stacks up to 10 times)": null } ],
       
       /* 25 */ [ 0, [ 4, 26 ], [ 4, 26 ], "Arms Trick", { "Weapon Damage (Close Range)": 0.15 } ],
-      /* 26 */ [ 0, [ 25, 33 ], [ 25, 33, 27 ], "Leap of Quietus", { "Activating a Movement Skill increases your Armor Penetration by 25% for 10s": null } ],
-      /* 27 */ [ 0, [ 26 ], [], "Cycle of Life and Death", { "Gain additional 3% health for every enemy that died in close range": null } ],
-      /* 28 */ [ 0, [ 8, 36 ], [ 8, 29, 36 ], "Outrider Executioner", { "When your Movement Skill ends, increase your Weapon Damage by 20% for 8s": null } ],
+      /* 26 */ [ 0, [ 25, 33 ], [ 25, 33, 27 ], "Leap of Quietus", { "Activating a Movement Skill increases Armor Penetration by 25% for 10s": null } ],
+      /* 27 */ [ 0, [ 26 ], [], "Cycle of Life and Death", { "Gain additional 3% Health for every enemy that died in Close Range": null } ],
+      /* 28 */ [ 0, [ 8, 36 ], [ 8, 29, 36 ], "Outrider Executioner", { "When your Movement Skill ends, increase Weapon Damage by 20% for 8s": null } ],
       /* 29 */ [ 0, [ 28 ], [], "Ace of Trumps", { "Armor Penetration": 0.1 } ],
       
       /* 30 */ [ 0, [ 0, 31, 32 ], [ 31, 32 ], "Anomaly Presistence", { "Health": 0.1 } ],
@@ -479,18 +479,18 @@ function init() {
       /* 37 */ [ 0, [ 36 ], [ 39 ], "Immunity", { "Resistance": 0.15 } ],
       /* 38 */ [ 0, [ 36 ], [ 39 ], "Shield's Timeline", { "Shield Degredation": -0.3 } ],
       /* 39 */ [ 0, [ 37, 38 ], [ 40, 41, 42 ], "Singularity", { "Skill Cooldown (Disruption)": 0.15 } ],
-      /* 40 */ [ 0, [ 39 ], [], "Mitigation in Motion", { "When your Damage Skill ends, increase your Damage Mitigation by 5% for 10s": null } ],
+      /* 40 */ [ 0, [ 39 ], [], "Mitigation in Motion", { "When your Damage Skill ends, increase Damage Mitigation by 5% for 10s": null } ],
       /* 41 */ [ 0, [ 39 ], [ 43 ], "Anomaly Cloak", { "Armor": 0.2 } ],
       /* 42 */ [ 0, [ 39 ], [ 43 ], "Shield's Increment", { "Shield": 0.1 } ],
       /* 43 */ [ 0, [ 41, 42 ], [ 44, 45 ], "Shield's Timeline", { "Shield Degredation": -0.3 } ],
-      /* 44 */ [ 0, [ 43 ], [], "Long Odds", { "For each enemy in close range, your Armor is increased by 15% (Stacks up to 10 times)": null } ],
+      /* 44 */ [ 0, [ 43 ], [], "Long Odds", { "For each Enemy in Close Range, your Armor is increased by 15% (Stacks up to 10 times)": null } ],
       /* 45 */ [ 0, [ 43 ], [ 46 ], "Anomaly Presistence", { "Health": 0.1 } ],
-      /* 46 */ [ 0, [ 45 ], [ 47, 48 ], "Profit Squared", { "Every ammo pickup heals you for 5% of your maximum health": null } ],
+      /* 46 */ [ 0, [ 45 ], [ 47, 48 ], "Profit Squared", { "Every ammo pickup Heals you for 5% of your Maximum Health": null } ],
       /* 47 */ [ 0, [ 46 ], [ 49 ], "Shield's Timeline or Increment", { "Shield": 0.1, "Shield Degredation": -0.3 } ],
       /* 48 */ [ 0, [ 46 ], [ 49 ], "Anomaly Cloak", { "Armor": 0.2 } ],
-      /* 49 */ [ 0, [ 47, 48 ], [], "Distruption Shield", { "Activating a Disruption Skill grants you 20% shield": null } ],
+      /* 49 */ [ 0, [ 47, 48 ], [], "Distruption Shield", { "Activating a Disruption Skill grants you 20% Shield": null } ],
       
-      /* 50 */ [ 0, [ 33, 52 ], [ 33, 51, 52 ], "Against the Odds", { "When surrounded by enemies, reloading your weapon deals damage and interrupts enemies' abilities. Damage scales with Anomaly Power.": null } ],
+      /* 50 */ [ 0, [ 33, 52 ], [ 33, 51, 52 ], "Against the Odds", { "When surrounded by Enemies, reloading your weapon deals damage and interrupts enemies' abilities. Damage scales with Anomaly Power": null } ],
       /* 51 */ [ 0, [ 50 ], [], "???", { "(UNKNOWN 2)": null } ],
       /* 52 */ [ 0, [ 50, 58 ], [ 50, 58 ], "???", { "(UNKNOWN 3) Resistance Penetration": null } ],
       /* 53 */ [ 0, [ 36, 62 ], [ 36, 54, 62 ], "Wither Scything", { "Melee applies Weakness": null } ],
@@ -504,26 +504,26 @@ function init() {
       /* 60 */ [ 0, [ 58, 62 ], [ 58, 62 ], "Concentration", { "Anomaly Power": 0.06 } ],
       /* 61 */ [ 0, [ 58, 62 ], [ 58, 62 ], "???", { "Skill Cooldown (Damage)": 0.15 } ],
       /* 62 */ [ 0, [ 53, 60, 61 ], [ 53, 60, 61, 63, 64, 65 ], "Concentration", { "Anomaly Power": 0.06 } ],
-      /* 63 */ [ 0, [ 62 ], [], "Leap of Clincher", { "Activating a Movement Skill increases your Resistance Penetration by 25% for 10s": null } ],
+      /* 63 */ [ 0, [ 62 ], [], "Leap of Clincher", { "Activating a Movement Skill increases Resistance Penetration by 25% for 10s": null } ],
       /* 64 */ [ 0, [ 62 ], [ 66 ], "Athropy", { "Weakness Duration": 0.3 } ],
       /* 65 */ [ 0, [ 62 ], [ 66 ], "Immunity", { "Resistance": 0.15 } ],
       /* 66 */ [ 0, [ 64, 65 ], [ 67, 68, 69 ], "Concentration", { "Anomaly Power": 0.06 } ],
-      /* 67 */ [ 0, [ 66 ], [], "Combat Shield Timeline", { "Activating a Movement Skill increases your Anomaly Power by 20% for 10s": null } ],
+      /* 67 */ [ 0, [ 66 ], [], "Combat Shield Timeline", { "Activating a Movement Skill increases Anomaly Power by 20% for 10s": null } ],
       /* 68 */ [ 0, [ 66 ], [ 70 ], "Transfusion", { "Weapon Leech": 0.05 } ],
       /* 69 */ [ 0, [ 66 ], [ 70 ], "Concentration", { "Anomaly Power": 0.06 } ],
       /* 70 */ [ 0, [ 68, 69 ], [ 71, 73 ], "Concentration", { "Anomaly Power": 0.06 } ],
-      /* 71 */ [ 0, [ 70 ], [ 72 ], "Conitinuum", { "Killed Marked enemy increases healing by 15%": null } ],
+      /* 71 */ [ 0, [ 70 ], [ 72 ], "Conitinuum", { "Killing a Marked Enemy increases Healing by 15%": null } ],
       /* 72 */ [ 0, [ 71 ], [], "Assault Master", { "Weapon Damage (Assault)": 0.2, "Drop Rate (Assault)": 0.12 } ],
       /* 73 */ [ 0, [ 70 ], [ 74, 75 ], "Transfusion", { "Weapon Leech": 0.05 } ],
-      /* 74 */ [ 0, [ 73 ], [], "Scion of the Void", { "When your Damage Skill ends, increase your Armor and Resistance Penetration by 25% for 10s": null } ],
-      /* 75 */ [ 0, [ 73 ], [ 76, 77 ], "Countershield", { "Activating a Movement Skill increases your Armor Penetration by 25% for 10s": null } ],
+      /* 74 */ [ 0, [ 73 ], [], "Scion of the Void", { "When your Damage Skill ends, increase Armor and Resistance Penetration by 25% for 10s": null } ],
+      /* 75 */ [ 0, [ 73 ], [ 76, 77 ], "Countershield", { "Activating a Movement Skill increases Armor Penetration by 25% for 10s": null } ],
       /* 76 */ [ 0, [ 75 ], [ 78 ], "???", { "(UNKNOWN 5) Weapon Damage (Conditional?)": null } ],
       /* 77 */ [ 0, [ 75 ], [ 78 ], "Shield's Timeline or Increment", { "Shield": 0.1, "Shield Degredation": -0.3 } ],
-      /* 78 */ [ 0, [ 76, 77 ], [], "Altered Executioner", { "For each enemy in close range, your Anomaly Power is increased by 10% (Stacks up to 10 times)": null } ]
+      /* 78 */ [ 0, [ 76, 77 ], [], "Altered Executioner", { "For each Enemy in Close Range, your Anomaly Power is increased by 10% (Stacks up to 10 times)": null } ]
     ],
     
     pyromancer: [
-       /* 0  */ [ 1, [], [ 1, 30, 56 ], "", { "Anomaly Power": 0.1, "Skill Leech": 0.05, "Skills mark Enemies for 15s. Killing a Marked heals you by 24% of your Maximum Health": null } ],
+       /* 0  */ [ 1, [], [ 1, 30, 56 ], "", { "Anomaly Power": 0.1, "Skill Leech": 0.05, "Skills mark Enemies for 15s. Killing a Marked Enemy Heals you for 24% of your Maximum Health": null } ],
       
        /* 1  */ [ 0, [ 0, 2, 3 ], [ 2, 3 ], "Mark of the Anomaly", { "Weapon Damage (Against Marked)": 0.1 } ],
        /* 2  */ [ 0, [ 1, 4 ], [ 1, 4 ], "Mark of the Anomaly", { "Weapon Damage (Against Marked)": 0.1 } ],
@@ -542,13 +542,13 @@ function init() {
        /* 15 */ [ 0, [ 12 ], [ 16 ], "Moths to the Flame", { "Weapon Leech": 0.05 } ],
        /* 16 */ [ 0, [ 14, 15 ], [ 17, 19, 20 ], "Mark of the Anomaly", { "Weapon Damage (Against Marked)": 0.1 } ],
        /* 17 */ [ 0, [ 16 ], [ 18 ], "Moths to the Flame", { "Weapon Leech": 0.05 } ],
-       /* 18 */ [ 0, [ 17 ], [], "Leeching force", { "Activating an Immobilize Skill doubles your Weapon Leech for 4s": null } ],
+       /* 18 */ [ 0, [ 17 ], [], "Leeching force", { "Activating an Immobilize Skill doubles Weapon Leech for 4s": null } ],
        /* 19 */ [ 0, [ 16 ], [], "???", { "(UNKNOWN 3)": null } ],
        /* 20 */ [ 0, [ 16 ], [ 21 ], "Nimble as Flame", { "Reload Time": -0.2 } ],
-       /* 21 */ [ 0, [ 20 ], [ 22, 23 ], "Hurt Twice as Long", { "Damage (Against Elites)": 0.1, "Take less damage (From Elites)": 0.1 } ],
+       /* 21 */ [ 0, [ 20 ], [ 22, 23 ], "Hurt Twice as Long", { "Damage (Against Elites)": 0.1, "Damage Taken (From Elites)": -0.1 } ],
        /* 22 */ [ 0, [ 21 ], [ 24 ], "Trail of the Ashes", { "Damage (Against Ashed)": 0.2 } ],
        /* 23 */ [ 0, [ 21 ], [ 24 ], "Marble Orchard", { "Skill Cooldown (Immobilize)": 0.15 } ],
-       /* 24 */ [ 0, [ 22, 23 ], [], "Burning Situation", { "Activating an Immobilize Skill increases your Weapon Damage by 20% for 10s": null } ],
+       /* 24 */ [ 0, [ 22, 23 ], [], "Burning Situation", { "Activating an Immobilize Skill increases Weapon Damage by 20% for 10s": null } ],
       
        /* 25 */ [ 0, [ 4, 26 ], [ 4, 26 ], "???", { "(UNKNOWN 4) Damage Increase": null } ],
        /* 26 */ [ 0, [ 25, 33 ], [ 25, 33, 27 ], "Armor Melting", { "Armor Penetration (Against Marked)": 0.3 } ],
@@ -567,12 +567,12 @@ function init() {
        /* 38 */ [ 0, [ 36 ], [ 39 ], "Master of the Resistance", { "(UNKNOWN 8) Resistance Increase": null } ],
        /* 39 */ [ 0, [ 37, 38 ], [ 40, 41, 42, 43 ], "Magma Golem", { "Health": 0.1 } ],
        /* 40 */ [ 0, [ 39 ], [], "Distant Flame", { "Increase Anomaly Power by 2.5% for each unlocked Magma Golem node": null } ],
-       /* 41 */ [ 0, [ 39 ], [], "All Guns Blazing", { "Activating any skill increases Weapon Damage by 20% for 7s": null } ],
+       /* 41 */ [ 0, [ 39 ], [], "All Guns Blazing", { "Activating Any Skill increases Weapon Damage by 20% for 7s": null } ],
        /* 42 */ [ 0, [ 39 ], [ 44 ], "Unquenchable", { "Skill Leech": 0.1 } ],
        /* 43 */ [ 0, [ 39 ], [ 44 ], "Let Them Burn", { "Burn Duration": 0.2 } ],
        /* 44 */ [ 0, [ 42, 43 ], [ 45 ], "Magma Golem", { "Health": 0.1 } ],
        /* 45 */ [ 0, [ 44 ], [ 46, 47 ], "Unquenchable", { "Skill Leech": 0.1 } ],
-       /* 46 */ [ 0, [ 45 ], [], "Anomalus Lava", { "Activating an Ignite Skill increases your Armor by 45% for 10s": null } ],
+       /* 46 */ [ 0, [ 45 ], [], "Anomalus Lava", { "Activating an Ignite Skill increases Armor by 45% for 10s": null } ],
        /* 47 */ [ 0, [ 45 ], [ 48, 49 ], "Fuel for the Embers", { "Skill Leech is doubled when below 30% Health": null } ],
        /* 48 */ [ 0, [ 47 ], [ 50 ], "Trail by Fire", { "Damage (Against Burning)": 0.1 } ],
        /* 49 */ [ 0, [ 47 ], [ 50 ], "Warm Up", { "Skill Cooldown (Ignite)": 0.15 } ],
@@ -600,10 +600,10 @@ function init() {
        /* 69 */ [ 0, [ 67 ], [ 71 ], "Unquenchable", { "Skill Leech": 0.1 } ],
        /* 70 */ [ 0, [ 67 ], [ 71 ], "???", { "(UNKNOWN 20) Resistance boost": null } ],
        /* 71 */ [ 0, [ 69, 70 ], [ 72, 74 ], "Archmage", { "Anomaly Power": 0.06 } ],
-       /* 72 */ [ 0, [ 71 ], [ 73 ], "Phoenix Resting", { "Upon losing all health you will recive a second chance to return to the battlefield with 50% Health (180s cooldown)": null } ],
-       /* 73 */ [ 0, [ 72 ], [], "Phoenix", { "Your Phoenix revival will now grant 100% of your health points and will be ready to activate every 135s": null } ],
+       /* 72 */ [ 0, [ 71 ], [ 73 ], "Phoenix Resting", { "Upon losing all Health you will receive a second chance to return to the battlefield with 50% Maximum Health (180s cooldown)": null } ],
+       /* 73 */ [ 0, [ 72 ], [], "Phoenix", { "Phoenix Revival will now grant 100% of your Health and will be ready to activate every 135s": null } ],
        /* 74 */ [ 0, [ 71 ], [ 75, 76 ], "???", { "(UNKNOWN 21) Resistance Penetration": null } ],
-       /* 75 */ [ 0, [ 74 ], [], "Chasin the Chill Away", { "Killing a Marked target heals you by additional 12% of your maximum health": null } ],
+       /* 75 */ [ 0, [ 74 ], [], "Chasin the Chill Away", { "Killing a Marked Enemy Heals you for an additional 12% of your Maximum Health": null } ],
        /* 76 */ [ 0, [ 74 ], [ 77, 78 ], "???", { "(UNKNOWN 22)": null } ],
        /* 77 */ [ 0, [ 76 ], [ 79 ], "???", { "(UNKNOWN 23)": null } ],
        /* 78 */ [ 0, [ 76 ], [ 79 ], "???", { "Skill Cooldown (Explosive)": 0.15 } ],
@@ -611,7 +611,7 @@ function init() {
     ],
     
     devastator: [
-       /* 0  */ [ 1, [], [ 1, 30, 55 ], "", { "Every Close Range kill heals you by 24% of your Maximum Health": null, "Health": 0.15, "Armor": 0.3 } ],
+       /* 0  */ [ 1, [], [ 1, 30, 55 ], "", { "Every Close Range kill Heals you for 24% of your Maximum Health": null, "Health": 0.15, "Armor": 0.3 } ],
       
        /* 1  */ [ 0, [ 0, 2, 3 ], [ 2, 3 ], "Havoc", { "Weapon Damage": 0.08 } ],
        /* 2  */ [ 0, [ 2, 4 ], [ 2, 4 ], "Shotgun Adept", { "Weapon Damage (Shotgun)": 0.12 } ],
@@ -621,7 +621,7 @@ function init() {
        /* 6  */ [ 0, [ 4, 8 ], [ 4, 8 ], "Assault Adept", { "Weapon Damage (Assault)": 0.12 } ],
        /* 7  */ [ 0, [ 4, 8 ], [ 4, 8 ], "Armor Breaker", { "Armor Penetration": 0.1 } ],
        /* 8  */ [ 0, [ 6, 7, 28 ], [ 6, 7, 9, 10, 11, 28 ], "Havoc", { "Weapon Damage": 0.08 } ],
-       /* 9  */ [ 0, [ 8 ], [], "Kinetic Charge", { "When your Kinetic Skill ends, increase your Weapon Damage by 20% for 10s": null } ],
+       /* 9  */ [ 0, [ 8 ], [], "Kinetic Charge", { "When your Kinetic Skill ends, increase Weapon Damage by 20% for 10s": null } ],
        /* 10 */ [ 0, [ 8 ], [ 12 ], "Bull's Eye", { "Crit Damage": 0.2 } ],
        /* 11 */ [ 0, [ 8 ], [ 12 ], "???", { "(UNKNOWN 1)": null } ],
        /* 12 */ [ 0, [ 10, 11 ], [ 13, 14, 15 ], "Havoc", { "Weapon Damage": 0.08 } ],
@@ -633,22 +633,22 @@ function init() {
        /* 18 */ [ 0, [ 17 ], [], "???", { "(UNKNOWN 2)": null } ],
        /* 19 */ [ 0, [ 16 ], [ 20, 21 ], "???", { "(UNKNOWN 3)": null } ],
        /* 20 */ [ 0, [ 19 ], [], "???", { "(UNKNOWN 4)": null } ],
-       /* 21 */ [ 0, [ 19 ], [ 22, 23 ], "Bount Hunter", { "Damage (Physical against Elites)": 0.15, "Take less damage (From Elites)": 0.15 } ],
+       /* 21 */ [ 0, [ 19 ], [ 22, 23 ], "Bount Hunter", { "Damage (Physical against Elites)": 0.15, "Damage Taken (From Elites)": -0.15 } ],
        /* 22 */ [ 0, [ 21 ], [ 24 ], "Dry Them Out", { "Weapon Leech": 0.05 } ],
        /* 23 */ [ 0, [ 21 ], [ 24 ], "Armor Breaker", { "Armor Penetration": 0.1 } ],
-       /* 24 */ [ 0, [ 22, 23 ], [], "Altered Charge", { "When your Kinetic Skill ends, increase your Weapon Damage by 70% for 10s": null } ],
+       /* 24 */ [ 0, [ 22, 23 ], [], "Altered Charge", { "When your Kinetic Skill ends, increase Weapon Damage by 70% for 10s": null } ],
       
        /* 25 */ [ 0, [ 4, 26 ], [ 4, 26 ], "???", { "(UNKNOWN 5) Skill Cooldown": null } ],
-       /* 26 */ [ 0, [ 25, 33 ], [ 25, 33, 27 ], "Into the Fray", { "When your Kinetic Skill ends, increase your Damage Mitigation by 20% for 10s": null } ],
+       /* 26 */ [ 0, [ 25, 33 ], [ 25, 33, 27 ], "Into the Fray", { "When your Kinetic Skill ends, increase Damage Mitigation by 20% for 10s": null } ],
        /* 27 */ [ 0, [ 26 ], [], "???", { "(UNKNWON 6) Weapon Damage": null } ],
-       /* 28 */ [ 0, [ 8, 36 ], [ 8, 29, 36 ], "Hierloom Armor", { "When an enemy dies in close range, gain 20% of their Armor for 10s": null } ],
+       /* 28 */ [ 0, [ 8, 36 ], [ 8, 29, 36 ], "Hierloom Armor", { "When an Enemy dies in Close Range, gain 20% of their Armor for 10s": null } ],
        /* 29 */ [ 0, [ 28 ], [], "???", { "(UNKNOWN 7)": null } ],
       
        /* 30 */ [ 0, [ 0, 31, 32 ], [ 31, 32 ], "Colossus", { "Health": 0.1 } ],
        /* 31 */ [ 0, [ 30, 33 ], [ 30, 33 ], "Tank", { "Armor": 0.2 } ],
        /* 32 */ [ 0, [ 30, 33 ], [ 30, 33 ], "Anomaly in Veins", { "Health Regen every second": 0.01 } ],
        /* 33 */ [ 0, [ 26, 31, 32, 34, 35, 50 ], [ 26, 31, 32, 34, 35, 50 ], "Colossus", { "Health": 0.1 } ],
-       /* 34 */ [ 0, [ 33, 36 ], [ 33, 36 ], "Resist the Mob", { "Resistance increase for each enemy in close range": 0.15 } ],
+       /* 34 */ [ 0, [ 33, 36 ], [ 33, 36 ], "Resist the Mob", { "Resistance for each Enemy in Close Range": 0.15 } ],
        /* 35 */ [ 0, [ 33, 36 ], [ 33, 36 ], "Anomaly in Veins", { "Health Regen every second": 0.01 } ],
        /* 36 */ [ 0, [ 28, 34, 35, 53 ], [ 28, 34, 35, 37, 38, 53 ], "Colossus", { "Health": 0.1 } ],
        /* 37 */ [ 0, [ 36 ], [ 39 ], "Anomaly in Veins", { "Health Regen every second": 0.01 } ],
@@ -657,11 +657,11 @@ function init() {
        /* 40 */ [ 0, [ 39 ], [], "Outrider Commander", { "Increase all Healing and Shields by 20% for you and your allies": null } ],
        /* 41 */ [ 0, [ 39 ], [ 43 ], "Colossus", { "Health": 0.1 } ],
        /* 42 */ [ 0, [ 39 ], [ 43 ], "Unending Watch", { "Skill Cooldown (Protection)": 0.15 } ],
-       /* 43 */ [ 0, [ 41, 42 ], [ 44, 45 ], "Resist the Mob", { "Resistance increase for each enemy in close range": 0.15 } ],
-       /* 44 */ [ 0, [ 43 ], [], "Unbroken Vow", { "You have 100% chance to ignore damage that would kill you and instantly heal your for 50% of your health points (180s cooldown)": null } ],
+       /* 43 */ [ 0, [ 41, 42 ], [ 44, 45 ], "Resist the Mob", { "Resistance for each Enemy in Close Range": 0.15 } ],
+       /* 44 */ [ 0, [ 43 ], [], "Unbroken Vow", { "You have 100% chance to ignore damage that would kill you and instantly Heal you for 50% of your Maximum Health (180s cooldown)": null } ],
        /* 45 */ [ 0, [ 43 ], [ 46 ], "Tank", { "Armor": 0.2 } ],
-       /* 46 */ [ 0, [ 45 ], [ 47, 48 ], "Overlord of the Battleground", { "Increase all healing done by you and your allies by 20%": null } ],
-       /* 47 */ [ 0, [ 46 ], [ 49 ], "Resist the Mob", { "Resistance increase for each enemy in close range": 0.15 } ],
+       /* 46 */ [ 0, [ 45 ], [ 47, 48 ], "Overlord of the Battleground", { "Increase all Healing done by you and your allies by 20%": null } ],
+       /* 47 */ [ 0, [ 46 ], [ 49 ], "Resist the Mob", { "Resistance for each Enemy in Close Range": 0.15 } ],
        /* 48 */ [ 0, [ 46 ], [ 49 ], "Tank", { "Armor": 0.2  } ],
        /* 49 */ [ 0, [ 47, 48 ], [], "Mighty Tank", { "Increase Firepower by 10% of your Armor": null, "Increase Anomaly Power by 10% of your Armor": null } ],
       
@@ -679,7 +679,7 @@ function init() {
        /* 60 */ [ 0, [ 58, 62 ], [ 58, 62 ], "Disturbance Coating", { "Resistance Penetration": 0.15 } ],
        /* 61 */ [ 0, [ 58, 62 ], [ 58, 62 ], "Endless Tremors", { "Skill Cooldown (Seismic)": 0.15 } ],
        /* 62 */ [ 0, [ 53, 60, 61 ], [ 53, 60, 61, 63, 64, 65 ], "Anomaly Resevoir", { "Anomaly Power": 0.06 } ],
-       /* 63 */ [ 0, [ 62 ], [], "Anomaly Bullets", { "Increase your Firepower by 15% of your Anomaly Power": null } ],
+       /* 63 */ [ 0, [ 62 ], [], "Anomaly Bullets", { "Increase Firepower by 15% of your Anomaly Power": null } ],
        /* 64 */ [ 0, [ 62 ], [ 66 ], "???", { "(UNKNOWN 11) Bleed": null } ],
        /* 65 */ [ 0, [ 62 ], [ 66 ], "Endless Tremors", { "Skill Cooldown (Seismic)": 0.15 } ],
        /* 66 */ [ 0, [ 64, 65 ], [ 67, 68, 69 ], "Anomaly Resevoir", { "Anomaly Power": 0.06 } ],
@@ -688,13 +688,13 @@ function init() {
        /* 69 */ [ 0, [ 66 ], [ 70 ], "???", { "(UNKNOWN 13) Bleed": null } ],
        /* 70 */ [ 0, [ 68, 69 ], [ 71, 73 ], "Anomaly Resevoir", { "Anomaly Power": 0.06 } ],
        /* 71 */ [ 0, [ 70 ], [ 72 ], "???", { "(UNKNOWN 14) Bleed": null } ],
-       /* 72 */ [ 0, [ 71 ], [], "Blood Donation", { "You are healed by 50% of the Damage caused by Bleed": null } ],
+       /* 72 */ [ 0, [ 71 ], [], "Blood Donation", { "You are Healed for 50% of the Damage caused by Bleed": null } ],
        /* 73 */ [ 0, [ 70 ], [ 74, 75 ], "Rejuvenation", { "Skill Leech": 0.1 } ],
-       /* 74 */ [ 0, [ 73 ], [], "Skilled Sentry", { "When any skill ends, increase your Armor and Resistance by 20% for 10s": null } ],
-       /* 75 */ [ 0, [ 73 ], [ 76, 77 ], "Protected by Anomaly", { "Increase your Armor bonus by 40% of your Anomaly Power": null } ],
+       /* 74 */ [ 0, [ 73 ], [], "Skilled Sentry", { "When Any Skill ends, increase Armor and Resistance by 20% for 10s": null } ],
+       /* 75 */ [ 0, [ 73 ], [ 76, 77 ], "Protected by Anomaly", { "Increase Armor by 40% of your Anomaly Power": null } ],
        /* 76 */ [ 0, [ 75 ], [ 78 ], "Pure Anomaly", { "Resistance Penetration": 0.15 } ],
        /* 77 */ [ 0, [ 75 ], [ 78 ], "???", { "(UNKNOWN 15) Bleed": null } ],
-       /* 78 */ [ 0, [ 76, 77 ], [], "Earth's Heritage", { "Double Seismic Skills Damage": null } ]
+       /* 78 */ [ 0, [ 76, 77 ], [], "Earth's Heritage", { "Doubles Seismic Skills Damage": null } ]
     ],
     
     technomancer: [
@@ -705,11 +705,11 @@ function init() {
        /* 3  */ [ 0, [ 1, 4 ], [ 1, 4 ], "Sower of Decay", { "Skill Cooldown (Decay)": 0.15 } ],
        /* 4  */ [ 0, [ 2, 3, 6, 7, 24 ], [ 2, 3, 5, 6, 7, 24 ], "Drill Coating", { "Armor Penetration": 0.1 } ],
        /* 5  */ [ 0, [ 4 ], [], "Sniper Master", { "Weapon Damage (Sniper)": 0.2, "Drop Rate (Sniper)": 0.12 } ],
-       /* 6  */ [ 0, [ 4, 8 ], [ 4, 8 ], "Nitrogen Capsules", { "Decreased the distance considered to be Long Range by 6.5m (1)": null } ],
+       /* 6  */ [ 0, [ 4, 8 ], [ 4, 8 ], "Nitrogen Capsules", { "Decreased the distance considered to be Long Range by 6.5m [1]": null } ],
        /* 7  */ [ 0, [ 4, 8 ], [ 4, 8 ], "Toxicologist", { "Toxic Duration": 0.3 } ],
        /* 8  */ [ 0, [ 6, 7, 27 ], [ 6, 7, 9, 10, 11, 27 ], "Br/8 Impact Amplifier", { "Weapon Damage": 0.08 } ],
        /* 9  */ [ 0, [ 8 ], [], "Cannonade", { "Activating an Ordinance Skill increases Weapon Damage for you and your allies by 30% for 10s": null } ],
-       /* 10 */ [ 0, [ 8 ], [ 12 ], "Nitrogen Capsules", { "Decreased the distance considered to be Long Range by 6.5m (2)": null } ],
+       /* 10 */ [ 0, [ 8 ], [ 12 ], "Nitrogen Capsules", { "Decreased the distance considered to be Long Range by 6.5m [2]": null } ],
        /* 11 */ [ 0, [ 8 ], [ 12 ], "Purge", { "Damage (Against Toxic'ed)": 0.1 } ],
        /* 12 */ [ 0, [ 10, 11 ], [ 13, 14, 15 ], "Br/8 Impact Amplifier", { "Weapon Damage": 0.08 } ],
        /* 13 */ [ 0, [ 12 ], [], "Assault Master", { "Weapon Damage (Assault)": 0.2, "Drop Rate (Assault)": 0.12 } ],
@@ -718,9 +718,9 @@ function init() {
        /* 16 */ [ 0, [ 14, 15 ], [ 17, 18 ], "Drill Coating", { "Armor Penetration": 0.1 } ],
        /* 17 */ [ 0, [ 16 ], [], "Two Sides of the Power", { "Damage Taken": 0.15, "Damage": 0.2 } ],
        /* 18 */ [ 0, [ 16 ], [ 19, 20 ], "Sharpshooter", { "Damage (Long Range)": 0.3 } ],
-       /* 19 */ [ 0, [ 18 ], [], "Grand Amplification", { "Increase your Anomaly Power by 12% for each unlocked Br/8 Impact Amplifier node": null } ],
+       /* 19 */ [ 0, [ 18 ], [], "Grand Amplification", { "Increase Anomaly Power by 12% for each unlocked Br/8 Impact Amplifier node": null } ],
        /* 20 */ [ 0, [ 18 ], [ 21, 22 ], "UT-14 Clips", { "Magazine Size": 0.5 } ],
-       /* 21 */ [ 0, [ 20 ], [ 23 ], "Charged Gunshot", { "First bullet after reload deals 200% damage (5s cooldown)": null } ],
+       /* 21 */ [ 0, [ 20 ], [ 23 ], "Charged Gunshot", { "First shot after reloading deals 200% damage (5s cooldown)": null } ],
        /* 22 */ [ 0, [ 20 ], [ 23 ], "Purge", { "Damage (Against Toxic'ed)": 0.3 } ],
        /* 23 */ [ 0, [ 21, 22 ], [], "Empowering Antena", { "Activating a Decay Skill increases Weapon Damage for you and your allies by 40% for 10s": null } ],
       
@@ -740,7 +740,7 @@ function init() {
        /* 36 */ [ 0, [ 35 ], [ 38 ], "Vitality Magnet", { "Skill Leech": 0.06 } ],
        /* 37 */ [ 0, [ 35 ], [ 38 ], "Gadgeteer", { "Skill Cooldown (Gadget)": 0.15 } ],
        /* 38 */ [ 0, [ 36, 37 ], [ 39, 40, 42, 43 ], "Anomalus Body", { "Health": 0.1 } ],
-       /* 39 */ [ 0, [ 38 ], [], "Senior Engineer", { "Increase Turrets health by 100%": null } ],
+       /* 39 */ [ 0, [ 38 ], [], "Senior Engineer", { "Increase Turrets Health by 100%": null } ],
        /* 40 */ [ 0, [ 38 ], [ 41 ], "Exposing Frost", { "Every time Freeze is applied on an enemy, Vulnerable is applied aswell": null } ],
        /* 41 */ [ 0, [ 40 ], [], "Marked for Execution", { "Vulnerability Effectiveness": 0.4 } ],
        /* 42 */ [ 0, [ 38 ], [ 44 ], "Armor Plates", { "Armor": 0.2 } ],
@@ -748,40 +748,40 @@ function init() {
        /* 44 */ [ 0, [ 42, 43 ], [ 45 ], "Suction Module", { "Weapon Leech": 0.05 } ],
        /* 45 */ [ 0, [ 44 ], [ 46, 47 ], "Armor Plates", { "Armor": 0.2 } ],
        /* 46 */ [ 0, [ 45 ], [], "Medical Unit", { "Activating a Gadget Skill increases all Healing received for you and your allies by 30% for 7s": null } ],
-       /* 47 */ [ 0, [ 45 ], [ 48, 49 ], "Doctor of Medicine", { "Increase all healing done by you and your allies by 20%": null } ],
+       /* 47 */ [ 0, [ 45 ], [ 48, 49 ], "Doctor of Medicine", { "Increase all Healing done by you and your allies by 20%": null } ],
        /* 48 */ [ 0, [ 47 ], [ 50 ], "Vitality Magnet", { "Skill Leech": 0.06 } ],
        /* 49 */ [ 0, [ 47 ], [ 50 ], "Fracture", { "Damage (Against Frozen)": 0.3 } ],
-       /* 50 */ [ 0, [ 48, 49 ], [], "Overclocked", { "Activating a Gadget Skill increases your Weapon Damage and Anomaly Power by 40% for 10s": null, "Upon losing all your health you will receive a second chance to return to the battle with 50% health for 10s (180s cooldown)": null } ],
+       /* 50 */ [ 0, [ 48, 49 ], [], "Overclocked", { "Activating a Gadget Skill increases Weapon Damage and Anomaly Power by 40% for 10s": null, "Upon losing all Health you will receive a second chance to return to the battlefield with 50% Maximum Health for 10s (180s cooldown)": null } ],
        
-       /* 51 */ [ 0, [ 32, 53 ], [ 32, 52, 53 ], "Winter's Barrier", { "After using your melee skill, gain 40% Damage Mitigation for 3s": null } ],
+       /* 51 */ [ 0, [ 32, 53 ], [ 32, 52, 53 ], "Winter's Barrier", { "After using your Melee Skill, gain 40% Damage Mitigation for 3s": null } ],
        /* 52 */ [ 0, [ 51 ], [], "Sols-56 Freezing Tanks", { "Freeze Duration": 0.2 } ],
-       /* 53 */ [ 0, [ 51, 58 ], [ 51, 58 ], "Sidearm Adept", { "Damage (Sidearms)": 0.12 } ],
-       /* 54 */ [ 0, [ 35, 62 ], [ 35, 62 ], "Wipe Out", { "Damage (To Enemies below 30% Health)": 0.2 } ],
+       /* 53 */ [ 0, [ 51, 58 ], [ 51, 58 ], "Sidearm Adept", { "Weapon Damage (Sidearm)": 0.12 } ],
+       /* 54 */ [ 0, [ 35, 62 ], [ 35, 62 ], "Wipe Out", { "Damage (Against Enemies below 30% Health)": 0.2 } ],
       
        /* 55 */ [ 0, [ 0, 56, 57 ], [ 56, 57 ], "Anomally Fueled", { "Anomaly Power": 0.06 } ],
        /* 56 */ [ 0, [ 55, 58 ], [ 55, 58 ], "Ordanance Technician", { "Skill Cooldown (Ordinance)": 0.15 } ],
        /* 57 */ [ 0, [ 55, 58 ], [ 55, 58 ], "Disturbance Coating", { "Resistance Penetration": 0.15 } ],
        /* 58 */ [ 0, [ 53, 56, 57, 60, 61 ], [ 53, 56, 57, 59, 60, 61 ], "Anomally Fueled", { "Anomaly Power": 0.06 } ],
-       /* 59 */ [ 0, [ 58 ], [], "Brain Freeze", { "Your Melee skill also applies Toxic to every enemy hit": null } ],
+       /* 59 */ [ 0, [ 58 ], [], "Brain Freeze", { "Melee applies Toxic": null } ],
        /* 60 */ [ 0, [ 58, 62 ], [ 58, 62 ], "A.N.E.T.A. Plates", { "Resistance": 0.2 } ],
-       /* 61 */ [ 0, [ 58, 62 ], [ 58, 62 ], "Welcome Shot", { "First shot after reloading deals bonus damage equal to 15% of your Anomaly Power": null } ],
+       /* 61 */ [ 0, [ 58, 62 ], [ 58, 62 ], "Welcome Shot", { "First shot after reloading deals bonus damage equal to 15% of Anomaly Power": null } ],
        /* 62 */ [ 0, [ 54, 60, 61 ], [ 54, 60, 61, 63, 64, 65 ], "Anomally Fueled", { "Anomaly Power": 0.06 } ],
        /* 63 */ [ 0, [ 62 ], [], "Adrenalizing Antena", { "Activating a Decay Skill increases Weapon Damage for you and your allies by 30% for 10s": null } ],
        /* 64 */ [ 0, [ 62 ], [ 66 ], "Ordanance Technician", { "Skill Cooldown (Ordinance)": 0.15 } ],
        /* 65 */ [ 0, [ 62 ], [ 66 ], "Toxicologist", { "Toxic Duration": 0.3 } ],
        /* 66 */ [ 0, [ 64, 65 ], [ 67, 68, 69 ], "Anomally Fueled", { "Anomaly Power": 0.06 } ],
-       /* 67 */ [ 0, [ 66 ], [], "Heavy Absorbtion", { "Activating an Ordinance Skill increases your Skill Leech by 15% for 7s": null } ],
+       /* 67 */ [ 0, [ 66 ], [], "Heavy Absorbtion", { "Activating an Ordinance Skill increases Skill Leech by 15% for 7s": null } ],
        /* 68 */ [ 0, [ 66 ], [ 70 ], "Anomally Fueled", { "Anomaly Power": 0.06 } ],
        /* 69 */ [ 0, [ 66 ], [ 70 ], "D-Kay Toxin", { "Damage (Toxic)": 0.2 } ],
        /* 70 */ [ 0, [ 68, 69 ], [ 71, 73 ], "Disturbance Coating", { "Resistance Penetration": 0.15 } ],
        /* 71 */ [ 0, [ 70 ], [ 72 ], "Vitality Magnet", { "Skill Leech": 0.06 } ],
-       /* 72 */ [ 0, [ 71 ], [], "Armored Unit", { "Activating an Ordinance Skill increases your Armor by 50% for 15s": null } ],
+       /* 72 */ [ 0, [ 71 ], [], "Armored Unit", { "Activating an Ordinance Skill increases Armor by 50% for 15s": null } ],
        /* 73 */ [ 0, [ 70 ], [ 74, 75 ], "Anomally Fueled", { "Anomaly Power": 0.06 } ],
        /* 74 */ [ 0, [ 73 ], [], "???", { "Decreases Elite's damage against you and your allies by 10%": null } ],
-       /* 75 */ [ 0, [ 73 ], [ 76, 77 ], "Emergency Transfusion", { "Doubles your Skill Leech when Health drops below 30%": null } ],
+       /* 75 */ [ 0, [ 73 ], [ 76, 77 ], "Emergency Transfusion", { "Doubles Skill Leech when Health drops below 30%": null } ],
        /* 76 */ [ 0, [ 75 ], [ 78 ], "Anomally Fueled", { "Anomaly Power": 0.06 } ],
        /* 77 */ [ 0, [ 75 ], [ 78 ], "D-Kay Toxin", { "Damage (Toxic)": 0.2 } ],
-       /* 78 */ [ 0, [ 76, 77 ], [], "Techbond", { "Activating an Ordinance Skill increases your Anomaly Power by 50% for 10s": null } ]
+       /* 78 */ [ 0, [ 76, 77 ], [], "Techbond", { "Activating an Ordinance Skill increases Anomaly Power by 50% for 10s": null } ]
     ]
   }
   
