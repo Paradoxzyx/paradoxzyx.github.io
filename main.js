@@ -423,22 +423,6 @@ function bindElements() {
       document.cookie = "nodecount=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
     }
   })
-  
-  $("#sortstats").on("click", function() {
-    let table = $("table", activestats).eq(0)
-    if ($(this).prop("checked")) {
-      table.children().sort((a, b) => {
-        a = $(".stat-v", a).attr("class").split(/\s+/)[1] || "-1"
-        b = $(".stat-v", b).attr("class").split(/\s+/)[1] || "-1"
-        return +b.replace("stat-", "") - +a.replace("stat-", "")
-      }).appendTo(table)
-      document.cookie = "sortstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
-    }
-    else {
-      table.children().sort((a, b) => $(".stat-k", a).text().localeCompare($(".stat-k", b).text())).appendTo(table)
-      document.cookie = "sortstats=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
-    }
-  })
 }
 
 //---------------------------------------- Load Data
