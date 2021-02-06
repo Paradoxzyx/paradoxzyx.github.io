@@ -236,7 +236,7 @@ function remove(id) {
     }
   })
   
-  //--- Update URL  
+  //--- Update URL
   url[active].splice($.inArray(id, url[active]), 1)
   if (url[active].length) {
     history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
@@ -426,7 +426,7 @@ function bindElements() {
 }
 
 //---------------------------------------- Load Data
-function loadData() {  
+function loadData() {
   //---------------------------------------- All Skills
   skills = {
     trickster: [
