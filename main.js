@@ -1,5 +1,5 @@
 $(() => {
-  init()
+  loadData()
   
   //---------------------------------------- Load Stats & Tooltips
   stats = {
@@ -100,41 +100,15 @@ $(() => {
     }
   })
   
+  //---------------------------------------- Bind Elements
+  bindElements()
+  
   //---------------------------------------- Get cookies
   $.each(document.cookie.split(";"), (i, s) => {
     let cookie = s.split("=")
     if (+cookie[1]) {
       $("#" + cookie[0].trim()).click()
     }
-  })
-  
-  //---------------------------------------- Click node
-  $(".node").on("mousedown", function() {
-    let id = +$(this).index()
-    if (skills[active][id][0] == 1 && points[active] > 0) {
-      add(id)
-    }
-    else if (skills[active][id][0] == 2 && id != 0 && check(id)) {
-      remove(id)
-    }
-  })
-
-  //---------------------------------------- Disable default right-click on image & nodes
-  $("img, area").bind("contextmenu", () => false)
-  
-  //---------------------------------------- Disable clicking node anchors scrolling to top of page
-  $("area").bind("click", () => false)
-  
-  //---------------------------------------- DEBUG
-  $("body").append($("<div>").css("position", "relative")
-    .append($("<img>").attr({ id: "bread", src: "favicon.ico", width: 24, height: 24 }).css({ position: "absolute", top: "800px", right: "1%" })))
-
-  $("#bread").on("click", function() {
-    if (!$("#debug").length) {
-      $("#reset").after($("<div>").attr("id", "debug").css({ position: "fixed", left: "250px", top: "200px" }))
-      $(".node").mousemove(() => $("#debug").text($(this).index()))
-    }
-    $("#points").text(points[active] = 100)
   })
 })
 
@@ -273,108 +247,7 @@ function recurse(id) {
   })
 }
 
-//---------------------------------------- Reset tree
-$("#reset").on("click", () => {
-  //--- Set all nodes to inactive
-  $.each(skills[active], (i, s) => s[0] = 0)
-  $(".node", activetree).removeClass("active activatable")
-  
-  //--- Clear stats
-  if (!$("#allstats").prop("checked")) {
-    $(".stat", activestats).hide()
-  }
-  $(".stat", activestats).addClass("inactive")
-  
-  $.each(stats[active], (k, s) => s[0] = s[2] = 0)
-  $(".stat .stat-v", activestats).removeClass("stat-0 stat-1 stat-2 stat-3").text("0%")
-  $(".stat .stat-c", activestats).text(0)
-  
-  //--- Unique Node Skill Count
-  $(".stat .unique", activestats).attr("data-c", 0).text("0%")
-  
-  //--- Add node 0
-  url[active] = []
-  points[active] = 21
-  skills[active][0][0] = 1
-  add(0)
-})
-
-//---------------------------------------- Change Tree
-$("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("click", function() {
-  activetree.hide()
-  activestats.hide()
-  $("#searchcount").text("")
-  $(".node", activetree).removeClass("highlight")
-  $("#nav .button").removeClass("active")
-  
-  active = $(this).attr("data-class")
-  $(this).addClass("active")
-  activetree = $("." + active + ".skilltree").show()
-  activestats = $("." + active + ".statstable").show()
-  
-  $("#points").text(points[active])
-  if (url[active].length) {
-    history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
-  }
-  else {
-    add(0)
-  }
-})
-
-//---------------------------------------- Options
-$("#nodenames").on("click", function() {
-  if ($(this).prop("checked")) {
-    $(".node .name").show()
-    document.cookie = "nodenames=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
-  }
-  else {
-    $(".node .name").hide()
-    document.cookie = "nodenames=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
-  }
-})
-
-$("#allstats").on("click", function() {
-  if ($(this).prop("checked")) {
-    $(".stat.inactive").show()
-    document.cookie = "allstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
-  }
-  else {
-    $(".stat.inactive").hide()
-    document.cookie = "allstats=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
-  }
-})
-
-$("#maxstats").on("click", function() {
-  if ($(this).prop("checked")) {
-    $(".stat .stat-m").show()
-    document.cookie = "maxstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
-  }
-  else {
-    $(".stat .stat-m").hide()
-    document.cookie = "maxstats=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
-  }
-})
-
-$("#nodecount").on("click", function() {
-  if ($(this).prop("checked")) {
-    $(".stat .stat-n").show()
-    document.cookie = "nodecount=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
-  }
-  else {
-    $(".stat .stat-n").hide()
-    document.cookie = "nodecount=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
-  }
-})
-
 //---------------------------------------- Search
-$("#search .button").on("click", search)
-
-$("#searchtext").keyup(e => {
-  if (e.keyCode == 13) {
-    search()
-  }
-})
-
 function search() {
   $(".node", activetree).removeClass("highlight")
   let s = $("#searchtext").val().toLowerCase()
@@ -404,8 +277,142 @@ function color(s) {
   return s
 }
 
-//---------------------------------------- Init
-function init() {
+//---------------------------------------- Bind Elements
+function bindElements() {
+  //---------------------------------------- Disable default right-click on image & nodes
+  $("img, area").bind("contextmenu", () => false)
+  
+  //---------------------------------------- Disable clicking node anchors scrolling to top of page
+  $("area").bind("click", () => false)
+  
+  //---------------------------------------- Click node
+  $(".node").on("mousedown", function() {
+    let id = +$(this).index()
+    if (skills[active][id][0] == 1 && points[active] > 0) {
+      add(id)
+    }
+    else if (skills[active][id][0] == 2 && id != 0 && check(id)) {
+      remove(id)
+    }
+  })
+  
+  //---------------------------------------- Reset tree
+  $("#reset").on("click", () => {
+    //--- Set all nodes to inactive
+    $.each(skills[active], (i, s) => s[0] = 0)
+    $(".node", activetree).removeClass("active activatable")
+    
+    //--- Clear stats
+    if (!$("#allstats").prop("checked")) {
+      $(".stat", activestats).hide()
+    }
+    $(".stat", activestats).addClass("inactive")
+   
+    $.each(stats[active], (k, s) => s[0] = s[2] = 0)
+    $(".stat .stat-v", activestats).removeClass("stat-0 stat-1 stat-2 stat-3").text("0%")
+    $(".stat .stat-c", activestats).text(0)
+    
+    //--- Unique Node Skill Count
+    $(".stat .unique", activestats).attr("data-c", 0).text("0%")
+    
+    //--- Add node 0
+    url[active] = []
+    points[active] = 21
+    skills[active][0][0] = 1
+    add(0)
+  })
+  
+  //---------------------------------------- Change Tree
+  $("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("click", function() {
+    activetree.hide()
+    activestats.hide()
+    $("#searchcount").text("")
+    $(".node", activetree).removeClass("highlight")
+    $("#nav .button").removeClass("active")
+    
+    active = $(this).attr("data-class")
+    $(this).addClass("active")
+    activetree = $("." + active + ".skilltree").show()
+    activestats = $("." + active + ".statstable").show()
+    
+    $("#points").text(points[active])
+    if (url[active].length) {
+      history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
+    }
+    else {
+      add(0)
+    }
+  })
+  
+  //---------------------------------------- Search
+  $("#search .button").on("click", search)
+  
+  $("#searchtext").keyup(e => {
+    if (e.keyCode == 13) {
+      search()
+    }
+  })
+  
+  //---------------------------------------- Options
+  $("#nodenames").on("click", function() {
+    if ($(this).prop("checked")) {
+      $(".node .name").show()
+      document.cookie = "nodenames=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
+    }
+    else {
+      $(".node .name").hide()
+      document.cookie = "nodenames=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
+    }
+  })
+  
+  $("#allstats").on("click", function() {
+    if ($(this).prop("checked")) {
+      $(".stat.inactive").show()
+      document.cookie = "allstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
+    }
+    else {
+      $(".stat.inactive").hide()
+      document.cookie = "allstats=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
+    }
+  })
+  
+  $("#maxstats").on("click", function() {
+    if ($(this).prop("checked")) {
+      $(".stat .stat-m").show()
+      document.cookie = "maxstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
+    }
+    else {
+      $(".stat .stat-m").hide()
+      document.cookie = "maxstats=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
+    }
+  })
+  
+  $("#nodecount").on("click", function() {
+    if ($(this).prop("checked")) {
+      $(".stat .stat-n").show()
+      document.cookie = "nodecount=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
+    }
+    else {
+      $(".stat .stat-n").hide()
+      document.cookie = "nodecount=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
+    }
+  })
+  
+  //---------------------------------------- DEBUG
+  $("body").append($("<div>").css("position", "relative")
+    .append($("<img>").attr({ id: "bread", src: "favicon.ico", width: 24, height: 24 }).css({ position: "absolute", top: "800px", right: "1%" })))
+
+  $("#bread").on("click", function() {
+    if (!$("#debug").length) {
+      $("#reset").after($("<div>").attr("id", "debug").css({ position: "fixed", left: "250px", top: "200px" }))
+      $(".node").mousemove(() => $("#debug").text($(this).index()))
+    }
+    $("#points").text(points[active] = 100)
+  })
+}
+
+//---------------------------------------- Load Data
+function loadData() {
   //---------------------------------------- Keywords for tooltips & stats descriptions
   keywords = {
     "hl-a": /(anomaly power)/gi,
