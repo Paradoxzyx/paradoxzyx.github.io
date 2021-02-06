@@ -346,6 +346,28 @@ a {
     margin: 4px 8px;
 }
 
+/* ---------------------------------------- DPS Calculator */
+#dps {
+    display: none;
+}
+
+#dps #dps-input {
+    text-align: center;
+    font: 20px "Chakra Petch", sans-serif;
+}
+
+#dps #dps-input > div {
+    display: inline-block;
+    margin: 10px;
+}
+
+#dps #dps-input input {
+    width: 80px;
+    font: 24px/1.5 "Chakra Petch", sans-serif;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
 /* ---------------------------------------- Keywords */
 .hl-a {
     color: #20DEFF;
