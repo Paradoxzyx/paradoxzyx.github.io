@@ -2,6 +2,20 @@ $(() => {
   loadData()
   
   //---------------------------------------- Load Stats & Tooltips
+  //--- Keywords for tooltips & stats descriptions
+  let keywords = {
+    "hl-a": /(anomaly power)/gi,
+    "hl-d": /((weapon|assault|close range|long range) damage|firepower)/gi,
+    "hl-e": /(weakness|mark(ed)?|burn|bleed|toxic|vulnerab(le|ility)|freeze|frozen)/gi,
+    "hl-h": /((maximum )?health( regen)?)/gi,
+    "hl-l": /((weapon|skill) leech|heal(?!th)(s|ed|ing)?)/gi,
+    "hl-n": /((concentration|magma golem|br\/8 impact amplifier) node)/gi,
+    "hl-p": /((armor|(armor and )?resistance) penetration)/gi,
+    "hl-r": /((armor|resistance)(?!( and resistance)? penetration)|damage mitigation)/gi,
+    "hl-s": /((damage|disruption|movement|ignite|immobilize|explosive|protection|seismic|kinetic|decay|ordinance|gadget|any) skills?|stone push|(?<=skill cooldown \()(damage|disruption|movement|ignite|immobilize|explosive|protection|seismic|kinetic|decay|ordinance|gadget|any))/gi,
+    "hl-t": /(shields?( degredation| gain)?)/gi
+  }
+  
   stats = {
     trickster: {},
     pyromancer: {},
@@ -40,7 +54,7 @@ $(() => {
       })
       let tooltip = $("<ul>")
       $.each(t, (j, v) => {
-        tooltip.append($("<li>").html(color(v)))
+        tooltip.append($("<li>").html(color(v, keywords)))
       })
       $(".node", skilltree).eq(i)
         .append($("<div>").addClass("name").text(node[3]))
@@ -61,7 +75,7 @@ $(() => {
     $.each(u.sort(), (i, v) => {
       $("table", statstable).last()
         .append($("<tr>").addClass("stat inactive").attr("data-s", v)
-          .append($("<td>").html(color(v))))
+          .append($("<td>").html(color(v, keywords))))
     })
   })
       
@@ -109,6 +123,18 @@ $(() => {
     if (+cookie[1]) {
       $("#" + cookie[0].trim()).click()
     }
+  })
+  
+  //---------------------------------------- DEBUG
+  $("body").append($("<div>").css("position", "relative")
+    .append($("<img>").attr({ id: "bread", src: "favicon.ico", width: 24, height: 24 }).css({ position: "absolute", top: "800px", right: "1%" })))
+
+  $("#bread").on("click", function() {
+    if (!$("#debug").length) {
+      $("#reset").after($("<div>").attr("id", "debug").css({ position: "fixed", left: "250px", top: "200px" }))
+      $(".node").mousemove(() => $("#debug").text($(this).index()))
+    }
+    $("#points").text(points[active] = 100)
   })
 })
 
@@ -268,7 +294,7 @@ function search() {
 }
 
 //---------------------------------------- Color Keywords
-function color(s) {
+function color(s, keywords) {
   $.each(keywords, (k, v) => {
     if (s.match(v)) {
       s = s.replace(v, "<span class=\"" + k + "\">$1</span>")
@@ -397,36 +423,10 @@ function bindElements() {
       document.cookie = "nodecount=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
     }
   })
-  
-  //---------------------------------------- DEBUG
-  $("body").append($("<div>").css("position", "relative")
-    .append($("<img>").attr({ id: "bread", src: "favicon.ico", width: 24, height: 24 }).css({ position: "absolute", top: "800px", right: "1%" })))
-
-  $("#bread").on("click", function() {
-    if (!$("#debug").length) {
-      $("#reset").after($("<div>").attr("id", "debug").css({ position: "fixed", left: "250px", top: "200px" }))
-      $(".node").mousemove(() => $("#debug").text($(this).index()))
-    }
-    $("#points").text(points[active] = 100)
-  })
 }
 
 //---------------------------------------- Load Data
-function loadData() {
-  //---------------------------------------- Keywords for tooltips & stats descriptions
-  keywords = {
-    "hl-a": /(anomaly power)/gi,
-    "hl-d": /((weapon|assault|close range|long range) damage|firepower)/gi,
-    "hl-e": /(weakness|mark(ed)?|burn|bleed|toxic|vulnerab(le|ility)|freeze|frozen)/gi,
-    "hl-h": /((maximum )?health( regen)?)/gi,
-    "hl-l": /((weapon|skill) leech|heal(?!th)(s|ed|ing)?)/gi,
-    "hl-n": /((concentration|magma golem|br\/8 impact amplifier) node)/gi,
-    "hl-p": /((armor|(armor and )?resistance) penetration)/gi,
-    "hl-r": /((armor|resistance)(?!( and resistance)? penetration)|damage mitigation)/gi,
-    "hl-s": /((damage|disruption|movement|ignite|immobilize|explosive|protection|seismic|kinetic|decay|ordinance|gadget|any) skills?|stone push|(?<=skill cooldown \()(damage|disruption|movement|ignite|immobilize|explosive|protection|seismic|kinetic|decay|ordinance|gadget|any))/gi,
-    "hl-t": /(shields?( degredation| gain)?)/gi
-  }
-  
+function loadData() {  
   //---------------------------------------- All Skills
   skills = {
     trickster: [
