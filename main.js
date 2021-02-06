@@ -164,6 +164,11 @@ function add(id) {
     $(".stat .unique", activestats).text(+($(".stat .unique", activestats).attr("data-v") * $(".stat .unique", activestats).attr("data-c") * 100).toFixed(1) + "%")
   }
   
+  //--- Sort Stats
+  if ($("#sortstats").prop("checked")) {
+    sortstats()
+  }
+  
   //--- Set non-active children to activatable
   $.each(node[2], (i, n) => {
     if (skills[active][n][0] != 2) {
@@ -211,6 +216,11 @@ function remove(id) {
   if ([ "Concentration", "Magma Golem", "Br/8 Impact Amplifier" ].includes(skills[active][id][3])) {
     $(".stat .unique", activestats).attr("data-c", +$(".stat .unique", activestats).attr("data-c") - 1)
     $(".stat .unique", activestats).text(+($(".stat .unique", activestats).attr("data-v") * $(".stat .unique", activestats).attr("data-c") * 100).toFixed(1) + "%")
+  }
+  
+  //--- Sort Stats
+  if ($("#sortstats").prop("checked")) {
+    sortstats()
   }
   
   //--- Get all activatable child nodes
@@ -291,6 +301,16 @@ function search() {
   else {
     $("#searchcount").text("")
   }
+}
+
+//---------------------------------------- Sort Stats
+function sortstats() {
+  let table = $("table", activestats).eq(0)
+  table.children().sort((a, b) => {
+    a = $(".stat-v", a).attr("class").split(/\s+/)[1] || "-1"
+    b = $(".stat-v", b).attr("class").split(/\s+/)[1] || "-1"
+    return +b.replace("stat-", "") - +a.replace("stat-", "")
+  }).appendTo(table)
 }
 
 //---------------------------------------- Color Keywords
@@ -421,6 +441,18 @@ function bindElements() {
     else {
       $(".stat .stat-n").hide()
       document.cookie = "nodecount=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
+    }
+  })
+
+  $("#sortstats").on("click", function() {
+    if ($(this).prop("checked")) {
+      sortstats()
+      document.cookie = "sortstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
+    }
+    else {
+      let table = $("table", activestats).eq(0)
+      table.children().sort((a, b) => a.attr("data-s").localeCompare(b.attr("data-s"))).appendTo(table)
+      document.cookie = "sortstats=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
     }
   })
 }
