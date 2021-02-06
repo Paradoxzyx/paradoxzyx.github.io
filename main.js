@@ -395,6 +395,19 @@ function bindElements() {
     }
   })
   
+  //---------------------------------------- DPS Calculator
+  $("#dps-input input").on("change", () => {
+    let clip = $("#dps-in-clip").val()
+    let rpm = $("#dps-in-rpm").val()
+    let dmg = $("#dps-in-dmg").val()
+    let reload = $("#dps-in-reload").val()
+    let crit = $("#dps-in-crit").val()
+    let dps = dmg * rpm
+    $("#dps-crit").text(dmg * crit)
+    $("#dps-clip").text(dps)
+    $("#dps-true").text((dmg * clip) / (rpm * clip + reload))
+  })
+  
   //---------------------------------------- Options
   $("#nodenames").on("click", function() {
     if ($(this).prop("checked")) {
