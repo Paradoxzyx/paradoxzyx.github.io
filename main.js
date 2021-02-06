@@ -451,7 +451,7 @@ function bindElements() {
     }
     else {
       let table = $("table", activestats).eq(0)
-      table.children().sort((a, b) => a.attr("data-s").localeCompare(b.attr("data-s"))).appendTo(table)
+      table.children().sort((a, b) => $(a).attr("data-s").localeCompare($(b).attr("data-s"))).appendTo(table)
       document.cookie = "sortstats=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
     }
   })
