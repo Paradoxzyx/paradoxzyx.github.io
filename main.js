@@ -66,7 +66,7 @@ $(() => {
     $.each(s.sort(), (i, v) => {
       $("table", statstable).first()
         .append($("<tr>").addClass("stat inactive").attr("data-s", v)
-          .append($("<td>").addClass("stat-k").html(color(v, keywords) + ":"))
+          .append($("<td>").addClass("stat-k").text(v + ":"))
           .append($("<td>").addClass("stat-v").text("0%"))
           .append($("<td>").addClass("stat-m").text(+(stats[c][v][1] * 100).toFixed(1) + "%"))
           .append($("<td>").addClass("stat-n").html("(<span class=\"stat-c\">0</span>/" + stats[c][v][3] + ")")))
