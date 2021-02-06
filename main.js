@@ -1,4 +1,4 @@
-$(function() {
+$(() => {
   init()
   
   //---------------------------------------- Load Stats & Tooltips
@@ -9,14 +9,14 @@ $(function() {
     technomancer: {}
   }
   
-  $.each(skills, function(c, list) {
+  $.each(skills, (c, list) => {
     let skilltree = $("." + c + ".skilltree")
     let statstable = $("." + c + ".statstable")
     let s = []
     let u = []
-    $.each(list, function(i, node) {
+    $.each(list, (i, node) => {
       let t = []
-      $.each(node[4], function(k, v) {
+      $.each(node[4], (k, v) => {
         if (!stats[c][k]) {
           stats[c][k] = [ 0, v, 0, 1 ]
         }
@@ -39,7 +39,7 @@ $(function() {
         }
       })
       let tooltip = $("<ul>")
-      $.each(t, function(j, v) {
+      $.each(t, (j, v) => {
         tooltip.append($("<li>").html(color(v)))
       })
       $(".node", skilltree).eq(i)
@@ -49,7 +49,7 @@ $(function() {
     })
     
     //--- Create sorted stat list
-    $.each(s.sort(), function(i, v) {
+    $.each(s.sort(), (i, v) => {
       $("table", statstable).first()
         .append($("<tr>").addClass("stat inactive").attr("data-s", v)
           .append($("<td>").addClass("stat-k").text(v + ":"))
@@ -58,7 +58,7 @@ $(function() {
           .append($("<td>").addClass("stat-n").html("(<span class=\"stat-c\">0</span>/" + stats[c][v][3] + ")")))
     })
     //--- Create sorted stat list (Unique stats)
-    $.each(u.sort(), function(i, v) {
+    $.each(u.sort(), (i, v) => {
       $("table", statstable).last()
         .append($("<tr>").addClass("stat inactive").attr("data-s", v)
           .append($("<td>").html(color(v))))
@@ -94,14 +94,14 @@ $(function() {
   activestats = $("." + active + ".statstable").show()
   let s = search.get("s") || "0"
   let l = skills[active].length
-  $.each(s.split(",").map(Number), function(i, n) {
+  $.each(s.split(",").map(Number), (i, n) => {
     if (n < l) {
       add(n)
     }
   })
   
   //---------------------------------------- Get cookies
-  $.each(document.cookie.split(";"), function(i, s) {
+  $.each(document.cookie.split(";"), (i, s) => {
     let cookie = s.split("=")
     if (+cookie[1]) {
       $("#" + cookie[0].trim()).click()
@@ -109,7 +109,7 @@ $(function() {
   })
   
   //---------------------------------------- Click node
-  $(".node").on("mousedown", function() {
+  $(".node").on("mousedown", () => {
     let id = +$(this).index()
     if (skills[active][id][0] == 1 && points[active] > 0) {
       add(id)
@@ -120,25 +120,19 @@ $(function() {
   })
 
   //---------------------------------------- Disable default right-click on image & nodes
-  $("img, area").bind("contextmenu", function() {
-    return false
-  })
+  $("img, area").bind("contextmenu", () => false)
   
   //---------------------------------------- Disable clicking node anchors scrolling to top of page
-  $("area").bind("click", function() {
-    return false
-  })
+  $("area").bind("click", () => false)
   
   //---------------------------------------- DEBUG
   $("body").append($("<div>").css("position", "relative")
     .append($("<img>").attr({ id: "bread", src: "favicon.ico", width: 24, height: 24 }).css({ position: "absolute", top: "800px", right: "1%" })))
 
-  $("#bread").on("click", function() {
+  $("#bread").on("click", () => {
     if (!$("#debug").length) {
       $("#reset").after($("<div>").attr("id", "debug").css({ position: "fixed", left: "250px", top: "200px" }))
-      $(".node").mousemove(function() {
-        $("#debug").text($(this).index())
-      })
+      $(".node").mousemove(() => $("#debug").text($(this).index()))
     }
     $("#points").text(points[active] = 100)
   })
@@ -155,7 +149,7 @@ function add(id) {
   
   //--- Stats
   let stat = node[4]
-  $.each(stat, function(k, v) {
+  $.each(stat, (k, v) => {
     if (stats[active][k][1]) {
       stats[active][k][0] += v
       $(".stat[data-s=\"" + k + "\"] .stat-v", activestats).removeClass("stat-0 stat-1 stat-2 stat-3").addClass("stat-" + Math.floor(stats[active][k][0] / stats[active][k][1] * 3)).text(+(stats[active][k][0] * 100).toFixed(1) + "%")
@@ -171,7 +165,7 @@ function add(id) {
   }
   
   //--- Set non-active children to activatable
-  $.each(node[2], function(i, n) {
+  $.each(node[2], (i, n) => {
     if (skills[active][n][0] != 2) {
       skills[active][n][0] = 1
       $(".node", activetree).eq(n).addClass("activatable")
@@ -180,9 +174,7 @@ function add(id) {
   
   //--- Update URL
   url[active].push(id)
-  url[active].sort(function(a, b) {
-    return a - b
-  })
+  url[active].sort((a, b) => a - b)
   history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
 }
 
@@ -197,7 +189,7 @@ function remove(id) {
   
   //--- Stats
   let stat = node[4]
-  $.each(stat, function(k, v) {
+  $.each(stat, (k, v) => {
     if (stats[active][k][1]) {
       stats[active][k][0] -= v
       $(".stat[data-s=\"" + k + "\"] .stat-v", activestats).removeClass("stat-0 stat-1 stat-2 stat-3")
@@ -223,16 +215,16 @@ function remove(id) {
   
   //--- Get all activatable child nodes
   let children = []
-  $.each(node[2], function(i, n) {
+  $.each(node[2], (i, n) => {
     if (skills[active][n][0] == 1) {
       children.push(n)
     }
   })
   
   //--- Set activatable child nodes with no other active parents to inactive
-  $.each(children, function(i, n) {
+  $.each(children, (i, n) => {
     let x = 1
-    $.each(skills[active][n][1], function(j, m) {
+    $.each(skills[active][n][1], (j, m) => {
       if (skills[active][m][0] == 2) {
         x = 0
         return false
@@ -262,7 +254,7 @@ function check(id) {
   
   //--- Check for invalid active child node
   let x = 1
-  $.each(skills[active][id][2], function(i, n) {
+  $.each(skills[active][id][2], (i, n) => {
     if (skills[active][n][0] == 2 && !tree.includes(n)) {
       x = 0
       return false
@@ -273,7 +265,7 @@ function check(id) {
 
 //---------------------------------------- Recurse children
 function recurse(id) {
-  $.each(skills[active][id][2], function(i, n) {
+  $.each(skills[active][id][2], (i, n) => {
     if (skills[active][n][0] == 2 && !tree.includes(n)) {
       tree.push(n)
       recurse(n)
@@ -282,11 +274,9 @@ function recurse(id) {
 }
 
 //---------------------------------------- Reset tree
-$("#reset").on("click", function() {
+$("#reset").on("click", () => {
   //--- Set all nodes to inactive
-  $.each(skills[active], function(i, s) {
-    s[0] = 0
-  })
+  $.each(skills[active], (i, s) => s[0] = 0)
   $(".node", activetree).removeClass("active activatable")
   
   //--- Clear stats
@@ -295,10 +285,7 @@ $("#reset").on("click", function() {
   }
   $(".stat", activestats).addClass("inactive")
   
-  $.each(stats[active], function(k, s) {
-    s[0] = 0
-    s[2] = 0
-  })
+  $.each(stats[active], (k, s) => s[0] = s[2] = 0)
   $(".stat .stat-v", activestats).removeClass("stat-0 stat-1 stat-2 stat-3").text("0%")
   $(".stat .stat-c", activestats).text(0)
   
@@ -313,7 +300,7 @@ $("#reset").on("click", function() {
 })
 
 //---------------------------------------- Change Tree
-$("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("click", function() {
+$("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("click", () => {
   activetree.hide()
   activestats.hide()
   $("#searchcount").text("")
@@ -335,7 +322,7 @@ $("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("cli
 })
 
 //---------------------------------------- Options
-$("#nodenames").on("click", function() {
+$("#nodenames").on("click", () => {
   if ($(this).prop("checked")) {
     $(".node .name").show()
     document.cookie = "nodenames=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
@@ -346,7 +333,7 @@ $("#nodenames").on("click", function() {
   }
 })
 
-$("#allstats").on("click", function() {
+$("#allstats").on("click", () => {
   if ($(this).prop("checked")) {
     $(".stat.inactive").show()
     document.cookie = "allstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
@@ -357,7 +344,7 @@ $("#allstats").on("click", function() {
   }
 })
 
-$("#maxstats").on("click", function() {
+$("#maxstats").on("click", () => {
   if ($(this).prop("checked")) {
     $(".stat .stat-m").show()
     document.cookie = "maxstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
@@ -368,7 +355,7 @@ $("#maxstats").on("click", function() {
   }
 })
 
-$("#nodecount").on("click", function() {
+$("#nodecount").on("click", () => {
   if ($(this).prop("checked")) {
     $(".stat .stat-n").show()
     document.cookie = "nodecount=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
@@ -382,7 +369,7 @@ $("#nodecount").on("click", function() {
 //---------------------------------------- Search
 $("#search .button").on("click", search)
 
-$("#searchtext").keyup(function(e) {
+$("#searchtext").keyup(e => {
   if (e.keyCode == 13) {
     search()
   }
@@ -392,8 +379,8 @@ function search() {
   $(".node", activetree).removeClass("highlight")
   let s = $("#searchtext").val().toLowerCase()
   if (s) {
-    $.each(skills[active], function(i, n) {
-      $.each(n[4], function(k, v) {
+    $.each(skills[active], (i, n) => {
+      $.each(n[4], (k, v) => {
         if (k.toLowerCase().includes(s)) {
           $(".node", activetree).eq(i).addClass("highlight")
           return false
@@ -409,7 +396,7 @@ function search() {
 
 //---------------------------------------- Color Keywords
 function color(s) {
-  $.each(keywords, function(k, v) {
+  $.each(keywords, (k, v) => {
     if (s.match(v)) {
       s = s.replace(v, "<span class=\"" + k + "\">$1</span>")
     }
@@ -1139,9 +1126,9 @@ function init() {
   
   //---------------------------------------- Load nodes
   let alloffsets = [ 19, 29, 69 ]
-  $.each(allcoords, function(c, coords) {
+  $.each(allcoords, (c, coords) => {
     let map = $("." + c + ".skilltree map")
-    $.each(coords, function(i, node) {
+    $.each(coords, (i, node) => {
       let offset = alloffsets[node[2]]
       map.append($("<div>").addClass("node n" + node[2]).css({ left: node[0] - offset + "px", top: node[1] - offset + "px" })
         .append($("<area>").attr({ shape: "circle", href: "#", coords: node[0] + "," + node[1] + "," + (offset + 1) })))
