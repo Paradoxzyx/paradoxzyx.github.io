@@ -423,6 +423,22 @@ function bindElements() {
       document.cookie = "nodecount=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
     }
   })
+  
+  $("#sortstats").on("click", function() {
+    let table = $("table", activestats).eq(0)
+    if ($(this).prop("checked")) {
+      table.children().sort((a, b) => {
+        a = $(".stat-v", a).attr("class").split(/\s+/)[1] || "-1"
+        b = $(".stat-v", b).attr("class").split(/\s+/)[1] || "-1"
+        return +b.replace("stat-", "") - +a.replace("stat-", "")
+      }).appendTo(table)
+      document.cookie = "sortstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
+    }
+    else {
+      table.children().sort((a, b) => $(".stat-k", a).text().localeCompare($(".stat-k", b).text())).appendTo(table)
+      document.cookie = "sortstats=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
+    }
+  })
 }
 
 //---------------------------------------- Load Data
@@ -699,11 +715,11 @@ function loadData() {
        /* 3  */ [ 0, [ 1, 4 ], [ 1, 4 ], "Sower of Decay", { "Skill Cooldown (Decay)": 0.15 } ],
        /* 4  */ [ 0, [ 2, 3, 6, 7, 24 ], [ 2, 3, 5, 6, 7, 24 ], "Drill Coating", { "Armor Penetration": 0.1 } ],
        /* 5  */ [ 0, [ 4 ], [], "Sniper Master", { "Weapon Damage (Sniper)": 0.2, "Drop Rate (Sniper)": 0.12 } ],
-       /* 6  */ [ 0, [ 4, 8 ], [ 4, 8 ], "Nitrogen Capsules", { "Decreased the distance considered to be Long Range by 6.5m [1]": null } ],
+       /* 6  */ [ 0, [ 4, 8 ], [ 4, 8 ], "Nitrogen Capsules", { "Decrease the distance considered to be Long Range by 6.5m [1]": null } ],
        /* 7  */ [ 0, [ 4, 8 ], [ 4, 8 ], "Toxicologist", { "Toxic Duration": 0.3 } ],
        /* 8  */ [ 0, [ 6, 7, 27 ], [ 6, 7, 9, 10, 11, 27 ], "Br/8 Impact Amplifier", { "Weapon Damage": 0.08 } ],
        /* 9  */ [ 0, [ 8 ], [], "Cannonade", { "Activating an Ordinance Skill increases Weapon Damage for you and your allies by 30% for 10s": null } ],
-       /* 10 */ [ 0, [ 8 ], [ 12 ], "Nitrogen Capsules", { "Decreased the distance considered to be Long Range by 6.5m [2]": null } ],
+       /* 10 */ [ 0, [ 8 ], [ 12 ], "Nitrogen Capsules", { "Decrease the distance considered to be Long Range by 6.5m [2]": null } ],
        /* 11 */ [ 0, [ 8 ], [ 12 ], "Purge", { "Damage (Against Toxic'ed)": 0.1 } ],
        /* 12 */ [ 0, [ 10, 11 ], [ 13, 14, 15 ], "Br/8 Impact Amplifier", { "Weapon Damage": 0.08 } ],
        /* 13 */ [ 0, [ 12 ], [], "Assault Master", { "Weapon Damage (Assault)": 0.2, "Drop Rate (Assault)": 0.12 } ],
