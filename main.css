@@ -297,7 +297,7 @@ a {
 
 #stats .stat.inactive {
     color: #808080;
-    filter: contrast(0.5);
+    filter: contrast(0.5) saturate(0.5);
 }
 
 #stats .stat-k {
