@@ -303,14 +303,10 @@ function search() {
   }
 }
 
-//---------------------------------------- Sort Stats
+//---------------------------------------- Sort Stats --- Wow this is ugly
 function sortstats() {
   let table = $("table", activestats).eq(0)
-  table.children().sort((a, b) => {
-    a = $(".stat-v", a).attr("class").split(/\s+/)[1] || "-1"
-    b = $(".stat-v", b).attr("class").split(/\s+/)[1] || "-1"
-    return +b.replace("stat-", "") - +a.replace("stat-", "")
-  }).appendTo(table)
+  table.children().sort((a, b) => +($(".stat-v", b).attr("class").split(/\s+/)[1] || "-1").replace("stat-", "") - +($(".stat-v", a).attr("class").split(/\s+/)[1] || "-1").replace("stat-", "") || $(a).attr("data-s").localeCompare($(b).attr("data-s"))).appendTo(table)
 }
 
 //---------------------------------------- Color Keywords
