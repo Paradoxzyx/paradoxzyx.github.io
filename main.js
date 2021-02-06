@@ -109,7 +109,7 @@ $(() => {
   })
   
   //---------------------------------------- Click node
-  $(".node").on("mousedown", () => {
+  $(".node").on("mousedown", function() {
     let id = +$(this).index()
     if (skills[active][id][0] == 1 && points[active] > 0) {
       add(id)
@@ -129,7 +129,7 @@ $(() => {
   $("body").append($("<div>").css("position", "relative")
     .append($("<img>").attr({ id: "bread", src: "favicon.ico", width: 24, height: 24 }).css({ position: "absolute", top: "800px", right: "1%" })))
 
-  $("#bread").on("click", () => {
+  $("#bread").on("click", function() {
     if (!$("#debug").length) {
       $("#reset").after($("<div>").attr("id", "debug").css({ position: "fixed", left: "250px", top: "200px" }))
       $(".node").mousemove(() => $("#debug").text($(this).index()))
@@ -300,7 +300,7 @@ $("#reset").on("click", () => {
 })
 
 //---------------------------------------- Change Tree
-$("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("click", () => {
+$("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("click", function() {
   activetree.hide()
   activestats.hide()
   $("#searchcount").text("")
@@ -322,7 +322,7 @@ $("#nav-trickster, #nav-pyromancer, #nav-devastator, #nav-technomancer").on("cli
 })
 
 //---------------------------------------- Options
-$("#nodenames").on("click", () => {
+$("#nodenames").on("click", function() {
   if ($(this).prop("checked")) {
     $(".node .name").show()
     document.cookie = "nodenames=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
@@ -333,7 +333,7 @@ $("#nodenames").on("click", () => {
   }
 })
 
-$("#allstats").on("click", () => {
+$("#allstats").on("click", function() {
   if ($(this).prop("checked")) {
     $(".stat.inactive").show()
     document.cookie = "allstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
@@ -344,7 +344,7 @@ $("#allstats").on("click", () => {
   }
 })
 
-$("#maxstats").on("click", () => {
+$("#maxstats").on("click", function() {
   if ($(this).prop("checked")) {
     $(".stat .stat-m").show()
     document.cookie = "maxstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
@@ -355,7 +355,7 @@ $("#maxstats").on("click", () => {
   }
 })
 
-$("#nodecount").on("click", () => {
+$("#nodecount").on("click", function() {
   if ($(this).prop("checked")) {
     $(".stat .stat-n").show()
     document.cookie = "nodecount=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
