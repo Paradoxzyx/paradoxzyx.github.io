@@ -368,6 +368,13 @@ a {
     margin-bottom: 8px;
 }
 
+#dps #dps-input .vr {
+    background: #108ABD;
+    width: 1px;
+    height: 60px;
+    margin: 10px;
+}
+
 /* ---------------------------------------- Keywords */
 .hl-a {
     color: #20DEFF;
