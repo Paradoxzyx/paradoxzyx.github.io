@@ -347,10 +347,6 @@ a {
 }
 
 /* ---------------------------------------- DPS Calculator */
-#dps {
-    display: none;
-}
-
 #dps #dps-input {
     text-align: center;
     font: 20px "Chakra Petch", sans-serif;
@@ -375,11 +371,16 @@ a {
     margin: 10px;
 }
 
+#dps #dps-result{
+    margin: 10px 0;
+}
+
 #dps #dps-result table {
     table-layout: fixed;
-    width: 50%;
-    min-width: 30em;
     text-align: center;
+    width: 35em;
+    min-width: 30em;
+    margin: 0 auto;
 }
 
 /* ---------------------------------------- Keywords */
