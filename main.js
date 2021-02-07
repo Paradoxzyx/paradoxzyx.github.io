@@ -120,8 +120,8 @@ $(() => {
   //---------------------------------------- Get cookies
   $.each(document.cookie.split(";"), (i, s) => {
     let cookie = s.split("=")
-    if (+cookie[1] && !$("#" + cookie[0].trim()).prop("checked")) {
-      $("#" + cookie[0].trim()).click()
+    if (+cookie[1]) {
+      $("#" + cookie[0].trim()).prop("checked", false).click()
     }
   })
   
