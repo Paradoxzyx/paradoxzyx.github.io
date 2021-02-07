@@ -121,7 +121,6 @@ $(() => {
   $.each(document.cookie.split(";"), (i, s) => {
     let cookie = s.split("=")
     if (+cookie[1]) {
-      $("#" + cookie[0].trim()).prop("checked", true)
       $("#" + cookie[0].trim()).click()
     }
   })
@@ -415,6 +414,7 @@ function bindElements() {
   
   //---------------------------------------- Options
   $("#nodenames").on("click", function() {
+    console.log("#nodenames", $(this).prop("checked"))
     if ($(this).prop("checked")) {
       $(".node .name").show()
       document.cookie = "nodenames=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
@@ -426,6 +426,7 @@ function bindElements() {
   })
   
   $("#allstats").on("click", function() {
+    console.log("#allstats", $(this).prop("checked"))
     if ($(this).prop("checked")) {
       $(".stat.inactive").show()
       document.cookie = "allstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
@@ -437,6 +438,7 @@ function bindElements() {
   })
   
   $("#maxstats").on("click", function() {
+    console.log("#maxstats", $(this).prop("checked"))
     if ($(this).prop("checked")) {
       $(".stat .stat-m").show()
       document.cookie = "maxstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
@@ -448,6 +450,7 @@ function bindElements() {
   })
   
   $("#nodecount").on("click", function() {
+    console.log("#nodecount", $(this).prop("checked"))
     if ($(this).prop("checked")) {
       $(".stat .stat-n").show()
       document.cookie = "nodecount=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
@@ -459,6 +462,7 @@ function bindElements() {
   })
 
   $("#sortstats").on("click", function() {
+    console.log("#sortstats", $(this).prop("checked"))
     if ($(this).prop("checked")) {
       sortstats()
       document.cookie = "sortstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
