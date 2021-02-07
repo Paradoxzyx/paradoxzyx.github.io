@@ -401,8 +401,8 @@ function bindElements() {
     let rpm = +$("#dps-in-rpm").val() || 0
     let dmg = +$("#dps-in-dmg").val() || 0
     let reload = +$("#dps-in-reload").val() || 0
-    let crit = $("#dps-in-crit").val() || 100 / 100 - 1
-    let acc = $("#dps-in-acc").val() || 0 / 100
+    let crit = ($("#dps-in-crit").val() || 100) / 100 - 1
+    let acc = ($("#dps-in-acc").val() || 0) / 100
     let rof = rpm / 60
     let dmgcrit = dmg * (1 + crit * acc)
     $("#dps-dmg").text(+dmg.toFixed(1))
