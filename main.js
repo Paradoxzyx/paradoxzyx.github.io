@@ -397,12 +397,12 @@ function bindElements() {
   
   //---------------------------------------- DPS Calculator
   $("#dps-input input").on("input", () => {
-    let clip = +$("#dps-in-clip").val()
-    let rpm = +$("#dps-in-rpm").val()
-    let dmg = +$("#dps-in-dmg").val()
-    let reload = +$("#dps-in-reload").val()
-    let crit = $("#dps-in-crit").val() / 100 - 1
-    let acc = $("#dps-in-acc").val() / 100
+    let clip = +$("#dps-in-clip").val() || 1
+    let rpm = +$("#dps-in-rpm").val() || 0
+    let dmg = +$("#dps-in-dmg").val() || 0
+    let reload = +$("#dps-in-reload").val() || 0
+    let crit = $("#dps-in-crit").val() || 100 / 100 - 1
+    let acc = $("#dps-in-acc").val() || 0 / 100
     let rof = rpm / 60
     let dmgcrit = dmg * (1 + crit * acc)
     $("#dps-dmg").text(+dmg.toFixed(1))
