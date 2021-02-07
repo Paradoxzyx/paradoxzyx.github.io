@@ -401,12 +401,12 @@ function bindElements() {
     let rpm = +$("#dps-in-rpm").val()
     let dmg = +$("#dps-in-dmg").val()
     let reload = +$("#dps-in-reload").val()
-    let crit = $("#dps-in-crit").val() / 100
+    let crit = $("#dps-in-crit").val() / 100 - 1
     let acc = $("#dps-in-acc").val() / 100
     let rof = rpm / 60
-    let dmgcrit = dmg * crit * acc
+    let dmgcrit = dmg * (1 + crit * acc)
     $("#dps-dmg").text(+dmg.toFixed(1))
-    $("#dps-crit").text(+(dmg * crit).toFixed(1))
+    $("#dps-crit").text(+(dmg * (1 + crit)).toFixed(1))
     $("#dps-clip").text(+(dmgcrit * clip).toFixed(1))
     $("#dps-simple").text(+(dmgcrit * rof).toFixed(1))
     $("#dps-true").text(+((dmgcrit * clip) / (clip / rof + reload)).toFixed(1))
