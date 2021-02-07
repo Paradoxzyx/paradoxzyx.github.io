@@ -396,16 +396,19 @@ function bindElements() {
   })
   
   //---------------------------------------- DPS Calculator
-  $("#dps-input input").on("change", () => {
+  $("#dps-input input").on("input", () => {
     let clip = $("#dps-in-clip").val()
     let rpm = $("#dps-in-rpm").val()
     let dmg = $("#dps-in-dmg").val()
     let reload = $("#dps-in-reload").val()
     let crit = $("#dps-in-crit").val()
-    let dps = dmg * rpm
+    let acc = $("#dps-in-acc").val()
+    let rof = (rpm / 60)
+    $("#dps-dmg").text(dmg)
     $("#dps-crit").text(dmg * crit)
-    $("#dps-clip").text(dps)
-    $("#dps-true").text((dmg * clip) / (rpm * clip + reload))
+    $("#dps-clip").text(dmg * crit * acc * clip)
+    $("#dps-simple").text(dmg * crit * acc * rof)
+    $("#dps-true").text((dmg * clip) / (clip / rof + reload))
   })
   
   //---------------------------------------- Options
