@@ -123,28 +123,28 @@
     
     <div id="dps-input">
       <div>
-        <input id="dps-in-clip" type="number">
+        <input id="dps-in-clip" type="number" min="1">
         <div>Clip Size</div>
       </div>
       <div>
-        <input id="dps-in-rpm" type="number">
+        <input id="dps-in-rpm" type="number" min="1" step="10">
         <div>RPM</div>
       </div>
       <div>
-        <input id="dps-in-dmg" type="number">
+        <input id="dps-in-dmg" type="number" min="1">
         <div>DMG</div>
       </div>
       <div>
-        <input id="dps-in-reload" type="number">
+        <input id="dps-in-reload" type="number" min="0" step="0.1">
         <div>Reload</div>
       </div>
       <div>
-        <input id="dps-in-crit" type="number">
+        <input id="dps-in-crit" type="number" min="0"> %
         <div>Crit mult</div>
       </div>
       <div class="vr"></div>
       <div>
-        <input id="dps-in-acc" type="number">
+        <input id="dps-in-acc" type="number" min="0" max="100" step="5"> %
         <div>Crit rate</div>
       </div>
     </div>
