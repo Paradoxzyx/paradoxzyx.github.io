@@ -404,11 +404,12 @@ function bindElements() {
     let crit = $("#dps-in-crit").val()
     let acc = $("#dps-in-acc").val()
     let rof = (rpm / 60)
+    let dmgcrit = dmg * (1 + crit * acc)
     $("#dps-dmg").text(dmg)
     $("#dps-crit").text(dmg * crit)
-    $("#dps-clip").text(dmg * crit * acc * clip)
-    $("#dps-simple").text(dmg * crit * acc * rof)
-    $("#dps-true").text((dmg * clip) / (clip / rof + reload))
+    $("#dps-clip").text(dmgcrit * clip)
+    $("#dps-simple").text(dmgcrit * rof)
+    $("#dps-true").text((dmgcrit * clip) / (clip / rof + reload))
   })
   
   //---------------------------------------- Options
