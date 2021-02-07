@@ -118,12 +118,14 @@ $(() => {
   bindElements()
   
   //---------------------------------------- Get cookies
+  /*
   $.each(document.cookie.split(";"), (i, s) => {
     let cookie = s.split("=")
     if (+cookie[1]) {
       $("#" + cookie[0].trim()).click()
     }
   })
+  */
   
   //---------------------------------------- DEBUG
   $("body").append($("<div>").css("position", "relative")
