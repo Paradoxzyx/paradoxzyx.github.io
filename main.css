@@ -375,6 +375,13 @@ a {
     margin: 10px;
 }
 
+#dps #dps-result table {
+    table-layout: fixed;
+    width: 50%;
+    min-width: 30em;
+    text-align: center;
+}
+
 /* ---------------------------------------- Keywords */
 .hl-a {
     color: #20DEFF;
