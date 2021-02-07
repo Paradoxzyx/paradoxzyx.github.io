@@ -121,7 +121,7 @@ $(() => {
   $.each(document.cookie.split(";"), (i, s) => {
     let cookie = s.split("=")
     if (+cookie[1]) {
-      $("#" + cookie[0].trim()).prop("checked", true).click()
+      $("#" + cookie[0].trim()).click()
     }
   })
   
