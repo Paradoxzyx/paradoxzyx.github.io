@@ -152,15 +152,18 @@
     <div id="dps-result">
       <table>
         <tr>
-          <th>Damage</th>
-          <th>Crit</th>
-          <th>Clip</th>
-          <th>Simple DPS</th>
-          <th>True DPS</th>
+          <th colspan="2" class="vb">Damage (Single Shot)</th>
+          <th rowspan="2">Damage per Clip</th>
+          <th rowspan="2">Simple DPS</th>
+          <th rowspan="2">True DPS</th>
+        </tr>
+        <tr>
+          <th>Normal</th>
+          <th class="vb">Crit</th>
         </tr>
         <tr>
           <td id="dps-dmg"></td>
-          <td id="dps-crit"></td>
+          <td id="dps-crit" class="vb"></td>
           <td id="dps-clip"></td>
           <td id="dps-simple"></td>
           <td id="dps-true"></td>
