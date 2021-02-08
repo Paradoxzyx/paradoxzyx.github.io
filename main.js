@@ -398,7 +398,7 @@ function bindElements() {
   //---------------------------------------- DPS Calculator
   $("#dps-input input").on("input", () => {
     let clip = +$("#dps-in-clip").val() || 1
-    let rpm = +$("#dps-in-rpm").val() || 0
+    let rpm = +$("#dps-in-rpm").val() || 1
     let dmg = +$("#dps-in-dmg").val() || 0
     let reload = +$("#dps-in-reload").val() || 0
     let crit = ($("#dps-in-crit").val() || 100) / 100 - 1
