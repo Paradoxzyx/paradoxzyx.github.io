@@ -407,7 +407,7 @@ function bindElements() {
     let dmgcrit = dmg * (1 + crit * acc)
     $("#dps-dmg").text(+dmg.toFixed(1))
     $("#dps-crit").text(+(dmg * (1 + crit)).toFixed(1))
-    $("#dps-clip").text(+(dmgcrit * clip).toFixed(1))
+    $("#dps-clip").text(+(dmgcrit * clip).toFixed(1) + " (" + +(clip / rof).toFixed(1) + "s)")
     $("#dps-simple").text(+(dmgcrit * rof).toFixed(1))
     $("#dps-true").text(+((dmgcrit * clip) / (clip / rof + reload)).toFixed(1))
   })
