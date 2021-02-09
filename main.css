@@ -283,7 +283,7 @@ a {
     display: none;
 }
 
-#stats table {
+#stats .statstable table {
     display: inline-block;
     vertical-align: top;
     min-width: 28em;
@@ -291,10 +291,26 @@ a {
     margin: 10px;
 }
 
-#stats table td {
+#stats .statstable table td {
     padding: 4px;
 }
 
+/* ----- Cooldowns */
+#stats .statstable .cooldowns {
+    font-family: "Chakra Petch", sans-serif;
+    margin: 60px auto 0;
+}
+
+#stats .statstable .cooldowns > div {
+    display: inline-block;
+    margin: 10px;
+}
+
+#stats .statstable .cooldowns img {
+    margin: 10px;
+}
+
+/* ----- Colors */
 #stats .stat.inactive {
     color: #808080;
     filter: contrast(0.5);
