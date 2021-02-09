@@ -175,7 +175,7 @@ function add(id) {
       let type = k.replace(/Skill Cooldown \((.+?)\)/, "$1")
       cooldowns[type] -= v
       $.each(abilities[active][type], (name, cd) => {
-        $(".cooldowns div[data-n=\"" + name + "\"] .cooldown").text(+(cd * cooldowns[type]).toFixed(1))
+        $(".cooldowns div[data-n=\"" + name + "\"] .cooldown").removeClass("stat-0 stat-1 stat-2 stat-3").addClass("stat-" + Math.floor(stats[active][k][0] / stats[active][k][1] * 3)).text(+(cd * cooldowns[type]).toFixed(1))
       })
     }
   })
@@ -238,7 +238,10 @@ function remove(id) {
       let type = k.replace(/Skill Cooldown \((.+?)\)/, "$1")
       cooldowns[type] += v
       $.each(abilities[active][type], (name, cd) => {
-        $(".cooldowns div[data-n=\"" + name + "\"] .cooldown").text(+(cd * cooldowns[type]).toFixed(1))
+        $(".cooldowns div[data-n=\"" + name + "\"] .cooldown").removeClass("stat-0 stat-1 stat-2 stat-3").text(+(cd * cooldowns[type]).toFixed(1))
+        if (stats[active][k][0]) {
+          $(".cooldowns div[data-n=\"" + name + "\"] .cooldown").addClass("stat-" + Math.floor(stats[active][k][0] / stats[active][k][1] * 3))
+        }
       })
     }
   })
