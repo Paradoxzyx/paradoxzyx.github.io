@@ -303,6 +303,7 @@ a {
 
 #stats .statstable .cooldowns > div {
     display: inline-block;
+    min-width: 120px;
     margin: 10px;
 }
 
