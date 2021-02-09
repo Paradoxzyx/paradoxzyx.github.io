@@ -298,7 +298,7 @@ a {
 /* ----- Cooldowns */
 #stats .statstable .cooldowns {
     font: 18px "Chakra Petch", sans-serif;
-    margin: 20px auto 0;
+    margin: 20px 10% 0;
 }
 
 #stats .statstable .cooldowns > div {
