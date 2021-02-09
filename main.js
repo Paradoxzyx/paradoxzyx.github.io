@@ -399,6 +399,7 @@ function bindElements() {
         $(".cooldowns div[data-n=\"" + name + "\"] .cooldown", activestats).text(cd)
       })
     })
+    $(".cooldowns .cooldowns", activestats).removeClass("stat-0 stat-1 stat-2 stat-3")
     
     //--- Add node 0
     url[active] = []
