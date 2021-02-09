@@ -387,6 +387,14 @@ function bindElements() {
     
     //--- Unique Node Skill Count
     $(".stat .unique", activestats).attr("data-c", 0).text("0%")
+  
+    //--- Ability Cooldowns
+    $.each(abilities[active], (type, list) => {
+      cooldowns[type] = 1
+      $.each(list, (name, cd) => {
+        $(".cooldowns div[data-n=\"" + name + "\"] .cooldown", activestats).text(cd)
+      })
+    })
     
     //--- Add node 0
     url[active] = []
