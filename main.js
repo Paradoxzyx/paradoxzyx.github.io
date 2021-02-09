@@ -91,7 +91,7 @@ $(() => {
       $.each(list, (name, cd) => {
         statstable.append($("<div>").attr("data-n", name)
           .append($("<div>").text(name))
-          .append($("<img>").attr("src", "skill-" + name.replace(/ /g, "-").toLowerCase() + ".webp"))
+          .append($("<img>").attr({ src: "skill-" + name.replace(/ /g, "-").toLowerCase() + ".webp", width: "64px", height: "64px" }))
           .append($("<div>").addClass("cooldown").text(cd)))
       })
     })
