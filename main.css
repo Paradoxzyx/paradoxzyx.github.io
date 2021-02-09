@@ -297,7 +297,7 @@ a {
 
 /* ----- Cooldowns */
 #stats .statstable .cooldowns {
-    font-family: "Chakra Petch", sans-serif;
+    font: 18px "Chakra Petch", sans-serif;
     margin: 60px auto 0;
 }
 
@@ -309,6 +309,14 @@ a {
 
 #stats .statstable .cooldowns img {
     margin: 10px;
+}
+
+#stats .statstable .cooldowns .cooldown {
+    font-size: 20px;
+}
+
+#stats .statstable .cooldowns .cooldown:after {
+    content: "s";
 }
 
 /* ----- Colors */
