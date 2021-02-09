@@ -84,6 +84,19 @@ $(() => {
   $(".stat[data-s='Increase Anomaly Power by 2.5% for each unlocked Magma Golem node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.025\">0%</span>)")
   $(".stat[data-s='Increase Anomaly Power by 12% for each unlocked Br/8 Impact Amplifier node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.12\">0%</span>)")
   
+  //---------------------------------------- Load Abilities
+  $.each(abilities, (c, types) => {
+    let statstable = $("." + c + ".statstable .cooldowns")
+    $.each(types, (type, list) => {
+      $.each(list, (name, cd) => {
+        statstable.append($("<div>").attr("data-n", name)
+          .append($("<div>").text(name))
+          .append($("<img>").attr("src", "skill-" + name.toLowerCase() + ".webp"))
+          .append($("<div>").addClass("cooldown").text(cd)))
+      })
+    })
+  })
+  
   //---------------------------------------- Points
   points = {
     trickster: 21,
@@ -156,6 +169,15 @@ function add(id) {
       $(".stat[data-s=\"" + k + "\"] .stat-c", activestats).text(++stats[active][k][2])
     }
     $(".stat[data-s=\"" + k + "\"]", activestats).removeClass("inactive").show()
+  
+    //--- Ability Cooldowns
+    if (k.startsWith("Skill Cooldown")) {
+      let type = k.replace(/Skill Cooldown \((.+?)\)/, "$1")
+      cooldowns[type] -= v
+      $.each(abilities[active][type], (name, cd) => {
+        $(".cooldowns div[data-n=" + name + "] .cooldown").text(+(cd * cooldowns[type]).toFixed(1))
+      })
+    }
   })
   
   //--- Unique Node Skill Count
@@ -209,6 +231,15 @@ function remove(id) {
       }
       $(".stat[data-s=\"" + k + "\"]", activestats).addClass("inactive")
       $(".stat[data-s=\"" + k + "\"] .stat-v", activestats).text("0%")
+    }
+  
+    //--- Ability Cooldowns
+    if (k.startsWith("Skill Cooldown")) {
+      let type = k.replace(/Skill Cooldown \((.+?)\)/, "$1")
+      cooldowns[type] += v
+      $.each(abilities[active][type], (name, cd) => {
+        $(".cooldowns div[data-n=" + name + "] .cooldown").text(+(cd * cooldowns[type]).toFixed(1))
+      })
     }
   })
   
@@ -305,7 +336,7 @@ function search() {
 
 //---------------------------------------- Sort Stats --- Wow this is ugly
 function sortstats() {
-  let table = $("table", activestats).eq(0)
+  let table = $("table", activestats).first()
   table.children().sort((a, b) => +($(".stat-v", b).attr("class").split(/\s+/)[1] || "-1").replace("stat-", "") - +($(".stat-v", a).attr("class").split(/\s+/)[1] || "-1").replace("stat-", "") || $(a).attr("data-s").localeCompare($(b).attr("data-s"))).appendTo(table)
 }
 
@@ -463,7 +494,7 @@ function bindElements() {
       document.cookie = "sortstats=1;expires=Tue, 19 Jan 2038 03:14:07 UTC"
     }
     else {
-      let table = $("table", activestats).eq(0)
+      let table = $("table", activestats).first()
       table.children().sort((a, b) => $(a).attr("data-s").localeCompare($(b).attr("data-s"))).appendTo(table)
       document.cookie = "sortstats=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
     }
@@ -472,6 +503,88 @@ function bindElements() {
 
 //---------------------------------------- Load Data
 function loadData() {
+  abilities = {
+    trickster: {
+      Damage: {
+        "Temporal Slice": 20,
+        "Twisted Rounds": 20,
+        "Roundslice": 14,
+      },
+      Disruption: {
+        "Slow Trap": 30,
+        "Venator's Knife": 10,
+        "Time Rift": 10
+      },
+      Movement: {
+        "Hunt the Prey": 10,
+        "Borrowed Time": 13
+      }
+    },
+    pyromancer: {
+      Explosive: {
+        "Thermal Bomb": 12,
+        "Overheat": 19,
+        "Eruption": 37
+      },
+      Ignite: {
+        "Heatwave": 11,
+        "Volcanic Rounds": 23,
+        "F.A.S.E.R Beam": 10
+      },
+      Immobilize: {
+        "Feed the Flames": 14,
+        "Ash Blast": 23
+      }
+    },
+    devastator: {
+      Kinetic: {
+        "Gravity Leap": 14,
+        "Boulderdash": 9,
+        "Endless Mass": 32
+      },
+      Protection: {
+        "Golem": 35
+      },
+      Seismic: {
+        "Earthquake": 13,
+        "Reflect Bullets": 20,
+        "Impale": 36,
+        "Tremor": 15
+      }
+    },
+    technomancer: {
+      Decay: {
+        "Blighted Rounds": 54,
+        "Blighted Turret": 7
+      },
+      Gadget: {
+        "Cryo Turret": 23,
+        "Fixing Wave": 26,
+        "Cold Snap": 1
+      },
+      Ordinance: {
+        "Scrapnel": 1,
+        "Pain Launcher": 26,
+        "Tool Of Destruction": 1
+      }
+    }
+  }
+  
+  cooldowns = {
+    Damage: 1,
+    Disruption: 1,
+    Movement: 1,
+    Explosive: 1,
+    Ignite: 1,
+    Immobilize: 1,
+    Kinetic: 1,
+    Protection: 1,
+    Seismic: 1,
+    Decay: 1,
+    Gadget: 1,
+    Ordinance: 1
+  }
+  
   //---------------------------------------- All Skills
   skills = {
     trickster: [
