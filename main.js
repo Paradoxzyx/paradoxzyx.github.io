@@ -146,7 +146,9 @@ $(() => {
   $("#bread").on("click", function() {
     if (!$("#debug").length) {
       $("#reset").after($("<div>").attr("id", "debug").css({ position: "fixed", left: "250px", top: "200px" }))
-      $(".node").mousemove(() => $("#debug").text($(this).index()))
+      $(".node").mousemove(function() {
+        $("#debug").text($(this).index())
+      })
     }
     $("#points").text(points[active] = 100)
   })
