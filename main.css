@@ -97,7 +97,8 @@ a {
     cursor: pointer;
 }
 
-.options li:hover label {
+.options input:hover + label,
+.options label:hover {
     box-shadow: 0 3px 3px -2px #808080;
 }
 
