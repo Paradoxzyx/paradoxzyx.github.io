@@ -95,6 +95,7 @@ a {
 .options input[type=checkbox],
 .options label {
     cursor: pointer;
+    user-select: none;
 }
 
 .options label:hover span {
