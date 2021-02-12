@@ -343,6 +343,7 @@ a {
 #stats .stat-m,
 #stats .stat-n {
     min-width: 2.1em;
+    text-align: right;
 }
 
 #stats .stat,
