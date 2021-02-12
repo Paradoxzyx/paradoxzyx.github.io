@@ -92,6 +92,15 @@ a {
     margin: 8px;
 }
 
+.options input[type=checkbox],
+.options label {
+    cursor: pointer;
+}
+
+.options li:hover label {
+    box-shadow: 0 3px 3px -2px #808080;
+}
+
 /* ----- Skilltree specific */
 #skilltree .options {
     position: absolute;
