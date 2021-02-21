@@ -345,7 +345,7 @@ function sortstats() {
   let table = $("table", activestats).first()
   table.children().sort((a, b) => +($(".stat-v", b).attr("class").split(/\s+/)[1] || "-1").replace("stat-", "") - +($(".stat-v", a).attr("class").split(/\s+/)[1] || "-1").replace("stat-", "") || $(a).attr("data-s").localeCompare($(b).attr("data-s"))).appendTo(table)
   table = $("table", activestats).last()
-  table.children().sort((a, b) => $(a).hasClass("inactive") - $(b).hasClass("inactive")).appendTo(table)
+  table.children().sort((a, b) => $(a).hasClass("inactive") - $(b).hasClass("inactive") || $(a).attr("data-s").localeCompare($(b).attr("data-s"))).appendTo(table)
 }
 
 //---------------------------------------- Color Keywords
