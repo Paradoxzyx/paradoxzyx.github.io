@@ -344,6 +344,8 @@ function search() {
 function sortstats() {
   let table = $("table", activestats).first()
   table.children().sort((a, b) => +($(".stat-v", b).attr("class").split(/\s+/)[1] || "-1").replace("stat-", "") - +($(".stat-v", a).attr("class").split(/\s+/)[1] || "-1").replace("stat-", "") || $(a).attr("data-s").localeCompare($(b).attr("data-s"))).appendTo(table)
+  table = $("table", activestats).last()
+  table.children().sort((a, b) => $(a).hasClass("inactive") - $(b).hasClass("inactive")).appendTo(table)
 }
 
 //---------------------------------------- Color Keywords
@@ -510,6 +512,8 @@ function bindElements() {
     }
     else {
       let table = $("table", activestats).first()
+      table.children().sort((a, b) => $(a).attr("data-s").localeCompare($(b).attr("data-s"))).appendTo(table)
+      table = $("table", activestats).last()
       table.children().sort((a, b) => $(a).attr("data-s").localeCompare($(b).attr("data-s"))).appendTo(table)
       document.cookie = "sortstats=0;expires=Tue, 19 Jan 2038 03:14:07 UTC"
     }
