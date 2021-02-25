@@ -116,7 +116,7 @@ $(() => {
   }
 
   let search = new URLSearchParams(location.search)
-  active = url.hasOwnProperty(search.get("c")) ? search.get("c") : "trickster"
+  active = url.hasOwnProperty(search.get("c")) ? search.get("c") : "pyromancer"
   $("#nav .button[data-class=" + active + "]").addClass("active")
   activetree = $("." + active + ".skilltree").show()
   activestats = $("." + active + ".statstable").show()
