@@ -139,27 +139,17 @@ a {
 
 #skilltree #points {
     position: absolute;
-    left: 27px;
-    top: 693px;
-    color: #D3B848;
+    left: 110px;
+    top: 700px;
+    color: #FFC74A;
     font: 60px "Chakra Petch", sans-serif;
     letter-spacing: 2px;
 }
 
-#skilltree #points:after {
-    content: "";
-    position: absolute;
-    width: 41px;
-    height: 44px;
-    top: 17px;
-    left: 120%;
-    background: url(class-points.png) no-repeat;
-}
-
 #skilltree #reset {
     position: absolute;
-    left: 30px;
-    top: 810px;
+    left: 80px;
+    top: 818px;
     width: 90px;
 }
 
