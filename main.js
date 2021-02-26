@@ -63,7 +63,7 @@ $(() => {
     })
     
     //--- Create sorted stat list
-    $.each(s.sort(), (i, v) => {
+    $.each(s.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase())), (i, v) => {
       $("table", statstable).first()
         .append($("<tr>").addClass("stat inactive").attr("data-s", v)
           .append($("<td>").addClass("stat-k").text(v + ":"))
@@ -72,7 +72,7 @@ $(() => {
           .append($("<td>").addClass("stat-n").html("(<span class=\"stat-c\">0</span>/" + stats[c][v][3] + ")")))
     })
     //--- Create sorted stat list (Unique stats)
-    $.each(u.sort(), (i, v) => {
+    $.each(u.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase())), (i, v) => {
       $("table", statstable).last()
         .append($("<tr>").addClass("stat inactive").attr("data-s", v)
           .append($("<td>").html(color(v, keywords))))
