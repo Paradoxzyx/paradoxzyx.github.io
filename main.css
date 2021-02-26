@@ -195,6 +195,7 @@ a {
 #skilltree .node.n2 {
     width: 136px;
     height: 136px;
+    background: none;
     box-shadow: none;
 }
 
