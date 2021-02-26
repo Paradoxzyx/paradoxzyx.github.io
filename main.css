@@ -208,6 +208,8 @@ a {
 }
 
 #skilltree .node.n2 {
+    width: 136px;
+    height: 136px;
     box-shadow: none;
 }
 
@@ -227,11 +229,11 @@ a {
 }
 
 #skilltree .node.n0 .name {
-    bottom: 40px;
+    bottom: 46px;
 }
 
 #skilltree .node.n1 .name {
-    bottom: 60px;
+    bottom: 66px;
 }
 
 /* ----- Tooltip */
@@ -279,7 +281,7 @@ a {
 }
 
 #skilltree .node.n2 .tooltip {
-    top: 148px;
+    top: 156px;
 }
 
 /* ---------------------------------------- Stats */
