@@ -286,12 +286,7 @@ function remove(id) {
   
   //--- Update URL
   url[active].splice($.inArray(id, url[active]), 1)
-  if (url[active].length) {
-    history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
-  }
-  else {
-    history.replaceState(null, "", "?c=" + active)
-  }
+  history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
 }
 
 //---------------------------------------- Check tree
@@ -424,12 +419,7 @@ function bindElements() {
     activestats = $("." + active + ".statstable").show()
     
     $("#points").text(points[active])
-    if (url[active].length) {
-      history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
-    }
-    else {
-      add(0)
-    }
+    history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
   })
   
   //---------------------------------------- Search
@@ -447,8 +437,8 @@ function bindElements() {
     let rpm = +$("#dps-in-rpm").val() || 1
     let dmg = +$("#dps-in-dmg").val() || 0
     let reload = +$("#dps-in-reload").val() || 0
-    let crit = ($("#dps-in-crit").val() || 100) / 100 - 1
-    let acc = ($("#dps-in-acc").val() || 0) / 100
+    let crit = (+$("#dps-in-crit").val() || 100) / 100 - 1
+    let acc = (+$("#dps-in-acc").val() || 0) / 100
     let rof = rpm / 60
     let dmgcrit = dmg * (1 + crit * acc)
     $("#dps-dmg").text(+dmg.toFixed(1))
