@@ -419,7 +419,12 @@ function bindElements() {
     activestats = $("." + active + ".statstable").show()
     
     $("#points").text(points[active])
-    history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
+    if (url[active].length) {
+      history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
+    }
+    else {
+      add(0)
+    }
   })
   
   //---------------------------------------- Search
