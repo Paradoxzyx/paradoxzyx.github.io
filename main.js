@@ -6,7 +6,7 @@ $(() => {
   let keywords = {
     "hl-a": /(anomaly power)/gi,
     "hl-d": /((weapon|assault|close range|long range) damage|firepower)/gi,
-    "hl-e": /(weakness|mark(ed)?|burn(ing)?|bleed|toxic|vulnerab(le|ility)|freeze|frozen)/gi,
+    "hl-e": /(weakness|mark(ed)?|burn(ing)?|ash(ed)|bleed|toxic|vulnerab(le|ility)|freeze|frozen)/gi,
     "hl-h": /((maximum )?health( regen)?)/gi,
     "hl-l": /((weapon|skill) leech|heal(?!th)(s|ed|ing)?)/gi,
     "hl-n": /((concentration|magma golem|anomaly in veins|br\/8 impact amplifier) node)/gi,
@@ -600,7 +600,7 @@ function loadData() {
   //---------------------------------------- All Skills
   skills = {
     trickster: [
-      /* 0  */ [ 1, [], [ 1, 30, 55 ], "", { "Health": 0.05, "Damage Mitigation while Shield is active": 0.05, "Every Close Range kill Heals you for 20% of your Maximum Health and grants you 12% Shield": null } ],
+      /* 0  */ [ 1, [], [ 1, 30, 55 ], "", { "Health": 0.05, "Damage Mitigation while Shield is active": 0.05, "[HM] Every Close Range kill Heals you for 20% of your Maximum Health and grants you 12% Shield": null } ],
       
       /* 1  */ [ 0, [ 0, 2, 3 ], [ 2, 3 ], "Arms Trick", { "Weapon Damage (Close Range)": 0.15 } ],
       /* 2  */ [ 0, [ 1, 4 ], [ 1, 4 ], "Bulletstorm", { "Reload Time": -0.2 } ],
@@ -629,7 +629,7 @@ function loadData() {
       
       /* 25 */ [ 0, [ 4, 26 ], [ 4, 26 ], "Arms Trick", { "Weapon Damage (Close Range)": 0.15 } ],
       /* 26 */ [ 0, [ 25, 33 ], [ 25, 33, 27 ], "Leap of Quietus", { "Activating a Movement Skill increases Armor Piercing by 15% for 10s": null } ],
-      /* 27 */ [ 0, [ 26 ], [], "Cycle of Life and Death", { "Health for each enemy that died in Close Range": 0.1 } ],
+      /* 27 */ [ 0, [ 26 ], [], "Cycle of Life and Death", { "[HM] Health for each enemy that died in Close Range": 0.1 } ],
       /* 28 */ [ 0, [ 8, 36 ], [ 8, 29, 36 ], "Outrider Executioner", { "When your Movement Skill ends, increase Weapon Damage by 50% for 8s": null } ],
       /* 29 */ [ 0, [ 28 ], [], "Ace of Trumps", { "Armor Piercing": 0.15 } ],
       
@@ -655,7 +655,7 @@ function loadData() {
       /* 49 */ [ 0, [ 47, 48 ], [], "Distruption Shield", { "Activating a Deception Skill grants you 20% Shield": null } ],
       
       /* 50 */ [ 0, [ 33, 52 ], [ 33, 51, 52 ], "Against the Odds", { "When surrounded by Enemies, reloading your weapon deals damage and interrupts enemies' abilities. Damage scales with Anomaly Power": null } ],
-      /* 51 */ [ 0, [ 50 ], [], "Cycle of Life and Death", { "Health for each enemy that died in Close Range": 0.1 } ],
+      /* 51 */ [ 0, [ 50 ], [], "Cycle of Life and Death", { "[HM] Health for each enemy that died in Close Range": 0.1 } ],
       /* 52 */ [ 0, [ 50, 58 ], [ 50, 58 ], "Anomaly Scything", { "Activating Melee Skill increases Anomaly Power by 30% for 5s": null } ],
       /* 53 */ [ 0, [ 36, 62 ], [ 36, 54, 62 ], "Wither Scything", { "Melee Skill applies Weakness": null } ],
       /* 54 */ [ 0, [ 53 ], [], "Shield's Increment", { "Shield Gain": 0.1 } ],
@@ -682,12 +682,12 @@ function loadData() {
       /* 74 */ [ 0, [ 73 ], [], "Leap of Clincher", { "Activating a Movement Skill increases Resistance Piercing by 15% for 10s": null } ],
       /* 75 */ [ 0, [ 73 ], [ 76, 77 ], "Scion of the Void", { "When your Damage Skill ends, increase Armor Piercing by 30% and Resistance Piercing by 25% for 10s": null } ],
       /* 76 */ [ 0, [ 75 ], [ 78 ], "Shadow's Embrace", { "Increase Firepower by 15% of your Anomaly Power": null } ],
-      /* 77 */ [ 0, [ 75 ], [ 78 ], "Shielded Readiness", { "You will not be healed for each enemy that dies in Close Range, instead your Shield Gain will be increased by 20%": null } ],
+      /* 77 */ [ 0, [ 75 ], [ 78 ], "Shielded Readiness", { "[HM] You will not be healed for each enemy that dies in Close Range, instead your Shield Gain will be increased by 20%": null } ],
       /* 78 */ [ 0, [ 76, 77 ], [], "Altered Executioner", { "For each Enemy in Close Range, your Anomaly Power is increased by 10%": null } ]
     ],
     
     pyromancer: [
-       /* 0  */ [ 1, [], [ 1, 30, 56 ], "", { "Anomaly Power": 0.1, "Skills mark Enemies for 15s. Killing a Marked Enemy Heals you for 24% of your Maximum Health": null } ],
+       /* 0  */ [ 1, [], [ 1, 30, 56 ], "", { "Anomaly Power": 0.1, "[HM] Skills mark Enemies for 15s. Killing a Marked Enemy Heals you for 24% of your Maximum Health": null } ],
       
        /* 1  */ [ 0, [ 0, 2, 3 ], [ 2, 3 ], "Inferno Weapon", { "Weapon Damage": 0.08 } ],
        /* 2  */ [ 0, [ 1, 4 ], [ 1, 4 ], "Moths to the Flame", { "Weapon Leech": 0.05 } ],
@@ -764,10 +764,10 @@ function loadData() {
        /* 69 */ [ 0, [ 67 ], [ 71 ], "Unquenchable", { "Skill Leech": 0.06 } ],
        /* 70 */ [ 0, [ 67 ], [ 71 ], "Master of the Resistance", { "Resistance": 0.2 } ],
        /* 71 */ [ 0, [ 69, 70 ], [ 72, 74 ], "Archmage", { "Anomaly Power": 0.06 } ],
-       /* 72 */ [ 0, [ 71 ], [ 73 ], "Phoenix Nestling", { "Upon losing all Health you will receive a second chance to return to the battlefield with 50% Maximum Health (180s cooldown)": null } ],
-       /* 73 */ [ 0, [ 72 ], [], "Phoenix", { "Phoenix will revive you with 100% Maximum Health (135s cooldown)": null } ],
+       /* 72 */ [ 0, [ 71 ], [ 73 ], "Phoenix Nestling", { "[Phoenix] Upon losing all Health you will receive a second chance to return to the battlefield with 50% Maximum Health (180s cooldown)": null } ],
+       /* 73 */ [ 0, [ 72 ], [], "Phoenix", { "[Phoenix] Revive with 100% Maximum Health (135s cooldown)": null } ],
        /* 74 */ [ 0, [ 71 ], [ 75, 76 ], "Conflagration", { "Resistance Piercing": 0.15 } ],
-       /* 75 */ [ 0, [ 74 ], [], "Chasing the Chill Away", { "Killing a Marked Enemy Heals you for an additional 12% of your Maximum Health": null } ],
+       /* 75 */ [ 0, [ 74 ], [], "Chasing the Chill Away", { "[HM] Killing a Marked Enemy Heals you for an additional 12% of your Maximum Health": null } ],
        /* 76 */ [ 0, [ 74 ], [ 77, 78 ], "Flames that Burn Twice...", { "Damage (Against Elites)": 0.1 } ],
        /* 77 */ [ 0, [ 76 ], [ 79 ], "Mark's Cumulation", { "Skill Damage (Against Marked)": 0.1 } ],
        /* 78 */ [ 0, [ 76 ], [ 79 ], "World Ablaze", { "Skill Cooldown (Explosive)": 0.15 } ],
@@ -775,7 +775,7 @@ function loadData() {
     ],
     
     devastator: [
-       /* 0  */ [ 1, [], [ 1, 30, 55 ], "", { "Every Close Range kill Heals you for 24% of your Maximum Health": null, "Health": 0.15, "Armor": 0.3 } ],
+       /* 0  */ [ 1, [], [ 1, 30, 55 ], "", { "[HM] Every Close Range kill Heals you for 24% of your Maximum Health": null, "Health": 0.15, "Armor": 0.3 } ],
       
        /* 1  */ [ 0, [ 0, 2, 3 ], [ 2, 3 ], "Havoc", { "Weapon Damage": 0.08 } ],
        /* 2  */ [ 0, [ 1, 4 ], [ 1, 4 ], "Shotgun Adept", { "Weapon Damage (Shotgun)": 0.12 } ],
@@ -824,7 +824,7 @@ function loadData() {
        /* 43 */ [ 0, [ 41, 42 ], [ 44, 45 ], "Resist the Mob", { "Increase Resistance by 15% for each Enemy in Close Range": null } ],
        /* 44 */ [ 0, [ 43 ], [], "Unbroken Vow", { "You have 100% chance to ignore damage that would kill you and instantly Heal you for 50% of your Maximum Health (180s cooldown)": null } ],
        /* 45 */ [ 0, [ 43 ], [ 46 ], "Tank", { "Armor": 0.2 } ],
-       /* 46 */ [ 0, [ 45 ], [ 47, 48 ], "Overlord of the Battleground", { "Gain an additional 10% Health when an Enemy dies in Close Range": null } ],
+       /* 46 */ [ 0, [ 45 ], [ 47, 48 ], "Overlord of the Battleground", { "[HM] Gain an additional 10% Health when an Enemy dies in Close Range": null } ],
        /* 47 */ [ 0, [ 46 ], [ 49 ], "Resistance Paragon", { "Resistance": 0.2 } ],
        /* 48 */ [ 0, [ 46 ], [ 49 ], "Tank", { "Armor": 0.2  } ],
        /* 49 */ [ 0, [ 47, 48 ], [], "Mighty Tank", { "Increase Firepower by 10% of your Armor": null, "Increase Anomaly Power by 10% of your Armor": null } ],
@@ -891,7 +891,7 @@ function loadData() {
        /* 24 */ [ 0, [ 4, 25 ], [ 4, 25 ], "BL-STM Havoc Nexus", { "Crit Damage": 0.15 } ],
        /* 25 */ [ 0, [ 24, 32 ], [ 24, 32, 26 ], "Exposing Toxin", { "Toxic applies Vulnerable": null } ],
        /* 26 */ [ 0, [ 25 ], [], "Marked for Execution", { "Vulnerability Effectiveness": 0.4 } ],
-       /* 27 */ [ 0, [ 8, 35 ], [ 8, 28, 35 ], "Blurscreen", { "Health Regen threshold in increased by 20% of Maximum Health": null } ],
+       /* 27 */ [ 0, [ 8, 35 ], [ 8, 28, 35 ], "Blurscreen", { "Health Regen threshold is increased by 20% of Maximum Health": null } ],
        /* 28 */ [ 0, [ 27 ], [], "Engineer", { "Turrets' Health Decay": -0.3 } ],
       
        /* 29 */ [ 0, [ 0, 30, 31 ], [ 30, 31 ], "Anomalus Body", { "Health": 0.1 } ],
