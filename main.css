@@ -203,7 +203,7 @@ a {
 #skilltree .node .name {
     display: none;
     position: absolute;
-    width: 80px;
+    width: 85px;
     left: 50%;
     transform: translateX(-50%);
     font: 80% "Chakra Petch", sans-serif;
