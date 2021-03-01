@@ -853,7 +853,7 @@ function loadData() {
        /* 70 */ [ 0, [ 68, 69 ], [ 71, 73 ], "Anomaly Resevoir", { "Anomaly Power": 0.06 } ],
        /* 71 */ [ 0, [ 70 ], [ 72 ], "Bloodbath", { "Bleed Damage": 0.3 } ],
        /* 72 */ [ 0, [ 71 ], [], "Blood Donation", { "You are Healed for 35% of the Damage caused by Bleed": null } ],
-       /* 73 */ [ 0, [ 70 ], [ 74, 75 ], "Rejuvenation", { "Skill Leech": 0.6 } ],
+       /* 73 */ [ 0, [ 70 ], [ 74, 75 ], "Rejuvenation", { "Skill Leech": 0.06 } ],
        /* 74 */ [ 0, [ 73 ], [], "Protected by the Anomaly", { "Increase Armor by 40% of your Anomaly Power": null } ],
        /* 75 */ [ 0, [ 73 ], [ 76, 77 ], "Skilled Sentry", { "When Any Skill ends, increase Armor and Resistance by 20% for 10s": null } ],
        /* 76 */ [ 0, [ 75 ], [ 78 ], "Pure Anomaly", { "Resistance Piercing": 0.15 } ],
