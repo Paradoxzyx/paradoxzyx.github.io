@@ -6,7 +6,7 @@ $(() => {
   let keywords = {
     "hl-a": /(anomaly power)/gi,
     "hl-d": /((weapon|assault|close range|long range) damage|firepower)/gi,
-    "hl-e": /(weakness|mark(ed)?|burn(ing)?|ash(ed)?|bleed|toxic|vulnerab(le|ility)|freeze|frozen)/gi,
+    "hl-e": /(weakness|vulnerab(le|ility)|marked|burn(ing)?|ash(ed)?|bleed|toxic|freeze|frozen)/gi,
     "hl-h": /((maximum )?health( regen)?)/gi,
     "hl-l": /(^\[hm\]|(weapon|skill) leech|heal(?!th)(s|ed|ing)?)/gi,
     "hl-n": /((concentration|magma golem|anomaly in veins|br\/8 impact amplifier) node)/gi,
