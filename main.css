@@ -239,13 +239,6 @@ a {
     font-size: 95%;
 }
 
-@supports (backdrop-filter: blur(4px)) {
-  #skilltree .node .tooltip {
-    background: #000000C0;
-    backdrop-filter: blur(4px);
-  }
-}
-
 #skilltree .node .tooltip li {
     margin: 6px 0;
 }
