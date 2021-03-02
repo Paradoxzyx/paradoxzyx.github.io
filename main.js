@@ -140,6 +140,7 @@ $(() => {
   let p = search.get("p") || ""
   $.each(p.split(",").map(Number), (i, n) => {
     $(".power[data-i=" + n + "]", activestats).addClass("active")
+    power[active].push(n)
   })
   
   //---------------------------------------- Bind Elements
