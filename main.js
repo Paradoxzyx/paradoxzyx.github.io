@@ -461,7 +461,7 @@ function bindElements() {
       $(this).removeClass("active")
       power[active].splice($.inArray(id, power[active]), 1)
     }
-    else if ($(".power.active", activestats).length < 3 && !power[active].includes(id)) {
+    else if ($(".power.active", activestats).length < 3) {
       $(this).addClass("active")
       power[active].push(id)
       power[active].sort((a, b) => a - b)
