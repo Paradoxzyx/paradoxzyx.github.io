@@ -456,13 +456,14 @@ function bindElements() {
   
   //---------------------------------------- Click Powers
   $(".power").on("click", function() {
+    let id = +$(this).attr("data-i")
     if ($(this).hasClass("active")) {
       $(this).removeClass("active")
-      power[active].splice($.inArray(+$(this).attr("data-i"), power[active]), 1)
+      power[active].splice($.inArray(id, power[active]), 1)
     }
-    else if ($(".power.active", activestats).length < 3) {
+    else if ($(".power.active", activestats).length < 3 && !power[active].includes(id)) {
       $(this).addClass("active")
-      power[active].push($(this).attr("data-i"))
+      power[active].push(id)
       power[active].sort((a, b) => a - b)
     }
     history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(",") + (power[active].length ? "&p=" + power[active].join(",") : ""))
