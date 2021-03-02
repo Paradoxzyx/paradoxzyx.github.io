@@ -137,7 +137,7 @@ $(() => {
       add(n)
     }
   })
-  let p = search.get("p") || []
+  let p = search.get("p") || ""
   $.each(p.split(",").map(Number), (i, n) => {
     $(".power[data-i=" + n + "]", activestats).addClass("active")
   })
