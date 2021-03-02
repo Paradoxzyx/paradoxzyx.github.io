@@ -89,8 +89,10 @@ $(() => {
   $.each(abilities, (c, types) => {
     let statstable = $("." + c + ".statstable .cooldowns")
     $.each(types, (type, list) => {
+      let activetype = $("<div>")
+      statstable.append(activetype.append($("<div>").addClass("powertype").text(type))
       $.each(list, (name, cd) => {
-        statstable.append($("<div>").attr("data-n", name)
+        activetype.append($("<div>").addClass("power").attr("data-n", name)
           .append($("<div>").text(name))
           //.append($("<img>").attr({ src: "skills/" + name.replace(/ /g, "-").toLowerCase() + ".webp", width: "64px", height: "64px" }))
           .append($("<img>").attr({ src: "skills/placeholder.webp", width: "64px", height: "64px" }))
