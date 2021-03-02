@@ -130,17 +130,19 @@ $(() => {
   $("#nav .button[data-class=" + active + "]").addClass("active")
   activetree = $("." + active + ".skilltree").show()
   activestats = $("." + active + ".statstable").show()
-  let s = search.get("s") || "0"
+  
   let p = search.get("p") || ""
+  $.each(p.split(",").map(Number), (i, n) => {
+    $(".power[data-i=" + n + "]", activestats).addClass("active")
+    power[active].push(n)
+  })
+  
+  let s = search.get("s") || "0"
   let l = skills[active].length
   $.each(s.split(",").map(Number), (i, n) => {
     if (n < l) {
       add(n)
     }
-  })
-  $.each(p.split(",").map(Number), (i, n) => {
-    $(".power[data-i=" + n + "]", activestats).addClass("active")
-    power[active].push(n)
   })
   
   //---------------------------------------- Bind Elements
