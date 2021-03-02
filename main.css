@@ -292,8 +292,19 @@ a {
 
 #stats .statstable .cooldowns > div {
     display: inline-block;
+}
+
+#stats .statstable .cooldowns .power {
+    display: inline-block;
     min-width: 120px;
     margin: 10px;
+}
+
+#stats .statstable .cooldowns .powertype {
+    color: #808080;
+    font-size: 16px;
+    margin: 0 20px;
+    box-shadow: 0px 2px 1px -2px #808080;
 }
 
 #stats .statstable .cooldowns img {
