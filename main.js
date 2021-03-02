@@ -88,11 +88,12 @@ $(() => {
   //---------------------------------------- Load Abilities
   $.each(abilities, (c, types) => {
     let statstable = $("." + c + ".statstable .cooldowns")
+    let i = 1
     $.each(types, (type, list) => {
       let activetype = $("<div>")
       statstable.append(activetype.append($("<div>").addClass("powertype").text(type)))
       $.each(list, (name, cd) => {
-        activetype.append($("<div>").addClass("power").attr("data-n", name)
+        activetype.append($("<div>").addClass("power").attr("data-i", i++).attr("data-n", name)
           .append($("<div>").text(name))
           //.append($("<img>").attr({ src: "skills/" + name.replace(/ /g, "-").toLowerCase() + ".webp", width: "64px", height: "64px" }))
           .append($("<img>").attr({ src: "skills/placeholder.webp", width: "64px", height: "64px" }))
@@ -117,6 +118,12 @@ $(() => {
     devastator: [],
     technomancer: []
   }
+  power = {
+    trickster: [],
+    pyromancer: [],
+    devastator: [],
+    technomancer: []
+  }
 
   let search = new URLSearchParams(location.search)
   active = url.hasOwnProperty(search.get("c")) ? search.get("c") : "pyromancer"
@@ -129,6 +136,10 @@ $(() => {
     if (n < l) {
       add(n)
     }
+  })
+  let p = search.get("p")
+  $.each(p.split(",").map(Number), (i, n) => {
+    $(".power[data-i=" + n + "]", activestats).addClass("active")
   })
   
   //---------------------------------------- Bind Elements
@@ -208,7 +219,7 @@ function add(id) {
   //--- Update URL
   url[active].push(id)
   url[active].sort((a, b) => a - b)
-  history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
+  history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(",") + (power[active].length ? "&p=" + power[active].join(",") : ""))
 }
 
 //---------------------------------------- Remove node
@@ -288,7 +299,7 @@ function remove(id) {
   
   //--- Update URL
   url[active].splice($.inArray(id, url[active]), 1)
-  history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
+  history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(",") + (power[active].length ? "&p=" + power[active].join(",") : ""))
 }
 
 //---------------------------------------- Check tree
@@ -422,7 +433,7 @@ function bindElements() {
     
     $("#points").text(points[active])
     if (url[active].length) {
-      history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(","))
+      history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(",") + (power[active].length ? "&p=" + power[active].join(",") : ""))
     }
     else {
       add(0)
@@ -436,6 +447,20 @@ function bindElements() {
     if (e.keyCode == 13) {
       search()
     }
+  })
+  
+  //---------------------------------------- Click Powers
+  $(".power").on("click", function() {
+    if ($(this).hasClass("active")) {
+      $(this).removeClass("active")
+      power[active].splice($.inArray($(this).attr("data-i"), power[active]), 1)
+    }
+    else if ($(".power.active", activestats).length < 3) {
+      $(this).addClass("active")
+      power[active].push($(this).attr("data-i"))
+      power[active].sort((a, b) => a - b)
+    }
+    history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(",") + (power[active].length ? "&p=" + power[active].join(",") : ""))
   })
   
   //---------------------------------------- DPS Calculator
