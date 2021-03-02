@@ -551,34 +551,34 @@ function loadData() {
   abilities = {
     trickster: {
       Damage: {
-        "Temporal Slice": 20,
+        "Temporal Blade": 20,
         "Twisted Rounds": 20,
-        "Roundslice": 14,
+        "Roundslice": 0,
       },
       Deception: {
-        "Slow Trap": 30,
-        "Venator's Knife": 10,
-        "Time Rift": 10
+        "Slow Trap": 31,
+        "Venator's Knife": 0,
+        "Time Rift": 0
       },
       Movement: {
-        "Hunt the Prey": 10,
-        "Borrowed Time": 13
+        "Hunt The Prey": 11,
+        "Borrowed Time": 0
       }
     },
     pyromancer: {
       Explosive: {
-        "Thermal Bomb": 12,
-        "Overheat": 19,
-        "Eruption": 37
+        "Thermal Bomb": 14,
+        "Overheat": 22,
+        "Eruption": 0
       },
       Ignite: {
-        "Heatwave": 11,
-        "Volcanic Rounds": 23,
-        "F.A.S.E.R Beam": 10
+        "Heatwave": 13,
+        "Volcanic Rounds": 0,
+        "F.A.S.E.R Beam": 0
       },
       Immobilize: {
-        "Feed the Flames": 14,
-        "Ash Blast": 23
+        "Feed the Flames": 17,
+        "Ash Blast": 0
       }
     },
     devastator: {
@@ -599,18 +599,18 @@ function loadData() {
     },
     technomancer: {
       Decay: {
-        "Blighted Rounds": 54,
-        "Blighted Turret": 7
+        "Blighted Rounds": 58,
+        "Blighted Turret": 0
       },
       Gadget: {
-        "Cryo Turret": 23,
-        "Fixing Wave": 26,
-        "Cold Snap": 1
+        "Cryo Turret": 24,
+        "Fixing Wave": 0,
+        "Cold Snap": 0
       },
       Ordinance: {
-        "Scrapnel": 1,
-        "Pain Launcher": 26,
-        "Tool Of Destruction": 1
+        "Scrapnel": 22,
+        "Pain Launcher": 40,
+        "Tool Of Destruction": 0
       }
     }
   }
