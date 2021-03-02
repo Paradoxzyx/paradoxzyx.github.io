@@ -458,7 +458,7 @@ function bindElements() {
   $(".power").on("click", function() {
     if ($(this).hasClass("active")) {
       $(this).removeClass("active")
-      power[active].splice($.inArray($(this).attr("data-i"), power[active]), 1)
+      power[active].splice($.inArray(+$(this).attr("data-i"), power[active]), 1)
     }
     else if ($(".power.active", activestats).length < 3) {
       $(this).addClass("active")
