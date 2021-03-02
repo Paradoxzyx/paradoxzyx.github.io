@@ -12,7 +12,7 @@ $(() => {
     "hl-n": /((concentration|magma golem|anomaly in veins|br\/8 impact amplifier) node)/gi,
     "hl-p": /((armor|(armor and )?resistance) piercing)/gi,
     "hl-r": /((armor|resistance)(?!( and resistance)? piercing)|damage mitigation)/gi,
-    "hl-s": /((damage|deception|movement|ignite|immobilize|explosive|protection|seismic|kinetic|decay|ordinance|gadget|any) skills?|stone push|(?<=skill cooldown \()(damage|deception|movement|ignite|immobilize|explosive|protection|seismic|kinetic|decay|ordinance|gadget|any))/gi,
+    "hl-s": /((damage|deception|movement|ignite|immobilize|explosive|protection|seismic|kinetic|decay|ordinance|gadget|melee|any) skills?|stone push|(?<=skill (cooldown|damage) \()(damage|deception|movement|ignite|immobilize|explosive|protection|seismic|kinetic|decay|ordinance|gadget|any))/gi,
     "hl-t": /(shields?( degredation| gain)?)/gi
   }
   
