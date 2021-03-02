@@ -374,8 +374,8 @@ function color(s, keywords) {
 
 //---------------------------------------- Bind Elements
 function bindElements() {
-  //---------------------------------------- Disable default right-click on image
-  $("img").bind("contextmenu", () => false)
+  //---------------------------------------- Disable default right-click on image, nodes, powers
+  $("img, .node, .power").bind("contextmenu", () => false)
   
   //---------------------------------------- Click node
   $(".node").on("mousedown", function() {
@@ -455,7 +455,7 @@ function bindElements() {
   })
   
   //---------------------------------------- Click Powers
-  $(".power").on("click", function() {
+  $(".power").on("mousedown", function() {
     let id = +$(this).attr("data-i")
     if ($(this).hasClass("active")) {
       $(this).removeClass("active")
