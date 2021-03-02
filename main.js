@@ -95,8 +95,8 @@ $(() => {
       $.each(list, (name, cd) => {
         activetype.append($("<div>").addClass("power").attr("data-i", i++).attr("data-n", name)
           .append($("<div>").text(name))
-          //.append($("<img>").attr({ src: "skills/" + name.replace(/ /g, "-").toLowerCase() + ".webp", width: "64px", height: "64px" }))
-          .append($("<img>").attr({ src: "skills/placeholder.webp", width: "64px", height: "64px" }))
+          .append($("<img>").attr({ src: "skills/" + name.replace(/ /g, "-").toLowerCase() + ".png", width: "64px", height: "64px", onerror: "this.onerror = null; this.src='skills/placeholder.webp'" }))
+          //.append($("<img>").attr({ src: "skills/placeholder.webp", width: "64px", height: "64px" }))
           .append($("<div>").addClass("cooldown").text(cd)))
       })
     })
