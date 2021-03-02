@@ -90,7 +90,7 @@ $(() => {
     let statstable = $("." + c + ".statstable .cooldowns")
     $.each(types, (type, list) => {
       let activetype = $("<div>")
-      statstable.append(activetype.append($("<div>").addClass("powertype").text(type))
+      statstable.append(activetype.append($("<div>").addClass("powertype").text(type)))
       $.each(list, (name, cd) => {
         activetype.append($("<div>").addClass("power").attr("data-n", name)
           .append($("<div>").text(name))
