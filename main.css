@@ -313,7 +313,8 @@ a {
 }
 
 #stats .statstable .cooldowns .active img {
-    box-shadow: 0 0 10px 4px #FFFFFF;
+    box-shadow: 0 0 10px 4px #FFFFFF, inset 0 0 10px 4px #FFFFFF;
+    border-top-right-radius: 15px;
 }
 
 #stats .statstable .cooldowns .cooldown {
