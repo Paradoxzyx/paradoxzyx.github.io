@@ -131,11 +131,13 @@ $(() => {
   activetree = $("." + active + ".skilltree").show()
   activestats = $("." + active + ".statstable").show()
   
-  let p = search.get("p") || ""
-  $.each(p.split(",").map(Number), (i, n) => {
-    $(".power[data-i=" + n + "]", activestats).addClass("active")
-    power[active].push(n)
-  })
+  let p = search.get("p")
+  if (p) {
+    $.each(p.split(",").map(Number), (i, n) => {
+      $(".power[data-i=" + n + "]", activestats).addClass("active")
+      power[active].push(n)
+    })
+  }
   
   let s = search.get("s") || "0"
   let l = skills[active].length
