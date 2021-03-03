@@ -553,7 +553,7 @@ function loadData() {
       Damage: {
         "Temporal Blade": 20,
         "Twisted Rounds": 20,
-        "Roundslice": 0,
+        "Cyclone Slice": 0,
       },
       Deception: {
         "Slow Trap": 31,
