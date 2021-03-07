@@ -334,12 +334,13 @@ a {
     max-width: 350px;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 4px;
     padding: 4px 8px;
     background: #000000E8;
     border: 1px solid #108ABD;
     border-radius: 6px;
     text-align: center;
-    font-size: 95%;
+    font: 90% sans-serif;
 }
 
 #stats .cooldowns .power:hover .tooltip {
