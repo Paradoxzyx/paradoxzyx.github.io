@@ -365,7 +365,6 @@ function decode(e) {
   for (let i = 0; i < str.length - 1; i += 2) {
     arr.push(+(str[i].toString() + str[i + 1].toString()))
   }
-  console.log(arr)
   arr.shift()
   
   return arr
