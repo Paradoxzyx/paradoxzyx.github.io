@@ -341,6 +341,7 @@ a {
     border-radius: 6px;
     text-align: center;
     font: 90% sans-serif;
+    z-index: 1;
 }
 
 #stats .cooldowns .power:hover .tooltip {
