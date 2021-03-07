@@ -140,7 +140,7 @@ $(() => {
           .append($("<div>").text(name))
           .append($("<img>").attr({ src: "skills/" + name.replace(/ /g, "-").toLowerCase() + ".png", width: "64px", height: "64px", onerror: "this.onerror = null; this.src='skills/placeholder.webp'" }))
           .append($("<div>").addClass("cooldown").text(cd))
-          .append($("<div>").addClass("tooltip").text(abilitydesc[c][name])))
+          .append($("<div>").addClass("tooltip").html(color(abilitydesc[c][name], keywords))))
       })
     })
   })
