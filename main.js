@@ -335,7 +335,8 @@ function encode() {
   for (let i = 0; i < hex.length; i += 2) {
     bin.push(String.fromCharCode(parseInt(hex.slice(i, i + 2), 16)))
   }
-  history.replaceState(null, "", "?c=" + active + "&s=" + btoa(bin.join("")).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "") + (power[active].length ? "&p=" + power[active].join(",") : ""))
+  bin = btoa(bin.join("")).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "")
+  history.replaceState(null, "", "?c=" + active + (url[active].length > 1 ? "&s=" + bin : "") + (power[active].length ? "&p=" + power[active].join(",") : ""))
   //--- oldurl
   $("#oldurl").text(url[active].join(","))
 }
