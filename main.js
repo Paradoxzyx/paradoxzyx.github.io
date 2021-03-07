@@ -336,7 +336,7 @@ function encode() {
     bin.push(String.fromCharCode(parseInt(hex.slice(i, i + 2), 16)))
   }
   bin = btoa(bin.join("")).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "")
-  history.replaceState(null, "", "?c=" + active + (url[active].length > 1 ? "&s=" + bin : "") + (power[active].length ? "&p=" + power[active].join(",") : ""))
+  history.replaceState(null, "", "?c=" + active + "&s=" + bin + (power[active].length ? "&p=" + power[active].join(",") : ""))
   //--- oldurl
   $("#oldurl").text(url[active].join(","))
 }
