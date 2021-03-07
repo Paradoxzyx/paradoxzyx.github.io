@@ -123,12 +123,23 @@ $(() => {
   }
   
   let s = search.get("s") || "0"
+  //---
+  if (s.includes(",") || s == "0") {
+    s = s.split(",").map(Number)
+  }
+  else {
+    s = decode(s)
+  }
+  //---
   let l = skills[active].length
-  $.each(s.split(",").map(Number), (i, n) => {
+  $.each(s, (i, n) => {
     if (n < l) {
       add(n)
     }
   })
+  encode()
+  //--- oldurl
+  $("#nav").prepend($("<div>").attr("id", "oldurl").css({ float: "left", margin: "10px 6px" }))
   
   //---------------------------------------- Bind Elements
   bindElements()
@@ -207,7 +218,6 @@ function add(id) {
   //--- Update URL
   url[active].push(id)
   url[active].sort((a, b) => a - b)
-  history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(",") + (power[active].length ? "&p=" + power[active].join(",") : ""))
 }
 
 //---------------------------------------- Remove node
@@ -287,7 +297,7 @@ function remove(id) {
   
   //--- Update URL
   url[active].splice($.inArray(id, url[active]), 1)
-  history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(",") + (power[active].length ? "&p=" + power[active].join(",") : ""))
+  encode()
 }
 
 //---------------------------------------- Check tree
@@ -315,6 +325,49 @@ function recurse(id) {
       recurse(n)
     }
   })
+}
+
+//---------------------------------------- URL Encode
+//--- [MODIFIED] https://coolaj86.com/articles/bigints-and-base64-in-javascript/
+function encode() {
+  let hex = BigInt("10" + url[active].map(x => x.toString().length == 1 ? "0" + x : x).join("")).toString(16)
+  let bin = []
+  for (let i = 0; i < hex.length; i += 2) {
+    bin.push(String.fromCharCode(parseInt(hex.slice(i, i + 2), 16)))
+  }
+  history.replaceState(null, "", "?c=" + active + "&s=" + btoa(bin.join("")).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "") + (power[active].length ? "&p=" + power[active].join(",") : ""))
+  //--- oldurl
+  $("#oldurl").text(url[active].join(","))
+}
+
+function decode(e) {
+  e = e.replace(/-/g, "+").replace(/_/g, "/")
+  let r = e % 4
+  if (r == 2) {
+    e += "=="
+  }
+  else if (r == 3) {
+    e += "="
+  }
+  
+  let bin = atob(e)
+  let hex = []
+  $.each(bin.split(""), (i, ch) => {
+    let h = ch.charCodeAt(0).toString(16)
+    if (h.length % 2) {
+      h = "0" + h
+    }
+    hex.push(h)
+  })
+  
+  let str = BigInt("0x" + hex.join("")).toString()
+  let arr = []
+  for (let i = 0; i < str.length - 1; i += 2) {
+    arr.push(+(str[i].toString() + str[i + 1].toString()))
+  }
+  arr.shift()
+  
+  return arr
 }
 
 //---------------------------------------- Search
@@ -365,6 +418,7 @@ function bindElements() {
     let id = +$(this).index()
     if (skills[active][id][0] == 1 && points[active] > 0) {
       add(id)
+      encode()
     }
     else if (skills[active][id][0] == 2 && id != 0 && check(id)) {
       remove(id)
@@ -404,6 +458,7 @@ function bindElements() {
     points[active] = 21
     skills[active][0][0] = 1
     add(0)
+    encode()
   })
   
   //---------------------------------------- Change Tree
@@ -420,12 +475,10 @@ function bindElements() {
     activestats = $("." + active + ".statstable").show()
     
     $("#points").text(points[active])
-    if (url[active].length) {
-      history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(",") + (power[active].length ? "&p=" + power[active].join(",") : ""))
-    }
-    else {
+    if (!url[active].length) {
       add(0)
     }
+    encode()
   })
   
   //---------------------------------------- Search
@@ -449,7 +502,7 @@ function bindElements() {
       power[active].push(id)
       power[active].sort((a, b) => a - b)
     }
-    history.replaceState(null, "", "?c=" + active + "&s=" + url[active].join(",") + (power[active].length ? "&p=" + power[active].join(",") : ""))
+    encode()
   })
   
   //---------------------------------------- DPS Calculator
