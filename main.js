@@ -139,7 +139,7 @@ $(() => {
   })
   encode()
   //--- oldurl
-  $("#nav").prepend($("<div>").attr("id", "oldurl").css({ float: "left", margin: "10px 6px" }))
+  $("#skilltree").after($("<div>").attr("id", "oldurl").css("margin", "10px 6px"))
   
   //---------------------------------------- Bind Elements
   bindElements()
