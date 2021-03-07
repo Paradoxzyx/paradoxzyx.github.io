@@ -138,8 +138,6 @@ $(() => {
     }
   })
   encode()
-  //--- oldurl
-  $("#skilltree").after($("<div>").attr("id", "oldurl").css("margin", "10px 6px"))
   
   //---------------------------------------- Bind Elements
   bindElements()
@@ -340,8 +338,6 @@ function encode() {
   }
   bin = btoa(bin.join("")).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "")
   history.replaceState(null, "", "?c=" + active + (url[active].length > 1 ? "&s=" + bin : "") + (power[active].length ? "&p=" + power[active].join(",") : ""))
-  //--- oldurl
-  $("#oldurl").text(url[active].join(","))
 }
 
 function decode(e) {
@@ -624,18 +620,18 @@ function loadData() {
     },
     devastator: {
       Kinetic: {
-        "Gravity Leap": 14,
-        "Boulderdash": 9,
-        "Endless Mass": 32
+        "Gravity Leap": 20,
+        "Boulderdash": 0,
+        "Endless Mass": 0
       },
       Protection: {
-        "Golem": 35
+        "Golem": 26
       },
       Seismic: {
-        "Earthquake": 13,
-        "Reflect Bullets": 20,
-        "Impale": 36,
-        "Tremor": 15
+        "Earthquake": 14,
+        "Reflect Bullets": 22,
+        "Impale": 0,
+        "Tremor": 0
       }
     },
     technomancer: {
