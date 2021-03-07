@@ -331,12 +331,15 @@ function recurse(id) {
 //--- [MODIFIED] https://coolaj86.com/articles/bigints-and-base64-in-javascript/
 function encode() {
   let hex = BigInt("10" + url[active].map(x => x.toString().length == 1 ? "0" + x : x).join("")).toString(16)
+  if (hex.length % 2) {
+    hex = "0" + hex
+  }
   let bin = []
   for (let i = 0; i < hex.length; i += 2) {
     bin.push(String.fromCharCode(parseInt(hex.slice(i, i + 2), 16)))
   }
   bin = btoa(bin.join("")).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "")
-  history.replaceState(null, "", "?c=" + active + "&s=" + bin + (power[active].length ? "&p=" + power[active].join(",") : ""))
+  history.replaceState(null, "", "?c=" + active + (url[active].length > 1 ? "&s=" + bin : "") + (power[active].length ? "&p=" + power[active].join(",") : ""))
   //--- oldurl
   $("#oldurl").text(url[active].join(","))
 }
@@ -366,6 +369,7 @@ function decode(e) {
   for (let i = 0; i < str.length - 1; i += 2) {
     arr.push(+(str[i].toString() + str[i + 1].toString()))
   }
+  console.log(arr)
   arr.shift()
   
   return arr
