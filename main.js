@@ -85,66 +85,6 @@ $(() => {
   $(".stat[data-s='Increase Weapon Damage by 10% for each unlocked Anomaly in Veins node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.1\">0%</span>)")
   $(".stat[data-s='Increase Anomaly Power by 4% for each unlocked Br/8 Impact Amplifier node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.04\">0%</span>)")
   
-  //---------------------------------------- Load Abilities
-  let abilitydesc = {
-    trickster: {
-      "Temporal Blade": "Paralyze and slice enemies in front of you, dealing [SKILLDAMAGE] damage and inflicting Slow and Interrupt to all targets.",
-      "Twisted Rounds": "Fill your current weapon's magazine with Anomaly-infused bullets that increase your Fire Power by [X]. The skill lasts until you reload or switch weapons.",
-      "Cyclone Slice": "Create a whirlwind of Anomaly blades that deal [SKILLDAMAGE] damage and Interrupt onto enemies within a small radius of you with every hit. The skill lasts for [X] seconds.",
-      "Slow Trap": "Create a spacetime Anomaly sphere that inflicts Slow onto enemies and projectiles for [X] seconds.",
-      "Venator's Knife": "Throw a temporal knife at an enemy. The blade will ricochet between a maximum of [Y] enemies within a small radius, dealing [SKILLDAMAGE] damage and marking them. All marked targets will be inflicted by Slow, and for [X] seconds the first damage dealt by you will be doubled.",
-      "Time Rift": "Create a shockwave that suspends enemies in the air, leaving them unable to fight for 3.5 seconds and inflicts Weakness.",
-      "Hunt The Prey": "Select an enemy and teleport behind them, receiving a [X] Shield bonus.",
-      "Borrowed Time": "Receive [X] Shield and mark your location for [Y] seconds. Triggering the skill again will bend spacetime and teleport you back to the marked spot.",
-    },
-    pyromancer: {
-      "Thermal Bomb": "Select an enemy to Burn, Interrupt and deal [SKILLDAMAGE] damage to. If killed while still afflicted by the skill, the enemy will explode, dealing [X] damage within a large radius.",
-      "Overheat": "Deal [SKILLDAMAGE] damage to all enemies within a large radius and Interrupt their skills. Enemies afflicted with Burn receive [X] damage instead (the Burn will be consumed).",
-      "Eruption": "Create a volcanic eruption beneath the selected enemy, dealing [SKILLDAMAGE] damage to all enemies within a small radius of the target. The eruption spews lava, dealing damage over time within a small area.",
-      "Heatwave": "Summon a fiery wave that deals [SKILLDAMAGE] damage and inflicts Burn onto all enemies in its path.",
-      "Volcanic Rounds": "Fill your current weapon's magazine with bullets that will ignite the air around enemies and inflict Burn onto them, even if the bullet misses. If the bullet hits, it causes skill damage, ignoring armor and piercing the target, damaging others behind them. The skill lasts until you reload or switch weapons.",
-      "F.A.S.E.R Beam": "Fire an energy beam that deals [SKILLDAMAGE] damage that benefits from [X]% of Status Power, inflicting Burn and causing Interrupt to enemies hit by the beam, as well as enemies within a small radius around you.",
-      "Feed the Flames": "Select and pull an enemy towards you dealing [SKILLDAMAGE] damage, draining [X] Health, and inflicting Ash.",
-      "Ash Blast": "Create an Anomaly blast to inflict Ash onto all enemies within a large radius around you.",
-    },
-    devastator: {
-      "Gravity Leap": "Leap into the air and strike your targets from above, dealing [SKILLDAMAGE] damage and Interrupting enemies within a small radius of the area you land in.",
-      "Boulderdash": "Charge forward to Interrupt all enemies in your path and deal [SKILLDAMAGE] damage. At the end of the charge, you will smash the ground and deal [SKILLDAMAGE] damage to all enemies within a small radius around you.",
-      "Endless Mass": "Select a target to encase in stone, inflicting Bleed and pulling enemies within a small radius towards the initial target. The stone will then explode, dealing [SKILLDAMAGE] damage to all enemies within a small radius around the target.",
-      "Golem": "Fortify yourself against [Y]% of incoming damage for [X] seconds.",
-      "Earthquake": "Release a shockwave to deal [SKILLDAMAGE] damage and Interrupt all enemies in front of you.",
-      "Reflect Bullets": "Create a barrier that captures all enemy projectiles and accumulates damage. After [X] seconds of triggering the skill, the accumulated damage is reflected back to enemies in front of you.<br><br>The barrier also protects against melee attacks by reflecting some damage back.",
-      "Impale": "Select a target to Interrupt their skills, inflict Bleed, and deal [SKILLDAMAGE] damage.<br><br>If the damage is lethal, the enemy will be impaled, granting a powerful bonus to Armor and Health regeneration to all allies for 9 seconds.",
-      "Tremor": "Create a series of explosions around you, each dealing [SKILLDAMAGE] damage and draining [X] Health from enemies within a medium radius around you.",
-    },
-    technomancer: {
-      "Blighted Rounds": "Fill your current weapon's magazine with decay-infused bullets that inflict Toxic onto enemies. Enemies within a small radius of the main target also receive Toxic and [SKILLDAMAGE]% of damage. The skill lasts until you reload or switch weapons.",
-      "Blighted Turret": "Place an automated turret that deals [SKILLDAMAGE] damage and inflicts Toxic onto enemies. The turret's health depletes slowly over time and when it takes damage.",
-      "Cryo Turret": "Place an automated turret that deals [SKILLDAMAGE] damage and inflicts Freeze onto enemies. The turret's health depletes slowly over time and when it takes damage.",
-      "Fixing Wave": "Release your energy to restore [X]% of Health to all players and [Y]% of Health to your turrets, regardless of distance.",
-      "Cold Snap": "Drop a gadget to inflict Freeze onto all enemies within a large radius around you.",
-      "Scrapnel": "Throw a proximity mine. The explosion deals [SKILLDAMAGE] damage and Interrupts the skills of enemies caught within the blast radius.",
-      "Pain Launcher": "Place a missile launcher and bomb the area in front of you. Each missile deals [SKILLDAMAGE] damage per hit and Interrupts enemy skills.",
-      "Tool Of Destruction": "Press the skill button to equip a Rocket Launcher that can Interrupt enemies and deals [X] damage. Hold the skill button for a Minigun that deals [SKILLDAMAGE] damage per shot.<br><br>The skill will remain active until all ammo is depleted or until you switch weapons.",
-    }
-  }
-  
-  $.each(abilities, (c, types) => {
-    let statstable = $("." + c + ".statstable .cooldowns")
-    let i = 1
-    $.each(types, (type, list) => {
-      let activetype = $("<div>")
-      statstable.append(activetype.append($("<div>").addClass("powertype").text(type)))
-      $.each(list, (name, cd) => {
-        activetype.append($("<div>").addClass("power").attr("data-i", i++).attr("data-n", name)
-          .append($("<div>").text(name))
-          .append($("<img>").attr({ src: "skills/" + name.replace(/ /g, "-").toLowerCase() + ".png", width: "64px", height: "64px", onerror: "this.onerror = null; this.src='skills/placeholder.webp'" }))
-          .append($("<div>").addClass("cooldown").text(cd))
-          .append($("<div>").addClass("tooltip").html(abilitydesc[c][name])))
-      })
-    })
-  })
-  
   //---------------------------------------- Points
   points = {
     trickster: 21,
@@ -1377,11 +1317,71 @@ function loadData() {
     ]
   }
   
-  //---------------------------------------- Load nodes
+  //---------------------------------------- Load Nodes
   $.each(allcoords, (c, coords) => {
     let nodes = $("." + c + ".skilltree .nodes")
     $.each(coords, (i, node) => {
       nodes.append($("<div>").addClass("node n" + node[2]).css({ left: node[0] + "px", top: node[1] + "px" }))
+    })
+  })
+  
+  //---------------------------------------- Load Abilities
+  let abilitydesc = {
+    trickster: {
+      "Temporal Blade": "Paralyze and slice enemies in front of you, dealing [SKILLDAMAGE] damage and inflicting Slow and Interrupt to all targets.",
+      "Twisted Rounds": "Fill your current weapon's magazine with Anomaly-infused bullets that increase your Fire Power by [X]. The skill lasts until you reload or switch weapons.",
+      "Cyclone Slice": "Create a whirlwind of Anomaly blades that deal [SKILLDAMAGE] damage and Interrupt onto enemies within a small radius of you with every hit. The skill lasts for [X] seconds.",
+      "Slow Trap": "Create a spacetime Anomaly sphere that inflicts Slow onto enemies and projectiles for [X] seconds.",
+      "Venator's Knife": "Throw a temporal knife at an enemy. The blade will ricochet between a maximum of [Y] enemies within a small radius, dealing [SKILLDAMAGE] damage and marking them. All marked targets will be inflicted by Slow, and for [X] seconds the first damage dealt by you will be doubled.",
+      "Time Rift": "Create a shockwave that suspends enemies in the air, leaving them unable to fight for 3.5 seconds and inflicts Weakness.",
+      "Hunt The Prey": "Select an enemy and teleport behind them, receiving a [X] Shield bonus.",
+      "Borrowed Time": "Receive [X] Shield and mark your location for [Y] seconds. Triggering the skill again will bend spacetime and teleport you back to the marked spot.",
+    },
+    pyromancer: {
+      "Thermal Bomb": "Select an enemy to Burn, Interrupt and deal [SKILLDAMAGE] damage to. If killed while still afflicted by the skill, the enemy will explode, dealing [X] damage within a large radius.",
+      "Overheat": "Deal [SKILLDAMAGE] damage to all enemies within a large radius and Interrupt their skills. Enemies afflicted with Burn receive [X] damage instead (the Burn will be consumed).",
+      "Eruption": "Create a volcanic eruption beneath the selected enemy, dealing [SKILLDAMAGE] damage to all enemies within a small radius of the target. The eruption spews lava, dealing damage over time within a small area.",
+      "Heatwave": "Summon a fiery wave that deals [SKILLDAMAGE] damage and inflicts Burn onto all enemies in its path.",
+      "Volcanic Rounds": "Fill your current weapon's magazine with bullets that will ignite the air around enemies and inflict Burn onto them, even if the bullet misses. If the bullet hits, it causes skill damage, ignoring armor and piercing the target, damaging others behind them. The skill lasts until you reload or switch weapons.",
+      "F.A.S.E.R Beam": "Fire an energy beam that deals [SKILLDAMAGE] damage that benefits from [X]% of Status Power, inflicting Burn and causing Interrupt to enemies hit by the beam, as well as enemies within a small radius around you.",
+      "Feed the Flames": "Select and pull an enemy towards you dealing [SKILLDAMAGE] damage, draining [X] Health, and inflicting Ash.",
+      "Ash Blast": "Create an Anomaly blast to inflict Ash onto all enemies within a large radius around you.",
+    },
+    devastator: {
+      "Gravity Leap": "Leap into the air and strike your targets from above, dealing [SKILLDAMAGE] damage and Interrupting enemies within a small radius of the area you land in.",
+      "Boulderdash": "Charge forward to Interrupt all enemies in your path and deal [SKILLDAMAGE] damage. At the end of the charge, you will smash the ground and deal [SKILLDAMAGE] damage to all enemies within a small radius around you.",
+      "Endless Mass": "Select a target to encase in stone, inflicting Bleed and pulling enemies within a small radius towards the initial target. The stone will then explode, dealing [SKILLDAMAGE] damage to all enemies within a small radius around the target.",
+      "Golem": "Fortify yourself against [Y]% of incoming damage for [X] seconds.",
+      "Earthquake": "Release a shockwave to deal [SKILLDAMAGE] damage and Interrupt all enemies in front of you.",
+      "Reflect Bullets": "Create a barrier that captures all enemy projectiles and accumulates damage. After [X] seconds of triggering the skill, the accumulated damage is reflected back to enemies in front of you.<br><br>The barrier also protects against melee attacks by reflecting some damage back.",
+      "Impale": "Select a target to Interrupt their skills, inflict Bleed, and deal [SKILLDAMAGE] damage.<br><br>If the damage is lethal, the enemy will be impaled, granting a powerful bonus to Armor and Health regeneration to all allies for 9 seconds.",
+      "Tremor": "Create a series of explosions around you, each dealing [SKILLDAMAGE] damage and draining [X] Health from enemies within a medium radius around you.",
+    },
+    technomancer: {
+      "Blighted Rounds": "Fill your current weapon's magazine with decay-infused bullets that inflict Toxic onto enemies. Enemies within a small radius of the main target also receive Toxic and [SKILLDAMAGE]% of damage. The skill lasts until you reload or switch weapons.",
+      "Blighted Turret": "Place an automated turret that deals [SKILLDAMAGE] damage and inflicts Toxic onto enemies. The turret's health depletes slowly over time and when it takes damage.",
+      "Cryo Turret": "Place an automated turret that deals [SKILLDAMAGE] damage and inflicts Freeze onto enemies. The turret's health depletes slowly over time and when it takes damage.",
+      "Fixing Wave": "Release your energy to restore [X]% of Health to all players and [Y]% of Health to your turrets, regardless of distance.",
+      "Cold Snap": "Drop a gadget to inflict Freeze onto all enemies within a large radius around you.",
+      "Scrapnel": "Throw a proximity mine. The explosion deals [SKILLDAMAGE] damage and Interrupts the skills of enemies caught within the blast radius.",
+      "Pain Launcher": "Place a missile launcher and bomb the area in front of you. Each missile deals [SKILLDAMAGE] damage per hit and Interrupts enemy skills.",
+      "Tool Of Destruction": "Press the skill button to equip a Rocket Launcher that can Interrupt enemies and deals [X] damage. Hold the skill button for a Minigun that deals [SKILLDAMAGE] damage per shot.<br><br>The skill will remain active until all ammo is depleted or until you switch weapons.",
+    }
+  }
+  
+  $.each(abilities, (c, types) => {
+    let statstable = $("." + c + ".statstable .cooldowns")
+    let i = 1
+    $.each(types, (type, list) => {
+      let activetype = $("<div>")
+      statstable.append(activetype.append($("<div>").addClass("powertype").text(type)))
+      $.each(list, (name, cd) => {
+        activetype.append($("<div>").addClass("power").attr("data-i", i++).attr("data-n", name)
+          .append($("<div>").text(name))
+          .append($("<img>").attr({ src: "skills/" + name.replace(/ /g, "-").toLowerCase() + ".png", width: "64px", height: "64px", onerror: "this.onerror = null; this.src='skills/placeholder.webp'" }))
+          .append($("<div>").addClass("cooldown").text(cd))
+          .append($("<div>").addClass("tooltip").html(abilitydesc[c][name])))
+      })
     })
   })
 }
