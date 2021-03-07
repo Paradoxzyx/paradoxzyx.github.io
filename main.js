@@ -113,8 +113,8 @@ $(() => {
       "Endless Mass": "Select a target to encase in stone, inflicting Bleed and pulling enemies within a small radius towards the initial target. The stone will then explode, dealing [SKILLDAMAGE] damage to all enemies within a small radius around the target.",
       "Golem": "Fortify yourself against [Y]% of incoming damage for [X] seconds.",
       "Earthquake": "Release a shockwave to deal [SKILLDAMAGE] damage and Interrupt all enemies in front of you.",
-      "Reflect Bullets": "Create a barrier that captures all enemy projectiles and accumulates damage. After [X] seconds of triggering the skill, the accumulated damage is reflected back to enemies in front of you.<br>The barrier also protects against melee attacks by reflecting some damage back.",
-      "Impale": "Select a target to Interrupt their skills, inflict Bleed, and deal [SKILLDAMAGE] damage.<br>If the damage is lethal, the enemy will be impaled, granting a powerful bonus to Armor and Health regeneration to all allies for 9 seconds.",
+      "Reflect Bullets": "Create a barrier that captures all enemy projectiles and accumulates damage. After [X] seconds of triggering the skill, the accumulated damage is reflected back to enemies in front of you.<br><br>The barrier also protects against melee attacks by reflecting some damage back.",
+      "Impale": "Select a target to Interrupt their skills, inflict Bleed, and deal [SKILLDAMAGE] damage.<br><br>If the damage is lethal, the enemy will be impaled, granting a powerful bonus to Armor and Health regeneration to all allies for 9 seconds.",
       "Tremor": "Create a series of explosions around you, each dealing [SKILLDAMAGE] damage and draining [X] Health from enemies within a medium radius around you.",
     },
     technomancer: {
@@ -125,7 +125,7 @@ $(() => {
       "Cold Snap": "Drop a gadget to inflict Freeze onto all enemies within a large radius around you.",
       "Scrapnel": "Throw a proximity mine. The explosion deals [SKILLDAMAGE] damage and Interrupts the skills of enemies caught within the blast radius.",
       "Pain Launcher": "Place a missile launcher and bomb the area in front of you. Each missile deals [SKILLDAMAGE] damage per hit and Interrupts enemy skills.",
-      "Tool Of Destruction": "Press the skill button to equip a Rocket Launcher that can Interrupt enemies and deals [X] damage. Hold the skill button for a Minigun that deals [SKILLDAMAGE] damage per shot.<br>The skill will remain active until all ammo is depleted or until you switch weapons.",
+      "Tool Of Destruction": "Press the skill button to equip a Rocket Launcher that can Interrupt enemies and deals [X] damage. Hold the skill button for a Minigun that deals [SKILLDAMAGE] damage per shot.<br><br>The skill will remain active until all ammo is depleted or until you switch weapons.",
     }
   }
   
@@ -140,7 +140,8 @@ $(() => {
           .append($("<div>").text(name))
           .append($("<img>").attr({ src: "skills/" + name.replace(/ /g, "-").toLowerCase() + ".png", width: "64px", height: "64px", onerror: "this.onerror = null; this.src='skills/placeholder.webp'" }))
           .append($("<div>").addClass("cooldown").text(cd))
-          .append($("<div>").addClass("tooltip").html(color(abilitydesc[c][name], keywords))))
+          .append($("<div>").addClass("tooltip")
+            .append($("<span>").html(color(abilitydesc[c][name], keywords)))))
       })
     })
   })
