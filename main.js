@@ -150,19 +150,9 @@ $(() => {
     }
   })
   
-  //---------------------------------------- DEBUG
+  //---------------------------------------- Bread
   $("body").append($("<div>").css("position", "relative")
-    .append($("<img>").attr({ id: "bread", src: "favicon.ico", width: 24, height: 24 }).css({ position: "absolute", top: "600px", right: "1%" })))
-
-  $("#bread").on("click", function() {
-    if (!$("#debug").length) {
-      $("#reset").after($("<div>").attr("id", "debug").css({ position: "fixed", left: "250px", top: "200px" }))
-      $(".node").mousemove(function() {
-        $("#debug").text($(this).index())
-      })
-    }
-    $("#points").text(points[active] = 100)
-  })
+    .append($("<img>").attr({ src: "favicon.ico", width: 24, height: 24 }).css({ position: "absolute", top: "600px", right: "1%" })))
 })
 
 //---------------------------------------- Add node
