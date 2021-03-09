@@ -1000,7 +1000,7 @@ function loadData() {
        /* 71 */ [ 0, [ 70 ], [ 72 ], "Vitality Magnet", { "Skill Leech": 0.06 } ],
        /* 72 */ [ 0, [ 71 ], [], "Armored Unit", { "Activating an Ordinance Skill increases Armor by 50% for 15s": null } ],
        /* 73 */ [ 0, [ 70 ], [ 74, 75 ], "Anomally Fueled", { "Anomaly Power": 0.06 } ],
-       /* 74 */ [ 0, [ 73 ], [], "???", { "Decreases Elite's damage against you and your allies by 10%": null } ],
+       /* 74 */ [ 0, [ 73 ], [], "Team Player", { "Decreases Elite's damage against you and your allies by 10%": null } ],
        /* 75 */ [ 0, [ 73 ], [ 76, 77 ], "Emergency Transfusion", { "Doubles Skill Leech when Health drops below 30%": null } ],
        /* 76 */ [ 0, [ 75 ], [ 78 ], "Anomally Fueled", { "Anomaly Power": 0.06 } ],
        /* 77 */ [ 0, [ 75 ], [ 78 ], "D-Kay Toxin", { "Toxic Damage": 0.2 } ],
