@@ -124,7 +124,7 @@ $(() => {
   
   let s = search.get("s") || "A-g"
   //--- URL Backwards Compatability
-  if (s.includes(",")) {
+  if (s.includes(",") || s == "0") {
     s = s.split(",").map(Number)
   }
   else {
