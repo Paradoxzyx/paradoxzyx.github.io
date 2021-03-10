@@ -1372,7 +1372,7 @@ function loadData() {
   let abilitydesc = {
     trickster: {
       "Temporal Blade": "Paralyze and slice enemies in front of you, dealing [SKILLDAMAGE] damage and inflicting Slow and Interrupt to all targets.",
-      "Twisted Rounds": "Fill your current weapon's magazine with Anomaly-infused bullets that increase your Fire Power by [X]. The skill lasts until you reload or switch weapons.",
+      "Twisted Rounds": "Fill your current weapon's magazine with Anomaly-infused bullets that increase your Firepower by [X]. The skill lasts until you reload or switch weapons.",
       "Cyclone Slice": "Create a whirlwind of Anomaly blades that deal [SKILLDAMAGE] damage and Interrupt onto enemies within a small radius of you with every hit. The skill lasts for [X] seconds.",
       "Slow Trap": "Create a spacetime Anomaly sphere that inflicts Slow onto enemies and projectiles for [X] seconds.",
       "Venator's Knife": "Throw a temporal knife at an enemy. The blade will ricochet between a maximum of [Y] enemies within a small radius, dealing [SKILLDAMAGE] damage and marking them. All marked targets will be inflicted by Slow, and for [X] seconds the first damage dealt by you will be doubled.",
@@ -1397,7 +1397,7 @@ function loadData() {
       "Golem": "Fortify yourself against [Y]% of incoming damage for [X] seconds.",
       "Earthquake": "Release a shockwave to deal [SKILLDAMAGE] damage and Interrupt all enemies in front of you.",
       "Reflect Bullets": "Create a barrier that captures all enemy projectiles and accumulates damage. After [X] seconds of triggering the skill, the accumulated damage is reflected back to enemies in front of you.<br><br>The barrier also protects against melee attacks by reflecting some damage back.",
-      "Impale": "Select a target to Interrupt their skills, inflict Bleed, and deal [SKILLDAMAGE] damage.<br><br>If the damage is lethal, the enemy will be impaled, granting a powerful bonus to Armor and Health regeneration to all allies for 9 seconds.",
+      "Impale": "Select a target to Interrupt their skills, inflict Bleed, and deal [SKILLDAMAGE] damage.<br><br>If the damage is lethal, the enemy will be impaled, granting a powerful bonus to Armor and Health Regeneration to all allies for 9 seconds.",
       "Tremor": "Create a series of explosions around you, each dealing [SKILLDAMAGE] damage and draining [X] Health from enemies within a medium radius around you.",
     },
     technomancer: {
@@ -1412,6 +1412,16 @@ function loadData() {
     }
   }
   
+  let keywords = {
+    "hl-d": /(\d+%|3\.5|\[[xy]\]%?|\[skilldamage\]%?|firepower)/gi,
+    "hl-e": /(weakness|burn|\bash|bleed|toxic|freeze)/gi,
+    "hl-h": /(health( regeneration)?)/gi,
+    "hl-n": /(interrupt(s|ing)?)/gi,
+    "hl-r": /(Armor)/g,
+    "hl-s": /(rocket launcher|minigun)/gi,
+    "hl-t": /(shield)/gi
+  }
+  
   $.each(abilities, (c, types) => {
     let statstable = $("." + c + ".statstable .cooldowns")
     let i = 1
@@ -1423,7 +1433,7 @@ function loadData() {
           .append($("<div>").text(name))
           .append($("<img>").attr({ src: "skills/" + name.replace(/ /g, "-").toLowerCase() + ".png", width: "64px", height: "64px", onerror: "this.onerror = null; this.src='skills/placeholder.webp'" }))
           .append($("<div>").addClass("cooldown").text(cd))
-          .append($("<div>").addClass("tooltip").html(abilitydesc[c][name])))
+          .append($("<div>").addClass("tooltip").html(color(abilitydesc[c][name], keywords))))
       })
     })
   })
