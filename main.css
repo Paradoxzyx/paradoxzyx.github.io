@@ -248,7 +248,7 @@ a {
 }
 
 #skilltree .node:hover .tooltip {
-    display: inline-flex !important;
+    display: inline-block;
 }
 
 #skilltree .node.n0 .tooltip {
@@ -345,7 +345,7 @@ a {
 }
 
 #stats .cooldowns .power:hover .tooltip {
-    display: inline-flex !important;
+    display: inline-block;
 }
 
 /* ----- Colors */
