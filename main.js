@@ -1,90 +1,6 @@
 $(() => {
   loadData()
   
-  //---------------------------------------- Load Stats & Tooltips
-  //--- Keywords for tooltips & stats descriptions
-  let keywords = {
-    "hl-a": /(anomaly power)/gi,
-    "hl-d": /((weapon|assault|close range|long range) damage|firepower)/gi,
-    "hl-e": /(weakness|vulnerab(le|ility)|marked|burn(ing)?|ash(ed)?|bleed|toxic|freeze|frozen)/gi,
-    "hl-h": /((maximum )?health( regen)?)/gi,
-    "hl-l": /(^\[hm\]|(weapon|skill) leech|heal(?!th)(s|ed|ing)?)/gi,
-    "hl-n": /((concentration|magma golem|anomaly in veins|br\/8 impact amplifier) node)/gi,
-    "hl-p": /((armor|(armor and )?resistance) piercing)/gi,
-    "hl-r": /((armor|resistance)(?!( and resistance)? piercing)|damage mitigation)/gi,
-    "hl-s": /((damage|deception|movement|ignite|immobilize|explosive|protection|seismic|kinetic|decay|ordinance|gadget|melee|any) skills?|stone push|(?<=skill (cooldown|damage) \()(damage|deception|movement|ignite|immobilize|explosive|protection|seismic|kinetic|decay|ordinance|gadget|any))/gi,
-    "hl-t": /(shields?( degredation| gain)?)/gi
-  }
-  
-  stats = {
-    trickster: {},
-    pyromancer: {},
-    devastator: {},
-    technomancer: {}
-  }
-  
-  $.each(skills, (c, list) => {
-    let skilltree = $("." + c + ".skilltree")
-    let statstable = $("." + c + ".statstable")
-    let s = []
-    let u = []
-    $.each(list, (i, node) => {
-      let t = []
-      $.each(node[4], (k, v) => {
-        if (!stats[c][k]) {
-          stats[c][k] = [ 0, v, 0, 1 ]
-        }
-        else {
-          stats[c][k][1] += v
-          stats[c][k][3]++
-        }
-        
-        if (v) {
-          if (!s.includes(k)) {
-            s.push(k)
-          }
-          t.push(+(v * 100).toFixed(1) + "% " + k)
-        }
-        else {
-          if (!u.includes(k)) {
-            u.push(k)
-          }
-          t.push(k)
-        }
-      })
-      let tooltip = $("<ul>")
-      $.each(t, (j, v) => {
-        tooltip.append($("<li>").html(color(v, keywords)))
-      })
-      $(".node", skilltree).eq(i)
-        .append($("<div>").addClass("name").text(node[3]))
-        .append($("<div>").addClass("tooltip")
-          .append(tooltip))
-    })
-    
-    //--- Create sorted stat list
-    $.each(s.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase())), (i, v) => {
-      $("table", statstable).first()
-        .append($("<tr>").addClass("stat inactive").attr("data-s", v)
-          .append($("<td>").addClass("stat-k").text(v + ":"))
-          .append($("<td>").addClass("stat-v").text("0%"))
-          .append($("<td>").addClass("stat-m").text(+(stats[c][v][1] * 100).toFixed(1) + "%"))
-          .append($("<td>").addClass("stat-n").html("(<span class=\"stat-c\">0</span>/" + stats[c][v][3] + ")")))
-    })
-    //--- Create sorted stat list (Unique stats)
-    $.each(u.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase())), (i, v) => {
-      $("table", statstable).last()
-        .append($("<tr>").addClass("stat inactive").attr("data-s", v)
-          .append($("<td>").html(color(v, keywords))))
-    })
-  })
-      
-  //--- Unique Node Skill Count
-  $(".stat[data-s='Increase Assault Damage by 7% for each unlocked Concentration node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.07\">0%</span>)")
-  $(".stat[data-s='Increase Anomaly Power by 2.5% for each unlocked Magma Golem node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.025\">0%</span>)")
-  $(".stat[data-s='Increase Weapon Damage by 10% for each unlocked Anomaly in Veins node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.1\">0%</span>)")
-  $(".stat[data-s='Increase Anomaly Power by 4% for each unlocked Br/8 Impact Amplifier node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.04\">0%</span>)")
-  
   //---------------------------------------- Points
   points = {
     trickster: 21,
@@ -94,7 +10,7 @@ $(() => {
   }
   $("#points").text(20)
   
-  //---------------------------------------- Get URL params
+  //---------------------------------------- Load URL Params
   url = {
     trickster: [],
     pyromancer: [],
@@ -142,7 +58,7 @@ $(() => {
   //---------------------------------------- Bind Elements
   bindElements()
   
-  //---------------------------------------- Get cookies
+  //---------------------------------------- Load Cookies
   $.each(document.cookie.split(";"), (i, s) => {
     let cookie = s.split("=")
     if (+cookie[1]) {
@@ -573,90 +489,8 @@ function bindElements() {
 }
 
 //---------------------------------------- Load Data
-function loadData() {
-  abilities = {
-    trickster: {
-      Damage: {
-        "Temporal Blade": 20,
-        "Twisted Rounds": 20,
-        "Cyclone Slice": 0,
-      },
-      Deception: {
-        "Slow Trap": 31,
-        "Venator's Knife": 0,
-        "Time Rift": 0
-      },
-      Movement: {
-        "Hunt The Prey": 11,
-        "Borrowed Time": 0
-      }
-    },
-    pyromancer: {
-      Explosive: {
-        "Thermal Bomb": 14,
-        "Overheat": 22,
-        "Eruption": 0
-      },
-      Ignite: {
-        "Heatwave": 13,
-        "Volcanic Rounds": 0,
-        "F.A.S.E.R Beam": 0
-      },
-      Immobilize: {
-        "Feed the Flames": 17,
-        "Ash Blast": 0
-      }
-    },
-    devastator: {
-      Kinetic: {
-        "Gravity Leap": 20,
-        "Boulderdash": 0,
-        "Endless Mass": 0
-      },
-      Protection: {
-        "Golem": 26
-      },
-      Seismic: {
-        "Earthquake": 14,
-        "Reflect Bullets": 22,
-        "Impale": 0,
-        "Tremor": 0
-      }
-    },
-    technomancer: {
-      Decay: {
-        "Blighted Rounds": 58,
-        "Blighted Turret": 0
-      },
-      Gadget: {
-        "Cryo Turret": 24,
-        "Fixing Wave": 0,
-        "Cold Snap": 0
-      },
-      Ordinance: {
-        "Scrapnel": 22,
-        "Pain Launcher": 40,
-        "Tool Of Destruction": 0
-      }
-    }
-  }
-  
-  cooldowns = {
-    Damage: 1,
-    Deception: 1,
-    Movement: 1,
-    Explosive: 1,
-    Ignite: 1,
-    Immobilize: 1,
-    Kinetic: 1,
-    Protection: 1,
-    Seismic: 1,
-    Decay: 1,
-    Gadget: 1,
-    Ordinance: 1
-  }
-  
-  //---------------------------------------- All Skills
+function loadData() {  
+  //---------------------------------------- Skills
   skills = {
     trickster: [
       /* 0  */ [ 1, [], [ 1, 30, 55 ], "", { "Health": 0.05, "Damage Mitigation while Shield is active": 0.05, "[HM] Every Close Range kill Heals you for 20% of your Maximum Health and grants you 12% Shield": null } ],
@@ -1364,11 +1198,176 @@ function loadData() {
   $.each(allcoords, (c, coords) => {
     let nodes = $("." + c + ".skilltree .nodes")
     $.each(coords, (i, node) => {
-      nodes.append($("<div>").addClass("node n" + node[2]).css({ left: node[0] + "px", top: node[1] + "px" }))
+      nodes.append($("<div>").addClass("node n" + node[2]).css({ left: node[0], top: node[1] }))
     })
   })
   
+  //---------------------------------------- Load Stats & Tooltips
+  let keywords = {
+    "hl-a": /(anomaly power)/gi,
+    "hl-d": /((weapon|assault|close range|long range) damage|firepower)/gi,
+    "hl-e": /(weakness|vulnerab(le|ility)|marked|burn(ing)?|ash(ed)?|bleed|toxic|freeze|frozen)/gi,
+    "hl-h": /((maximum )?health( regen)?)/gi,
+    "hl-l": /(^\[hm\]|(weapon|skill) leech|heal(?!th)(s|ed|ing)?)/gi,
+    "hl-n": /((concentration|magma golem|anomaly in veins|br\/8 impact amplifier) node)/gi,
+    "hl-p": /((armor|(armor and )?resistance) piercing)/gi,
+    "hl-r": /((armor|resistance)(?!( and resistance)? piercing)|damage mitigation)/gi,
+    "hl-s": /((damage|deception|movement|ignite|immobilize|explosive|protection|seismic|kinetic|decay|ordinance|gadget|melee|any) skills?|stone push|(?<=skill (cooldown|damage) \()(damage|deception|movement|ignite|immobilize|explosive|protection|seismic|kinetic|decay|ordinance|gadget|any))/gi,
+    "hl-t": /(shields?( degredation| gain)?)/gi
+  }
+  
+  stats = {
+    trickster: {},
+    pyromancer: {},
+    devastator: {},
+    technomancer: {}
+  }
+  
+  $.each(skills, (c, list) => {
+    let skilltree = $("." + c + ".skilltree")
+    let statstable = $("." + c + ".statstable")
+    let s = []
+    let u = []
+    $.each(list, (i, node) => {
+      let t = []
+      $.each(node[4], (k, v) => {
+        if (!stats[c][k]) {
+          stats[c][k] = [ 0, v, 0, 1 ]
+        }
+        else {
+          stats[c][k][1] += v
+          stats[c][k][3]++
+        }
+        
+        if (v) {
+          if (!s.includes(k)) {
+            s.push(k)
+          }
+          t.push(+(v * 100).toFixed(1) + "% " + k)
+        }
+        else {
+          if (!u.includes(k)) {
+            u.push(k)
+          }
+          t.push(k)
+        }
+      })
+      let tooltip = $("<ul>")
+      $.each(t, (j, v) => {
+        tooltip.append($("<li>").html(color(v, keywords)))
+      })
+      $(".node", skilltree).eq(i)
+        .append($("<div>").addClass("name").text(node[3]))
+        .append($("<div>").addClass("tooltip")
+          .append(tooltip))
+    })
+    
+    //--- Create sorted stat list
+    $.each(s.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase())), (i, v) => {
+      $("table", statstable).first()
+        .append($("<tr>").addClass("stat inactive").attr("data-s", v)
+          .append($("<td>").addClass("stat-k").text(v + ":"))
+          .append($("<td>").addClass("stat-v").text("0%"))
+          .append($("<td>").addClass("stat-m").text(+(stats[c][v][1] * 100).toFixed(1) + "%"))
+          .append($("<td>").addClass("stat-n").html("(<span class=\"stat-c\">0</span>/" + stats[c][v][3] + ")")))
+    })
+    //--- Create sorted stat list (Unique stats)
+    $.each(u.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase())), (i, v) => {
+      $("table", statstable).last()
+        .append($("<tr>").addClass("stat inactive").attr("data-s", v)
+          .append($("<td>").html(color(v, keywords))))
+    })
+  })
+      
+  //--- Unique Node Skill Count
+  $(".stat[data-s='Increase Assault Damage by 7% for each unlocked Concentration node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.07\">0%</span>)")
+  $(".stat[data-s='Increase Anomaly Power by 2.5% for each unlocked Magma Golem node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.025\">0%</span>)")
+  $(".stat[data-s='Increase Weapon Damage by 10% for each unlocked Anomaly in Veins node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.1\">0%</span>)")
+  $(".stat[data-s='Increase Anomaly Power by 4% for each unlocked Br/8 Impact Amplifier node'] td").append(" (<span class=\"unique\" data-c=\"0\" data-v=\"0.04\">0%</span>)")
+  
   //---------------------------------------- Load Abilities
+  abilities = {
+    trickster: {
+      Damage: {
+        "Temporal Blade": 20,
+        "Twisted Rounds": 20,
+        "Cyclone Slice": 0,
+      },
+      Deception: {
+        "Slow Trap": 31,
+        "Venator's Knife": 0,
+        "Time Rift": 0
+      },
+      Movement: {
+        "Hunt The Prey": 11,
+        "Borrowed Time": 0
+      }
+    },
+    pyromancer: {
+      Explosive: {
+        "Thermal Bomb": 14,
+        "Overheat": 22,
+        "Eruption": 0
+      },
+      Ignite: {
+        "Heatwave": 13,
+        "Volcanic Rounds": 0,
+        "F.A.S.E.R Beam": 0
+      },
+      Immobilize: {
+        "Feed the Flames": 17,
+        "Ash Blast": 0
+      }
+    },
+    devastator: {
+      Kinetic: {
+        "Gravity Leap": 20,
+        "Boulderdash": 0,
+        "Endless Mass": 0
+      },
+      Protection: {
+        "Golem": 26
+      },
+      Seismic: {
+        "Earthquake": 14,
+        "Reflect Bullets": 22,
+        "Impale": 0,
+        "Tremor": 0
+      }
+    },
+    technomancer: {
+      Decay: {
+        "Blighted Rounds": 58,
+        "Blighted Turret": 0
+      },
+      Gadget: {
+        "Cryo Turret": 24,
+        "Fixing Wave": 0,
+        "Cold Snap": 0
+      },
+      Ordinance: {
+        "Scrapnel": 22,
+        "Pain Launcher": 40,
+        "Tool Of Destruction": 0
+      }
+    }
+  }
+  
+  cooldowns = {
+    Damage: 1,
+    Deception: 1,
+    Movement: 1,
+    Explosive: 1,
+    Ignite: 1,
+    Immobilize: 1,
+    Kinetic: 1,
+    Protection: 1,
+    Seismic: 1,
+    Decay: 1,
+    Gadget: 1,
+    Ordinance: 1
+  }
+  
   let abilitydesc = {
     trickster: {
       "Temporal Blade": "Paralyze and slice enemies in front of you, dealing [Z] damage and inflicting Slow and Interrupt to all targets.",
@@ -1412,7 +1411,7 @@ function loadData() {
     }
   }
   
-  let keywords = {
+  let abilitykeywords = {
     "hl-d": /(\d+%|3\.5|9|\[[xyz]\]%?|firepower)/gi,
     "hl-e": /(weakness|burn|\bash|bleed|toxic|freeze)/gi,
     "hl-h": /(health( regeneration)?)/gi,
@@ -1433,7 +1432,7 @@ function loadData() {
           .append($("<div>").text(name))
           .append($("<img>").attr({ src: "skills/" + name.replace(/ /g, "-").toLowerCase() + ".png", width: "64px", height: "64px", onerror: "this.onerror = null; this.src='skills/placeholder.webp'" }))
           .append($("<div>").addClass("cooldown").text(cd))
-          .append($("<div>").addClass("tooltip").html(color(abilitydesc[c][name], keywords))))
+          .append($("<div>").addClass("tooltip").html(color(abilitydesc[c][name], abilitykeywords))))
       })
     })
   })
