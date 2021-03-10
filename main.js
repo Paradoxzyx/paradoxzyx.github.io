@@ -1413,7 +1413,7 @@ function loadData() {
   }
   
   let keywords = {
-    "hl-d": /(\d+%|3\.5|\[[xy]\]%?|\[skilldamage\]%?|firepower)/gi,
+    "hl-d": /(\d+%|3\.5|9|\[[xy]\]%?|\[skilldamage\]%?|firepower)/gi,
     "hl-e": /(weakness|burn|\bash|bleed|toxic|freeze)/gi,
     "hl-h": /(health( regeneration)?)/gi,
     "hl-n": /(interrupt(s|ing)?)/gi,
