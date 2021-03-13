@@ -1371,7 +1371,7 @@ function loadData() {
   let abilitydesc = {
     trickster: {
       "Temporal Blade": "Paralyze and slice enemies in front of you, dealing ~86% damage and inflicting Slow and Interrupt to all targets.",
-      "Twisted Rounds": "Fill your current weapon's magazine with Anomaly-infused bullets that increase your Firepower by ~65%. The skill lasts until you reload or switch weapons.",
+      "Twisted Rounds": "Fill your current weapon's magazine with Anomaly-infused bullets that increase your Firepower by ~50%. The skill lasts until you reload or switch weapons.",
       "Cyclone Slice": "Create a whirlwind of Anomaly blades that deal [Z] damage and Interrupt onto enemies within a small radius of you with every hit. The skill lasts for [X] seconds.",
       "Slow Trap": "Create a spacetime Anomaly sphere that inflicts Slow onto enemies and projectiles for 10 seconds.",
       "Venator's Knife": "Throw a temporal knife at an enemy. The blade will ricochet between a maximum of [Y] enemies within a small radius, dealing [Z] damage and marking them. All marked targets will be inflicted by Slow, and for [X] seconds the first damage dealt by you will be doubled.",
