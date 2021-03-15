@@ -354,9 +354,11 @@ a {
     filter: contrast(0.5);
 }
 
+/*
 #stats .stat-k {
     text-align: right;
 }
+*/
 
 #stats .stat-v,
 #stats .stat-m,
