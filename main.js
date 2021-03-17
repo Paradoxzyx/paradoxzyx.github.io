@@ -599,7 +599,7 @@ function loadData() {
        /* 15 */ [ 0, [ 12 ], [ 16 ], "Inferno Weapon", { "Weapon Damage": 0.08 } ],
        /* 16 */ [ 0, [ 14, 15 ], [ 17, 19, 20 ], "Mark of the Anomaly", { "Weapon Damage (Against Marked)": 0.1 } ],
        /* 17 */ [ 0, [ 16 ], [ 18 ], "Moths to the Flame", { "Weapon Leech": 0.05 } ],
-       /* 18 */ [ 0, [ 17 ], [], "Leeching force", { "Activating an Immobilize Skill doubles Weapon Leech for 4s": null } ],
+       /* 18 */ [ 0, [ 17 ], [], "Leeching Force", { "Activating an Immobilize Skill doubles Weapon Leech for 4s": null } ],
        /* 19 */ [ 0, [ 16 ], [], "Ashes to Ashes", { "Ash applies Vulnerable": null } ],
        /* 20 */ [ 0, [ 16 ], [ 21 ], "Nimble as a Flame", { "Reload Time": -0.2 } ],
        /* 21 */ [ 0, [ 20 ], [ 22, 23 ], "...Hurt Twice as Long", { "Damage (Against Elites)": 0.1, "Damage Taken (From Elites)": -0.1 } ],
