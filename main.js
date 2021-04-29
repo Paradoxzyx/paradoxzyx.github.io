@@ -1291,39 +1291,39 @@ function loadData() {
       Damage: {
         "Temporal Blade": 20,
         "Twisted Rounds": 20,
-        "Cyclone Slice": 0,
+        "Cyclone Slice": 13,
       },
       Deception: {
         "Slow Trap": 31,
-        "Venator's Knife": 0,
-        "Time Rift": 0
+        "Venator's Knife": 10,
+        "Time Rift": 10
       },
       Movement: {
         "Hunt The Prey": 11,
-        "Borrowed Time": 0
+        "Borrowed Time": 13
       }
     },
     pyromancer: {
       Explosive: {
         "Thermal Bomb": 14,
         "Overheat": 22,
-        "Eruption": 0
+        "Eruption": 37
       },
       Ignite: {
         "Heatwave": 13,
-        "Volcanic Rounds": 0,
-        "F.A.S.E.R Beam": 0
+        "Volcanic Rounds": 23,
+        "F.A.S.E.R Beam": 10
       },
       Immobilize: {
         "Feed the Flames": 17,
-        "Ash Blast": 0
+        "Ash Blast": 20
       }
     },
     devastator: {
       Kinetic: {
         "Gravity Leap": 20,
-        "Boulderdash": 0,
-        "Endless Mass": 0
+        "Boulderdash": 16,
+        "Endless Mass": 18
       },
       Protection: {
         "Golem": 26
@@ -1331,24 +1331,24 @@ function loadData() {
       Seismic: {
         "Earthquake": 14,
         "Reflect Bullets": 22,
-        "Impale": 0,
-        "Tremor": 0
+        "Impale": 20,
+        "Tremor": 22
       }
     },
     technomancer: {
       Decay: {
         "Blighted Rounds": 58,
-        "Blighted Turret": 0
+        "Blighted Turret": 7
       },
       Gadget: {
         "Cryo Turret": 24,
-        "Fixing Wave": 0,
-        "Cold Snap": 0
+        "Fixing Wave": 18,
+        "Cold Snap": 17
       },
       Ordinance: {
         "Scrapnel": 22,
         "Pain Launcher": 40,
-        "Tool Of Destruction": 0
+        "Tool Of Destruction": 46
       }
     }
   }
